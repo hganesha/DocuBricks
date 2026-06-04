@@ -1,0 +1,203 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans, sans-serif); }
+.section { margin-bottom: 2rem; }
+.section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 0.75rem; }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+.metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 2rem; }
+.metric { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.85rem 1rem; }
+.metric-label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px; }
+.metric-value { font-size: 22px; font-weight: 500; color: var(--color-text-primary); }
+.metric-sub { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
+.platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 2rem; }
+.platform-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem; }
+.platform-card.featured { border: 2px solid #378ADD; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: var(--border-radius-md); margin-bottom: 8px; }
+.badge-blue { background: #E6F1FB; color: #185FA5; }
+.badge-amber { background: #FAEEDA; color: #854F0B; }
+.badge-teal { background: #E1F5EE; color: #0F6E56; }
+.badge-gray { background: #F1EFE8; color: #5F5E5A; }
+.badge-coral { background: #FAECE7; color: #993C1D; }
+.badge-green { background: #EAF3DE; color: #3B6D11; }
+.platform-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.platform-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+.gap-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gap-item { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-left: 3px solid #1D9E75; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 0.75rem 1rem; }
+.gap-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+.gap-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.4; }
+.stack-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: stretch; }
+.stack-block { flex: 1; text-align: center; padding: 8px 6px; border-radius: var(--border-radius-md); font-size: 11px; font-weight: 500; }
+.industry-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 11px; padding: 3px 10px; border-radius: 99px; border: 0.5px solid var(--color-border-secondary); color: var(--color-text-secondary); }
+.chart-wrap { position: relative; width: 100%; height: 180px; }
+.divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; }
+.h2 { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 0.5rem; }
+.insight-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-start; }
+.insight-dot { width: 6px; height: 6px; border-radius: 50%; background: #378ADD; margin-top: 5px; flex-shrink: 0; }
+.insight-text { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+</style>
+
+<div style="padding: 1rem 0">
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Market analysis for Databricks document intelligence accelerator opportunity</h2>
+
+<div class="section-label">Market size &amp; growth</div>
+<div class="metric-grid">
+  <div class="metric">
+    <div class="metric-label">IDP market 2025</div>
+    <div class="metric-value">$10.6B</div>
+    <div class="metric-sub">Global TAM today</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">IDP market 2034</div>
+    <div class="metric-value">$91B</div>
+    <div class="metric-sub">~26% CAGR</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Databricks customers</div>
+    <div class="metric-value">15,000+</div>
+    <div class="metric-sub">60%+ Fortune 500</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">GenAI spend 2025</div>
+    <div class="metric-value">$644B</div>
+    <div class="metric-sub">76% YoY growth</div>
+  </div>
+</div>
+
+<div class="section-label">Databricks native capabilities (your foundation)</div>
+<div class="stack-row">
+  <div class="stack-block" style="background:#E6F1FB; color:#185FA5;">ai_parse_document</div>
+  <div class="stack-block" style="background:#E6F1FB; color:#185FA5;">ai_extract (v2)</div>
+  <div class="stack-block" style="background:#E6F1FB; color:#185FA5;">ai_classify</div>
+  <div class="stack-block" style="background:#E6F1FB; color:#185FA5;">ai_prep_search</div>
+</div>
+<div class="stack-row">
+  <div class="stack-block" style="background:#E1F5EE; color:#0F6E56;">Lakebase (Postgres OLTP)</div>
+  <div class="stack-block" style="background:#E1F5EE; color:#0F6E56;">Delta Lake / Unity Catalog</div>
+  <div class="stack-block" style="background:#E1F5EE; color:#0F6E56;">Lakeflow Pipelines</div>
+</div>
+<div class="stack-row">
+  <div class="stack-block" style="background:#FAEEDA; color:#854F0B;">AI/BI Genie (NL query)</div>
+  <div class="stack-block" style="background:#FAEEDA; color:#854F0B;">Agent Bricks</div>
+  <div class="stack-block" style="background:#FAEEDA; color:#854F0B;">Vector Search / RAG</div>
+  <div class="stack-block" style="background:#FAEEDA; color:#854F0B;">MLflow evaluation</div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Current competitive landscape on Databricks marketplace</div>
+<div class="platform-grid">
+  <div class="platform-card">
+    <span class="badge badge-gray">Generic accelerator</span>
+    <div class="platform-name">Databricks IDP solution accelerator</div>
+    <div class="platform-desc">Official GitHub notebooks for product manual extraction. Horizontal, not industry-packaged. No schema templates or Genie integration.</div>
+  </div>
+  <div class="platform-card">
+    <span class="badge badge-blue">Data governance</span>
+    <div class="platform-name">HatchWorks data contracts</div>
+    <div class="platform-desc">Data quality / schema enforcement on lakehouse. Not document ingestion — adjacent governance layer.</div>
+  </div>
+  <div class="platform-card">
+    <span class="badge badge-amber">Migration</span>
+    <div class="platform-name">Hexaware AMAZE &amp; partners</div>
+    <div class="platform-desc">SAS-to-PySpark migration accelerators. Code transformation, not document intelligence.</div>
+  </div>
+  <div class="platform-card">
+    <span class="badge badge-gray">Analytics</span>
+    <div class="platform-name">Advancing Analytics document mining</div>
+    <div class="platform-desc">Transforms unstructured documents to structured insights — closest competitor. Cross-industry, no vertical schemas.</div>
+  </div>
+  <div class="platform-card">
+    <span class="badge badge-teal">Health &amp; life sci</span>
+    <div class="platform-name">Health care agents (Databricks partner)</div>
+    <div class="platform-desc">Domain agents for patient outcomes. Uses Agent Bricks. Healthcare-only, not a document intelligence platform.</div>
+  </div>
+  <div class="platform-card featured">
+    <span class="badge badge-blue">White space ✦</span>
+    <div class="platform-name">Your accelerator opportunity</div>
+    <div class="platform-desc">Full-stack IDP + industry schemas + Genie + Lakebase. No direct competitor occupies this space today.</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Market white space — what doesn't exist yet</div>
+<div class="gap-list">
+  <div class="gap-item">
+    <div class="gap-title">Industry schema templates</div>
+    <div class="gap-desc">No accelerator ships pre-built extraction schemas for FS (loan docs, KYC), healthcare (clinical notes, EOB), or legal (contracts, filings).</div>
+  </div>
+  <div class="gap-item">
+    <div class="gap-title">Genie-first document Q&amp;A</div>
+    <div class="gap-desc">No marketplace solution wires parsed documents into AI/BI Genie for natural language querying out of the box.</div>
+  </div>
+  <div class="gap-item">
+    <div class="gap-title">Lakebase operational layer</div>
+    <div class="gap-desc">Lakebase (Neon/Postgres) is brand new. No accelerator uses it as the transactional serving layer for document metadata + state.</div>
+  </div>
+  <div class="gap-item">
+    <div class="gap-title">End-to-end governed pipeline</div>
+    <div class="gap-desc">Existing solutions stop at extraction. No one packages ingestion → parse → extract → classify → lineage → serve as a governed Unity Catalog asset.</div>
+  </div>
+  <div class="gap-item">
+    <div class="gap-title">Multi-modal document support</div>
+    <div class="gap-desc">Tables, figures, diagrams, stamps — most accelerators only handle text PDFs. ai_parse_document handles all formats but no ISV wraps it end-to-end.</div>
+  </div>
+  <div class="gap-item">
+    <div class="gap-title">Marketplace-ready pricing model</div>
+    <div class="gap-desc">No ISV sells a per-document or consumption-based IDP accelerator on Databricks Marketplace with tiered industry bundles.</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Target industry verticals &amp; document types</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+  <div class="card">
+    <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;"><i class="ti ti-building-bank" aria-hidden="true" style="font-size:15px; margin-right:5px;"></i>Financial services</div>
+    <div class="industry-tags">
+      <span class="tag">Loan applications</span><span class="tag">KYC/AML docs</span><span class="tag">Trade confirmations</span><span class="tag">Regulatory filings</span><span class="tag">Earnings reports</span>
+    </div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;"><i class="ti ti-heart-rate-monitor" aria-hidden="true" style="font-size:15px; margin-right:5px;"></i>Healthcare &amp; life sciences</div>
+    <div class="industry-tags">
+      <span class="tag">Clinical notes</span><span class="tag">EOB / claims</span><span class="tag">Lab reports</span><span class="tag">Trial protocols</span><span class="tag">Drug labels</span>
+    </div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;"><i class="ti ti-gavel" aria-hidden="true" style="font-size:15px; margin-right:5px;"></i>Legal &amp; compliance</div>
+    <div class="industry-tags">
+      <span class="tag">Contracts</span><span class="tag">SEC filings</span><span class="tag">Court docs</span><span class="tag">IP filings</span><span class="tag">Policy docs</span>
+    </div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;"><i class="ti ti-crane" aria-hidden="true" style="font-size:15px; margin-right:5px;"></i>Manufacturing &amp; supply chain</div>
+    <div class="industry-tags">
+      <span class="tag">Product manuals</span><span class="tag">BOMs</span><span class="tag">Certificates</span><span class="tag">Supplier docs</span>
+    </div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;"><i class="ti ti-building-store" aria-hidden="true" style="font-size:15px; margin-right:5px;"></i>Retail &amp; e-commerce</div>
+    <div class="industry-tags">
+      <span class="tag">Product catalogs</span><span class="tag">Invoices</span><span class="tag">Vendor PDFs</span><span class="tag">Reviews</span>
+    </div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;"><i class="ti ti-chart-line" aria-hidden="true" style="font-size:15px; margin-right:5px;"></i>Insurance</div>
+    <div class="industry-tags">
+      <span class="tag">Policy documents</span><span class="tag">Claims forms</span><span class="tag">Underwriting</span><span class="tag">Loss reports</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Key strategic signals</div>
+<div class="insight-row"><div class="insight-dot"></div><div class="insight-text">Databricks' ai_parse_document (Nov 2025) is 3–5x cheaper than Azure/AWS equivalents — removes the biggest cost objection to enterprise IDP at scale.</div></div>
+<div class="insight-row"><div class="insight-dot"></div><div class="insight-text">Lakebase (Postgres OLTP, 2025) enables a transactional document registry alongside analytical Delta Lake — unprecedented in a single platform.</div></div>
+<div class="insight-row"><div class="insight-dot"></div><div class="insight-text">Databricks has partnerships with Anthropic ($100M, Mar 2025), Gemini ($, Jun 2025) and OpenAI ($100M, Sep 2025) — model-agnostic extraction is viable and differentiating.</div></div>
+<div class="insight-row"><div class="insight-dot"></div><div class="insight-text">The Databricks Marketplace has 1,200+ listings but no end-to-end IDP accelerator with industry schema bundles — a genuine first-mover gap.</div></div>
+<div class="insight-row"><div class="insight-dot"></div><div class="insight-text">79% of enterprises now use GenAI in at least one function (McKinsey 2025) — document extraction is the highest-ROI entry point for most regulated industries.</div></div>
+</div>

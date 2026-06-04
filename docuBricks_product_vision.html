@@ -1,0 +1,412 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue50:#E6F1FB;--blue200:#85B7EB;--blue600:#185FA5;--blue800:#0C447C;
+  --teal50:#E1F5EE;--teal200:#5DCAA5;--teal600:#0F6E56;--teal800:#085041;
+  --amber50:#FAEEDA;--amber200:#EF9F27;--amber600:#854F0B;
+  --coral50:#FAECE7;--coral200:#F0997B;--coral600:#993C1D;
+  --purple50:#EEEDFE;--purple200:#AFA9EC;--purple600:#534AB7;
+  --green50:#EAF3DE;--green600:#3B6D11;
+  --slate50:#F8F7F5;--slate100:#F1EFE8;--slate600:#5F5E5A;
+}
+body{font-family:var(--font-sans,system-ui,-apple-system,sans-serif);color:var(--color-text-primary);line-height:1.7;max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* Voice labels */
+.voice{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:99px;margin-bottom:.6rem}
+.voice-ive{background:#F1EFE8;color:#3A3937}
+.voice-karpathy{background:var(--blue50);color:var(--blue600)}
+.voice-unified{background:var(--teal50);color:var(--teal600)}
+
+/* Section & layout */
+.section{margin-bottom:3.5rem}
+.divider{border:none;border-top:.5px solid var(--color-border-tertiary,#E5E4DF);margin:3rem 0}
+h1{font-size:28px;font-weight:400;letter-spacing:-.03em;color:var(--color-text-primary);line-height:1.25;margin-bottom:.5rem}
+h2{font-size:17px;font-weight:500;color:var(--color-text-primary);margin-bottom:.85rem;letter-spacing:-.01em}
+h3{font-size:13px;font-weight:600;color:var(--color-text-primary);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.07em}
+p{font-size:14px;color:var(--color-text-secondary);line-height:1.75;margin-bottom:.75rem}
+p:last-child{margin-bottom:0}
+
+/* Pull quotes */
+.pull{border-left:3px solid var(--blue200);padding:.75rem 1.25rem;margin:1.5rem 0;background:var(--blue50);border-radius:0 8px 8px 0}
+.pull p{font-size:15px;font-style:italic;color:var(--blue800);line-height:1.6;margin:0}
+.pull-amber{border-left-color:var(--amber200);background:var(--amber50)}
+.pull-amber p{color:var(--amber600)}
+.pull-teal{border-left-color:var(--teal200);background:var(--teal50)}
+.pull-teal p{color:var(--teal800)}
+
+/* Principle cards */
+.principle-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1.25rem 0}
+.principle{background:var(--color-background-secondary,#F8F7F5);border-radius:12px;padding:1.1rem 1.25rem;border:.5px solid var(--color-border-tertiary,#E5E4DF)}
+.principle-num{font-size:11px;font-weight:700;color:var(--color-text-tertiary,#9A9892);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+.principle-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:.4rem}
+.principle-body{font-size:12px;color:var(--color-text-secondary);line-height:1.6}
+
+/* System diagram (first-principles) */
+.fp-stack{display:flex;flex-direction:column;gap:4px;margin:1.25rem 0}
+.fp-row{display:grid;gap:6px}
+.fp-3{grid-template-columns:repeat(3,1fr)}
+.fp-4{grid-template-columns:repeat(4,1fr)}
+.fp-2{grid-template-columns:1fr 1fr}
+.fp-1{grid-template-columns:1fr}
+.fp-block{border-radius:8px;padding:.65rem .85rem;font-size:12px;font-weight:500;text-align:center;line-height:1.35}
+.fp-label{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary,#9A9892);text-align:center;padding:.3rem;position:relative}
+.fp-label::before,.fp-label::after{content:'';position:absolute;top:50%;width:calc(50% - 7rem);height:.5px;background:var(--color-border-tertiary,#E5E4DF)}
+.fp-label::before{left:0}.fp-label::after{right:0}
+.fp-arrow{text-align:center;font-size:13px;color:var(--color-text-tertiary,#9A9892);line-height:1.2}
+
+/* Insight list */
+.insight{display:flex;gap:10px;margin-bottom:.85rem;align-items:flex-start}
+.insight-mark{width:6px;height:6px;border-radius:50%;background:var(--blue600);margin-top:.55rem;flex-shrink:0}
+.insight-mark-teal{background:var(--teal600)}
+.insight-mark-amber{background:var(--amber600)}
+.insight-text{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* Flywheel */
+.flywheel{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:1.25rem 0;align-items:center;text-align:center}
+.fw-node{background:var(--teal50);border:.5px solid var(--teal200);border-radius:10px;padding:.65rem .5rem;font-size:11px;font-weight:500;color:var(--teal800);line-height:1.35}
+.fw-arrow{font-size:16px;color:var(--teal200);align-self:center;justify-self:center}
+
+/* Experience moments */
+.moment-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:1.25rem 0}
+.moment{border-radius:12px;padding:1rem 1.1rem;border:.5px solid var(--color-border-tertiary,#E5E4DF)}
+.moment-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-tertiary,#9A9892);margin-bottom:.4rem}
+.moment-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:.35rem}
+.moment-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.55}
+
+/* North-star stat */
+.northstar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.25rem 0}
+.ns{background:var(--color-background-secondary,#F8F7F5);border-radius:12px;padding:1rem;text-align:center}
+.ns-val{font-size:26px;font-weight:400;letter-spacing:-.03em;color:var(--color-text-primary);margin-bottom:.15rem}
+.ns-label{font-size:11px;color:var(--color-text-tertiary,#9A9892);line-height:1.4}
+
+/* MVP scope table */
+.scope-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:12px}
+.scope-table th{text-align:left;font-weight:600;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--color-text-tertiary,#9A9892);padding:.5rem .75rem;border-bottom:.5px solid var(--color-border-tertiary,#E5E4DF)}
+.scope-table td{padding:.55rem .75rem;border-bottom:.5px solid var(--color-border-tertiary,#E5E4DF);color:var(--color-text-secondary);line-height:1.5;vertical-align:top}
+.scope-table tr:last-child td{border-bottom:none}
+.in{color:var(--teal600);font-weight:500}
+.out{color:#9A9892}
+
+/* Header area */
+.header-meta{font-size:11px;color:var(--color-text-tertiary,#9A9892);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+.tagline{font-size:17px;color:var(--color-text-secondary);font-weight:300;letter-spacing:-.01em;line-height:1.5;margin-bottom:2rem;max-width:680px}
+</style>
+
+<div>
+<h1 class="sr-only">DocuBricks — Expanded Product Vision</h1>
+
+<!-- ═══ HEADER ═══ -->
+<div style="margin-bottom:3rem">
+  <div class="header-meta">DocuBricks — Product Vision · 2026</div>
+  <h1>The document is the interface.<br>The intelligence should be invisible.</h1>
+  <p class="tagline">A platform that turns the institutional knowledge locked inside PDFs, contracts, and forms into answers — without exposing a single line of SQL, a single Databricks cluster, or a single schema definition to the person asking the question.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ I. THE PROBLEM, STATED HONESTLY ═══ -->
+<div class="section">
+  <div class="voice voice-karpathy">&#x25CF; First Principles</div>
+  <h2>What is a document, really?</h2>
+
+  <p>Let us be precise. A document is a compressed, lossy encoding of a human decision or observation, serialised into a format optimised for legal durability — not for machine consumption. A mortgage application is a 47-field decision tree rendered as PDF. An ISDA master agreement is a graph of counterparty obligations serialised as prose. A clinical note is a physician's diagnostic reasoning compressed into SOAP format and then frozen.</p>
+
+  <div class="pull">
+    <p>"The extraction problem is fundamentally a decompression problem. The information is in there — it has always been in there. The question is whether you have the right supervision signal to recover it."</p>
+  </div>
+
+  <p>For decades the answer was human labour: armies of analysts, paralegals, and data-entry operators whose sole function was to decompress documents back into structured form. Then came OCR. Then template-based extraction. Then rule engines. Each generation got part of the way there. None got all the way, because none could generalise across the infinite variation of real documents.</p>
+
+  <p>Foundation models break this ceiling. They can generalise. But generalisation without a schema is noise. The schema is the supervision signal — it is what tells the model what to attend to, what to extract, and how to validate the output. The schema is the real engineering artefact. The model is, increasingly, a commodity.</p>
+
+  <div class="insight"><div class="insight-mark-amber"></div><div class="insight-text"><strong>The IP is not the pipeline.</strong> Autoloader, ai_parse_document, Delta Lake — these are infrastructure. Any team with a Databricks contract can wire them together. The IP is the 30+ domain-specific schemas that encode ACORD field semantics, CMS-1500 claim structures, ISDA schedule hierarchies, and HL7 FHIR observation codes. That knowledge took domain experts decades to accumulate. It is not replicable in a weekend.</div></div>
+
+  <div class="insight"><div class="insight-mark"></div><div class="insight-text"><strong>The architecture is correct.</strong> You need: (1) a streaming ingestion layer that handles any file origin, (2) a parse step that turns bytes into tokens, (3) a schema-bound extraction step that turns tokens into structured rows, (4) a governed storage layer that makes those rows queryable and auditable, and (5) a serving layer that makes the rows answerable in plain English. These are the right separation of concerns. Each layer is independently replaceable. That is good architecture.</div></div>
+
+  <div class="insight"><div class="insight-mark-teal"></div><div class="insight-text"><strong>Lakebase closes a genuine gap.</strong> Delta Lake is a phenomenal analytical engine. It is not an operational database. Document processing is an operational workload: job state transitions, reprocessing queues, per-document audit trails, sub-second metadata reads. Postgres-on-Lakebase is the correct solution to this impedance mismatch. The fact that nobody has built this on Databricks yet is a first-mover window, not a warning sign.</div></div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ II. THE DESIGN PHILOSOPHY ═══ -->
+<div class="section">
+  <div class="voice voice-ive">&#x25C6; Design Philosophy</div>
+  <h2>Complexity is not a feature. Invisibility is.</h2>
+
+  <p>There is a temptation, when you have built something technically sophisticated, to let that sophistication show. To surface the cluster configuration, the schema editor, the pipeline DAG, the Unity Catalog lineage graph. To let the user feel the machinery.</p>
+
+  <div class="pull pull-amber">
+    <p>"Resist this. Every piece of complexity you expose to the user is a failure of design. The question is not how much the system can do — the question is how little the user needs to know in order for it to do it."</p>
+  </div>
+
+  <p>The loan officer does not want to know which LLM extracted the debt-to-income ratio from page 7 of the mortgage application. She wants the answer. The compliance analyst does not want to configure a Unity Catalog schema for AML suspicious activity reports. He wants the flag to surface automatically. The CFO does not want a Genie workspace tour. She wants to ask "how many invoices over $50k were approved without dual sign-off last quarter" and receive an accurate number.</p>
+
+  <p>The design principle for DocuBricks is total infrastructure amnesia. Databricks is the engine room. The user experience is the deck. The two should never meet.</p>
+
+  <div class="principle-grid">
+    <div class="principle">
+      <div class="principle-num">01</div>
+      <div class="principle-title">Zero onboarding friction</div>
+      <div class="principle-body">A new user connects a document source — SharePoint, S3, an email attachment — and the system classifies, extracts, and surfaces it. No schema configuration required. The schema is already there, pre-built for their vertical. The first document lands in under 10 minutes.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">02</div>
+      <div class="principle-title">Questions, not queries</div>
+      <div class="principle-body">The interaction model is conversational. "Show me all KYC forms with missing PEP declarations." "Which contracts expire in the next 90 days?" These are not SQL queries; they are business questions. Genie translates them. The user never sees the translation.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">03</div>
+      <div class="principle-title">Confidence, not noise</div>
+      <div class="principle-body">Every extracted field carries a confidence score. The system surfaces low-confidence extractions for human review — not as errors, but as refinements. The UI treats uncertainty as a natural part of the process, not a failure state. Users learn to trust the system's calibration.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">04</div>
+      <div class="principle-title">The schema is a lens, not a cage</div>
+      <div class="principle-body">Pre-built schemas are starting points. Every enterprise has idiosyncratic documents — internal approval forms, proprietary contract structures, bespoke reporting templates. The platform must make schema extension feel like adjusting a preference, not filing an IT ticket.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">05</div>
+      <div class="principle-title">Governance by default, not by request</div>
+      <div class="principle-body">Because everything runs inside Unity Catalog, governance is not a feature the user enables — it is a property of the architecture. Lineage, access controls, audit trails, and data residency compliance are automatically inherited. The CISO's requirements are satisfied before they are asked.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">06</div>
+      <div class="principle-title">Every vertical deserves its own idiom</div>
+      <div class="principle-body">A healthcare administrator and a mortgage underwriter do not think about documents the same way. The platform's language — its labels, its default views, its alert vocabulary — should shift to match the vertical. The FS dashboard speaks FS; the clinical dashboard speaks clinical.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ III. THE SYSTEM, STATED PRECISELY ═══ -->
+<div class="section">
+  <div class="voice voice-karpathy">&#x25CF; System Architecture</div>
+  <h2>What the system actually does — precisely</h2>
+
+  <p>It is worth being exact about the data flow, because precision here prevents architecture mistakes later.</p>
+
+  <div class="fp-stack">
+    <div class="fp-label">What the user sees</div>
+    <div class="fp-row fp-3">
+      <div class="fp-block" style="background:var(--amber50);color:var(--amber600)">"Show me all flagged AML reports this week"<br><span style="font-size:10px;font-weight:400;opacity:.8">Natural language query via Genie</span></div>
+      <div class="fp-block" style="background:var(--amber50);color:var(--amber600)">Extraction confidence review<br><span style="font-size:10px;font-weight:400;opacity:.8">Human-in-the-loop for low-confidence fields</span></div>
+      <div class="fp-block" style="background:var(--amber50);color:var(--amber600)">Document status dashboard<br><span style="font-size:10px;font-weight:400;opacity:.8">Processing state · errors · throughput</span></div>
+    </div>
+
+    <div class="fp-arrow">↕ Genie translates intent ↔ structured queries ↕</div>
+
+    <div class="fp-label">Governed data layer — what Genie queries</div>
+    <div class="fp-row fp-2">
+      <div class="fp-block" style="background:var(--teal50);color:var(--teal600)">Delta Lake — extracted structured tables<br><span style="font-size:10px;font-weight:400">mortgage_applications · kyc_forms · aml_sars · …<br>Unity Catalog lineage + ACL</span></div>
+      <div class="fp-block" style="background:var(--teal50);color:var(--teal600)">Lakebase (Postgres OLTP) — operational state<br><span style="font-size:10px;font-weight:400">document_registry · job_queue · confidence_log · audit_trail<br>Sub-second reads · transactional writes</span></div>
+    </div>
+
+    <div class="fp-arrow">↑ validated, schema-bound rows ↑</div>
+
+    <div class="fp-label">Extraction layer — where the model works</div>
+    <div class="fp-row fp-4">
+      <div class="fp-block" style="background:var(--blue50);color:var(--blue600)">ai_parse_document<br><span style="font-size:10px;font-weight:400">PDF · DOCX · images<br>→ page tokens + layout</span></div>
+      <div class="fp-block" style="background:var(--blue50);color:var(--blue600)">ai_classify<br><span style="font-size:10px;font-weight:400">Document type<br>→ schema routing</span></div>
+      <div class="fp-block" style="background:var(--blue50);color:var(--blue600)">ai_extract (schema-bound)<br><span style="font-size:10px;font-weight:400">Schema prompt template<br>→ structured JSON + confidence</span></div>
+      <div class="fp-block" style="background:var(--blue50);color:var(--blue600)">MLflow eval harness<br><span style="font-size:10px;font-weight:400">Per-field accuracy tracking<br>→ schema improvement loop</span></div>
+    </div>
+
+    <div class="fp-arrow">↑ raw file bytes ↑</div>
+
+    <div class="fp-label">Ingestion layer — where files enter the system</div>
+    <div class="fp-row fp-4">
+      <div class="fp-block" style="background:#F1EFE8;color:var(--slate600)">SharePoint · OneDrive<br><span style="font-size:10px">Lakeflow Connect</span></div>
+      <div class="fp-block" style="background:#F1EFE8;color:var(--slate600)">S3 · ADLS · GCS<br><span style="font-size:10px">Autoloader streaming</span></div>
+      <div class="fp-block" style="background:#F1EFE8;color:var(--slate600)">Email · API feeds<br><span style="font-size:10px">Webhooks · connectors</span></div>
+      <div class="fp-block" style="background:#F1EFE8;color:var(--slate600)">Legacy ECM<br><span style="font-size:10px">FileNet · OpenText</span></div>
+    </div>
+  </div>
+
+  <p style="font-size:12px;color:var(--color-text-tertiary,#9A9892);margin-top:.5rem">The critical design decision: the user's interaction surface touches only the top two rows. The bottom three rows are platform infrastructure — they should be completely invisible to non-technical users and configurable by technical users via declarative YAML, not code.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ IV. THE SCHEMA LAYER — THE REAL PRODUCT ═══ -->
+<div class="section">
+  <div class="voice voice-unified">&#x25B2; The Core Insight</div>
+  <h2>The schema library is the product. Everything else is plumbing.</h2>
+
+  <p>The model changes. The Databricks APIs evolve. The pricing tiers get revised. The schema library compounds.</p>
+
+  <div class="pull pull-teal">
+    <p>"Each new schema you ship is a month of regulatory research, domain expert interviews, and validation runs crystallised into a reusable artefact. It cannot be replicated overnight. It does not deprecate. It appreciates in value as it is refined by production traffic."</p>
+  </div>
+
+  <p>A schema for a CMS-1500 healthcare claim is not just a list of field names. It encodes which fields are required for which payer types, what values are valid for procedure codes, how to handle split-billing, and where to look when the document layout deviates from the standard. That knowledge lives in the schema prompt template, the validation rules, and the edge-case handling logic.</p>
+
+  <p>The business model follows directly from this insight. You are not selling a pipeline. You are selling an increasingly rich library of institutional intelligence — and the infrastructure to make that intelligence queryable in plain English.</p>
+
+  <div class="northstar">
+    <div class="ns"><div class="ns-val">30+</div><div class="ns-label">Pre-built document schemas at launch across 6 verticals</div></div>
+    <div class="ns"><div class="ns-val">~0</div><div class="ns-label">Direct competitors with this coverage in Databricks Marketplace today</div></div>
+    <div class="ns"><div class="ns-val">∞</div><div class="ns-label">Value of each schema improves with every customer deployment</div></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ V. THE DATA FLYWHEEL ═══ -->
+<div class="section">
+  <div class="voice voice-karpathy">&#x25CF; Systems Thinking</div>
+  <h2>The flywheel that compounds the moat</h2>
+
+  <p>The architectural advantage is durable because of a feedback loop that is often described but rarely implemented correctly. Here it is stated precisely:</p>
+
+  <div class="flywheel">
+    <div class="fw-node">More customers deploy schemas</div>
+    <div class="fw-arrow">→</div>
+    <div class="fw-node">More edge cases surface in production</div>
+    <div class="fw-arrow">→</div>
+    <div class="fw-node">MLflow eval harness captures failures</div>
+    <div class="fw-arrow">→</div>
+    <div class="fw-node">Schemas improve (prompts + rules)</div>
+    <div class="fw-arrow">→</div>
+    <div class="fw-node">Higher extraction accuracy → retention</div>
+  </div>
+
+  <p>The loop closes: higher accuracy produces higher retention, which means more data, which means more edge cases, which means better schemas. The first mover does not just get revenue — they get the training signal. A competitor entering 18 months later has to buy that learning with time, not money.</p>
+
+  <div class="insight"><div class="insight-mark"></div><div class="insight-text"><strong>Model-agnostic extraction is not a feature — it is a systems bet.</strong> The model layer is commoditising rapidly. Anthropic, Google, OpenAI, Mistral, Meta — the capability gap between frontier models is narrowing every six months. The correct long-term position is to own the schema layer and be indifferent to which model executes against it. Customers can optimise cost vs. accuracy per document type without changing a single schema definition.</div></div>
+
+  <div class="insight"><div class="insight-mark-teal"></div><div class="insight-text"><strong>The evaluation harness is as important as the extraction pipeline.</strong> Without MLflow tracking per-field accuracy across document types, you cannot improve systematically. With it, you can identify exactly which field on exactly which document type is underperforming and iterate on the schema prompt until it passes the quality bar. This is the engineering discipline that separates a demo from a production system.</div></div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ VI. THE USER EXPERIENCE NORTH STAR ═══ -->
+<div class="section">
+  <div class="voice voice-ive">&#x25C6; Experience Design</div>
+  <h2>Three moments that define the product</h2>
+
+  <p>Products are remembered by their best moments. Design those moments first. Let the rest of the engineering serve them.</p>
+
+  <div class="moment-grid">
+    <div class="moment" style="background:var(--blue50);border-color:var(--blue200)">
+      <div class="moment-label" style="color:var(--blue600)">Moment 01 — First ten minutes</div>
+      <div class="moment-title" style="color:var(--blue800)">The document just appeared — correctly structured</div>
+      <div class="moment-desc" style="color:var(--blue800);opacity:.75">A compliance officer uploads a KYC form. Without configuring anything, the system identifies it as a KYC document, extracts 23 fields, flags 2 as low-confidence, and surfaces them for review. The first experience of the product is competence — not configuration.</div>
+    </div>
+    <div class="moment" style="background:var(--teal50);border-color:var(--teal200)">
+      <div class="moment-label" style="color:var(--teal600)">Moment 02 — The first question</div>
+      <div class="moment-title" style="color:var(--teal800)">"Show me all mortgage applications above $500k where the DTI ratio exceeds 43%"</div>
+      <div class="moment-desc" style="color:var(--teal800);opacity:.75">The loan portfolio manager types this into Genie. Three seconds later: a table, a chart, a count. No SQL. No dashboard configuration. No IT ticket. This is the moment the user understands what they are working with — and it must be perfect.</div>
+    </div>
+    <div class="moment" style="background:var(--amber50);border-color:var(--amber200)">
+      <div class="moment-label" style="color:var(--amber600)">Moment 03 — The agent acts</div>
+      <div class="moment-title" style="color:var(--amber800)">The contract expired and the system told someone</div>
+      <div class="moment-desc" style="color:var(--amber800);opacity:.75">An Agent Bricks workflow monitors extracted contract expiry dates. 90 days before expiry, it surfaces the contract, the counterparty, the renewal terms, and the legal contact — without a human having to remember to check. The system becomes proactive. This is the moment it earns permanence.</div>
+    </div>
+  </div>
+
+  <p>Every other feature in the product roadmap should be evaluated by one question: does it make one of these three moments better, faster, or more reliable? If not, it belongs in a later release.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ VII. MVP SCOPE — PRECISELY BOUNDED ═══ -->
+<div class="section">
+  <div class="voice voice-karpathy">&#x25CF; MVP Discipline</div>
+  <h2>The MVP: what is in, what is not, and why</h2>
+
+  <p>An MVP that ships is worth infinitely more than a complete product that does not. The financial services vertical is the correct first beachhead: high regulatory document complexity (which justifies the price), structured document formats (tractable extraction problem), existing Databricks footprint in 60%+ of Fortune 500 FS firms (warm distribution), and high willingness to pay for accuracy (because the cost of a missed AML flag is not a support ticket — it is a regulatory fine).</p>
+
+  <table class="scope-table">
+    <thead>
+      <tr>
+        <th>Capability</th>
+        <th>MVP v1 (Month 0–3)</th>
+        <th>Rationale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ingestion</td>
+        <td><span class="in">IN</span> — S3 + SharePoint via Autoloader / Lakeflow</td>
+        <td>Covers 80% of enterprise document sources in FS. Email connectors in v2.</td>
+      </tr>
+      <tr>
+        <td>Document parsing</td>
+        <td><span class="in">IN</span> — ai_parse_document (PDF, DOCX, images)</td>
+        <td>Native Databricks. No third-party OCR dependency. 3–5× cheaper than alternatives.</td>
+      </tr>
+      <tr>
+        <td>Schema bundles</td>
+        <td><span class="in">IN</span> — FS vertical: mortgage app, KYC/CDD form, invoice, AML SAR</td>
+        <td>Four document types covers ~70% of FS document volume. Focus beats breadth.</td>
+      </tr>
+      <tr>
+        <td>Extraction engine</td>
+        <td><span class="in">IN</span> — ai_extract with schema-bound prompt templates</td>
+        <td>Schema-bound extraction with confidence scoring. MLflow eval harness required at launch.</td>
+      </tr>
+      <tr>
+        <td>Storage</td>
+        <td><span class="in">IN</span> — Delta Lake (extracted tables) + Lakebase (document registry)</td>
+        <td>Both required for the architecture to be correct. Lakebase in preview — abstract behind interface.</td>
+      </tr>
+      <tr>
+        <td>Query interface</td>
+        <td><span class="in">IN</span> — Genie workspace, pre-configured for FS schemas</td>
+        <td>This is Moment 02. It must ship. Pre-built queries seed the experience.</td>
+      </tr>
+      <tr>
+        <td>Dashboards</td>
+        <td><span class="out">OUT</span> — AI/BI pre-built dashboards</td>
+        <td>Genie covers the query use case at MVP. Dashboards are a Professional-tier upsell.</td>
+      </tr>
+      <tr>
+        <td>Agent workflows</td>
+        <td><span class="out">OUT</span> — Agent Bricks multi-step automation</td>
+        <td>Moment 03 is compelling but not required for FS MVP. Ship in Month 6 with enterprise tier.</td>
+      </tr>
+      <tr>
+        <td>Multi-vertical</td>
+        <td><span class="out">OUT</span> — Healthcare, legal, manufacturing schemas</td>
+        <td>Depth in FS beats breadth across verticals. Each vertical is its own go-to-market motion.</td>
+      </tr>
+      <tr>
+        <td>Schema editor UI</td>
+        <td><span class="out">OUT</span> — Self-service schema customisation</td>
+        <td>Custom schemas delivered as professional services in v1. Self-service UI in v2 after pattern emerges.</td>
+      </tr>
+      <tr>
+        <td>Human-in-loop review</td>
+        <td><span class="in">IN</span> — Low-confidence field review queue</td>
+        <td>Required for regulated documents. Simple queue UI. Not a full annotation platform.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pull">
+    <p>"Scope is a design decision, not a resource constraint. Choosing what is out is as important as choosing what is in — and it requires more conviction."</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ VIII. THE NORTH STAR ═══ -->
+<div class="section">
+  <div class="voice voice-unified">&#x25B2; The Vision</div>
+  <h2>What this becomes in five years</h2>
+
+  <p>In five years, DocuBricks is the institutional memory layer for regulated enterprises. Every document an organisation has ever processed — every loan application, every clinical note, every contract, every regulatory filing — is a row in a governed table, queryable in plain English, traceable to its source, and auditable by any regulator who asks.</p>
+
+  <p>The document processing industry spends approximately $14 billion per year on human labour to do what DocuBricks will do automatically. That labour is not replaced overnight — but it is redirected. The loan analyst who spent 60% of her time pulling data from documents now spends 60% of her time acting on the insights those documents contain. That is not a marginal improvement. That is a fundamental reallocation of human attention toward human judgment.</p>
+
+  <div class="pull pull-teal">
+    <p>"The goal is not to build a better document processor. The goal is to make every organisation as intelligent about its own documents as the people who wrote them."</p>
+  </div>
+
+  <p>The path there starts with four document types, one vertical, and three design-partner banks. It starts with a compliance officer uploading a KYC form and seeing it appear — correctly, completely, confidently — without configuring a single thing. It starts with that moment. Build that moment perfectly, and everything else follows.</p>
+</div>
+
+</div>

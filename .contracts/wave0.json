@@ -1,0 +1,58 @@
+{
+  "wave": 0,
+  "agent": "foundation_coordinator",
+  "completed_at": "2026-06-04T00:00:00Z",
+  "catalog_name": "docubricks_prod",
+  "secret_scope": "docubricks-prod",
+  "uc_schemas": ["bronze", "silver", "gold", "schema_registry", "raw_landing", "monitoring", "eval"],
+  "uc_volumes": [
+    "/Volumes/docubricks_prod/raw_landing/documents/{tenant_id}/{vertical}/",
+    "/Volumes/docubricks_prod/checkpoints/",
+    "/Volumes/docubricks_prod/monitoring/"
+  ],
+  "lakebase_tables": [
+    "document_registry",
+    "processing_jobs",
+    "review_queue",
+    "reprocessing_queue",
+    "extraction_audit",
+    "monitoring_alerts",
+    "tenant_registry",
+    "tenant_reviewer_assignments",
+    "tenant_users",
+    "onboarding_sessions"
+  ],
+  "migrations": ["V001","V002","V003","V004","V005","V006","V007"],
+  "document_id_strategy": "SHA-256 of raw file bytes, hex-encoded",
+  "supported_verticals": ["fs", "healthcare", "legal", "manufacturing", "insurance", "real_estate"],
+  "supported_doc_types_phase1": ["mortgage_application", "kyc_cdd_form", "aml_sar", "invoice"],
+  "dlt_channels": "PREVIEW",
+  "compute": "serverless",
+  "files_created": [
+    "databricks.yml",
+    ".env.example",
+    "migrations/V001__create_document_registry.sql",
+    "migrations/V002__create_processing_jobs.sql",
+    "migrations/V003__create_review_queue.sql",
+    "migrations/V004__create_reprocessing_queue.sql",
+    "migrations/V005__create_extraction_audit.sql",
+    "migrations/V006__create_monitoring_alerts.sql",
+    "migrations/V007__create_tenant_registry.sql"
+  ],
+  "onboarding_app": {
+    "path": "apps/onboarding-web/",
+    "framework": "React + Vite + Zustand + Tailwind",
+    "status": "ALREADY_BUILT",
+    "api_interface": "apps/onboarding-web/src/api/interface.ts",
+    "mock_api": "apps/onboarding-web/src/api/mock/index.ts",
+    "real_api_stub": "apps/onboarding-web/src/api/databricks/index.ts",
+    "note": "OnboardingAgent in Wave 2 implements DatabricksAPI in real_api_stub. Do not touch screens/, store/, types/, or components/."
+  },
+  "key_env_vars": {
+    "DATABRICKS_HOST": "workspace URL",
+    "DATABRICKS_TOKEN": "PAT for dev; service principal in prod",
+    "LAKEBASE_CONN": "from secret scope",
+    "SQL_WH_HTTP_PATH": "from secret scope",
+    "CATALOG_NAME": "from databricks.yml variable"
+  }
+}

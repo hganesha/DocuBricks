@@ -1,0 +1,381 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--blue50:#E6F1FB;--blue200:#85B7EB;--blue600:#185FA5;--blue800:#0C447C;--teal50:#E1F5EE;--teal200:#5DCAA5;--teal600:#0F6E56;--teal800:#085041;--amber50:#FAEEDA;--amber200:#EF9F27;--amber600:#854F0B;--coral50:#FAECE7;--coral200:#F0997B;--coral600:#993C1D;--purple50:#EEEDFE;--purple200:#AFA9EC;--purple600:#534AB7;--green50:#EAF3DE;--green600:#3B6D11}
+body{font-family:var(--font-sans,system-ui,sans-serif);color:var(--color-text-primary);line-height:1.6}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.brief{padding:1.5rem 0}
+.section{margin-bottom:2.5rem}
+.pill{display:inline-block;font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:99px;margin-bottom:.75rem}
+.pill-blue{background:var(--blue50);color:var(--blue600)}
+.pill-teal{background:var(--teal50);color:var(--teal600)}
+.pill-amber{background:var(--amber50);color:var(--amber600)}
+.pill-coral{background:var(--coral50);color:var(--coral600)}
+.pill-purple{background:var(--purple50);color:var(--purple600)}
+.pill-green{background:var(--green50);color:var(--green600)}
+h2{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:1rem}
+h3{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:.4rem}
+p{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:2rem 0}
+
+/* Architecture diagram */
+.arch{display:flex;flex-direction:column;gap:6px;margin-bottom:1rem}
+.arch-row{display:grid;gap:6px}
+.arch-row-4{grid-template-columns:repeat(4,1fr)}
+.arch-row-3{grid-template-columns:repeat(3,1fr)}
+.arch-row-2{grid-template-columns:1fr 1fr}
+.arch-block{border-radius:8px;padding:.6rem .75rem;font-size:11px;font-weight:500;text-align:center;line-height:1.3}
+.arch-label{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-tertiary);padding:.25rem .5rem;text-align:center;position:relative}
+.arch-label::before,.arch-label::after{content:'';position:absolute;top:50%;width:calc(50% - 5rem);height:.5px;background:var(--color-border-tertiary)}
+.arch-label::before{left:0}
+.arch-label::after{right:0}
+.arch-arrow{text-align:center;font-size:14px;color:var(--color-text-tertiary);line-height:1}
+
+/* Moat cards */
+.moat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.moat-card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:12px;padding:1rem}
+.moat-icon{font-size:18px;margin-bottom:.5rem}
+.moat-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:.3rem}
+.moat-body{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.moat-tag{display:inline-block;margin-top:.5rem;font-size:10px;padding:2px 7px;border-radius:99px}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pricing-card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:12px;padding:1rem;display:flex;flex-direction:column}
+.pricing-card.featured{border:2px solid var(--blue200)}
+.pricing-tier{font-size:13px;font-weight:500;margin-bottom:.25rem}
+.pricing-price{font-size:22px;font-weight:500;color:var(--color-text-primary);margin:.4rem 0 .1rem}
+.pricing-unit{font-size:11px;color:var(--color-text-tertiary)}
+.pricing-divider{border:none;border-top:.5px solid var(--color-border-tertiary);margin:.75rem 0}
+.pricing-feature{font-size:11px;color:var(--color-text-secondary);display:flex;align-items:flex-start;gap:6px;margin-bottom:.35rem;line-height:1.4}
+.pricing-check{font-size:12px;color:var(--teal600);flex-shrink:0;margin-top:1px}
+.pricing-spacer{flex:1}
+
+/* GTM timeline */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:.4rem;top:0;bottom:0;width:.5px;background:var(--color-border-secondary)}
+.tl-item{position:relative;margin-bottom:1.25rem}
+.tl-dot{position:absolute;left:-1.1rem;top:.35rem;width:8px;height:8px;border-radius:50%;border:.5px solid var(--color-border-primary);background:var(--color-background-primary)}
+.tl-dot.active{background:var(--blue600);border-color:var(--blue600)}
+.tl-phase{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);margin-bottom:2px}
+.tl-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:.2rem}
+.tl-body{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+
+/* Schema table */
+.schema-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.schema-card{background:var(--color-background-secondary);border-radius:8px;padding:.75rem}
+.schema-vertical{font-size:11px;font-weight:500;color:var(--color-text-primary);margin-bottom:.4rem}
+.schema-docs{display:flex;flex-wrap:wrap;gap:4px}
+.schema-doc{font-size:10px;background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:99px;padding:2px 7px;color:var(--color-text-secondary)}
+
+/* Revenue model */
+.rev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:.75rem}
+.rev-block{background:var(--color-background-secondary);border-radius:8px;padding:.75rem;text-align:center}
+.rev-label{font-size:10px;color:var(--color-text-tertiary);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.06em}
+.rev-val{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+
+/* Risk table */
+.risk-row{display:flex;gap:10px;align-items:flex-start;padding:.6rem 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.risk-row:last-child{border-bottom:none}
+.risk-name{font-size:12px;font-weight:500;color:var(--color-text-primary);width:9rem;flex-shrink:0}
+.risk-sev{width:3.5rem;flex-shrink:0}
+.risk-badge{font-size:10px;padding:2px 8px;border-radius:99px;display:inline-block}
+.sev-high{background:#FCEBEB;color:#A32D2D}
+.sev-med{background:#FAEEDA;color:#854F0B}
+.sev-low{background:#EAF3DE;color:#3B6D11}
+.risk-mitigation{font-size:12px;color:var(--color-text-secondary);line-height:1.45}
+</style>
+
+<div class="brief">
+<h2 class="sr-only">Document intelligence accelerator on Databricks — full strategic brief</h2>
+
+<!-- ═══ SECTION 1: PRODUCT ARCHITECTURE ═══ -->
+<div class="section">
+  <div class="pill pill-blue"><i class="ti ti-cpu" aria-hidden="true" style="font-size:10px;margin-right:4px"></i>Section 1 — Product architecture</div>
+  <h2>Three-layer platform design</h2>
+
+  <div class="arch">
+    <div class="arch-label">Layer 3 — Intelligence &amp; experience</div>
+    <div class="arch-row arch-row-3">
+      <div class="arch-block" style="background:var(--amber50);color:var(--amber600)"><i class="ti ti-message-chatbot" aria-hidden="true"></i><br>Genie NL interface<br><span style="font-size:10px;font-weight:400;opacity:.8">Ask questions in plain English</span></div>
+      <div class="arch-block" style="background:var(--amber50);color:var(--amber600)"><i class="ti ti-chart-bar" aria-hidden="true"></i><br>AI/BI dashboards<br><span style="font-size:10px;font-weight:400;opacity:.8">Pre-built vertical dashboards</span></div>
+      <div class="arch-block" style="background:var(--amber50);color:var(--amber600)"><i class="ti ti-robot" aria-hidden="true"></i><br>Document agents<br><span style="font-size:10px;font-weight:400;opacity:.8">Agent Bricks multi-step workflows</span></div>
+    </div>
+
+    <div class="arch-arrow">↑ structured, governed data ↑</div>
+
+    <div class="arch-label">Layer 2 — Industry schema &amp; data model (your IP moat)</div>
+    <div class="arch-row arch-row-4">
+      <div class="arch-block" style="background:var(--teal50);color:var(--teal600)">FS schemas<br><span style="font-size:10px;font-weight:400">Loan · KYC · AML</span></div>
+      <div class="arch-block" style="background:var(--teal50);color:var(--teal600)">Healthcare schemas<br><span style="font-size:10px;font-weight:400">EOB · Clinical · Rx</span></div>
+      <div class="arch-block" style="background:var(--teal50);color:var(--teal600)">Legal schemas<br><span style="font-size:10px;font-weight:400">Contracts · Filings</span></div>
+      <div class="arch-block" style="background:var(--teal50);color:var(--teal600)">Industrial schemas<br><span style="font-size:10px;font-weight:400">Mfg · Supply chain</span></div>
+    </div>
+    <div class="arch-row arch-row-2">
+      <div class="arch-block" style="background:var(--teal50);color:var(--teal600)">Delta Lake — governed document tables (Unity Catalog lineage + ACL)</div>
+      <div class="arch-block" style="background:var(--teal50);color:var(--teal600)">Lakebase (Postgres OLTP) — document registry, job state, metadata serving</div>
+    </div>
+
+    <div class="arch-arrow">↑ parsed &amp; extracted content ↑</div>
+
+    <div class="arch-label">Layer 1 — Ingestion &amp; processing pipeline</div>
+    <div class="arch-row arch-row-4">
+      <div class="arch-block" style="background:var(--blue50);color:var(--blue600)">Autoloader / Lakeflow<br><span style="font-size:10px;font-weight:400">Streaming file ingestion</span></div>
+      <div class="arch-block" style="background:var(--blue50);color:var(--blue600)">ai_parse_document<br><span style="font-size:10px;font-weight:400">PDF · DOCX · images</span></div>
+      <div class="arch-block" style="background:var(--blue50);color:var(--blue600)">ai_extract + ai_classify<br><span style="font-size:10px;font-weight:400">Schema-bound extraction</span></div>
+      <div class="arch-block" style="background:var(--blue50);color:var(--blue600)">Vector Search + MLflow<br><span style="font-size:10px;font-weight:400">RAG index + eval loop</span></div>
+    </div>
+
+    <div class="arch-arrow">↑ raw documents ↑</div>
+
+    <div class="arch-label">Sources — any document origin</div>
+    <div class="arch-row arch-row-4">
+      <div class="arch-block" style="background:var(--color-background-secondary);color:var(--color-text-secondary)">SharePoint / OneDrive<br><span style="font-size:10px">Lakeflow Connect</span></div>
+      <div class="arch-block" style="background:var(--color-background-secondary);color:var(--color-text-secondary)">S3 / ADLS / GCS<br><span style="font-size:10px">Cloud storage</span></div>
+      <div class="arch-block" style="background:var(--color-background-secondary);color:var(--color-text-secondary)">Email / API feeds<br><span style="font-size:10px">Webhooks / connectors</span></div>
+      <div class="arch-block" style="background:var(--color-background-secondary);color:var(--color-text-secondary)">Legacy ECM systems<br><span style="font-size:10px">FileNet · OpenText</span></div>
+    </div>
+  </div>
+
+  <p style="margin-top:.75rem;font-size:12px;color:var(--color-text-tertiary)">Key design principle: everything runs inside Unity Catalog — zero data egress, full lineage, existing Databricks governance applies automatically.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ SECTION 2: INDUSTRY SCHEMAS ═══ -->
+<div class="section">
+  <div class="pill pill-teal"><i class="ti ti-database" aria-hidden="true" style="font-size:10px;margin-right:4px"></i>Section 1b — Industry schema templates (the IP layer)</div>
+  <h2>Pre-built extraction schemas by vertical</h2>
+  <div class="schema-grid">
+    <div class="schema-card">
+      <div class="schema-vertical"><i class="ti ti-building-bank" aria-hidden="true" style="font-size:12px;margin-right:4px"></i>Financial services</div>
+      <div class="schema-docs">
+        <span class="schema-doc">Mortgage application</span><span class="schema-doc">KYC/CDD form</span><span class="schema-doc">Trade confirmation</span><span class="schema-doc">ISDA master</span><span class="schema-doc">10-K / 10-Q</span><span class="schema-doc">AML SAR</span><span class="schema-doc">Invoice</span>
+      </div>
+    </div>
+    <div class="schema-card">
+      <div class="schema-vertical"><i class="ti ti-heart-rate-monitor" aria-hidden="true" style="font-size:12px;margin-right:4px"></i>Healthcare &amp; life sci</div>
+      <div class="schema-docs">
+        <span class="schema-doc">Clinical note (SOAP)</span><span class="schema-doc">EOB / CMS-1500</span><span class="schema-doc">Lab report</span><span class="schema-doc">Prior auth</span><span class="schema-doc">Drug label (SPL)</span><span class="schema-doc">Clinical trial protocol</span>
+      </div>
+    </div>
+    <div class="schema-card">
+      <div class="schema-vertical"><i class="ti ti-gavel" aria-hidden="true" style="font-size:12px;margin-right:4px"></i>Legal &amp; compliance</div>
+      <div class="schema-docs">
+        <span class="schema-doc">NDA / MSA</span><span class="schema-doc">SOW</span><span class="schema-doc">IP filing</span><span class="schema-doc">Regulatory submission</span><span class="schema-doc">Court filing</span><span class="schema-doc">Policy document</span>
+      </div>
+    </div>
+    <div class="schema-card">
+      <div class="schema-vertical"><i class="ti ti-truck" aria-hidden="true" style="font-size:12px;margin-right:4px"></i>Manufacturing / supply chain</div>
+      <div class="schema-docs">
+        <span class="schema-doc">Product manual</span><span class="schema-doc">BOM</span><span class="schema-doc">Certificate of conformance</span><span class="schema-doc">Quality report</span><span class="schema-doc">Supplier contract</span>
+      </div>
+    </div>
+    <div class="schema-card">
+      <div class="schema-vertical"><i class="ti ti-shield-check" aria-hidden="true" style="font-size:12px;margin-right:4px"></i>Insurance</div>
+      <div class="schema-docs">
+        <span class="schema-doc">Policy document</span><span class="schema-doc">Claims form (ACORD)</span><span class="schema-doc">Underwriting memo</span><span class="schema-doc">Loss run</span><span class="schema-doc">Reinsurance slip</span>
+      </div>
+    </div>
+    <div class="schema-card">
+      <div class="schema-vertical"><i class="ti ti-building" aria-hidden="true" style="font-size:12px;margin-right:4px"></i>Real estate</div>
+      <div class="schema-docs">
+        <span class="schema-doc">Purchase agreement</span><span class="schema-doc">Appraisal report</span><span class="schema-doc">Title commitment</span><span class="schema-doc">Lease</span><span class="schema-doc">HOA doc</span>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:.6rem;font-size:12px;color:var(--color-text-tertiary)">Schemas are Unity Catalog table definitions + ai_extract prompt templates + validation rules. Customers extend them; the base set ships with the accelerator.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ SECTION 3: COMPETITIVE MOAT ═══ -->
+<div class="section">
+  <div class="pill pill-purple"><i class="ti ti-shield" aria-hidden="true" style="font-size:10px;margin-right:4px"></i>Section 2 — Competitive moat</div>
+  <h2>Five durable differentiation layers</h2>
+  <div class="moat-grid">
+    <div class="moat-card">
+      <div class="moat-icon"><i class="ti ti-database-import" aria-hidden="true" style="font-size:20px;color:var(--blue600)"></i></div>
+      <div class="moat-title">Platform-native advantage</div>
+      <div class="moat-body">ABBYY, UiPath, Kofax — the IDP incumbents — require data to leave the lakehouse. This accelerator processes everything inside Unity Catalog: zero egress, existing RBAC, automatic lineage. Compliance-heavy buyers (FS, healthcare) cannot easily go elsewhere once data governance is tied to the platform.</div>
+      <span class="moat-tag" style="background:var(--blue50);color:var(--blue600)">Switching cost moat</span>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon"><i class="ti ti-schema" aria-hidden="true" style="font-size:20px;color:var(--teal600)"></i></div>
+      <div class="moat-title">Schema library as compounding IP</div>
+      <div class="moat-body">Pre-built extraction schemas for 30+ document types across 6 verticals are not easy to replicate quickly. Schemas encode regulatory knowledge (ACORD, CMS-1500, ISDA, HL7 FHIR) that takes domain experts months to build. Each new customer deployment enriches the library through feedback loops.</div>
+      <span class="moat-tag" style="background:var(--teal50);color:var(--teal600)">Knowledge moat</span>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon"><i class="ti ti-plug-connected" aria-hidden="true" style="font-size:20px;color:var(--amber600)"></i></div>
+      <div class="moat-title">Lakebase transactional layer</div>
+      <div class="moat-body">Nobody has built on Lakebase yet — it shipped mid-2025. A document registry (job state, processing history, audit trail, reprocessing queue) in Postgres sitting alongside the analytical Delta tables is a novel architecture with no comparable offering in the Databricks ecosystem today.</div>
+      <span class="moat-tag" style="background:var(--amber50);color:var(--amber600)">First-mover moat</span>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon"><i class="ti ti-message-chatbot" aria-hidden="true" style="font-size:20px;color:var(--purple600)"></i></div>
+      <div class="moat-title">Genie-first document Q&amp;A</div>
+      <div class="moat-body">Wiring parsed documents into AI/BI Genie means business users (not engineers) can ask "show me all mortgage applications above $500k flagged last week" without SQL. Competitors require BI tool setup post-extraction. The Genie integration is a 10x workflow improvement that becomes a retention driver.</div>
+      <span class="moat-tag" style="background:var(--purple50);color:var(--purple600)">UX moat</span>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon"><i class="ti ti-eye-check" aria-hidden="true" style="font-size:20px;color:var(--coral600)"></i></div>
+      <div class="moat-title">Model-agnostic extraction</div>
+      <div class="moat-body">Databricks has AI partnerships with Anthropic, Google Gemini, and OpenAI. The accelerator can expose model selection per document type — use Claude for legal reasoning, Gemini for multimodal tables, GPT-4o for general extraction. No single-vendor IDP solution offers this; incumbents are locked to their own models.</div>
+      <span class="moat-tag" style="background:var(--coral50);color:var(--coral600)">Ecosystem moat</span>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon"><i class="ti ti-trending-up" aria-hidden="true" style="font-size:20px;color:var(--green600)"></i></div>
+      <div class="moat-title">Cost structure advantage</div>
+      <div class="moat-body">ai_parse_document is 3–5x cheaper than Azure Document Intelligence or AWS Textract. The accelerator can price competitively against incumbents while maintaining healthy margins. At scale (millions of documents), the cost delta becomes the primary reason enterprises switch from existing solutions.</div>
+      <span class="moat-tag" style="background:var(--green50);color:var(--green600)">Pricing moat</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ SECTION 4: PACKAGING & PRICING ═══ -->
+<div class="section">
+  <div class="pill pill-amber"><i class="ti ti-tag" aria-hidden="true" style="font-size:10px;margin-right:4px"></i>Section 3 — Marketplace packaging &amp; pricing</div>
+  <h2>Tiered product structure</h2>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pill pill-teal" style="font-size:10px">Starter</div>
+      <div class="pricing-tier">DocIQ Starter</div>
+      <div class="pricing-price">$2,500</div>
+      <div class="pricing-unit">/ month · 1 vertical</div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>1 industry schema bundle (choose 1 vertical)</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Up to 50k pages/month</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Lakeflow ingestion pipeline</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>ai_parse + ai_extract wired</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Genie workspace setup</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Community support</div>
+      <div class="pricing-spacer"></div>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pill pill-blue" style="font-size:10px">Most popular ✦</div>
+      <div class="pricing-tier">DocIQ Professional</div>
+      <div class="pricing-price">$8,500</div>
+      <div class="pricing-unit">/ month · 3 verticals</div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>3 industry schema bundles</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Up to 500k pages/month</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Lakebase document registry</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>AI/BI pre-built dashboards</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Model-selection config</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>MLflow eval loop</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>SLA-backed support (48hr)</div>
+      <div class="pricing-spacer"></div>
+    </div>
+    <div class="pricing-card">
+      <div class="pill pill-coral" style="font-size:10px">Enterprise</div>
+      <div class="pricing-tier">DocIQ Enterprise</div>
+      <div class="pricing-price">Custom</div>
+      <div class="pricing-unit">/ year · all verticals</div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>All 6 vertical schema bundles</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Unlimited pages</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Custom schema development</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Agent Bricks workflow builder</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Multi-region / multi-cloud</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Dedicated CSM + 4hr SLA</div>
+      <div class="pricing-feature"><span class="pricing-check"><i class="ti ti-check" aria-hidden="true"></i></span>Private Databricks exchange</div>
+      <div class="pricing-spacer"></div>
+    </div>
+  </div>
+  <p style="margin-top:.6rem;font-size:12px;color:var(--color-text-tertiary)">Pages consumed above tier include overage at ~$0.002/page — aligns pricing to Databricks DBU consumption model. Enterprise deals are sold as annual Marketplace private offers (co-sell with Databricks field).</p>
+
+  <div style="margin-top:1.25rem">
+  <h3 style="margin-bottom:.75rem">Revenue model &amp; unit economics</h3>
+  <div class="rev-grid">
+    <div class="rev-block">
+      <div class="rev-label">Target ARR Yr 1</div>
+      <div class="rev-val">$1.5M</div>
+    </div>
+    <div class="rev-block">
+      <div class="rev-label">Target ARR Yr 3</div>
+      <div class="rev-val">$12M</div>
+    </div>
+    <div class="rev-block">
+      <div class="rev-label">Est. gross margin</div>
+      <div class="rev-val">72–78%</div>
+    </div>
+    <div class="rev-block">
+      <div class="rev-label">Avg enterprise ACV</div>
+      <div class="rev-val">$120K</div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--color-text-tertiary)">High margin because the marginal cost is Databricks compute (billed to customer's own Databricks account) — your software sits on top. SI/consulting services layer can be sold separately at $250–$350/hr for custom schema development.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ SECTION 5: GTM ═══ -->
+<div class="section">
+  <div class="pill pill-green"><i class="ti ti-rocket" aria-hidden="true" style="font-size:10px;margin-right:4px"></i>Section 4 — Go-to-market roadmap</div>
+  <h2>18-month launch plan</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot active"></div>
+      <div class="tl-phase">Month 0–3 · Build</div>
+      <div class="tl-title">FS vertical MVP + Databricks partner application</div>
+      <div class="tl-body">Build the financial services schema bundle (mortgage, KYC, invoices) on top of Lakebase + ai_parse_document. Apply to the Databricks AI Accelerator Program (up to $250K credits + mentorship). Register as a Marketplace ISV. Ship to 3 design-partner banks for feedback.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot active"></div>
+      <div class="tl-phase">Month 3–6 · Launch</div>
+      <div class="tl-title">Marketplace listing + co-sell activation</div>
+      <div class="tl-body">Publish Starter + Professional tiers on Databricks Marketplace. Activate Databricks co-sell program — get listed in the partner solutions catalog shown to field reps. Speak at Data + AI Summit. Target 10 paying customers in FS and insurance.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-phase">Month 6–10 · Expand</div>
+      <div class="tl-title">Healthcare &amp; legal verticals + SI partnerships</div>
+      <div class="tl-body">Add healthcare (EOB, clinical notes) and legal schema bundles. Sign 2 SI partners (Deloitte, Accenture Databricks practices) to resell and implement. SI deals typically 3–5x the software ACV in services. Target 25 customers, $1.5M ARR.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-phase">Month 10–18 · Scale</div>
+      <div class="tl-title">Enterprise private offers + manufacturing &amp; real estate</div>
+      <div class="tl-body">Structure private offer deals ($100K+ ACV) through AWS / Azure Marketplace. Add manufacturing and real estate verticals. Launch Agent Bricks-powered workflow automation layer (document routing agents). Target $12M ARR by month 24.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ SECTION 6: RISKS ═══ -->
+<div class="section">
+  <div class="pill pill-coral"><i class="ti ti-alert-triangle" aria-hidden="true" style="font-size:10px;margin-right:4px"></i>Section 5 — Key risks &amp; mitigations</div>
+  <h2>Risk register</h2>
+  <div class="risk-row">
+    <div class="risk-name">Databricks ships this natively</div>
+    <div class="risk-sev"><span class="risk-badge sev-high">High</span></div>
+    <div class="risk-mitigation">Databricks builds horizontal; you build vertical schema depth and industry compliance knowledge. Stay 1–2 verticals ahead of their roadmap. The schema library is the defensible layer, not the pipeline plumbing.</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-name">AI function cost changes</div>
+    <div class="risk-sev"><span class="risk-badge sev-med">Medium</span></div>
+    <div class="risk-mitigation">Design model-agnostic extraction so customers can swap to cheaper models. Price on pages, not on AI cost — absorb model cost variations in your margin.</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-name">Lakebase API instability</div>
+    <div class="risk-sev"><span class="risk-badge sev-med">Medium</span></div>
+    <div class="risk-mitigation">Lakebase is in preview. Abstract the OLTP layer behind an interface so it can be swapped to Delta Live Tables if Lakebase APIs change. Don't put critical path logic directly in Postgres until GA.</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-name">Schema accuracy / hallucination</div>
+    <div class="risk-sev"><span class="risk-badge sev-med">Medium</span></div>
+    <div class="risk-mitigation">Ship MLflow evaluation harness with every schema bundle — extraction quality is measurable and improvable. Offer human-in-the-loop review UI for regulated document types where accuracy SLAs matter.</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-name">Sales cycle length in FS / HC</div>
+    <div class="risk-sev"><span class="risk-badge sev-low">Low–Med</span></div>
+    <div class="risk-mitigation">Marketplace listing + self-service Starter tier lets buyers start without procurement. Offer a free 14-day trial with a sample dataset. Use Databricks co-sell to attach to existing deals already in motion.</div>
+  </div>
+</div>
+
+</div>

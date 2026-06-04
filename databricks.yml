@@ -1,0 +1,109 @@
+bundle:
+  name: docubricks
+
+variables:
+  catalog_name:
+    description: Unity Catalog name for DocuBricks
+    default: docubricks_prod
+  tier:
+    description: "Schema bundle tier: community | starter | professional | enterprise"
+    default: community
+  secret_scope:
+    description: Databricks Secret scope containing Lakebase conn + API keys
+    default: docubricks-prod
+  otel_endpoint:
+    description: OpenTelemetry collector endpoint (empty = disabled)
+    default: ""
+  enable_agents:
+    description: Deploy vertical agent Workflow jobs (true | false)
+    default: "false"
+  vertical:
+    description: Primary vertical for this deployment (fs | healthcare | legal)
+    default: fs
+  sql_warehouse_id:
+    description: Serverless SQL warehouse ID for Genie and Gold queries
+    default: ""
+
+include:
+  - resources/pipelines/*.yml
+  - resources/jobs/bootstrap/*.yml
+  - resources/jobs/ops/*.yml
+  - resources/apps/*.yml
+
+workspace:
+  host: ${DATABRICKS_HOST}
+
+targets:
+  dev:
+    mode: development
+    default: true
+    variables:
+      catalog_name: docubricks_dev
+      tier: community
+      enable_agents: "false"
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/docubricks
+
+  staging:
+    variables:
+      catalog_name: docubricks_staging
+      tier: professional
+      enable_agents: "true"
+    workspace:
+      root_path: /Workspace/.bundle/docubricks-staging
+
+  prod:
+    mode: production
+    variables:
+      catalog_name: docubricks_prod
+      tier: enterprise
+      enable_agents: "true"
+    run_as:
+      service_principal_name: docubricks-prod-sp
+    workspace:
+      root_path: /Workspace/.bundle/docubricks-prod
+
+resources:
+  pipelines:
+    ingestion_pipeline:
+      name: "DocuBricks — Ingestion [${bundle.target}]"
+      catalog: ${var.catalog_name}
+      target: bronze
+      channel: PREVIEW
+      serverless: true
+      configuration:
+        catalog_name:   ${var.catalog_name}
+        secret_scope:   ${var.secret_scope}
+        schema_tier:    ${var.tier}
+      libraries:
+        - notebook:
+            path: src/pipelines/bronze/autoloader_ingest.py
+
+    processing_pipeline:
+      name: "DocuBricks — Processing [${bundle.target}]"
+      catalog: ${var.catalog_name}
+      target: silver
+      channel: PREVIEW
+      serverless: true
+      configuration:
+        catalog_name:   ${var.catalog_name}
+        secret_scope:   ${var.secret_scope}
+      libraries:
+        - notebook:
+            path: src/pipelines/silver/parse_classify.py
+        - notebook:
+            path: src/pipelines/silver/extract_router.py
+
+    gold_pipeline:
+      name: "DocuBricks — Gold [${bundle.target}]"
+      catalog: ${var.catalog_name}
+      target: gold
+      channel: PREVIEW
+      serverless: true
+      configuration:
+        catalog_name:   ${var.catalog_name}
+      libraries:
+        - notebook:
+            path: src/pipelines/gold/fs_portfolio.py
+        - notebook:
+            path: src/pipelines/gold/platform_health.py
