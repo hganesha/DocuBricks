@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_004",
+  "document_type": "aml_sar",
+  "description": "Check fraud SAR for business subject",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT SUMMARY\nSAR ID: SAR-2025-00102\nFiler: Prairie State Bank\nFiling Date: 2025-04-16\nSubject Name: Westfield Auto Parts LLC\nSubject Tax ID: XX-XXX1098\nSubject Address: 604 Industrial Road, Peoria, IL 61602\nAccount: XX9981\nActivity Period: 2025-03-12 to 2025-03-28\nActivity Type: Suspected check fraud\nAmount Involved: $31,884.19 USD\nTransaction Count: 5\nLaw Enforcement Contacted: Yes\nBranch Location: Peoria Commercial\nInvestigator: Leah Grant\nNarrative Summary: Deposited checks were returned as altered or fictitious after funds were withdrawn.",
+  "expected_json": {
+    "sar_id": "SAR-2025-00102",
+    "filing_institution_name": "Prairie State Bank",
+    "filing_date": "2025-04-16",
+    "subject_name": "Westfield Auto Parts LLC",
+    "subject_tax_id_masked": "XX-XXX1098",
+    "subject_address": "604 Industrial Road, Peoria, IL 61602",
+    "subject_account_number_masked": "XX9981",
+    "activity_start_date": "2025-03-12",
+    "activity_end_date": "2025-03-28",
+    "suspicious_activity_type": "Suspected check fraud",
+    "amount_involved": 31884.19,
+    "transaction_count": 5,
+    "currency": "USD",
+    "law_enforcement_contacted": true,
+    "narrative_summary": "Deposited checks were returned as altered or fictitious after funds were withdrawn.",
+    "branch_location": "Peoria Commercial",
+    "investigator_name": "Leah Grant"
+  },
+  "expected_avg_confidence": 0.92
+}

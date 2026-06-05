@@ -1,0 +1,37 @@
+resources:
+  jobs:
+    stale_doc_recovery:
+      name: "DocuBricks — Ops: Stale Document Recovery [${bundle.target}]"
+      description: >
+        Scans document_registry for documents that have been in PROCESSING or
+        REVIEW status for longer than the configured SLA window (default: 30 min).
+        Requeues them via reprocessing_queue for automatic retry, and emits a
+        monitoring alert if the backlog exceeds the threshold.
+
+      schedule:
+        quartz_cron_expression: "0 0/15 * * * ?"
+        timezone_id: "UTC"
+        pause_status: UNPAUSED
+
+      tasks:
+        - task_key: run
+          python_file:
+            path: src/ops/stale_doc_recovery.py
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: "Standard_DS3_v2"
+            num_workers: 0
+            spark_conf:
+              spark.master: "local[*, 4]"
+              catalog_name: ${var.catalog_name}
+              secret_scope: ${var.secret_scope}
+            custom_tags:
+              docubricks_component: ops
+              docubricks_job: stale_doc_recovery
+
+      max_concurrent_runs: 1
+      timeout_seconds: 600
+
+      tags:
+        component: ops
+        managed_by: databricks_bundle

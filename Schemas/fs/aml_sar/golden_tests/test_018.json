@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_018",
+  "document_type": "aml_sar",
+  "description": "Credit card bust-out scheme — rapid maxing of credit line, no payment made, account closure triggered",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-02903\nFiling Institution: Trident Consumer Credit Union\nFiling Date: 2024-11-01\nSubject: Kevin Thomas Drummond   Tax ID: XXX-XX-8817\nSubject Address: 1102 Sycamore Hill Court, Charlotte, NC 28205\nAccount: XXXX5506\nActivity Dates: 2024-08-01 to 2024-09-15\nSuspicious Activity Type: Fraud\nAmount Involved: USD 42,800.00   Transaction Count: 38\nLaw Enforcement Contacted: No\nBranch: Charlotte Eastside Branch\nInvestigator: Brenda Fitzgerald\n\nNarrative: Trident Consumer Credit Union is filing this Suspicious Activity Report regarding a credit card bust-out fraud scheme executed through the account of member Kevin Thomas Drummond (date of birth: 04/28/1990). Mr. Drummond has been a credit union member since 2022 and maintained a credit card account with a credit limit of $42,800.\n\nFor approximately eighteen months prior to August 2024, Mr. Drummond maintained the account in good standing with regular monthly payments ranging from $200 to $500, keeping an average utilization ratio below 25%. Beginning on August 1, 2024, the account's spending pattern changed materially. Over the 46-day period ending September 15, 2024, Mr. Drummond made thirty-eight (38) transactions totaling $42,800, effectively exhausting his entire available credit line. Transaction categories included electronics retailers ($14,200), gift card purchases at grocery and pharmacy locations ($11,900), a single jewelry purchase ($6,400), hotel reservations ($5,300), and general merchandise ($5,000).\n\nNo payment was received on the account after July's scheduled minimum payment. The August statement balance of $18,600 went unpaid. The September statement cycle closed with the account fully utilized at $42,800. A payment due notice generated on September 22, 2024 went unanswered. Attempts to contact Mr. Drummond by phone, email, and mailed correspondence produced no response. A review of the address on file for Mr. Drummond revealed that the property is a rental unit listed as vacant since September 1, 2024, on public utility records.\n\nThe gift card purchases are a particular concern as they represent a commonly identified cash-out mechanism in credit card fraud. The geographic spread of transactions across six states over the 46-day period further suggests coordinated bust-out activity. The account has been charged off. No prior SARs are on file for Mr. Drummond.",
+  "expected_json": {
+    "sar_id": "SAR-2024-02903",
+    "filing_institution_name": "Trident Consumer Credit Union",
+    "filing_date": "2024-11-01",
+    "subject_name": "Kevin Thomas Drummond",
+    "subject_tax_id_masked": "XXX-XX-8817",
+    "subject_address": "1102 Sycamore Hill Court, Charlotte, NC 28205",
+    "subject_account_number_masked": "XXXX5506",
+    "activity_start_date": "2024-08-01",
+    "activity_end_date": "2024-09-15",
+    "suspicious_activity_type": "Fraud",
+    "amount_involved": 42800.00,
+    "transaction_count": 38,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "A credit union member with 18 months of responsible payment history rapidly exhausted a $42,800 credit line over 46 days through gift card purchases, electronics, and scattered multi-state transactions, then became completely uncontactable and vacated his known address, resulting in a charge-off. The pattern is consistent with a deliberate credit card bust-out fraud scheme.",
+    "branch_location": "Charlotte Eastside Branch",
+    "investigator_name": "Brenda Fitzgerald"
+  },
+  "expected_avg_confidence": 0.91
+}

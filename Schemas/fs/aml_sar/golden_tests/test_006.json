@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_006",
+  "document_type": "aml_sar",
+  "description": "Structuring (smurfing) via repeated sub-threshold cash deposits at same branch over three weeks",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-00831\nFiling Institution: Cornerstone Federal Savings Bank\nFiling Date: 2024-04-15\nSubject: Maria Elena Vásquez   Tax ID: XXX-XX-4402\nSubject Address: 88 Pinecrest Avenue, Phoenix, AZ 85016\nAccount: XXXX3317\nActivity Dates: 2024-03-04 to 2024-03-22\nSuspicious Activity Type: Structuring\nAmount Involved: USD 89,450.00   Transaction Count: 12\nLaw Enforcement Contacted: No\nBranch: Phoenix Central Branch\nInvestigator: Daniel Okafor\n\nNarrative: Cornerstone Federal Savings Bank is filing this Suspicious Activity Report regarding structuring activity conducted by Maria Elena Vásquez (date of birth: 03/17/1981), a personal checking account holder since 2019. Beginning on March 4, 2024, and continuing through March 22, 2024, Ms. Vásquez conducted twelve (12) cash deposits at the Phoenix Central Branch, each ranging from $7,200 to $9,800, none of which individually triggered Currency Transaction Report (CTR) filing requirements under 31 U.S.C. § 5313. All transactions were conducted at the same teller window location between the hours of 10:00 a.m. and 2:00 p.m. on weekdays. The aggregate amount deposited during the review period totaled $89,450.\n\nBank staff noted that Ms. Vásquez's prior account activity reflected average monthly deposits of approximately $3,200, consistent with her reported occupation as a part-time retail associate. The sudden increase in deposit frequency and aggregate amounts was inconsistent with her known financial profile. On two occasions, Ms. Vásquez was observed arriving at the branch with a second individual who waited outside and did not enter the building.\n\nWhen a teller inquired about the source of funds on March 14, 2024, Ms. Vásquez stated the funds came from 'family contributions' but declined to provide further details. The bank's transaction monitoring system flagged the pattern on March 20, 2024, and a compliance review was initiated. A review of surveillance footage confirmed the same individual accompanied Ms. Vásquez on at least four separate visit dates.\n\nThe filing institution believes the structured deposit pattern is consistent with efforts to evade federal CTR reporting requirements. No prior SARs have been filed on this customer. Law enforcement has not been contacted at this time.",
+  "expected_json": {
+    "sar_id": "SAR-2024-00831",
+    "filing_institution_name": "Cornerstone Federal Savings Bank",
+    "filing_date": "2024-04-15",
+    "subject_name": "Maria Elena Vásquez",
+    "subject_tax_id_masked": "XXX-XX-4402",
+    "subject_address": "88 Pinecrest Avenue, Phoenix, AZ 85016",
+    "subject_account_number_masked": "XXXX3317",
+    "activity_start_date": "2024-03-04",
+    "activity_end_date": "2024-03-22",
+    "suspicious_activity_type": "Structuring",
+    "amount_involved": 89450.00,
+    "transaction_count": 12,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "Subject conducted twelve sub-threshold cash deposits totaling $89,450 over three weeks at the same branch, a pattern inconsistent with her known financial profile and consistent with CTR evasion. A second unidentified individual was observed accompanying the subject on multiple visit dates.",
+    "branch_location": "Phoenix Central Branch",
+    "investigator_name": "Daniel Okafor"
+  },
+  "expected_avg_confidence": 0.93
+}

@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_001",
+  "document_type": "invoice",
+  "description": "Standard services invoice with PO and tax",
+  "parsed_text": "INVOICE\nInvoice #: INV-2025-1042\nInvoice Date: 2025-01-10   Due Date: 2025-02-09\nVendor: Northline Analytics LLC   Tax ID: XX-XXX4930\nVendor Address: 1200 Market Street, Denver, CO 80202\nBill To: Acme Retail Group\nCustomer Address: 88 Commerce Drive, Omaha, NE 68102\nPO Number: PO-77814\nTerms: Net 30   Currency: USD\nLine Items: 3\nSubtotal: $12,400.00\nTax: $992.00\nShipping: $0.00\nDiscount: $500.00\nTotal: $12,892.00\nAmount Due: $12,892.00",
+  "expected_json": {
+    "invoice_number": "INV-2025-1042",
+    "invoice_date": "2025-01-10",
+    "due_date": "2025-02-09",
+    "vendor_name": "Northline Analytics LLC",
+    "vendor_tax_id_masked": "XX-XXX4930",
+    "vendor_address": "1200 Market Street, Denver, CO 80202",
+    "customer_name": "Acme Retail Group",
+    "customer_address": "88 Commerce Drive, Omaha, NE 68102",
+    "purchase_order_number": "PO-77814",
+    "currency": "USD",
+    "subtotal": 12400.00,
+    "tax_amount": 992.00,
+    "shipping_amount": 0.00,
+    "discount_amount": 500.00,
+    "total_amount": 12892.00,
+    "amount_due": 12892.00,
+    "payment_terms": "Net 30",
+    "line_item_count": 3
+  },
+  "expected_avg_confidence": 0.95
+}

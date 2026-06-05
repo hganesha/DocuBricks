@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_011",
+  "document_type": "invoice",
+  "description": "Vendor rebate invoice for quarterly purchase volume tier with rebate percentage applied",
+  "parsed_text": "REBATE CREDIT INVOICE\nInvoice #: RBI-2025-Q2-0044\nIssue Date: 2025-07-15   Payment Due: 2025-08-14\nIssued By: Apex Distribution Partners LLC\nVendor Tax ID: XX-XXX8810\nVendor Address: 2100 Wholesale Way, Kansas City, MO 64108\nIssued To: Cornerstone Home Goods Inc.\nAccounts Receivable, 330 Meridian Ave, Indianapolis, IN 46204\nAccount Number: APEX-CHG-2201\nPO/Agreement Reference: MSA-2025-0017\nPayment Terms: Net 30   Currency: USD\n\nQuarterly Rebate Calculation — Q2 2025 (April 1 – June 30, 2025):\n\nTotal Q2 Net Purchases (per sales ledger):    $847,320.00\n\nRebate Tier Achieved:\n  Tier 1: $0 – $500,000          Rebate Rate: 1.00%\n  Tier 2: $500,001 – $750,000    Rebate Rate: 1.75%  ← Tier achieved through $750,000\n  Tier 3: $750,001 and above     Rebate Rate: 2.50%  ← Tier achieved on $97,320.00 excess\n\nRebate Calculation Detail:\n1. Tier 1 Rebate — $500,000 x 1.00%            $5,000.00\n2. Tier 2 Rebate — $250,000 x 1.75%            $4,375.00\n3. Tier 3 Rebate — $97,320.00 x 2.50%          $2,433.00\n\nTotal Rebate Amount Due:                       $11,808.00\nTax:                                                $0.00\n\nThis rebate invoice represents amounts owed by Apex Distribution Partners LLC to Cornerstone Home Goods Inc. per Section 7 of Master Supply Agreement MSA-2025-0017.\nPayment will be made via ACH to account on file.\nQuestions: rebates@apexdist.com | 816-555-0275",
+  "expected_json": {
+    "invoice_number": "RBI-2025-Q2-0044",
+    "invoice_date": "2025-07-15",
+    "due_date": "2025-08-14",
+    "vendor_name": "Apex Distribution Partners LLC",
+    "vendor_tax_id_masked": "XX-XXX8810",
+    "vendor_address": "2100 Wholesale Way, Kansas City, MO 64108",
+    "customer_name": "Cornerstone Home Goods Inc.",
+    "customer_address": "330 Meridian Ave, Indianapolis, IN 46204",
+    "purchase_order_number": "MSA-2025-0017",
+    "currency": "USD",
+    "subtotal": 11808.00,
+    "tax_amount": 0.00,
+    "shipping_amount": null,
+    "discount_amount": null,
+    "total_amount": 11808.00,
+    "amount_due": 11808.00,
+    "payment_terms": "Net 30",
+    "line_item_count": 3
+  },
+  "expected_avg_confidence": 0.84
+}

@@ -1,0 +1,79 @@
+{
+  "total_contract_value": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "Contract value drives accounts payable/receivable workflows, budget tracking, and financial reporting; errors cascade to P&L impacts and procurement thresholds"
+  },
+  "sow_number": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "SOW number is the primary identifier for linking invoices, purchase orders, and deliverable tracking; extraction errors cause reconciliation failures"
+  },
+  "payment_terms": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Payment terms directly drive invoice automation and cash flow management; inaccurate extraction causes late payments or disputes"
+  },
+  "ip_ownership": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "IP ownership classification affects asset registration, licensing strategy, and competitive positioning; errors have long-term legal consequences"
+  },
+  "effective_date": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Effective date anchors SLA obligations, billing start, and project timeline; must be accurately extracted"
+  },
+  "end_date": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "End date triggers project close-out, final invoicing, and renewal evaluation; accuracy required for contract lifecycle management"
+  },
+  "client_name": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Client identity required for CRM linkage, revenue attribution, and contract reporting"
+  },
+  "vendor_name": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Vendor identity required for vendor management, OFAC screening, and payment routing"
+  },
+  "pricing_model": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Pricing model determines billing automation logic and financial controls; errors cause incorrect invoice processing"
+  },
+  "deliverables": {
+    "min_confidence": 0.80,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Deliverable list drives project milestone tracking and acceptance workflow; incomplete extraction causes gaps in obligation management"
+  },
+  "governing_law": {
+    "min_confidence": 0.82,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Governing law determines applicable contract and dispute rules; lower threshold acceptable as this rarely changes payment workflows"
+  }
+}

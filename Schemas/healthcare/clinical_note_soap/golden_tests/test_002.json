@@ -1,0 +1,51 @@
+{
+  "test_case_id": "soap_002",
+  "document_type": "clinical_note_soap",
+  "description": "Emergency department visit note — chest pain workup, rule-out ACS, ST changes on ECG",
+  "parsed_text": "EMERGENCY DEPARTMENT VISIT NOTE\nMetroGeneral Hospital — Emergency Department\nEncounter ID: ED-2025-1103-004421\nDate/Time: 2025-11-03 02:14\n\nPatient: Patel, Vikram S.\nDOB: 1957-03-18\nMRN: MGH-0887453\n\nProvider: Dr. Rebecca Okafor, MD, FACEP\nNPI: 9988776655\nSpecialty: Emergency Medicine\n\n---\nCHIEF COMPLAINT\nChest pain, onset 1 hour ago, radiating to left arm.\n\nSUBJECTIVE\n68-year-old male brought by EMS for acute onset chest pain beginning approximately 1 hour PTA. Pain described as pressure-like, 7/10 severity, radiating to left arm and jaw. Associated with diaphoresis and mild dyspnea. History of HTN, hyperlipidemia, former smoker (quit 10 years ago). Takes amlodipine and atorvastatin at home. Denies fever, vomiting, syncope.\n\nOBJECTIVE\nVitals on arrival:\n  BP: 158/98 mmHg   HR: 102 bpm   Temp: 98.8°F   RR: 20 breaths/min\n  SpO2: 94% on room air (improved to 98% on 4L O2 NC)   Weight: 196 lbs\n\nPhysical Exam: Diaphoretic, pale, mild distress. CV: Tachycardic, regular rhythm, no murmur. Lungs: Mild bibasilar crackles. Abdomen: Soft. No leg edema.\n\n12-lead ECG: Sinus tachycardia. ST depression 1.5 mm leads V4-V6 and I, aVL. No ST elevation. No new LBBB.\nInitial Troponin-I: 0.04 ng/mL (upper limit normal 0.03) — mildly elevated.\nChest X-ray: No acute infiltrate, mild cardiomegaly.\n\nASSESSMENT\n1. Non-ST Elevation Myocardial Infarction (NSTEMI), suspected (I21.4) — ST depression and rising troponin in high-risk chest pain presentation.\n2. Hypertension (I10) — Chronic, BP elevated on presentation.\n3. Hyperlipidemia (E78.5) — Chronic, on statin.\n\nPLAN\n1. Aspirin 325 mg PO given in ED. Heparin infusion started per ACS protocol.\n2. Cardiology consult placed — STAT. Dr. Huang paged.\n3. Repeat troponin at 3 hours. Continuous cardiac monitoring.\n4. Nitroglycerin 0.4 mg SL x1 given — chest pain improved to 3/10.\n5. Metoprolol 25 mg PO administered.\n6. Admit to Cardiac Care Unit (CCU) for further workup and possible cardiac catheterization.\n7. NPO after midnight.\n\nFollow-up: Inpatient admission — cardiology to manage.\n\nElectronically signed: Dr. Rebecca Okafor, MD, FACEP — 2025-11-03 03:45",
+  "expected_json": {
+    "note_date": "2025-11-03",
+    "note_type": "Progress",
+    "document_id": "ED-2025-1103-004421",
+    "provider_name": "Dr. Rebecca Okafor, MD, FACEP",
+    "provider_npi": "9988776655",
+    "provider_specialty": "Emergency Medicine",
+    "patient_name": "Patel, Vikram S.",
+    "patient_dob": "1957-03-18",
+    "patient_mrn": "MGH-0887453",
+    "facility_name": "MetroGeneral Hospital",
+    "department": "Emergency Department",
+    "chief_complaint": "Chest pain, onset 1 hour ago, radiating to left arm.",
+    "subjective_summary": "68-year-old male, acute onset pressure-like chest pain 7/10, radiating to left arm and jaw, with diaphoresis and dyspnea. Hx HTN, hyperlipidemia, former smoker. Takes amlodipine and atorvastatin...",
+    "objective_vitals": {
+      "bp": "158/98 mmHg",
+      "hr": "102 bpm",
+      "temp": "98.8°F",
+      "rr": "20 breaths/min",
+      "spo2": "94% on room air",
+      "weight": "196 lbs"
+    },
+    "assessment_diagnoses": [
+      {
+        "icd10_code": "I21.4",
+        "description": "Non-ST Elevation Myocardial Infarction (NSTEMI), suspected",
+        "status": "New"
+      },
+      {
+        "icd10_code": "I10",
+        "description": "Hypertension",
+        "status": "Chronic"
+      },
+      {
+        "icd10_code": "E78.5",
+        "description": "Hyperlipidemia",
+        "status": "Chronic"
+      }
+    ],
+    "plan_summary": "Aspirin 325 mg and heparin infusion started. Cardiology STAT consult. Repeat troponin at 3h, cardiac monitoring. Nitroglycerin given. Metoprolol 25 mg PO. Admit to CCU, possible cardiac cath, NPO...",
+    "medications_mentioned": ["aspirin", "heparin", "nitroglycerin", "metoprolol", "amlodipine", "atorvastatin"],
+    "follow_up_instructions": "Inpatient admission — cardiology to manage.",
+    "follow_up_timeframe": null
+  },
+  "expected_avg_confidence": 0.90
+}

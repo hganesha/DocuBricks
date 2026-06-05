@@ -1,0 +1,37 @@
+{
+  "customer_name": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Primary identity field for CIP and sanctions screening."
+  },
+  "customer_type": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Controls individual versus entity onboarding workflow."
+  },
+  "tax_id_masked": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Masked tax identifier supports CIP matching without storing full sensitive value."
+  },
+  "risk_rating": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Risk rating drives ongoing monitoring cadence."
+  },
+  "beneficial_owner_name": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Beneficial owner identity is required for covered legal entity CDD."
+  }
+}

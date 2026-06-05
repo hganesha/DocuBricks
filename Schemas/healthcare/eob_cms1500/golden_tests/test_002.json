@@ -1,0 +1,32 @@
+{
+  "test_case_id": "eob_cms1500_002",
+  "document_type": "eob_cms1500",
+  "description": "Denied claim — pre-authorization required, orthopedic specialist visit, Aetna commercial plan",
+  "parsed_text": "EXPLANATION OF BENEFITS — CLAIM DENIED\nAetna Life Insurance Company\n151 Farmington Avenue, Hartford, CT 06156\nPayer ID: 60054\n\nSubscriber: Williams, Patricia M.\nMember ID: W123456789\nGroup Number: 0088774\nDate of Birth: 1975-11-03\n\nProvider: Northside Orthopedic Specialists, PC\nBilling NPI: 2109876543\nRendering Provider NPI: 2109876543\n\nCLAIM INFORMATION\nClaim Number: AET-2025-CLM-554901\nDate(s) of Service: 10/02/2025 — 10/02/2025\nDate Received: 10/07/2025\nDate Processed: 10/09/2025\nClaim Status: DENIED\n\nSERVICE LINE DETAIL\n------------------------------------------------------------------------------------\nLine  CPT    Modifier  ICD-10  Date        Billed    Allowed   Paid    Reason\n------------------------------------------------------------------------------------\n1     99244    --       M17.11  10/02/2025  $320.00   $0.00     $0.00   CO-96\n------------------------------------------------------------------------------------\n\nDiagnosis Codes: M17.11 (Primary osteoarthritis, right knee)\n\nFINANCIAL SUMMARY\nTotal Billed:               $320.00\nTotal Allowed:              $0.00\nTotal Plan Paid:            $0.00\nYour Responsibility:        $0.00 (pending appeal/authorization)\n\nDENIAL INFORMATION\nDenial Reason Code: CO-96\nDenial Description: Non-covered charge. Services require prior authorization per your plan benefits. Prior authorization was not obtained before services were rendered.\n\nREMARK CODES: N4, MA130\n\nAPPEAL RIGHTS: You have the right to appeal this decision within 180 days of this notice. To appeal, contact Aetna Member Services at 1-800-872-3862 or submit written appeal to the address above.\n\nThis is not a bill.",
+  "expected_json": {
+    "claim_number": "AET-2025-CLM-554901",
+    "patient_name": "Williams, Patricia M.",
+    "patient_dob": "1975-11-03",
+    "patient_member_id": "W123456789",
+    "provider_name": "Northside Orthopedic Specialists, PC",
+    "provider_npi": "2109876543",
+    "rendering_provider_npi": "2109876543",
+    "payer_name": "Aetna Life Insurance Company",
+    "payer_id": "60054",
+    "group_number": "0088774",
+    "date_of_service_from": "2025-10-02",
+    "date_of_service_to": "2025-10-02",
+    "procedure_codes": ["99244"],
+    "diagnosis_codes": ["M17.11"],
+    "billed_amount": 320.00,
+    "allowed_amount": 0.00,
+    "paid_amount": 0.00,
+    "patient_responsibility": 0.00,
+    "claim_status": "Denied",
+    "denial_reason_code": "CO-96",
+    "remark_codes": ["N4", "MA130"],
+    "service_facility_name": null,
+    "service_facility_npi": null
+  },
+  "expected_avg_confidence": 0.91
+}

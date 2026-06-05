@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_001",
+  "document_type": "aml_sar",
+  "description": "Structuring SAR with complete dates and amount",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2025-00041\nFiling Institution: Lakeview National Bank\nFiling Date: 2025-01-28\nSubject: Thomas Gray   Tax ID: XXX-XX-7721\nSubject Address: 15 Oak Bend Road, Tulsa, OK 74103\nAccount: XXXX8821\nActivity Dates: 2024-12-04 to 2025-01-18\nSuspicious Activity Type: Structuring\nAmount Involved: USD 48,750.00   Transaction Count: 14\nLaw Enforcement Contacted: No\nBranch: Tulsa Downtown\nInvestigator: Renee Walker\nNarrative: Subject made repeated cash deposits below reporting thresholds across multiple business days.",
+  "expected_json": {
+    "sar_id": "SAR-2025-00041",
+    "filing_institution_name": "Lakeview National Bank",
+    "filing_date": "2025-01-28",
+    "subject_name": "Thomas Gray",
+    "subject_tax_id_masked": "XXX-XX-7721",
+    "subject_address": "15 Oak Bend Road, Tulsa, OK 74103",
+    "subject_account_number_masked": "XXXX8821",
+    "activity_start_date": "2024-12-04",
+    "activity_end_date": "2025-01-18",
+    "suspicious_activity_type": "Structuring",
+    "amount_involved": 48750.00,
+    "transaction_count": 14,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "Subject made repeated cash deposits below reporting thresholds across multiple business days.",
+    "branch_location": "Tulsa Downtown",
+    "investigator_name": "Renee Walker"
+  },
+  "expected_avg_confidence": 0.94
+}

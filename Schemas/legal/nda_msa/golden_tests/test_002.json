@@ -1,0 +1,40 @@
+{
+  "test_case_id": "nda_msa_002",
+  "document_type": "nda_msa",
+  "description": "One-way NDA, vendor receives confidential info from disclosing party, perpetual term, New York governing law",
+  "parsed_text": "NON-DISCLOSURE AGREEMENT\n(One-Way / Unilateral)\n\nThis Non-Disclosure Agreement (\"Agreement\") is made effective as of March 3, 2025 (\"Effective Date\") between:\n\nPinnacle Financial Group, Inc., a New York corporation (\"Disclosing Party\"), having its principal offices at 1251 Avenue of the Americas, New York, NY 10020, and\n\nDataSift Analytics Corp., a New Jersey corporation (\"Receiving Party\"), having its principal offices at 100 Overlook Center, Princeton, NJ 08540.\n\nBACKGROUND. Disclosing Party is considering engaging Receiving Party to provide data analytics and business intelligence services (the \"Proposed Transaction\"). In connection with evaluating the Proposed Transaction, Disclosing Party may disclose to Receiving Party certain proprietary and confidential business information.\n\n1. CONFIDENTIAL INFORMATION. As used herein, \"Confidential Information\" means all non-public information relating to Disclosing Party's business, operations, technology, financial data, client lists, trading strategies, pricing models, risk management methodologies, and any other information designated as confidential or proprietary, whether disclosed orally, in writing, electronically, or by any other means.\n\n2. EXCLUSIONS FROM CONFIDENTIAL INFORMATION. The obligations of this Agreement shall not apply to information that: (i) is or becomes part of the public domain without fault of Receiving Party; (ii) was already known to Receiving Party at the time of disclosure as evidenced by prior written records; (iii) is independently developed by Receiving Party without reference to Confidential Information; or (iv) is required to be disclosed by law, regulation, or court order, provided that Receiving Party provides prompt prior written notice to Disclosing Party.\n\n3. USE RESTRICTIONS. Receiving Party shall use Confidential Information solely for the purpose of evaluating and, if applicable, performing the Proposed Transaction. Receiving Party shall not disclose Confidential Information to any third party without the prior written consent of Disclosing Party.\n\n4. OBLIGATIONS. Receiving Party shall: (a) hold all Confidential Information in strict confidence; (b) not copy or reproduce Confidential Information except as necessary for evaluation purposes; (c) restrict access to those personnel with a need to know; and (d) protect Confidential Information with at least the same care used to protect its own most sensitive confidential information.\n\n5. TERM. This Agreement shall be effective as of the Effective Date and shall continue indefinitely unless terminated by mutual written agreement of the parties. The confidentiality obligations shall survive any termination of this Agreement and shall remain in effect in perpetuity with respect to any Confidential Information disclosed hereunder.\n\n6. RETURN OF INFORMATION. Upon written request by Disclosing Party, Receiving Party shall promptly return all Confidential Information and all copies thereof, or at Disclosing Party's option, shall certify in writing that all such materials have been destroyed.\n\n7. LIQUIDATED DAMAGES. In the event of an unauthorized disclosure by Receiving Party, Receiving Party shall pay to Disclosing Party liquidated damages in the amount of $500,000.00 per incident of unauthorized disclosure, which the parties agree represents a reasonable estimate of the damages that would be difficult to quantify precisely.\n\n8. NON-SOLICITATION. Receiving Party agrees that, during the term of this Agreement and for a period of two (2) years after termination, it will not, directly or indirectly, solicit for employment or engagement any employee or contractor of Disclosing Party.\n\n9. GOVERNING LAW AND JURISDICTION. This Agreement shall be governed by and construed in accordance with the laws of the State of New York, without regard to conflict of law principles. Any dispute shall be resolved exclusively in the courts of New York County, New York.\n\n10. ENTIRE AGREEMENT. This Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes all prior discussions and understandings.\n\nPinnacle Financial Group, Inc.                   DataSift Analytics Corp.\nBy: /s/ Catherine Weller                         By: /s/ Priya Menon\nName: Catherine Weller                           Name: Priya Menon\nTitle: General Counsel                           Title: CEO\nDate: March 3, 2025                              Date: March 3, 2025",
+  "expected_json": {
+    "agreement_type": "NDA",
+    "effective_date": "2025-03-03",
+    "expiration_date": null,
+    "auto_renew": false,
+    "renewal_notice_days": null,
+    "amendment_number": null,
+    "party_1_name": "Pinnacle Financial Group, Inc.",
+    "party_1_role": "Disclosing",
+    "party_1_state": "NY",
+    "party_2_name": "DataSift Analytics Corp.",
+    "party_2_role": "Receiving",
+    "party_2_state": "NJ",
+    "governing_law": "NY",
+    "confidentiality_period_years": null,
+    "confidentiality_scope": "Non-public information on business, operations, technology, financials, client lists, trading strategies, pricing models, and risk management methodologies",
+    "permitted_uses": [
+      "Evaluating the Proposed Transaction",
+      "Performing the Proposed Transaction if applicable"
+    ],
+    "excluded_information": [
+      "Information in the public domain without fault of Receiving Party",
+      "Information already known to Receiving Party at time of disclosure",
+      "Independently developed information without reference to Confidential Information",
+      "Information required to be disclosed by law, regulation, or court order"
+    ],
+    "return_or_destroy_obligation": true,
+    "non_solicitation_clause": true,
+    "non_compete_clause": false,
+    "liquidated_damages_amount": 500000.00,
+    "arbitration_clause": false,
+    "arbitration_venue": null
+  },
+  "expected_avg_confidence": 0.94
+}

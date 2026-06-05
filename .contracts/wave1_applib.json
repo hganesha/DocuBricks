@@ -1,0 +1,65 @@
+{
+  "wave": 1,
+  "agent": "applib",
+  "status": "COMPLETE",
+  "import_base": "from lib.<module> import ...",
+  "modules": {
+    "lakebase":       "apps/lib/lakebase.py",
+    "sql_warehouse":  "apps/lib/sql_warehouse.py",
+    "auth":           "apps/lib/auth.py",
+    "genie":          "apps/lib/genie.py",
+    "databricks_api": "apps/lib/databricks_api.py",
+    "otel":           "apps/lib/otel.py",
+    "theme":          "apps/lib/theme.py"
+  },
+  "components": {
+    "confidence_badge":  "apps/lib/components/confidence_badge.py",
+    "status_tracker":    "apps/lib/components/status_tracker.py",
+    "field_editor":      "apps/lib/components/field_editor.py",
+    "document_viewer":   "apps/lib/components/document_viewer.py",
+    "vertical_selector": "apps/lib/components/vertical_selector.py"
+  },
+  "key_functions": {
+    "lakebase_conn":          "context manager → psycopg2 connection (commit/rollback/return to pool)",
+    "lb_query":               "(sql: str, params: tuple = ()) -> list[dict]",
+    "lb_exec":                "(sql: str, params: tuple = ()) -> int (rowcount)",
+    "lb_exec_returning":      "(sql: str, params: tuple = ()) -> dict | None",
+    "wh_query":               "(sql_text: str, params: tuple = ()) -> list[dict]",
+    "wh_query_df":            "(sql_text: str, params: tuple = ()) -> pd.DataFrame",
+    "get_session":            "() -> {user_email, tenant_id, role} — reads X-Forwarded-User header",
+    "require_role":           "(user_email, tenant_id, min_role: 'viewer'|'reviewer'|'admin') -> None",
+    "ask_genie":              "(space_id: str, question: str, timeout: int = 60) -> str",
+    "upload_to_volume":       "(file_bytes, document_id, tenant_id, vertical, file_ext) -> str (volume_path)",
+    "trigger_pipeline":       "(document_id, tenant_id) -> str (run_id)",
+    "get_job_run_status":     "(run_id: str) -> dict {state, result_state, state_message}",
+    "apply_docubricks_theme": "() -> None — call once at app entry point",
+    "confidence_badge":       "(score: float|None, label: str = 'Confidence') -> None",
+    "confidence_bar":         "(field_scores: dict[str, float]) -> None",
+    "status_tracker":         "(document_id: str, poll_interval: float = 2.0) -> str (final_status)",
+    "field_editor":           "(fields, confidence_scores=None, editable=True, skip_fields=None) -> dict[str,str]",
+    "field_diff_view":        "(original: dict, corrected: dict) -> None",
+    "document_viewer":        "(source_path: str, height: int = 600) -> None",
+    "document_thumbnail":     "(source_path: str) -> None",
+    "vertical_selector":      "(tenant_id: str) -> str (vertical code)",
+    "genie_space_for":        "(vertical: str) -> str (Genie space ID)"
+  },
+  "otel_instruments": {
+    "tracer":               "trace.get_tracer('docubricks') — import from lib.otel",
+    "docs_uploaded":        "Counter(unit='1')",
+    "processing_duration":  "Histogram(unit='s')",
+    "extraction_confidence":"Histogram(unit='1')",
+    "review_queue_depth":   "UpDownCounter(unit='1')",
+    "genie_latency":        "Histogram(unit='s')"
+  },
+  "env_vars_required": [
+    "LAKEBASE_CONN",
+    "DATABRICKS_HOST",
+    "DATABRICKS_TOKEN",
+    "SQL_WH_HTTP_PATH",
+    "PIPELINE_JOB_ID",
+    "GENIE_SPACE_ID_FS",
+    "OTEL_EXPORTER_OTLP_ENDPOINT (optional)"
+  ],
+  "status_terminal_states": ["COMPLETE", "QUARANTINE", "FAILED", "REVIEW"],
+  "confidence_thresholds": {"high": 0.85, "medium": 0.65, "low": 0.0}
+}

@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_020",
+  "document_type": "aml_sar",
+  "description": "Elder financial exploitation — large wire transfers from elderly customer's account to a newly added unknown beneficiary",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-01633\nFiling Institution: Riverside Savings & Loan Association\nFiling Date: 2024-08-05\nSubject: Eleanor Ruth Carmichael   Tax ID: XXX-XX-3301\nSubject Address: 14 Birchwood Circle, Scottsdale, AZ 85251\nAccount: XXXX0047\nActivity Dates: 2024-05-10 to 2024-07-22\nSuspicious Activity Type: Fraud\nAmount Involved: USD 318,500.00   Transaction Count: 7\nLaw Enforcement Contacted: Yes\nBranch: Scottsdale Main Branch\nInvestigator: Dorothy Ingram\n\nNarrative: Riverside Savings & Loan Association is filing this Suspicious Activity Report regarding suspected elder financial exploitation affecting the accounts of Eleanor Ruth Carmichael (date of birth: 02/14/1938), an 86-year-old long-standing customer who has maintained accounts at Riverside Savings & Loan since 1979.\n\nMrs. Carmichael's account history reflected stable monthly activity consistent with a retiree drawing Social Security and pension distributions, with modest outgoing bill payments and occasional small check issuances averaging $2,400 per month. No wire transfers appeared in her account history during the five years preceding the review period.\n\nBeginning May 10, 2024, the bank identified seven (7) outgoing wire transfers from Mrs. Carmichael's checking and savings accounts totaling $318,500. The wire instructions named a single beneficiary: 'Global Prosperity Trust LLC,' account at Premier Online Bank, with no street address on record with Riverside. The wires were authorized by Mrs. Carmichael in person at the branch on each occasion, with amounts ranging from $28,000 to $65,000. On her third visit, a branch teller noted that Mrs. Carmichael was accompanied by an individual who identified himself as her 'financial advisor,' Mr. Curtis Wade, who remained close to Mrs. Carmichael throughout the transaction and answered questions on her behalf.\n\nOn June 18, 2024, the branch manager contacted Mrs. Carmichael's daughter, listed as an emergency contact on the account, to discuss the unusual wire activity. The daughter stated she was unaware of any financial advisor named Curtis Wade and that her mother had recently begun receiving telephone calls from an individual claiming to represent a sweepstakes prize organization. Mrs. Carmichael's daughter accompanied her mother to the branch on June 20, 2024, at which time Mrs. Carmichael appeared confused about the total amount that had been wired.\n\nThe bank immediately suspended outbound wire capability on Mrs. Carmichael's accounts and contacted Scottsdale Police Department on June 20, 2024. Adult Protective Services was also notified. A review of open-source records identified no registered financial advisory firm or individual named Curtis Wade in Arizona. No prior SARs are on file for this customer.",
+  "expected_json": {
+    "sar_id": "SAR-2024-01633",
+    "filing_institution_name": "Riverside Savings & Loan Association",
+    "filing_date": "2024-08-05",
+    "subject_name": "Eleanor Ruth Carmichael",
+    "subject_tax_id_masked": "XXX-XX-3301",
+    "subject_address": "14 Birchwood Circle, Scottsdale, AZ 85251",
+    "subject_account_number_masked": "XXXX0047",
+    "activity_start_date": "2024-05-10",
+    "activity_end_date": "2024-07-22",
+    "suspicious_activity_type": "Fraud",
+    "amount_involved": 318500.00,
+    "transaction_count": 7,
+    "currency": "USD",
+    "law_enforcement_contacted": true,
+    "narrative_summary": "An 86-year-old long-standing customer with no prior wire history authorized seven outgoing wires totaling $318,500 to an unverifiable LLC beneficiary over ten weeks, accompanied on branch visits by an unregistered individual claiming to be her financial advisor who answered questions on her behalf. Law enforcement and Adult Protective Services were notified after family confirmed the customer had been targeted by a sweepstakes telephone scam.",
+    "branch_location": "Scottsdale Main Branch",
+    "investigator_name": "Dorothy Ingram"
+  },
+  "expected_avg_confidence": 0.93
+}

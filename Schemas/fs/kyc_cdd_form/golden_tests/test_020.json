@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_020",
+  "document_type": "kyc_cdd_form",
+  "description": "Periodic CDD refresh for existing retail customer resulting in a risk upgrade from Low to Medium with Enhanced Due Diligence now required",
+  "parsed_text": "PERIODIC CDD REFRESH — RISK RATING CHANGE NOTIFICATION\nCustomer Name: Beverly Okafor\nCustomer Type: Individual\nCustomer Since: 2019-03-04\nDate of Birth: 1977-06-19   SSN: XXX-XX-9933\nAddress: 1045 Maple Grove Avenue, Columbus, OH 43215, USA\nPhone: (614) 555-0177   Email: b.okafor@example.com\nOccupation (Updated): Sole Proprietor — Okafor Wellness Consulting (Est. 2023)\nPrior Occupation on File: Registered Nurse, OhioHealth System (2019–2022)\nSource of Funds (Updated): Business consulting income, freelance coaching fees\nExpected Monthly Activity (Updated): $42,000 (prior: $7,500)\n\nPRIOR RISK PROFILE\nPrior Risk Rating: Low\nPrior CDD Level: Standard\nLast Review Date: 2023-01-10   Last Reviewer: Craig Dobbs\n\nCHANGE TRIGGERS IDENTIFIED AT REFRESH\n1. Significant increase in expected monthly activity: $7,500 → $42,000 (+460%).\n2. Change in occupation: Salaried nurse to self-employed sole proprietor.\n3. Transaction monitoring alert (TMA-2025-XXXX4401): Three cash deposits exceeding $8,000 each within 30-day period (September 2025) — pattern inconsistent with prior profile.\n4. New wire activity to international beneficiary (Jamaica) not previously observed.\n\nRISK REASSESSMENT\nAnalyst: Yolanda Prescott, CDD Analyst II\nReassessment Date: 2025-10-28\nFindings:\n- Change in occupation to self-employed increases income variability risk.\n- Transaction volume increase without prior notification triggers profile review requirement.\n- International wire (Jamaica) — Jamaica is not on high-risk country list but adds geographic complexity.\n- TMA alerts reviewed: Cash deposits consistent with stated consulting revenue (three client checks converted to cash prior to deposit, explained in customer interview 2025-10-25).\n- No adverse media. No PEP status. OFAC/SDN clear.\n\nUPDATED RISK PROFILE\nNew Risk Rating: Medium (upgraded from Low)\nNew CDD Level: Enhanced Due Diligence — required due to risk upgrade per policy section 7.2\nEDD Actions Required:\n1. Updated source of wealth / income documentation collected (2024 tax return, consulting contracts).\n2. Customer interview completed 2025-10-25 — explanation of cash deposit pattern documented.\n3. International wire beneficiary verification: Jamaica beneficiary identified as Ms. Okafor's mother (Maud Okafor) — family support transfer, consistent documentation provided.\n4. Ongoing transaction monitoring frequency increased from annual to semi-annual.\n\nIDENTITY DOCUMENTS\nID Type: Driver License   ID Number: DL-OH-XX7712   Expiration: 2029-06-30\nDocuments re-verified at refresh — no change.\n\nSCREENING (AT REFRESH)\nOFAC / SDN: Clear.\nPEP Status: No — Beverly Okafor is not a PEP.\nAdverse Media: Clear.\n\nPEP Status: No\nReview Date: 2025-10-28   Reviewer: Yolanda Prescott",
+  "expected_json": {
+    "customer_name": "Beverly Okafor",
+    "customer_type": "Individual",
+    "date_of_birth": "1977-06-19",
+    "tax_id_masked": "XXX-XX-9933",
+    "address_line1": "1045 Maple Grove Avenue",
+    "city": "Columbus",
+    "state": "OH",
+    "postal_code": "43215",
+    "country": "USA",
+    "phone": "(614) 555-0177",
+    "email": "b.okafor@example.com",
+    "occupation_or_business": "Sole Proprietor — Okafor Wellness Consulting",
+    "source_of_funds": "Business consulting income, freelance coaching fees",
+    "expected_monthly_activity": 42000.00,
+    "risk_rating": "Medium",
+    "pep_status": false,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": "Driver License",
+    "id_document_number_masked": "DL-OH-XX7712",
+    "id_expiration_date": "2029-06-30",
+    "review_date": "2025-10-28",
+    "reviewer_name": "Yolanda Prescott"
+  },
+  "expected_avg_confidence": 0.91
+}

@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_006",
+  "document_type": "kyc_cdd_form",
+  "description": "Business entity (LLC) with three members undergoing standard CDD, no beneficial ownership threshold breach",
+  "parsed_text": "KYC / CDD ENTITY ONBOARDING FORM\nLegal Entity Name: Cascade Ridge Ventures LLC\nCustomer Type: Business\nEIN: XX-XXX4302\nState of Formation: Oregon\nDate of Formation: 2019-03-14\nPrincipal Business Address: 3410 SW Morrison Street, Portland, OR 97205, USA\nPhone: (503) 555-0174   Email: operations@cascaderidge.example\nBusiness Activity: Commercial real estate management and leasing\nNAICS Code: 531120\nSource of Funds: Rental income and property sale proceeds\nExpected Monthly Activity: $142,000\n\nMEMBERSHIP / OWNERSHIP STRUCTURE\nMember 1: Thomas Wren — Ownership: 35%\nMember 2: Cora Lundqvist — Ownership: 35%\nMember 3: Pacific Crest Holdings Inc — Ownership: 30%\nNo single member meets or exceeds the 25% beneficial ownership threshold for natural-person reporting on a standalone basis when accounting for indirect interests; however, under internal policy, all members with 25% or greater direct interest have been identified. Beneficial ownership certifications collected from Thomas Wren and Cora Lundqvist. A control person, Marcus Delacroix (Managing Member), has been identified and certified.\n\nIDENTITY DOCUMENTS COLLECTED\nThomas Wren — Driver License: DL-OR-XX8841, Exp: 2027-09-30\nCora Lundqvist — Passport: P-XXXX7703, Exp: 2028-06-15\nMarcus Delacroix (Control Person) — Driver License: DL-OR-XX5519, Exp: 2026-11-22\n\nRISK ASSESSMENT\nPEP Status: No PEP associations identified for any member or control person.\nSanctions Screening: Clear. No OFAC SDN or consolidated list matches.\nAdverse Media: No adverse media found.\nHigh-Risk Indicators: None. Entity operates domestically, revenue is traceable to recorded lease agreements.\nCDD Level: Standard\nRisk Rating: Low\n\nCOMPLIANCE NOTES\nArticles of Organization reviewed and on file. Operating Agreement reviewed — consistent with stated ownership percentages. Business license (City of Portland) verified. CDD questionnaire completed by Managing Member. No EDD triggers identified.\nReview Date: 2025-06-10   Reviewer: Sandra Okonkwo",
+  "expected_json": {
+    "customer_name": "Cascade Ridge Ventures LLC",
+    "customer_type": "Business",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX4302",
+    "address_line1": "3410 SW Morrison Street",
+    "city": "Portland",
+    "state": "OR",
+    "postal_code": "97205",
+    "country": "USA",
+    "phone": "(503) 555-0174",
+    "email": "operations@cascaderidge.example",
+    "occupation_or_business": "Commercial real estate management and leasing",
+    "source_of_funds": "Rental income and property sale proceeds",
+    "expected_monthly_activity": 142000.00,
+    "risk_rating": "Low",
+    "pep_status": false,
+    "beneficial_owner_name": "Thomas Wren",
+    "beneficial_owner_ownership_percent": 35.0,
+    "id_document_type": "Driver License",
+    "id_document_number_masked": "DL-OR-XX8841",
+    "id_expiration_date": "2027-09-30",
+    "review_date": "2025-06-10",
+    "reviewer_name": "Sandra Okonkwo"
+  },
+  "expected_avg_confidence": 0.89
+}

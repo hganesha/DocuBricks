@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_010",
+  "document_type": "aml_sar",
+  "description": "Cryptocurrency layering scheme — Bitcoin converted to privacy coin then liquidated to fiat via exchange",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-03312\nFiling Institution: NovaBridge Digital Asset Exchange\nFiling Date: 2024-11-08\nSubject: Derek Alonzo Whitfield   Tax ID: XXX-XX-9934\nSubject Address: 712 Weston Mill Road, Austin, TX 78745\nAccount: XXXX6620\nActivity Dates: 2024-09-03 to 2024-10-31\nSuspicious Activity Type: MoneyLaundering\nAmount Involved: USD 312,500.00   Transaction Count: 27\nLaw Enforcement Contacted: No\nBranch: Online Platform — Austin KYC Region\nInvestigator: Laura Simmons\n\nNarrative: NovaBridge Digital Asset Exchange ('NovaBridge') is filing this Suspicious Activity Report regarding layering activity identified in the account of Derek Alonzo Whitfield, a verified account holder since March 2023. Mr. Whitfield's account reflects customer-provided occupation of 'freelance software consultant' and annual income of $90,000.\n\nBeginning September 3, 2024, NovaBridge's transaction monitoring system flagged a series of twenty-seven (27) on-platform and on-chain transactions involving rapid conversion of Bitcoin (BTC) to Monero (XMR) and subsequent liquidation to U.S. dollars. The transactions were structured as follows: between September 3 and September 28, 2024, inbound BTC deposits totaling approximately 4.72 BTC (valued at approximately $312,500 at time of receipt) were received from multiple external wallet addresses, none of which appeared in NovaBridge's prior transaction history for Mr. Whitfield. Blockchain analytics performed using the exchange's third-party monitoring tool identified the source wallets as associated with mixers and peer-to-peer exchange services flagged for high-risk exposure.\n\nShortly after each BTC deposit, Mr. Whitfield converted the received BTC into Monero (XMR), a privacy-enhancing cryptocurrency that obscures transaction traceability. The XMR was then transferred to external Monero wallets. Between October 5 and October 31, 2024, separate Monero deposits were received into the account, which Mr. Whitfield immediately converted to USD and requested ACH disbursement to a personal checking account at Frontier Community Bank. NovaBridge was unable to confirm that the incoming XMR deposits originated from the same XMR wallets to which prior XMR was sent, due to the privacy features of the Monero protocol.\n\nMr. Whitfield provided no satisfactory explanation for the transaction pattern when contacted by the compliance team on October 22, 2024. The filing institution concludes the pattern is consistent with layering through a privacy coin conversion cycle. No prior SARs are on file.",
+  "expected_json": {
+    "sar_id": "SAR-2024-03312",
+    "filing_institution_name": "NovaBridge Digital Asset Exchange",
+    "filing_date": "2024-11-08",
+    "subject_name": "Derek Alonzo Whitfield",
+    "subject_tax_id_masked": "XXX-XX-9934",
+    "subject_address": "712 Weston Mill Road, Austin, TX 78745",
+    "subject_account_number_masked": "XXXX6620",
+    "activity_start_date": "2024-09-03",
+    "activity_end_date": "2024-10-31",
+    "suspicious_activity_type": "MoneyLaundering",
+    "amount_involved": 312500.00,
+    "transaction_count": 27,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "Subject received approximately $312,500 in Bitcoin from mixer-linked wallets, rapidly converted funds to Monero to obscure traceability, and subsequently liquidated via ACH disbursement to a personal bank account. The BTC-to-privacy-coin-to-fiat conversion cycle is consistent with cryptocurrency layering activity.",
+    "branch_location": "Online Platform — Austin KYC Region",
+    "investigator_name": "Laura Simmons"
+  },
+  "expected_avg_confidence": 0.89
+}

@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_018",
+  "document_type": "invoice",
+  "description": "Blanket PO release invoice with release number against master agreement and period covered",
+  "parsed_text": "RELEASE INVOICE\nInvoice #: RI-2025-BPO-0044\nInvoice Date: 2025-11-01   Due Date: 2025-12-01\nVendor: Midwest Office Products & Facilities LLC\nVendor Tax ID: XX-XXX3348\nVendor Address: 2200 Distribution Circle, St. Louis, MO 63110\nBill To: RiverBend Healthcare System\n   Accounts Payable, 100 Medical Center Drive, St. Louis, MO 63108\nBlanket PO Number: BPO-RBH-2025-001\nRelease Number: BPO-RBH-2025-001-REL-08\nMaster Agreement: MSA-OFP-2025-RBH\nRelease Period Covered: November 1 – November 30, 2025\nPayment Terms: Net 30   Currency: USD\n\nThis release invoice is issued under Blanket Purchase Order BPO-RBH-2025-001\nexecuted 2025-01-15, valid through 2025-12-31. This is Release #8 of 12 planned\nmonthly releases. Cumulative releases to date: $312,480.00.\n\nRelease Line Items (November 2025):\n1. Copy Paper 8.5x11 Letter White 500 sht/ream, 10 cases  @ $48.00/case   $  480.00\n2. Printer Toner HP 26A Black (CF226A), Qty 8 @ $72.50 ea                 $  580.00\n3. Disinfectant Wipes Clorox 75ct canisters, Qty 50 @ $6.80 ea            $  340.00\n4. Nitrile Exam Gloves Medium, 10 boxes/case, Qty 6 cases @ $88.00/case   $  528.00\n5. Facility Cleaning Services — Monthly Contract (November)                $4,200.00\n6. Break Room Coffee Supplies Package                                      $  316.40\n7. HVAC Filter Replacement 20x25x1 MERV-13, Qty 12 @ $18.90 ea           $  226.80\n\nRelease Subtotal:                       $6,671.20\nSales Tax (MO 4.225%):                  $  281.86\nInvoice Total:                          $6,953.06\nAmount Due:                             $6,953.06\n\nRemaining Blanket PO Balance (estimated): $49,566.94\nFor release inquiries: releases@midwestofficeproducts.com | 314-555-0177",
+  "expected_json": {
+    "invoice_number": "RI-2025-BPO-0044",
+    "invoice_date": "2025-11-01",
+    "due_date": "2025-12-01",
+    "vendor_name": "Midwest Office Products & Facilities LLC",
+    "vendor_tax_id_masked": "XX-XXX3348",
+    "vendor_address": "2200 Distribution Circle, St. Louis, MO 63110",
+    "customer_name": "RiverBend Healthcare System",
+    "customer_address": "100 Medical Center Drive, St. Louis, MO 63108",
+    "purchase_order_number": "BPO-RBH-2025-001",
+    "currency": "USD",
+    "subtotal": 6671.20,
+    "tax_amount": 281.86,
+    "shipping_amount": null,
+    "discount_amount": null,
+    "total_amount": 6953.06,
+    "amount_due": 6953.06,
+    "payment_terms": "Net 30",
+    "line_item_count": 7
+  },
+  "expected_avg_confidence": 0.89
+}

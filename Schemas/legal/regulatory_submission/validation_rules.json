@@ -1,0 +1,50 @@
+[
+  {
+    "name": "document_id_present",
+    "expression": "document_id IS NOT NULL AND LENGTH(TRIM(document_id)) > 0",
+    "severity": "fail",
+    "description": "Every extracted record must carry a document_id — system invariant required for lineage tracking, regulatory audit trail, and deduplication"
+  },
+  {
+    "name": "avg_confidence_acceptable",
+    "expression": "avg_confidence >= 0.72",
+    "severity": "drop",
+    "description": "Regulatory submissions require a higher confidence threshold (0.72) due to the legal and compliance risk of misclassified filings; route low-confidence records to human review"
+  },
+  {
+    "name": "submission_type_valid",
+    "expression": "submission_type IS NOT NULL AND LENGTH(TRIM(submission_type)) > 0",
+    "severity": "drop",
+    "description": "Submission type is required to route the record to the correct compliance workflow; null or empty values prevent downstream processing"
+  },
+  {
+    "name": "submitting_entity_name_not_null",
+    "expression": "submitting_entity_name IS NOT NULL AND LENGTH(TRIM(submitting_entity_name)) > 0",
+    "severity": "drop",
+    "description": "The submitting entity name is a critical identifier for regulatory tracking and OFAC/KYC screening; records without it cannot be processed"
+  },
+  {
+    "name": "submission_id_present",
+    "expression": "submission_id IS NOT NULL AND LENGTH(TRIM(submission_id)) > 0",
+    "severity": "warn",
+    "description": "Submission ID (docket number, accession number, reference ID) is required to correlate with regulator records and track filing status"
+  },
+  {
+    "name": "submission_date_present",
+    "expression": "submission_date IS NOT NULL",
+    "severity": "warn",
+    "description": "Submission date is necessary to calculate response deadlines, monitor review timelines, and meet regulatory reporting SLAs"
+  },
+  {
+    "name": "decision_date_after_submission",
+    "expression": "decision_date IS NULL OR submission_date IS NULL OR decision_date >= submission_date",
+    "severity": "warn",
+    "description": "Decision date cannot precede submission date; inversion indicates a date extraction error and flags the record for human review"
+  },
+  {
+    "name": "submission_status_valid_enum",
+    "expression": "submission_status IS NULL OR submission_status IN ('Accepted', 'Under_Review', 'Approved', 'Refused', 'Withdrawn', 'Pending', 'Deficient')",
+    "severity": "warn",
+    "description": "Submission status must be a recognized enumeration for accurate compliance dashboard reporting and workflow routing"
+  }
+]

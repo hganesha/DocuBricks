@@ -1,0 +1,46 @@
+{
+  "test_case_id": "soap_003",
+  "document_type": "clinical_note_soap",
+  "description": "Orthopedic consultation note — acute right knee injury, suspected meniscal tear, requested by primary care physician",
+  "parsed_text": "ORTHOPEDIC SURGERY CONSULTATION NOTE\nSummit Orthopedics & Sports Medicine\nDepartment: Orthopedic Surgery\nEncounter ID: SOSM-CONS-2025-007831\nDate: 2025-10-30\n\nConsulting Provider: Dr. James Calloway, MD\nNPI: 4455667788\nSpecialty: Orthopedic Surgery\n\nPatient: Nguyen, Linh T.\nDOB: 1992-06-14\nMRN: SOSM-MRN-00114522\n\nReferring Provider: Dr. Angela Torres, MD (Family Medicine)\nFacility: Summit Orthopedics & Sports Medicine\n\n---\nCHIEF COMPLAINT\nRight knee pain and swelling after soccer injury 5 days ago, unable to fully extend knee.\n\nSUBJECTIVE\n33-year-old active female presents for orthopedic consultation after right knee injury during recreational soccer game on 10/25/2025. She reports a twisting mechanism of injury with immediate onset of pain, swelling, and locking sensation. Pain rated 6/10 at rest, 9/10 with ambulation. Unable to fully extend right knee. Ice and ibuprofen have provided partial relief. No prior knee injuries or surgeries. No other joint complaints.\n\nOBJECTIVE\nVitals:\n  BP: 118/76 mmHg   HR: 68 bpm   Temp: 98.2°F   RR: 14 breaths/min\n  SpO2: 99% on room air   Weight: 143 lbs\n\nPhysical Exam — Right Knee:\n  Moderate effusion present. Flexion 0-115° (limited by pain). Locked at -15° extension.\n  McMurray test: Positive for medial meniscus pain with external rotation.\n  Lachman test: Negative. Valgus/varus stress: Stable.\n  Neurovascular exam: Intact distally.\n\nImaging: X-rays (right knee, AP/lateral/sunrise views) reviewed — no fracture, joint space preserved.\nMRI right knee ordered (results pending).\n\nASSESSMENT\n1. Suspected medial meniscus tear, right knee (M23.201) — Positive McMurray, effusion, locked extension deficit. Awaiting MRI confirmation.\n2. Right knee joint effusion (M25.361) — Moderate, likely hemarthrosis or reactive.\n\nPLAN\n1. MRI right knee without contrast — ordered STAT, scheduled for 11/01/2025.\n2. Aspiration of right knee joint effusion if clinically indicated after MRI.\n3. Knee immobilizer placed. Crutches provided, weight-bearing as tolerated.\n4. Continue ibuprofen 600 mg TID with food. Ice 20 min every 4 hours.\n5. If MRI confirms meniscal tear: discuss arthroscopic partial meniscectomy vs. conservative management based on tear pattern.\n6. Return to clinic in 7 days to review MRI results and discuss treatment plan.\n\nElectronically signed: Dr. James Calloway, MD — 2025-10-30 16:05",
+  "expected_json": {
+    "note_date": "2025-10-30",
+    "note_type": "Consultation",
+    "document_id": "SOSM-CONS-2025-007831",
+    "provider_name": "Dr. James Calloway, MD",
+    "provider_npi": "4455667788",
+    "provider_specialty": "Orthopedic Surgery",
+    "patient_name": "Nguyen, Linh T.",
+    "patient_dob": "1992-06-14",
+    "patient_mrn": "SOSM-MRN-00114522",
+    "facility_name": "Summit Orthopedics & Sports Medicine",
+    "department": "Orthopedic Surgery",
+    "chief_complaint": "Right knee pain and swelling after soccer injury 5 days ago, unable to fully extend knee.",
+    "subjective_summary": "33-year-old female, right knee twisting injury 10/25/2025. Immediate pain, swelling, locking. Pain 6/10 rest, 9/10 walking. Cannot fully extend. Ibuprofen and ice partially effective. No prior knee surgery...",
+    "objective_vitals": {
+      "bp": "118/76 mmHg",
+      "hr": "68 bpm",
+      "temp": "98.2°F",
+      "rr": "14 breaths/min",
+      "spo2": "99% on room air",
+      "weight": "143 lbs"
+    },
+    "assessment_diagnoses": [
+      {
+        "icd10_code": "M23.201",
+        "description": "Suspected medial meniscus tear, right knee",
+        "status": "Suspected"
+      },
+      {
+        "icd10_code": "M25.361",
+        "description": "Right knee joint effusion",
+        "status": "Active"
+      }
+    ],
+    "plan_summary": "MRI right knee STAT ordered (11/01). Knee immobilizer and crutches. Continue ibuprofen 600 mg TID. Joint aspiration if indicated. Discuss arthroscopic vs. conservative management after MRI review...",
+    "medications_mentioned": ["ibuprofen"],
+    "follow_up_instructions": "Return to clinic in 7 days to review MRI results and discuss treatment plan.",
+    "follow_up_timeframe": "7 days"
+  },
+  "expected_avg_confidence": 0.91
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "claim_number_not_null",
+    "expression": "claim_number IS NOT NULL AND LENGTH(TRIM(claim_number)) > 0",
+    "severity": "fail",
+    "description": "Claim number is the primary key for downstream remittance reconciliation and HIPAA 835 transaction matching — no valid EOB record without it"
+  },
+  {
+    "name": "avg_confidence_minimum",
+    "expression": "avg_confidence >= 0.65",
+    "severity": "drop",
+    "description": "Overall extraction confidence below 0.65 indicates document quality or format issues too severe for reliable automated processing — route to human review queue"
+  },
+  {
+    "name": "claim_status_valid_enum",
+    "expression": "claim_status IN ('Paid', 'Denied', 'Pending', 'Adjusted')",
+    "severity": "drop",
+    "description": "Claim status must be a recognized adjudication outcome; invalid values break downstream remittance posting workflows and denial management routing"
+  },
+  {
+    "name": "billed_amount_positive",
+    "expression": "billed_amount IS NOT NULL AND billed_amount > 0",
+    "severity": "drop",
+    "description": "Billed amount must be present and positive — zero or null indicates claim header extraction failure; cannot reconcile remittance without charge amount"
+  },
+  {
+    "name": "patient_member_id_present",
+    "expression": "patient_member_id IS NOT NULL AND LENGTH(TRIM(patient_member_id)) > 0",
+    "severity": "warn",
+    "description": "Member ID is required for eligibility verification and patient account matching; missing value prevents automated posting — flag for manual resolution"
+  },
+  {
+    "name": "paid_amount_non_negative",
+    "expression": "paid_amount IS NULL OR paid_amount >= 0",
+    "severity": "warn",
+    "description": "Paid amount cannot be negative; negative value indicates extraction error or overpayment recovery scenario requiring manual review"
+  },
+  {
+    "name": "denial_reason_required_for_denied",
+    "expression": "NOT (claim_status = 'Denied' AND denial_reason_code IS NULL)",
+    "severity": "warn",
+    "description": "Denied claims must have a CARC denial reason code for appeals processing and denial management reporting; missing code flags extraction gap"
+  },
+  {
+    "name": "provider_npi_format",
+    "expression": "provider_npi IS NULL OR (LENGTH(provider_npi) = 10 AND provider_npi REGEXP '^[0-9]{10}$')",
+    "severity": "warn",
+    "description": "NPI must be exactly 10 numeric digits per HIPAA standard; format violation indicates extraction confusion with Tax ID or other identifiers"
+  }
+]

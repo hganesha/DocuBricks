@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_016",
+  "document_type": "aml_sar",
+  "description": "Ransomware payment — business victim purchased cryptocurrency from exchange and transferred to attacker wallet",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-04115\nFiling Institution: Cascade Digital Assets Inc.\nFiling Date: 2024-12-02\nSubject: Harborview Medical Billing Services LLC   Tax ID: XX-XXXXXXX (on file)\nSubject Address: 890 Lakeshore Corporate Drive, Seattle, WA 98101\nAccount: XXXX3387\nActivity Dates: 2024-11-04 to 2024-11-07\nSuspicious Activity Type: CyberCrime\nAmount Involved: USD 220,000.00   Transaction Count: 3\nLaw Enforcement Contacted: Yes\nBranch: Online Platform — Seattle KYC Region\nInvestigator: Grace Navarro\n\nNarrative: Cascade Digital Assets Inc. ('Cascade') is filing this Suspicious Activity Report regarding a cryptocurrency purchase transaction pattern consistent with a ransomware extortion payment made by a business victim.\n\nOn November 4, 2024, Harborview Medical Billing Services LLC ('Harborview'), a verified business account holder since January 2024, initiated an urgent cryptocurrency purchase request via Cascade's business platform. The account had no prior transaction history beyond a small initial test purchase of $500 in Bitcoin conducted in January 2024. Harborview's compliance contact on file, Ms. Jessica Cho, initiated three separate purchase orders as follows: (1) $80,000 in Bitcoin (approximately 1.21 BTC) on November 4, 2024; (2) $80,000 in Bitcoin (approximately 1.19 BTC) on November 5, 2024; and (3) $60,000 in Bitcoin (approximately 0.89 BTC) on November 6, 2024. Total purchases amounted to $220,000.\n\nCascade's transaction monitoring system flagged the account on November 6, 2024 due to the volume and velocity of purchases inconsistent with the account's prior history. A compliance analyst contacted Ms. Cho by phone. Ms. Cho initially declined to provide a business purpose and stated the purchases were 'urgent.' When the analyst indicated that the account would be placed on review hold, Ms. Cho disclosed that Harborview's IT systems had been encrypted by ransomware and that the attackers demanded payment of 3.3 BTC to a specified wallet address or they would permanently delete the company's patient billing data.\n\nWithin hours of each purchase, all acquired BTC was transferred from the Cascade custodial account to an external wallet address beginning with bc1q9fz... which Cascade's blockchain analytics vendor identified as associated with ransomware infrastructure linked to a group tracked as 'LOCKSMOKE.' Harborview contacted the FBI's Internet Crime Complaint Center (IC3) and local law enforcement on November 7, 2024. Cascade is filing this SAR concurrently.",
+  "expected_json": {
+    "sar_id": "SAR-2024-04115",
+    "filing_institution_name": "Cascade Digital Assets Inc.",
+    "filing_date": "2024-12-02",
+    "subject_name": "Harborview Medical Billing Services LLC",
+    "subject_tax_id_masked": "XX-XXXXXXX",
+    "subject_address": "890 Lakeshore Corporate Drive, Seattle, WA 98101",
+    "subject_account_number_masked": "XXXX3387",
+    "activity_start_date": "2024-11-04",
+    "activity_end_date": "2024-11-07",
+    "suspicious_activity_type": "CyberCrime",
+    "amount_involved": 220000.00,
+    "transaction_count": 3,
+    "currency": "USD",
+    "law_enforcement_contacted": true,
+    "narrative_summary": "A medical billing firm purchased $220,000 in Bitcoin across three days from a cryptocurrency exchange with no prior transaction history and immediately transferred all funds to a wallet linked to a ransomware threat group after its IT systems were encrypted by attackers demanding 3.3 BTC. Law enforcement and the FBI's IC3 were notified on the fourth day.",
+    "branch_location": "Online Platform — Seattle KYC Region",
+    "investigator_name": "Grace Navarro"
+  },
+  "expected_avg_confidence": 0.94
+}

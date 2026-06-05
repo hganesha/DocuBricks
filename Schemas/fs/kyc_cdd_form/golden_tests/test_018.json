@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_018",
+  "document_type": "kyc_cdd_form",
+  "description": "Sanctions screening false positive — SDN name match against individual customer cleared with supporting evidence documented",
+  "parsed_text": "CUSTOMER DUE DILIGENCE — SANCTIONS SCREENING DISPOSITION RECORD\nCustomer Name: Omar Hassan Al-Rashid\nCustomer Type: Individual\nDate of Birth: 1980-02-25   SSN: XXX-XX-4417\nAddress: 3305 N. Clark Street, Apt 7, Chicago, IL 60657, USA\nPhone: (773) 555-0189   Email: omar.alrashid@example.com\nOccupation: Software Engineer\nEmployer: Apex Technology Solutions Inc, Chicago IL\nSource of Funds: Salary\nExpected Monthly Activity: $9,500\n\nSANCTIONS SCREENING ALERT — FALSE POSITIVE DISPOSITION\nInitial Screening Result: POTENTIAL MATCH — System flagged customer name against OFAC SDN List entry: \"Omar Hassan Al Rashid\" (SDN Ref: SDNT-XXXXXXX441) — designated entity associated with narcotics trafficking, designation date 2018-11-04.\nAlert Generated: 2025-10-22 09:14 UTC\n\nFALSE POSITIVE ANALYSIS\nAnalyst: Kenji Watanabe, Sanctions Compliance Analyst\nAnalysis Date: 2025-10-22\n\nDisposition Basis — Name Match Only:\n(a) Date of Birth: Customer DOB 1980-02-25 does NOT match SDN entry DOB 1962-07-09. MISMATCH.\n(b) Nationality/Country: Customer is a US citizen (USC). SDN entry lists nationality as Yemeni. MISMATCH.\n(c) Address: Customer's Chicago IL address does not correspond to any address listed on SDN entry (Aden, Yemen; Dubai, UAE). MISMATCH.\n(d) Passport/ID: Customer presented US Passport P-XXXX1123, Exp 2031-03-22. SDN entry references Yemeni travel document. MISMATCH.\n(e) Employer verification: Apex Technology Solutions Inc (FEIN XX-XXX6641) confirmed employing customer since 2017 — corroborates stated occupation and source of funds.\n\nConclusion: Match is a false positive. The five independent discriminating factors (DOB, nationality, country of birth, address, and document type) confirm this customer is not the SDN-listed individual.\n\nDISPOSITION\nFinal Status: False Positive — Cleared.\nApprover: Linda Marchetti, VP Compliance\nApproval Date: 2025-10-23\nSAR Filing Required: No — false positive; no suspicious activity identified.\n\nRISK ASSESSMENT\nPEP Status: No\nSanctions Status: False Positive — Cleared\nAdverse Media: No adverse media found.\nRisk Rating: Low\nCDD Level: Standard\nReview Date: 2025-10-23   Reviewer: Kenji Watanabe",
+  "expected_json": {
+    "customer_name": "Omar Hassan Al-Rashid",
+    "customer_type": "Individual",
+    "date_of_birth": "1980-02-25",
+    "tax_id_masked": "XXX-XX-4417",
+    "address_line1": "3305 N. Clark Street, Apt 7",
+    "city": "Chicago",
+    "state": "IL",
+    "postal_code": "60657",
+    "country": "USA",
+    "phone": "(773) 555-0189",
+    "email": "omar.alrashid@example.com",
+    "occupation_or_business": "Software Engineer",
+    "source_of_funds": "Salary",
+    "expected_monthly_activity": 9500.00,
+    "risk_rating": "Low",
+    "pep_status": false,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": "Passport",
+    "id_document_number_masked": "P-XXXX1123",
+    "id_expiration_date": "2031-03-22",
+    "review_date": "2025-10-23",
+    "reviewer_name": "Kenji Watanabe"
+  },
+  "expected_avg_confidence": 0.92
+}

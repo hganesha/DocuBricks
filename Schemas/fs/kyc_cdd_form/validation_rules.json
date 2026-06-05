@@ -1,0 +1,32 @@
+[
+  {
+    "name": "customer_name_present",
+    "expression": "customer_name IS NOT NULL AND LENGTH(TRIM(customer_name)) > 0",
+    "severity": "fail",
+    "description": "Customer name is required for KYC onboarding and screening."
+  },
+  {
+    "name": "customer_type_valid_enum",
+    "expression": "customer_type IN ('Individual', 'Business', 'Trust', 'Other')",
+    "severity": "fail",
+    "description": "Customer type must be a supported onboarding category."
+  },
+  {
+    "name": "risk_rating_valid_enum",
+    "expression": "risk_rating IS NULL OR risk_rating IN ('Low', 'Medium', 'High')",
+    "severity": "warn",
+    "description": "Risk rating should use the expected CDD categories."
+  },
+  {
+    "name": "beneficial_owner_percent_range",
+    "expression": "beneficial_owner_ownership_percent IS NULL OR (beneficial_owner_ownership_percent > 0 AND beneficial_owner_ownership_percent <= 100)",
+    "severity": "drop",
+    "description": "Ownership percentage must be within 0-100 when present."
+  },
+  {
+    "name": "review_date_present",
+    "expression": "review_date IS NOT NULL",
+    "severity": "warn",
+    "description": "CDD records should include review or certification date."
+  }
+]

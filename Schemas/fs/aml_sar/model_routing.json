@@ -1,0 +1,7 @@
+{
+  "preferred_model": "databricks-dbrx-instruct",
+  "fallback_model": "databricks-claude-sonnet",
+  "max_tokens": 2048,
+  "temperature": 0.0,
+  "rationale": "SAR forms contain labeled filing fields plus short narratives. DBRX Instruct is appropriate for direct structured extraction; Claude Sonnet is retained for longer narrative summaries and ambiguous suspicious activity typologies."
+}

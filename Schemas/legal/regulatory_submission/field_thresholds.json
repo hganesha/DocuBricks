@@ -1,0 +1,79 @@
+{
+  "submission_id": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Submission ID (docket number, accession number) is the primary key for correlating with regulator records; must be extracted exactly as formatted to ensure accurate docket tracking"
+  },
+  "submission_date": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Submission date is the legal anchor for calculating regulatory response deadlines, review clocks, and compliance reporting periods; errors can cause missed deadlines with enforcement consequences"
+  },
+  "submitting_entity_name": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Entity name is required for OFAC screening, KYC/AML compliance, and regulatory relationship management; errors affect reporting accuracy"
+  },
+  "submission_status": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Submission status drives compliance dashboard reporting and escalation workflows; an incorrect status can mask deficiencies requiring immediate action"
+  },
+  "submission_type": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Submission type routes the record to the correct regulatory workflow; misclassification leads to wrong review procedures and reporting errors"
+  },
+  "regulator": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Regulator identification is essential for routing to the correct compliance team and external reporting system"
+  },
+  "submitting_entity_id": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Entity ID (CIK, LEI, EIN) is required for automated regulatory lookup and entity resolution; errors break cross-system reconciliation"
+  },
+  "decision_date": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Decision date drives compliance lifecycle close-out and regulatory timeline reporting; must be accurate"
+  },
+  "filing_period_from": {
+    "min_confidence": 0.85,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Filing period start anchors the reporting period for financial and regulatory analysis"
+  },
+  "filing_period_to": {
+    "min_confidence": 0.85,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Filing period end defines the scope of reported data; must align with the reporting period declared in the submission"
+  },
+  "material_change_described": {
+    "min_confidence": 0.80,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Material change flag triggers escalation to legal and compliance review teams; false negatives could suppress critical alerts"
+  }
+}

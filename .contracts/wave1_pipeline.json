@@ -1,0 +1,50 @@
+{
+  "wave": 1,
+  "agent": "pipeline",
+  "status": "COMPLETE",
+  "dlt_tables": {
+    "bronze_documents":             "docubricks_prod.bronze.bronze_documents",
+    "bronze_quarantine":            "docubricks_prod.bronze.bronze_quarantine",
+    "silver_parsed":                "docubricks_prod.silver.silver_parsed",
+    "silver_classified":            "docubricks_prod.silver.silver_classified",
+    "silver_route_mortgage":        "docubricks_prod.silver.silver_route_mortgage_application",
+    "silver_route_kyc":             "docubricks_prod.silver.silver_route_kyc_cdd_form",
+    "silver_route_aml_sar":         "docubricks_prod.silver.silver_route_aml_sar",
+    "silver_route_invoice":         "docubricks_prod.silver.silver_route_invoice",
+    "gold_fs_mortgage_portfolio":   "docubricks_prod.gold.fs_mortgage_portfolio",
+    "gold_fs_kyc_compliance":       "docubricks_prod.gold.fs_kyc_compliance_summary",
+    "gold_fs_aml_alerts":           "docubricks_prod.gold.fs_aml_alerts_summary",
+    "gold_extraction_metrics":      "docubricks_prod.gold.extraction_metrics_daily",
+    "gold_platform_health":         "docubricks_prod.gold.platform_health",
+    "gold_agent_activity":          "docubricks_prod.gold.agent_activity"
+  },
+  "extractor_base": {
+    "path": "src/pipelines/silver/extractors/_base.py",
+    "imports": [
+      "from src.pipelines.silver.extractors._base import build_silver_table",
+      "from src.pipelines.silver.extractors._base import get_extraction_prompt",
+      "from src.pipelines.silver.extractors._base import update_extraction_status",
+      "from src.pipelines.silver.extractors._base import STANDARD_TABLE_PROPERTIES"
+    ],
+    "build_silver_table_signature": "build_silver_table(document_type: str, schema_prompt: str, required_fields: list[str], confidence_threshold: float = 0.65) -> dict",
+    "build_silver_table_returns": "dict of kwargs to pass to @dlt.table(**kwargs)",
+    "get_extraction_prompt_signature": "get_extraction_prompt(document_type: str, catalog_name: str) -> str",
+    "update_extraction_status_signature": "update_extraction_status(document_id: str, status: str, conf: float | None = None) -> None"
+  },
+  "routing_pattern": {
+    "description": "extract_router.py creates silver_route_{document_type} views filtered from silver_classified",
+    "extractor_reads_from": "dlt.read_stream('silver_route_{document_type}')",
+    "example": "dlt.read_stream('silver_route_mortgage_application')"
+  },
+  "liquid_clustering": "CLUSTER BY (tenant_id, document_type, ingested_date)",
+  "standard_table_properties": {
+    "delta.enableChangeDataFeed": "true",
+    "delta.autoOptimize.optimizeWrite": "true",
+    "delta.autoOptimize.autoCompact": "true",
+    "delta.deletionVectors.enabled": "true"
+  },
+  "config_spark_conf_keys": {
+    "catalog_name": "spark.conf.get('catalog_name')",
+    "secret_scope": "spark.conf.get('secret_scope')"
+  }
+}

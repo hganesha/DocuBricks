@@ -1,0 +1,22 @@
+resources:
+  pipelines:
+    ingestion_pipeline:
+      name: "DocuBricks — Ingestion [${bundle.target}]"
+      catalog: ${var.catalog_name}
+      target: bronze
+      channel: PREVIEW
+      serverless: true
+      continuous: false
+      configuration:
+        catalog_name:  ${var.catalog_name}
+        secret_scope:  ${var.secret_scope}
+        schema_tier:   ${var.tier}
+        vertical:      ${var.vertical}
+      libraries:
+        - notebook:
+            path: src/pipelines/bronze/autoloader_ingest.py
+      notifications:
+        - email_recipients: []
+          alerts:
+            - on-update-failure
+            - on-flow-failure

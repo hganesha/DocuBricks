@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_012",
+  "document_type": "aml_sar",
+  "description": "Human trafficking indicators — repeated cash payments to same individual combined with hotel and travel charges",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-02441\nFiling Institution: Heartland Community Bank\nFiling Date: 2024-10-07\nSubject: Robert Eugene Patton   Tax ID: XXX-XX-6618\nSubject Address: 3301 Industrial Loop, Kansas City, MO 64129\nAccount: XXXX8874\nActivity Dates: 2024-06-10 to 2024-09-20\nSuspicious Activity Type: HumanTrafficking\nAmount Involved: USD 47,800.00   Transaction Count: 41\nLaw Enforcement Contacted: Yes\nBranch: Kansas City East Branch\nInvestigator: Michelle Sato\n\nNarrative: Heartland Community Bank is filing this Suspicious Activity Report based on transaction patterns in the personal checking account of Robert Eugene Patton (date of birth: 11/04/1985) that are consistent with human trafficking indicators outlined in FinCEN Advisory FIN-2014-A008 and its 2020 update.\n\nMr. Patton has held a personal checking account at Heartland Community Bank since 2021 and is listed as self-employed with an income of approximately $32,000 per year. Beginning in June 2024, the account reflected a marked change in activity. Over the period June 10, 2024 through September 20, 2024, the bank identified forty-one (41) transactions with the following characteristics: (1) Twenty-three (23) cash withdrawals ranging from $400 to $1,200 each, totaling $19,700, made at ATMs near hotel corridors and truck stop locations in the Kansas City metropolitan area and along the I-70 corridor; (2) Sixteen (16) debit card charges to seven different extended-stay and budget hotel properties, totaling $21,400, with check-in periods typically spanning two to four days; and (3) Two (2) cash deposits of $3,350 each, for which no source of funds was identifiable from account history.\n\nA recurring cash payment pattern was also identified: Mr. Patton made eleven (11) ATM cash withdrawals of exactly $800 each within 48 hours of hotel check-in transactions, consistent with regular payments to a third party. The hotel properties are located along known trafficking corridors identified in publicly available law enforcement reporting.\n\nThe bank's compliance officer reviewed Mr. Patton's account in the context of FinCEN human trafficking red flags, including the combination of hotel charges, sequential cash withdrawals near lodging facilities, and unexplained cash deposits. The compliance officer contacted local law enforcement on September 25, 2024, who indicated awareness of related investigative activity. The bank is filing this SAR concurrently.",
+  "expected_json": {
+    "sar_id": "SAR-2024-02441",
+    "filing_institution_name": "Heartland Community Bank",
+    "filing_date": "2024-10-07",
+    "subject_name": "Robert Eugene Patton",
+    "subject_tax_id_masked": "XXX-XX-6618",
+    "subject_address": "3301 Industrial Loop, Kansas City, MO 64129",
+    "subject_account_number_masked": "XXXX8874",
+    "activity_start_date": "2024-06-10",
+    "activity_end_date": "2024-09-20",
+    "suspicious_activity_type": "HumanTrafficking",
+    "amount_involved": 47800.00,
+    "transaction_count": 41,
+    "currency": "USD",
+    "law_enforcement_contacted": true,
+    "narrative_summary": "Subject's account reflected repeated cash withdrawals coinciding with hotel charges along known trafficking corridors over a three-month period, including regular $800 cash payments consistent with third-party compensation, all inconsistent with his reported income profile. Law enforcement was notified and indicated awareness of related investigative activity.",
+    "branch_location": "Kansas City East Branch",
+    "investigator_name": "Michelle Sato"
+  },
+  "expected_avg_confidence": 0.88
+}

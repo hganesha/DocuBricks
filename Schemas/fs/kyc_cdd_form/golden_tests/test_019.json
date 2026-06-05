@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_019",
+  "document_type": "kyc_cdd_form",
+  "description": "Domestic business with a historical fraud allegation from ten years ago reviewed during onboarding and cleared after adverse media assessment",
+  "parsed_text": "KYC / CDD ENTITY ONBOARDING — ADVERSE MEDIA REVIEW\nLegal Entity Name: Summit Ridge Construction LLC\nCustomer Type: Business\nEIN: XX-XXX2284\nState of Formation: Colorado\nPrincipal Address: 4800 Baseline Road, Suite 200, Boulder, CO 80303, USA\nPhone: (720) 555-0141   Email: admin@summitridgeconstruction.example\nBusiness Activity: General contracting — residential and light commercial construction\nNAICS Code: 236110\nSource of Funds: Project milestone payments from homebuilders and private clients\nExpected Monthly Activity: $380,000\n\nOWNERSHIP\nBeneficial Owner: Derek Paxton — Ownership: 75%\nBeneficial Owner 2: Renata Paxton — Ownership: 25%\nControl Person: Derek Paxton (CEO / Managing Member)\n\nIDENTITY DOCUMENTS\nDerek Paxton — Driver License: DL-CO-XX5513, Exp: 2028-04-30\nRenata Paxton — Driver License: DL-CO-XX8820, Exp: 2027-12-15\n\nADVERSE MEDIA REVIEW\nScreening Date: 2025-09-14\nAdverse Media Alert: System flagged historical news article.\nSource: Denver Post, 2015-06-18 — Headline: \"Boulder Contractor Faces Fraud Complaint Over Incomplete Project.\"\n\nADVERSE MEDIA ANALYST REVIEW (Analyst: Priscilla Huang)\nArticle Summary: A 2015 civil complaint was filed by one homeowner alleging Derek Paxton's prior construction company (Paxton Home Builders Ltd, dissolved 2016) failed to complete a renovation project and retained deposits totaling $38,000.\nOutcome: Civil dispute resolved out of court in 2015; confidential settlement. No criminal charges filed. No regulatory action. Entity (Paxton Home Builders Ltd) was voluntarily dissolved in 2016 following transition of business operations to Summit Ridge Construction LLC.\nAge of Allegation: 10 years. No subsequent adverse media identified.\nRepetitive Pattern Assessment: Isolated single incident at prior entity — no pattern of misconduct.\nCurrent Regulatory Standing: Colorado Department of Regulatory Agencies (DORA) — Contractor License No. CO-GC-XXXX9901, Active, no disciplinary history since 2016.\n\nCONCLUSION\nAdverse Media Disposition: CLEARED. The historical allegation is 10 years old, involved a civil (not criminal) matter, was resolved, and no subsequent misconduct has been identified. The prior entity was dissolved and current entity has a clean regulatory record.\nApprover: Nathan Cleeves, Compliance Manager\nApproval Date: 2025-09-17\n\nSCREENING RESULTS\nOFAC / SDN: Clear.\nPEP Status: No — neither beneficial owner nor control person is a PEP.\nFinal Adverse Media Status: Cleared.\n\nRISK ASSESSMENT\nPEP Status: No\nRisk Rating: Medium\nCDD Level: Standard\nCompliance Notes: Adverse media disposition memo on file. Annual monitoring set for early review given historical incident.\nReview Date: 2025-09-17   Reviewer: Priscilla Huang",
+  "expected_json": {
+    "customer_name": "Summit Ridge Construction LLC",
+    "customer_type": "Business",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX2284",
+    "address_line1": "4800 Baseline Road, Suite 200",
+    "city": "Boulder",
+    "state": "CO",
+    "postal_code": "80303",
+    "country": "USA",
+    "phone": "(720) 555-0141",
+    "email": "admin@summitridgeconstruction.example",
+    "occupation_or_business": "General contracting — residential and light commercial construction",
+    "source_of_funds": "Project milestone payments from homebuilders and private clients",
+    "expected_monthly_activity": 380000.00,
+    "risk_rating": "Medium",
+    "pep_status": false,
+    "beneficial_owner_name": "Derek Paxton",
+    "beneficial_owner_ownership_percent": 75.0,
+    "id_document_type": "Driver License",
+    "id_document_number_masked": "DL-CO-XX5513",
+    "id_expiration_date": "2028-04-30",
+    "review_date": "2025-09-17",
+    "reviewer_name": "Priscilla Huang"
+  },
+  "expected_avg_confidence": 0.90
+}

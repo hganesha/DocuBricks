@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_003",
+  "document_type": "aml_sar",
+  "description": "Money mule activity with partial subject tax ID missing",
+  "parsed_text": "SAR WORKSHEET\nFiling Institution Name: Northstar Bank\nSAR Identifier: SAR-2025-00077\nFiling Date: 2025-03-07\nSubject: Daniel Brooks\nAddress: 490 Cedar Place, Columbus, OH 43215\nAccount No.: XXXX4502\nActivity Start: 2025-02-01   Activity End: 2025-02-19\nSuspicious Activity: Money mule activity\nTotal Amount Involved: 22000.00 USD\nNumber of Transactions: 11\nLaw Enforcement Contacted: No\nBranch: Columbus Main\nInvestigator: Hannah Ivers\nNarrative: Account received payroll-style deposits followed by rapid P2P transfers to unrelated third parties.",
+  "expected_json": {
+    "sar_id": "SAR-2025-00077",
+    "filing_institution_name": "Northstar Bank",
+    "filing_date": "2025-03-07",
+    "subject_name": "Daniel Brooks",
+    "subject_tax_id_masked": null,
+    "subject_address": "490 Cedar Place, Columbus, OH 43215",
+    "subject_account_number_masked": "XXXX4502",
+    "activity_start_date": "2025-02-01",
+    "activity_end_date": "2025-02-19",
+    "suspicious_activity_type": "Money mule activity",
+    "amount_involved": 22000.00,
+    "transaction_count": 11,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "Account received payroll-style deposits followed by rapid P2P transfers to unrelated third parties.",
+    "branch_location": "Columbus Main",
+    "investigator_name": "Hannah Ivers"
+  },
+  "expected_avg_confidence": 0.90
+}

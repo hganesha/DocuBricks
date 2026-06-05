@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_015",
+  "document_type": "aml_sar",
+  "description": "Sanctions evasion via Turkish intermediary routing payments to an Iranian entity",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-03001\nFiling Institution: Liberty International Bank\nFiling Date: 2024-11-18\nSubject: Bosphorus Trading & Consulting A.S.   Tax ID: N/A (foreign entity)\nSubject Address: Levent Mahallesi, Büyükdere Caddesi No. 185, Istanbul, Turkey\nAccount: XXXX9963\nActivity Dates: 2024-05-01 to 2024-10-15\nSuspicious Activity Type: SanctionsEvasion\nAmount Involved: USD 3,400,000.00   Transaction Count: 11\nLaw Enforcement Contacted: Yes\nBranch: New York Correspondent Banking Unit\nInvestigator: Thomas Reardon\n\nNarrative: Liberty International Bank is filing this Suspicious Activity Report regarding suspected sanctions evasion activity identified through its correspondent banking relationship with Bosphorus Trading & Consulting A.S. ('Bosphorus'), a Turkish commercial entity.\n\nBetween May 1, 2024 and October 15, 2024, Liberty International Bank processed eleven (11) USD wire payments totaling $3,400,000 on behalf of Bosphorus through the bank's New York correspondent account. The payments were directed to four beneficiaries in the United Arab Emirates, with beneficiary names including 'Gulf Horizon Resources FZCO,' 'Meridian Gulf Trading Ltd.,' and two additional entities. The stated payment purposes were listed as 'consulting services' and 'commodity procurement.'\n\nDuring a periodic enhanced due diligence review of the correspondent relationship in October 2024, the bank's financial intelligence unit identified that 'Gulf Horizon Resources FZCO' appeared in a subscription sanctions intelligence service as a known front company for Sepahan Industrial Group, an Iranian entity designated under the Office of Foreign Assets Control (OFAC) Iran Transactions and Sanctions Regulations (ITSR) pursuant to Executive Order 13846. The designation was effective as of March 2023.\n\nFurther investigation revealed that Bosphorus Trading & Consulting A.S. was incorporated in Istanbul in December 2022 — approximately three months before Sepahan Industrial Group was designated — and has no identifiable business website, trade registry listing, or commercial presence consistent with a legitimate consulting or commodity trading firm. Beneficial ownership documentation on file identified a sole director, Mr. Kemal Arslan, who also appears as a director of two other Turkish entities previously flagged in OFAC screening alerts.\n\nThe bank immediately suspended wire processing for Bosphorus and notified OFAC and the Financial Crimes Enforcement Network. Law enforcement contact was made on October 28, 2024. The bank is cooperating with all regulatory and law enforcement inquiries.",
+  "expected_json": {
+    "sar_id": "SAR-2024-03001",
+    "filing_institution_name": "Liberty International Bank",
+    "filing_date": "2024-11-18",
+    "subject_name": "Bosphorus Trading & Consulting A.S.",
+    "subject_tax_id_masked": null,
+    "subject_address": "Levent Mahallesi, Büyükdere Caddesi No. 185, Istanbul, Turkey",
+    "subject_account_number_masked": "XXXX9963",
+    "activity_start_date": "2024-05-01",
+    "activity_end_date": "2024-10-15",
+    "suspicious_activity_type": "SanctionsEvasion",
+    "amount_involved": 3400000.00,
+    "transaction_count": 11,
+    "currency": "USD",
+    "law_enforcement_contacted": true,
+    "narrative_summary": "A Turkish intermediary entity with no verifiable commercial operations routed $3,400,000 in correspondent bank wires to UAE front companies identified as linked to an OFAC-designated Iranian entity, Sepahan Industrial Group. The bank suspended processing, notified OFAC, and contacted law enforcement after the sanctions nexus was identified through enhanced due diligence.",
+    "branch_location": "New York Correspondent Banking Unit",
+    "investigator_name": "Thomas Reardon"
+  },
+  "expected_avg_confidence": 0.93
+}

@@ -1,0 +1,79 @@
+{
+  "case_number": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Case number is the primary docket identifier for linking filings across a matter; must be extracted exactly as formatted to ensure accurate docket tracking and e-filing compliance"
+  },
+  "filing_date": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Filing date is the legal anchor for calculating deadlines, statutes of limitations, and response windows; even a one-day error can constitute a missed deadline with procedural consequences"
+  },
+  "court_name": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Court name determines jurisdiction, applicable procedural rules, and routing to the responsible legal team; errors cause misrouting of matter management tasks"
+  },
+  "bar_number": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Attorney bar number is required for e-filing system validation and professional responsibility tracking; inaccurate values prevent filing acceptance"
+  },
+  "filing_type": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Filing type determines routing to litigation workflows (discovery, motions calendar, hearing scheduling) and sets response deadline calculation logic"
+  },
+  "case_name": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Case name is used for display and search in matter management systems; must match the official case caption"
+  },
+  "plaintiff_name": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Plaintiff identity is required for matter management, conflict-of-interest checks, and case strategy routing"
+  },
+  "defendant_name": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Defendant identity is required for conflict-of-interest checks, OFAC screening, and litigation risk assessment"
+  },
+  "hearing_date": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Hearing date drives calendar management and deadline reminders for litigation teams; errors can cause missed court appearances"
+  },
+  "attorney_name": {
+    "min_confidence": 0.85,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Attorney name is required for matter management and professional responsibility tracking"
+  },
+  "jury_demand": {
+    "min_confidence": 0.82,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Jury demand status affects trial scheduling and litigation strategy; false negatives may waive jury rights under applicable rules"
+  }
+}

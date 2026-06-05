@@ -1,0 +1,32 @@
+{
+  "test_case_id": "eob_cms1500_001",
+  "document_type": "eob_cms1500",
+  "description": "Paid claim — outpatient office visit, single CPT code, established patient, Blue Cross commercial plan",
+  "parsed_text": "EXPLANATION OF BENEFITS\nBlue Cross Blue Shield of Texas\nPO Box 660044, Dallas, TX 75266-0044\nPayer ID: BCBSTX\n\nMember Name: Johnson, Robert A.\nMember ID: XYZ987654321\nGroup Number: GRP-00445521\nDate of Birth: 1968-04-12\n\nProvider: Lakewood Family Medicine Associates\nBilling NPI: 1234567890\nRendering NPI: 1234567890\nService Facility: Lakewood Family Medicine Clinic\nFacility NPI: 9876543210\n\nCLAIM SUMMARY\nClaim Number: BCBSTX-2025-00847231\nDate of Service: 09/14/2025 — 09/14/2025\nDate Processed: 09/21/2025\nClaim Status: PAID\n\nSERVICE DETAIL\n-----------------------------------------------------------------------\nProc  Mod  Diag  Date        Billed    Allowed   Copay  Coins   Paid\n-----------------------------------------------------------------------\n99213  --   I10   09/14/2025  $180.00   $142.50   $30.00  $0.00  $112.50\n-----------------------------------------------------------------------\nDiagnosis Codes: I10 (Essential hypertension)\n\nFINANCIAL SUMMARY\nTotal Billed:               $180.00\nContractual Adjustment:     -$37.50\nTotal Allowed:              $142.50\nDeductible Applied:         $0.00\nCopay:                      $30.00\nCoinsurance:                $0.00\nPlan Paid to Provider:      $112.50\nYour Responsibility:        $30.00\n\nREMARK CODES: None\nDENIAL REASON: N/A — Claim Paid\n\nThis is not a bill. Questions? Call Member Services: 1-800-521-2227",
+  "expected_json": {
+    "claim_number": "BCBSTX-2025-00847231",
+    "patient_name": "Johnson, Robert A.",
+    "patient_dob": "1968-04-12",
+    "patient_member_id": "XYZ987654321",
+    "provider_name": "Lakewood Family Medicine Associates",
+    "provider_npi": "1234567890",
+    "rendering_provider_npi": "1234567890",
+    "payer_name": "Blue Cross Blue Shield of Texas",
+    "payer_id": "BCBSTX",
+    "group_number": "GRP-00445521",
+    "date_of_service_from": "2025-09-14",
+    "date_of_service_to": "2025-09-14",
+    "procedure_codes": ["99213"],
+    "diagnosis_codes": ["I10"],
+    "billed_amount": 180.00,
+    "allowed_amount": 142.50,
+    "paid_amount": 112.50,
+    "patient_responsibility": 30.00,
+    "claim_status": "Paid",
+    "denial_reason_code": null,
+    "remark_codes": [],
+    "service_facility_name": "Lakewood Family Medicine Clinic",
+    "service_facility_npi": "9876543210"
+  },
+  "expected_avg_confidence": 0.93
+}

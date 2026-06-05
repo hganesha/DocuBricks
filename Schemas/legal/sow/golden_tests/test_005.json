@@ -1,0 +1,46 @@
+{
+  "test_case_id": "sow_005",
+  "document_type": "sow",
+  "description": "Government/public sector SOW with FAR clauses, firm-fixed-price, federal agency as client",
+  "parsed_text": "STATEMENT OF WORK\nContract Number: W91CRB-25-C-0042\nSolicitation Number: W91CRB-25-R-0031\n\nThis Statement of Work (\"SOW\") is incorporated into and made part of Contract No. W91CRB-25-C-0042 between:\n\nU.S. Army Corps of Engineers, Omaha District (\"Government\" or \"Client\")\n1616 Capitol Avenue\nOmaha, NE 68102\nContracting Officer: Major Linda Forsythe (COR: Dr. Samuel Reyes)\n\nand\n\nApex Environmental Consulting, LLC (\"Contractor\" or \"Vendor\")\n901 Farnam Street, Suite 400\nOmaha, NE 68102\nContractor Contact: James Bergeron, Program Manager\n\nSOW Title: Environmental Site Assessment and Remediation Design Services — Fort Pemberton Training Area\n\n1. PURPOSE AND BACKGROUND\nThe U.S. Army Corps of Engineers, Omaha District requires environmental consulting services to conduct a Phase II Environmental Site Assessment (ESA), prepare a Remedial Investigation/Feasibility Study (RI/FS) report, and develop a Remediation Action Plan (RAP) for the Fort Pemberton Training Area in accordance with CERCLA requirements and applicable EPA guidance.\n\n2. PERIOD OF PERFORMANCE\nBase Period: June 1, 2025 through May 31, 2026\nOption Period I (if exercised): June 1, 2026 through May 31, 2027\n\n3. DELIVERABLES AND SCHEDULE\n\nCLIN 0001 — Phase II ESA Report\nDescription: Comprehensive Phase II Environmental Site Assessment including soil and groundwater sampling, laboratory analysis, and findings report consistent with ASTM E1903 standards.\nDelivery: October 31, 2025\n\nCLIN 0002 — Remedial Investigation / Feasibility Study (RI/FS) Report\nDescription: RI/FS report analyzing nature and extent of contamination, exposure pathways, and feasibility of remediation alternatives per EPA guidance for CERCLA sites.\nDelivery: February 28, 2026\n\nCLIN 0003 — Remediation Action Plan (RAP)\nDescription: Detailed Remediation Action Plan including selected remedy, cost estimate, schedule, and implementation specifications.\nDelivery: May 31, 2026\n\n4. CONTRACT TYPE AND PRICING\nContract Type: Firm-Fixed-Price (FFP)\nPricing Model: Fixed\nCLIN 0001 Amount: $185,000.00\nCLIN 0002 Amount: $220,000.00\nCLIN 0003 Amount: $95,000.00\nTotal Base Period Contract Value: $500,000.00 USD\nOption Period I Value (if exercised): $145,000.00\nCurrency: USD\n\n5. PAYMENT\nPayment Terms: Net 30 days from Government acceptance of each CLIN deliverable per FAR 52.232-25 (Prompt Payment).\nPayment Schedule: Payment per CLIN upon Government Contracting Officer Representative (COR) acceptance of each deliverable.\n\n6. INCORPORATED FAR/DFARS CLAUSES\nThis contract incorporates the following clauses by reference:\n- FAR 52.204-10: Reporting Executive Compensation and First-Tier Subcontract Awards\n- FAR 52.222-26: Equal Opportunity\n- FAR 52.227-14: Rights in Data — General (Alternate II)\n- FAR 52.232-25: Prompt Payment\n- DFARS 252.204-7012: Safeguarding Covered Defense Information\n\n7. INTELLECTUAL PROPERTY / DATA RIGHTS\nPursuant to FAR 52.227-14 (Alternate II), the Government retains unlimited rights to all data, reports, deliverables, and technical data packages generated under this contract. Contractor retains no proprietary rights in deliverables funded entirely by this contract.\n\n8. ACCEPTANCE CRITERIA\nThe COR shall review and accept or reject each CLIN deliverable within fifteen (15) business days of receipt. Rejection shall be accompanied by written technical comments. Contractor shall address comments and resubmit within ten (10) business days.\n\n9. CHANGE ORDER / MODIFICATION PROCESS\nAny change to the scope, price, or schedule of this contract shall be effected only by a bilateral contract modification (Mod) executed by the Contracting Officer in accordance with FAR Part 43.\n\nU.S. Army Corps of Engineers                     Apex Environmental Consulting, LLC\nBy: /s/ Major Linda Forsythe                     By: /s/ James Bergeron\nName: Major Linda Forsythe                       Name: James Bergeron\nTitle: Contracting Officer                       Title: Program Manager\nDate: May 20, 2025                               Date: May 20, 2025",
+  "expected_json": {
+    "sow_number": "W91CRB-25-C-0042",
+    "sow_title": "Environmental Site Assessment and Remediation Design Services — Fort Pemberton Training Area",
+    "effective_date": "2025-06-01",
+    "end_date": "2026-05-31",
+    "amendment_number": null,
+    "client_name": "U.S. Army Corps of Engineers, Omaha District",
+    "client_contact": "Major Linda Forsythe",
+    "client_po_number": null,
+    "vendor_name": "Apex Environmental Consulting, LLC",
+    "vendor_contact": "James Bergeron",
+    "project_description": "Phase II ESA, Remedial Investigation/Feasibility Study, and Remediation Action Plan for Fort Pemberton Training Area under CERCLA; incorporates FAR/DFARS clauses",
+    "deliverables": [
+      {
+        "name": "CLIN 0001 — Phase II ESA Report",
+        "description": "Phase II Environmental Site Assessment including soil/groundwater sampling, lab analysis, and findings per ASTM E1903",
+        "due_date": "2025-10-31"
+      },
+      {
+        "name": "CLIN 0002 — RI/FS Report",
+        "description": "Remedial Investigation/Feasibility Study analyzing contamination, exposure pathways, and remediation alternatives per EPA CERCLA guidance",
+        "due_date": "2026-02-28"
+      },
+      {
+        "name": "CLIN 0003 — Remediation Action Plan",
+        "description": "Detailed Remediation Action Plan with selected remedy, cost estimate, schedule, and implementation specifications",
+        "due_date": "2026-05-31"
+      }
+    ],
+    "pricing_model": "Fixed",
+    "total_contract_value": 500000.00,
+    "currency": "USD",
+    "payment_terms": "Net 30 days from Government acceptance of each CLIN deliverable per FAR 52.232-25",
+    "payment_schedule": "Payment per CLIN (CLIN 0001: $185K; CLIN 0002: $220K; CLIN 0003: $95K) upon COR acceptance",
+    "acceptance_criteria_described": true,
+    "change_order_process_described": true,
+    "ip_ownership": "Client",
+    "governing_law": null
+  },
+  "expected_avg_confidence": 0.91
+}

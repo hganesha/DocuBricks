@@ -1,0 +1,69 @@
+resources:
+  apps:
+    docubricks_portal:
+      name: "DocuBricks Portal [${bundle.target}]"
+      description: >
+        Main user-facing application. Provides document upload, real-time
+        pipeline status tracking, and Genie AI/BI chat interface.
+
+      source_code_path: apps/portal/
+
+      config:
+        command:
+          - "streamlit"
+          - "run"
+          - "app.py"
+          - "--server.port=8080"
+          - "--server.headless=true"
+
+        env:
+          - name: LAKEBASE_CONN
+            valueFrom:
+              secretRef:
+                scope: ${var.secret_scope}
+                key: lakebase-conn-string
+
+          - name: DATABRICKS_HOST
+            valueFrom:
+              secretRef:
+                scope: ${var.secret_scope}
+                key: databricks-host
+
+          - name: DATABRICKS_TOKEN
+            valueFrom:
+              secretRef:
+                scope: ${var.secret_scope}
+                key: databricks-sp-token
+
+          - name: SQL_WH_HTTP_PATH
+            valueFrom:
+              secretRef:
+                scope: ${var.secret_scope}
+                key: sql-wh-http-path
+
+          - name: PIPELINE_JOB_ID
+            valueFrom:
+              secretRef:
+                scope: ${var.secret_scope}
+                key: pipeline-job-id
+
+          - name: GENIE_SPACE_ID_FS
+            valueFrom:
+              secretRef:
+                scope: ${var.secret_scope}
+                key: genie-space-id-fs
+
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: ${var.otel_endpoint}
+
+          - name: CATALOG_NAME
+            value: ${var.catalog_name}
+
+      resources:
+        cpu: "0.5"
+        memory: "1Gi"
+
+      tags:
+        component: app
+        app: portal
+        managed_by: databricks_bundle

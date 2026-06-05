@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_008",
+  "document_type": "invoice",
+  "description": "Credit memo with negative total referencing original invoice, including reason for credit",
+  "parsed_text": "CREDIT MEMO\nCredit Memo #: CM-2025-0317\nDate: 2025-06-02\nOriginal Invoice #: INV-2025-2981   Original Invoice Date: 2025-05-05\nVendor: Pinnacle Packaging Solutions LLC\nVendor Tax ID: XX-XXX5502\nVendor Address: 3300 Commerce Court, Memphis, TN 38118\nBill To: Summit Retail Partners\n720 Marketplace Drive, Nashville, TN 37201\nPO Number: PO-SR-1140\nTerms: Net 30   Currency: USD\n\nReason for Credit: Return of defective merchandise — Batch #B2025-044 failed QC inspection. Customer returned 120 units of corrugate mailer boxes (Item #PKG-0882) found to have incorrect crease scoring causing seal failure. Credit issued per RMA Authorization #RMA-2025-0097.\n\nCredit Line Items:\n1. Corrugate Mailer 8x6x4 (PKG-0882), Qty -120 @ $3.85 ea    ($462.00)\n2. Restocking Fee Waived (per agreement)                         $0.00\n\nSubtotal:                 ($462.00)\nSales Tax Reversal @ 8%:   ($36.96)\nShipping Credit:           ($18.50)\nTotal Credit:             ($517.46)\n\nThis credit memo will be applied to your next outstanding invoice or remitted via ACH within 15 business days of credit approval.\nCredit approved by: J. Harmon, AR Manager\nContact: credits@pinnaclpackaging.com | 901-555-0244",
+  "expected_json": {
+    "invoice_number": "CM-2025-0317",
+    "invoice_date": "2025-06-02",
+    "due_date": null,
+    "vendor_name": "Pinnacle Packaging Solutions LLC",
+    "vendor_tax_id_masked": "XX-XXX5502",
+    "vendor_address": "3300 Commerce Court, Memphis, TN 38118",
+    "customer_name": "Summit Retail Partners",
+    "customer_address": "720 Marketplace Drive, Nashville, TN 37201",
+    "purchase_order_number": "PO-SR-1140",
+    "currency": "USD",
+    "subtotal": -462.00,
+    "tax_amount": -36.96,
+    "shipping_amount": -18.50,
+    "discount_amount": null,
+    "total_amount": -517.46,
+    "amount_due": -517.46,
+    "payment_terms": "Net 30",
+    "line_item_count": 2
+  },
+  "expected_avg_confidence": 0.87
+}

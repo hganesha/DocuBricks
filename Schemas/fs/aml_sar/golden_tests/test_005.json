@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_005",
+  "document_type": "aml_sar",
+  "description": "Minimal suspicious wire activity record",
+  "parsed_text": "SAR DRAFT\nInstitution: Harbor Trust Bank\nSubject: Nina Patel\nAccount: XXXX1200\nActivity: Suspicious outgoing wires\nPeriod: 2025-04-01 through 2025-04-02\nAmount Involved: USD 75,000.00\nTransactions: 2\nNarrative: Two wires were sent to a high-risk jurisdiction shortly after account opening.\nInvestigator: Owen Park",
+  "expected_json": {
+    "sar_id": null,
+    "filing_institution_name": "Harbor Trust Bank",
+    "filing_date": null,
+    "subject_name": "Nina Patel",
+    "subject_tax_id_masked": null,
+    "subject_address": null,
+    "subject_account_number_masked": "XXXX1200",
+    "activity_start_date": "2025-04-01",
+    "activity_end_date": "2025-04-02",
+    "suspicious_activity_type": "Suspicious outgoing wires",
+    "amount_involved": 75000.00,
+    "transaction_count": 2,
+    "currency": "USD",
+    "law_enforcement_contacted": null,
+    "narrative_summary": "Two wires were sent to a high-risk jurisdiction shortly after account opening.",
+    "branch_location": null,
+    "investigator_name": "Owen Park"
+  },
+  "expected_avg_confidence": 0.85
+}

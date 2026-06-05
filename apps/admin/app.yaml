@@ -1,0 +1,25 @@
+name: docubricks-admin
+display_name: DocuBricks Admin & Schema Manager
+description: >
+  Admin portal for schema/prompt management, accuracy monitoring,
+  tenant onboarding, and pipeline job observation.
+
+entrypoint: app.py
+python_version: "3.11"
+
+env:
+  - LAKEBASE_CONN
+  - DATABRICKS_HOST
+  - DATABRICKS_TOKEN
+  - SQL_WH_HTTP_PATH
+  - PIPELINE_JOB_ID
+  - GENIE_SPACE_ID_FS
+  - OTEL_EXPORTER_OTLP_ENDPOINT   # optional
+
+resources:
+  memory: 2Gi
+  cpu: 1.0
+
+routing:
+  auth: header          # X-Forwarded-User injected by gateway
+  min_role: admin

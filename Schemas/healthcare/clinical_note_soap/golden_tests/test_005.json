@@ -1,0 +1,61 @@
+{
+  "test_case_id": "soap_005",
+  "document_type": "clinical_note_soap",
+  "description": "Hospital discharge summary — post-surgical right total hip arthroplasty, 3-day inpatient stay, home with PT",
+  "parsed_text": "DISCHARGE SUMMARY\nSt. Augustine Medical Center\nDepartment: Orthopedic Surgery — Inpatient\nEncounter ID: SAMC-DISCH-2025-088341\nAdmission Date: 2025-10-28\nDischarge Date: 2025-10-31\nDate of Note: 2025-10-31\n\nProvider: Dr. Kevin Larsen, MD\nNPI: 5544332211\nSpecialty: Orthopedic Surgery\n\nPatient: Martinez, Rosa E.\nDOB: 1948-05-22\nMRN: SAMC-MRN-00762103\n\nFacility: St. Augustine Medical Center\nDepartment: Orthopedic Surgery — Inpatient\n\n---\nCHIEF COMPLAINT / REASON FOR ADMISSION\nElective right total hip arthroplasty for end-stage osteoarthritis.\n\nSUBJECTIVE\n77-year-old female admitted for elective right total hip replacement. History of right hip OA progressive over 5 years, failed conservative management (PT, NSAIDs, corticosteroid injections). Pre-operative clearance obtained from PCP and cardiology. Patient was ambulatory with a cane pre-operatively. Pre-op vitals stable. Pertinent PMH: HTN, hypothyroidism, osteoporosis.\n\nOBJECTIVE (Discharge Vitals)\n  BP: 128/74 mmHg   HR: 66 bpm   Temp: 99.0°F   RR: 16 breaths/min\n  SpO2: 96% on room air   Weight: 158 lbs\n\nHospital Course:\n  10/28: Right total hip arthroplasty performed under spinal anesthesia without intraoperative complications. Estimated blood loss 220 mL. Cefazolin perioperative antibiotic prophylaxis given.\n  10/29: PT out of bed to chair, standing with walker. Pain controlled on acetaminophen and oxycodone PRN.\n  10/30: Ambulated 50 feet with walker. Occupational therapy evaluated for ADL modifications.\n  10/31: Ambulating 100 feet, tolerating oral diet, voiding, afebrile. Ready for discharge.\n  Post-op X-ray (10/29): Hardware in good position, no acute complications.\n\nASSESSMENT\n1. Status post right total hip arthroplasty (Z96.641) — Uncomplicated, appropriate recovery.\n2. Primary osteoarthritis, right hip (M16.11) — Surgical indication, addressed.\n3. Essential hypertension (I10) — Chronic, continued home medications.\n4. Hypothyroidism (E03.9) — Chronic, continued levothyroxine.\n5. Osteoporosis without current pathological fracture (M81.0) — Chronic, Vitamin D/calcium continued.\n\nPLAN / DISCHARGE INSTRUCTIONS\n1. Discharge to home with home health physical therapy (3x/week x 4 weeks) and home health nursing (1x/week x 2 weeks).\n2. Hip precautions: No hip flexion > 90°, no internal rotation, no crossing legs. Hip precaution instructions reviewed with patient and daughter.\n3. Medications at discharge: Aspirin 81 mg daily (DVT prophylaxis x 35 days), oxycodone 5 mg q6h PRN pain (10-day supply), acetaminophen 650 mg q6h scheduled, levothyroxine 50 mcg daily, lisinopril 5 mg daily, calcium carbonate 600 mg + Vitamin D3 1000 IU BID.\n4. Wound care: Keep incision dry x 72 hours. Staple removal at follow-up.\n5. Return precautions: ER for fever > 101.5°F, increased redness/drainage at incision, sudden severe hip pain, leg swelling, or shortness of breath.\n6. Follow-up: Orthopedic surgery office in 2 weeks for wound check and staple removal.\n\nElectronically signed: Dr. Kevin Larsen, MD — 2025-10-31 11:20",
+  "expected_json": {
+    "note_date": "2025-10-31",
+    "note_type": "Discharge",
+    "document_id": "SAMC-DISCH-2025-088341",
+    "provider_name": "Dr. Kevin Larsen, MD",
+    "provider_npi": "5544332211",
+    "provider_specialty": "Orthopedic Surgery",
+    "patient_name": "Martinez, Rosa E.",
+    "patient_dob": "1948-05-22",
+    "patient_mrn": "SAMC-MRN-00762103",
+    "facility_name": "St. Augustine Medical Center",
+    "department": "Orthopedic Surgery — Inpatient",
+    "chief_complaint": "Elective right total hip arthroplasty for end-stage osteoarthritis.",
+    "subjective_summary": "77-year-old female, elective right total hip replacement. 5-year progressive OA, failed conservative management. PMH: HTN, hypothyroidism, osteoporosis. Pre-op clearance from PCP and cardiology...",
+    "objective_vitals": {
+      "bp": "128/74 mmHg",
+      "hr": "66 bpm",
+      "temp": "99.0°F",
+      "rr": "16 breaths/min",
+      "spo2": "96% on room air",
+      "weight": "158 lbs"
+    },
+    "assessment_diagnoses": [
+      {
+        "icd10_code": "Z96.641",
+        "description": "Status post right total hip arthroplasty",
+        "status": "Active"
+      },
+      {
+        "icd10_code": "M16.11",
+        "description": "Primary osteoarthritis, right hip",
+        "status": "Resolved"
+      },
+      {
+        "icd10_code": "I10",
+        "description": "Essential hypertension",
+        "status": "Chronic"
+      },
+      {
+        "icd10_code": "E03.9",
+        "description": "Hypothyroidism",
+        "status": "Chronic"
+      },
+      {
+        "icd10_code": "M81.0",
+        "description": "Osteoporosis without current pathological fracture",
+        "status": "Chronic"
+      }
+    ],
+    "plan_summary": "Home with PT 3x/wk x4 weeks and home health nursing. Hip precautions reviewed. Aspirin DVT prophylaxis x35 days. Oxycodone PRN, acetaminophen scheduled, continue lisinopril, levothyroxine, calcium+VitD...",
+    "medications_mentioned": ["aspirin", "oxycodone", "acetaminophen", "levothyroxine", "lisinopril", "calcium carbonate", "Vitamin D3", "cefazolin"],
+    "follow_up_instructions": "Return to ER for fever > 101.5°F, increased redness/drainage, sudden severe hip pain, leg swelling, or shortness of breath.",
+    "follow_up_timeframe": "2 weeks"
+  },
+  "expected_avg_confidence": 0.91
+}

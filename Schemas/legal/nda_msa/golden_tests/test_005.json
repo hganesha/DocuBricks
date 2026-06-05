@@ -1,0 +1,40 @@
+{
+  "test_case_id": "nda_msa_005",
+  "document_type": "nda_msa",
+  "description": "Memorandum of Understanding / Letter of Intent with confidentiality provisions for an M&A transaction, 18-month term",
+  "parsed_text": "MEMORANDUM OF UNDERSTANDING\n(Non-Binding Letter of Intent with Confidentiality Obligations)\n\nDate: November 1, 2025\n\nThis Memorandum of Understanding (\"MOU\") is entered into by and between:\n\nAurora Health Systems, Inc., a Florida corporation (\"Acquiror\"), with its principal offices at 8900 Westwood Center Drive, Tampa, FL 33607, and\n\nSunshine Diagnostics Holdings, LLC, a Florida limited liability company (\"Target\"), with its principal offices at 4200 Bayshore Boulevard, Tampa, FL 33611.\n\nPURPOSE AND INTENT\n\nThis MOU sets forth the non-binding intentions of the parties with respect to a potential acquisition by Acquiror of all of the outstanding equity interests of Target (the \"Proposed Transaction\") and establishes certain binding obligations including confidentiality requirements.\n\nI. NON-BINDING TERMS OF THE PROPOSED TRANSACTION\nThe parties acknowledge that the following terms are indicative only and not legally binding:\n- Proposed Purchase Price: Approximately $85 million, subject to customary adjustments for working capital, indebtedness, and cash\n- Structure: Acquisition of 100% of outstanding equity interests of Target\n- Anticipated Closing: On or before April 30, 2026, subject to completion of due diligence and regulatory approvals\n\nII. BINDING OBLIGATIONS — CONFIDENTIALITY\nThe following provisions are legally binding on the parties:\n\n1. Confidential Information. Each party acknowledges that, in connection with the evaluation of the Proposed Transaction, it may receive Confidential Information of the other party. \"Confidential Information\" shall mean all non-public financial, operational, commercial, and technical information of the disclosing party, including M&A materials, data room contents, customer contracts, and financial statements.\n\n2. Confidentiality Obligations. Each party agrees to: (i) maintain the confidentiality of the other party's Confidential Information using no less than reasonable care; (ii) use Confidential Information solely for evaluating the Proposed Transaction; and (iii) not disclose Confidential Information to any third party except advisors, attorneys, and accountants who are bound by equivalent confidentiality obligations.\n\n3. Term of Confidentiality. The confidentiality obligations set forth in this Section II shall be effective as of the date of this MOU and shall continue in full force and effect until April 30, 2027 (eighteen (18) months from the Effective Date), regardless of whether the Proposed Transaction is consummated.\n\n4. Return of Information. Upon written request or upon termination of discussions, each party shall promptly return or certifiably destroy all Confidential Information received from the other party.\n\n5. Exclusions. Confidentiality obligations shall not apply to information: (a) in the public domain; (b) known to the receiving party prior to disclosure; (c) independently developed; or (d) required to be disclosed by applicable law or regulation.\n\nIII. EXCLUSIVITY\nFor a period of forty-five (45) days from the date of this MOU, Target agrees not to solicit, negotiate with, or provide information to any other potential acquiror with respect to a sale of Target.\n\nIV. GOVERNING LAW\nThis MOU shall be governed by the laws of the State of Florida. Any disputes relating to the binding provisions of this MOU shall be resolved by binding arbitration administered by AAA in Miami, Florida.\n\nV. TERMINATION\nThis MOU may be terminated by either party upon written notice at any time. Termination shall not affect any binding obligations that have accrued hereunder.\n\nVI. NO BINDING COMMITMENT\nExcept for the confidentiality and exclusivity obligations set forth in Sections II and III, this MOU does not constitute a legally binding agreement to consummate the Proposed Transaction.\n\nAurora Health Systems, Inc.                     Sunshine Diagnostics Holdings, LLC\nBy: /s/ Dr. Patricia Ashworth                   By: /s/ Gordon Whitfield\nName: Dr. Patricia Ashworth                     Name: Gordon Whitfield\nTitle: Chief Executive Officer                  Title: Managing Member\nDate: November 1, 2025                          Date: November 1, 2025",
+  "expected_json": {
+    "agreement_type": "MOU",
+    "effective_date": "2025-11-01",
+    "expiration_date": "2027-04-30",
+    "auto_renew": false,
+    "renewal_notice_days": null,
+    "amendment_number": null,
+    "party_1_name": "Aurora Health Systems, Inc.",
+    "party_1_role": "Both",
+    "party_1_state": "FL",
+    "party_2_name": "Sunshine Diagnostics Holdings, LLC",
+    "party_2_role": "Both",
+    "party_2_state": "FL",
+    "governing_law": "FL",
+    "confidentiality_period_years": 1.5,
+    "confidentiality_scope": "Non-public financial, operational, commercial, and technical information including M&A materials, data room contents, customer contracts, and financial statements",
+    "permitted_uses": [
+      "Evaluating the Proposed Transaction",
+      "Disclosure to advisors, attorneys, and accountants bound by equivalent confidentiality obligations"
+    ],
+    "excluded_information": [
+      "Information in the public domain",
+      "Information known to the receiving party prior to disclosure",
+      "Independently developed information",
+      "Information required to be disclosed by applicable law or regulation"
+    ],
+    "return_or_destroy_obligation": true,
+    "non_solicitation_clause": false,
+    "non_compete_clause": false,
+    "liquidated_damages_amount": null,
+    "arbitration_clause": true,
+    "arbitration_venue": "Miami, Florida"
+  },
+  "expected_avg_confidence": 0.92
+}

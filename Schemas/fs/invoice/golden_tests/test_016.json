@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_016",
+  "document_type": "invoice",
+  "description": "Invoice with early payment discount terms of 2/10 Net 30 showing discount amount if paid within 10 days",
+  "parsed_text": "INVOICE\nInvoice Number: INV-2025-3390\nInvoice Date: 2025-09-15   Due Date: 2025-10-15\nVendor: Brightwater Chemical Distributors Inc.\nVendor Tax ID: XX-XXX1177\nVendor Address: 1900 Chemical Park Drive, Baton Rouge, LA 70801\nBill To: Gulf Coast Processing Solutions LLC\n   AP Department, 4400 Refinery Row, Pasadena, TX 77507\nPurchase Order: PO-GCP-20250901\nPayment Terms: 2/10 Net 30   Currency: USD\n\nLine Items:\n1. Isopropyl Alcohol 99% — 55 gal drums, Qty 20 @ $310.00    $6,200.00\n2. Sodium Hypochlorite 12.5% — 275 gal totes, Qty 4 @ $420.00 $1,680.00\n3. Citric Acid Anhydrous 50lb bags, Qty 30 @ $88.00           $2,640.00\n4. Activated Carbon Pellets 25lb bags, Qty 15 @ $145.00       $2,175.00\n6. Hazmat Handling Fee (DOT 49 CFR compliance)                  $350.00\n\nSubtotal:                                                     $13,045.00\nSales Tax (LA 4.45%):                                            $414.50\nShipping — Common Carrier Collect:                               $625.00\nInvoice Total:                                                $14,084.50\n\nEarly Payment Discount:\n  If paid on or before 2025-09-25 (within 10 days of invoice date),\n  deduct 2% discount: ($281.69)\n  Discounted Amount Due: $13,802.81\n\nIf paid after 2025-09-25:\n  Full Amount Due: $14,084.50\n\nACH/Wire: First Horizon Bank | Routing: 084000026 | Acct: XXXX-XXXX-3390\nAR Contact: ar@brightwaterchem.com | 225-555-0154",
+  "expected_json": {
+    "invoice_number": "INV-2025-3390",
+    "invoice_date": "2025-09-15",
+    "due_date": "2025-10-15",
+    "vendor_name": "Brightwater Chemical Distributors Inc.",
+    "vendor_tax_id_masked": "XX-XXX1177",
+    "vendor_address": "1900 Chemical Park Drive, Baton Rouge, LA 70801",
+    "customer_name": "Gulf Coast Processing Solutions LLC",
+    "customer_address": "4400 Refinery Row, Pasadena, TX 77507",
+    "purchase_order_number": "PO-GCP-20250901",
+    "currency": "USD",
+    "subtotal": 13045.00,
+    "tax_amount": 414.50,
+    "shipping_amount": 625.00,
+    "discount_amount": 281.69,
+    "total_amount": 14084.50,
+    "amount_due": 14084.50,
+    "payment_terms": "2/10 Net 30",
+    "line_item_count": 5
+  },
+  "expected_avg_confidence": 0.88
+}

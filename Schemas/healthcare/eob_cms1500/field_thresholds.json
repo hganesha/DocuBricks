@@ -1,0 +1,107 @@
+{
+  "claim_number": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Claim number is the HIPAA 835 transaction key — required for remittance reconciliation, ERA posting, and CMS audit trail; extraction errors break end-to-end payment workflow"
+  },
+  "patient_member_id": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Member ID links claim to eligibility and patient account; errors cause misposting, HIPAA EDI rejection, and patient billing failures"
+  },
+  "provider_npi": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "NPI is HIPAA-mandated provider identifier for claims submission and remittance; incorrect NPI causes ERA routing failures and CMS compliance issues"
+  },
+  "rendering_provider_npi": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Rendering NPI required for split-billing and group practice remittance routing under HIPAA 5010; errors affect provider payment splits"
+  },
+  "billed_amount": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Billed amount is the financial anchor for all remittance calculations — contractual adjustments, patient responsibility, and payer payment are all derived from this value; must be highly accurate"
+  },
+  "paid_amount": {
+    "min_confidence": 0.93,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Paid amount drives cash posting to provider accounts receivable; extraction errors cause AR balance mismatches and potential fraud flag triggers"
+  },
+  "allowed_amount": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Allowed amount validates contractual adjustment calculations and payer fee schedule compliance; important for revenue cycle analytics"
+  },
+  "patient_responsibility": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Patient responsibility amount drives patient billing statements; errors cause patient disputes and No Surprises Act compliance exposure"
+  },
+  "claim_status": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Claim status determines downstream workflow routing — paid claims to cash posting, denied to denial management, pending to follow-up queue; misclassification has significant operational impact"
+  },
+  "denial_reason_code": {
+    "min_confidence": 0.80,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "CARC denial reason code is required for automated appeals and denial trend reporting; lower threshold acceptable as codes may be in stamps or footnotes"
+  },
+  "procedure_codes": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "CPT/HCPCS codes link to fee schedule pricing, utilization management, and clinical analytics; incomplete extraction understates procedure mix reporting"
+  },
+  "diagnosis_codes": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "ICD-10 diagnosis codes support medical necessity validation and quality measure attribution; required for value-based care program reporting"
+  },
+  "date_of_service_from": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Date of service is required for timely filing compliance tracking and coordination of benefits sequencing; errors cause COB and timely filing rule violations"
+  },
+  "payer_name": {
+    "min_confidence": 0.85,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Payer name identifies the remitting entity for cash posting routing; lower threshold acceptable as payer may be identified by logo or ID rather than spelled-out name"
+  },
+  "service_facility_npi": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Service facility NPI required for place-of-service-based reimbursement rules and quality reporting attribution; errors affect site-of-care analytics"
+  }
+}

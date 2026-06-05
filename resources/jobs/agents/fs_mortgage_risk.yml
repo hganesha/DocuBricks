@@ -1,0 +1,32 @@
+resources:
+  jobs:
+    fs_mortgage_risk_monitor:
+      name: "DocuBricks — FS Mortgage Risk Monitor [${bundle.target}]"
+
+      schedule:
+        quartz_cron_expression: "0 0 7 * * ?"
+        timezone_id: "UTC"
+        pause_status: PAUSED  # overridden to UNPAUSED in prod target
+
+      tasks:
+        - task_key: run_agent
+          python_file:
+            path: src/agents/fs/mortgage_risk_monitor.py
+          existing_cluster_id: ${var.agent_cluster_id}
+          libraries:
+            - pypi:
+                package: psycopg2-binary
+
+      email_notifications:
+        on_failure: []
+
+      health:
+        rules:
+          - metric: RUN_DURATION_SECONDS
+            op: GREATER_THAN
+            value: 1800
+
+      tags:
+        vertical: fs
+        agent: mortgage_risk_monitor
+        team: docubricks-platform

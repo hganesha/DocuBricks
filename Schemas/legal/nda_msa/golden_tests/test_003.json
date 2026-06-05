@@ -1,0 +1,40 @@
+{
+  "test_case_id": "nda_msa_003",
+  "document_type": "nda_msa",
+  "description": "Master Service Agreement with embedded mutual NDA provisions, professional IT services, auto-renew annually, Delaware governing law",
+  "parsed_text": "MASTER SERVICE AGREEMENT\n\nThis Master Service Agreement (\"Agreement\") is entered into as of July 1, 2025 (\"Effective Date\") by and between:\n\nCrestwood Capital Advisors, LLC, a Delaware limited liability company (\"Client\"), with offices at 500 Delaware Avenue, Suite 1200, Wilmington, DE 19801, and\n\nInfraSync Solutions, Inc., a Delaware corporation (\"Provider\"), with offices at 3 Christiana Centre, Suite 300, Newark, DE 19702.\n\nRECITALS. Client desires to engage Provider to provide information technology infrastructure, cloud migration, and managed services support, and Provider desires to provide such services, all on the terms and conditions set forth herein.\n\nARTICLE 1 — SERVICES AND STATEMENTS OF WORK\n1.1 Provider shall perform the services described in individual Statements of Work (\"SOWs\") executed by the parties pursuant to this Agreement. Each SOW shall be incorporated herein by reference upon execution.\n\nARTICLE 2 — TERM AND RENEWAL\n2.1 Initial Term. This Agreement shall commence on the Effective Date and shall continue for an initial term of one (1) year, expiring on June 30, 2026, unless earlier terminated in accordance with Article 9.\n2.2 Automatic Renewal. This Agreement shall automatically renew for successive one (1)-year terms unless either party provides written notice of non-renewal to the other party at least sixty (60) days prior to the expiration of the then-current term.\n\nARTICLE 3 — FEES AND PAYMENT\n3.1 Client shall pay Provider the fees specified in each applicable SOW. Payment terms are Net 30 days from invoice date.\n\nARTICLE 4 — CONFIDENTIALITY\n4.1 Definition. Each party (in its capacity as a \"Receiving Party\") agrees to keep confidential all Confidential Information disclosed by the other party (in its capacity as a \"Disclosing Party\"). \"Confidential Information\" means all non-public information, including source code, system architectures, financial data, business strategies, pricing, and client information, whether disclosed orally, in writing, or electronically.\n4.2 Exclusions. Confidential Information does not include information that: (a) is or becomes publicly available other than through breach of this Agreement; (b) was already known to the Receiving Party; (c) is independently developed by the Receiving Party; or (d) is disclosed with prior written approval of the Disclosing Party.\n4.3 Permitted Uses. Each party may use Confidential Information solely to perform its obligations and exercise its rights under this Agreement.\n4.4 Confidentiality Period. Confidentiality obligations shall survive the expiration or termination of this Agreement for a period of five (5) years.\n4.5 Return or Destruction. Upon expiration or termination of this Agreement or any SOW, or upon written request, each party shall promptly return or certifiably destroy all Confidential Information of the other party.\n\nARTICLE 5 — INTELLECTUAL PROPERTY\n5.1 Work Product. All deliverables and work product developed by Provider specifically for Client under this Agreement shall be considered works-made-for-hire and shall be the exclusive property of Client upon full payment of applicable fees.\n\nARTICLE 6 — NON-SOLICITATION\n6.1 During the term of this Agreement and for one (1) year thereafter, neither party shall solicit or hire any employee of the other party who was involved in the performance of services hereunder without prior written consent.\n\nARTICLE 7 — DISPUTE RESOLUTION\n7.1 The parties shall attempt to resolve disputes through good-faith negotiation. If unresolved within thirty (30) days, disputes shall be submitted to binding arbitration under the AAA Commercial Arbitration Rules, with arbitration to be held in Wilmington, Delaware.\n\nARTICLE 8 — GOVERNING LAW\n8.1 This Agreement shall be governed by the laws of the State of Delaware, without regard to conflict of law principles.\n\nARTICLE 9 — TERMINATION\n9.1 Either party may terminate this Agreement for cause upon thirty (30) days' written notice if the other party materially breaches this Agreement and fails to cure such breach within the notice period.\n9.2 Either party may terminate this Agreement without cause upon ninety (90) days' written notice to the other party.\n\nCrestwood Capital Advisors, LLC             InfraSync Solutions, Inc.\nBy: /s/ Marcus Holloway                     By: /s/ Tanya Kowalski\nName: Marcus Holloway                       Name: Tanya Kowalski\nTitle: Chief Operating Officer              Title: President\nDate: July 1, 2025                          Date: July 1, 2025",
+  "expected_json": {
+    "agreement_type": "MSA",
+    "effective_date": "2025-07-01",
+    "expiration_date": "2026-06-30",
+    "auto_renew": true,
+    "renewal_notice_days": 60,
+    "amendment_number": null,
+    "party_1_name": "Crestwood Capital Advisors, LLC",
+    "party_1_role": "Both",
+    "party_1_state": "DE",
+    "party_2_name": "InfraSync Solutions, Inc.",
+    "party_2_role": "Both",
+    "party_2_state": "DE",
+    "governing_law": "DE",
+    "confidentiality_period_years": 5.0,
+    "confidentiality_scope": "Non-public information including source code, system architectures, financial data, business strategies, pricing, and client information",
+    "permitted_uses": [
+      "Performing obligations under this Agreement",
+      "Exercising rights under this Agreement"
+    ],
+    "excluded_information": [
+      "Publicly available information other than through breach of this Agreement",
+      "Information already known to the Receiving Party",
+      "Independently developed information",
+      "Information disclosed with prior written approval of the Disclosing Party"
+    ],
+    "return_or_destroy_obligation": true,
+    "non_solicitation_clause": true,
+    "non_compete_clause": false,
+    "liquidated_damages_amount": null,
+    "arbitration_clause": true,
+    "arbitration_venue": "Wilmington, Delaware"
+  },
+  "expected_avg_confidence": 0.94
+}

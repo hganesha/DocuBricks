@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_008",
+  "document_type": "kyc_cdd_form",
+  "description": "Domestic PEP — elected state senator with spouse as joint account holder, Enhanced Due Diligence required",
+  "parsed_text": "CUSTOMER DUE DILIGENCE — JOINT ACCOUNT / PEP DISCLOSURE\nPrimary Account Holder: Senator Gerald Fontaine\nCustomer Type: Individual (Joint Account)\nDate of Birth: 1966-02-14   SSN: XXX-XX-3308\nAddress: 44 Magnolia Court, Baton Rouge, LA 70801, USA\nPhone: (225) 555-0109   Email: gerald.fontaine@example.com\nOccupation: Elected Official — State Senator, Louisiana Senate District 12\nSource of Funds: Legislative salary, law firm partnership income (prior), rental properties\nExpected Monthly Activity: $28,000\n\nJOINT ACCOUNT HOLDER\nName: Renee Fontaine (Spouse)\nDate of Birth: 1969-08-30   SSN: XXX-XX-7741\nOccupation: Educator — Baton Rouge Parish School System\nRelationship to Primary: Spouse\n\nPEP STATUS\nPrimary Holder PEP Classification: Domestic PEP — Currently serving elected state official.\nJoint Holder PEP Classification: Close Associate / Family Member of Domestic PEP.\nPEP Status: YES — Gerald Fontaine is a domestic PEP per FinCEN and internal policy. Renee Fontaine flagged as PEP family member.\nEDD Required: Yes — both holders flagged under PEP provisions.\n\nIDENTITY DOCUMENTS (PRIMARY)\nID Type: Driver License   ID Number: DL-LA-XX2291   Expiration: 2028-03-15\n\nIDENTITY DOCUMENTS (JOINT)\nID Type: Driver License   ID Number: DL-LA-XX0044   Expiration: 2026-07-22\n\nSCREENING RESULTS\nOFAC / SDN: Clear — no match.\nPEP Database (World-Check): MATCH — Gerald Fontaine confirmed as Louisiana State Senator elected 2018, re-elected 2022. Profile reviewed and accepted per EDD policy.\nAdverse Media: One reference found — 2023 local news article regarding legislative vote dispute; no criminal or fraud implication. Reviewed and noted.\n\nEDD ACTIONS COMPLETED\n1. PEP questionnaire completed and signed by primary holder.\n2. Source of wealth documented: W-2 and Schedule K-1 reviewed.\n3. Rental property deeds on file.\n4. Senior compliance officer approval obtained.\n5. Annual review calendar set.\nCDD Level: Enhanced\nRisk Rating: High\nReview Date: 2025-08-19   Reviewer: Denise Tran",
+  "expected_json": {
+    "customer_name": "Senator Gerald Fontaine",
+    "customer_type": "Individual",
+    "date_of_birth": "1966-02-14",
+    "tax_id_masked": "XXX-XX-3308",
+    "address_line1": "44 Magnolia Court",
+    "city": "Baton Rouge",
+    "state": "LA",
+    "postal_code": "70801",
+    "country": "USA",
+    "phone": "(225) 555-0109",
+    "email": "gerald.fontaine@example.com",
+    "occupation_or_business": "Elected Official — State Senator, Louisiana Senate District 12",
+    "source_of_funds": "Legislative salary, law firm partnership income (prior), rental properties",
+    "expected_monthly_activity": 28000.00,
+    "risk_rating": "High",
+    "pep_status": true,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": "Driver License",
+    "id_document_number_masked": "DL-LA-XX2291",
+    "id_expiration_date": "2028-03-15",
+    "review_date": "2025-08-19",
+    "reviewer_name": "Denise Tran"
+  },
+  "expected_avg_confidence": 0.91
+}

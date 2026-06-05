@@ -1,0 +1,7 @@
+{
+  "preferred_model": "databricks-claude-sonnet",
+  "fallback_model": "databricks-claude-haiku",
+  "max_tokens": 8192,
+  "temperature": 0.0,
+  "rationale": "NDA and MSA documents require nuanced legal reasoning to correctly interpret confidentiality scope, restrictive covenants, governing law provisions, and auto-renewal mechanics. Clause language is often dense, cross-referential, and deliberately ambiguous. Claude Sonnet is preferred for its strong legal reasoning, ability to track multi-party obligations across long documents, and accurate boolean extraction (e.g., non-solicitation, arbitration clause). The higher token budget (8192) accommodates MSAs that embed multiple exhibits, schedules, and addenda within a single document. Temperature 0.0 ensures deterministic, reproducible extractions required for contract management audit trails. Claude Haiku is retained as fallback for straightforward short-form NDAs where extraction latency matters more than deep reasoning."
+}

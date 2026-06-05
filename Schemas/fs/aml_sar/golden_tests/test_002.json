@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_002",
+  "document_type": "aml_sar",
+  "description": "Suspected account takeover with law enforcement contact",
+  "parsed_text": "AML CASE SAR DRAFT\nSAR ID: SAR-2025-00058\nInstitution: Metro Community Credit Union\nFiling Date: 2025-02-11\nSubject Name: Olivia Santos\nTIN: XXX-XX-3109   Account Number: XX7710\nAddress: 822 Reed Avenue, Phoenix, AZ 85004\nActivity Period: 2025-01-03 - 2025-01-06\nType: Account takeover / unauthorized electronic transfers\nAmount: $12,410.33 USD   Transactions: 7\nLaw Enforcement Contacted: Yes, Phoenix PD case intake\nBranch Location: Online Banking\nInvestigator Name: Marc Lee\nNarrative Summary: Online credentials were changed before multiple outgoing transfers to newly added payees.",
+  "expected_json": {
+    "sar_id": "SAR-2025-00058",
+    "filing_institution_name": "Metro Community Credit Union",
+    "filing_date": "2025-02-11",
+    "subject_name": "Olivia Santos",
+    "subject_tax_id_masked": "XXX-XX-3109",
+    "subject_address": "822 Reed Avenue, Phoenix, AZ 85004",
+    "subject_account_number_masked": "XX7710",
+    "activity_start_date": "2025-01-03",
+    "activity_end_date": "2025-01-06",
+    "suspicious_activity_type": "Account takeover / unauthorized electronic transfers",
+    "amount_involved": 12410.33,
+    "transaction_count": 7,
+    "currency": "USD",
+    "law_enforcement_contacted": true,
+    "narrative_summary": "Online credentials were changed before multiple outgoing transfers to newly added payees.",
+    "branch_location": "Online Banking",
+    "investigator_name": "Marc Lee"
+  },
+  "expected_avg_confidence": 0.93
+}

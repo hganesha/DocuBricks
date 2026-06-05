@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_014",
+  "document_type": "aml_sar",
+  "description": "Tax evasion via unreported foreign bank account with FBAR violation and wire transfers from Swiss private bank",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-02788\nFiling Institution: First National Wealth Management Bank\nFiling Date: 2024-10-25\nSubject: Harold James Glenbrook   Tax ID: XXX-XX-5509\nSubject Address: 27 Ridgewood Estates Drive, Greenwich, CT 06830\nAccount: XXXX1148\nActivity Dates: 2024-04-15 to 2024-09-30\nSuspicious Activity Type: TaxEvasion\nAmount Involved: USD 1,920,000.00   Transaction Count: 6\nLaw Enforcement Contacted: No\nBranch: Greenwich Wealth Management Center\nInvestigator: Frances Holloway\n\nNarrative: First National Wealth Management Bank is filing this Suspicious Activity Report regarding suspected tax evasion and Bank Secrecy Act FBAR non-compliance involving the personal account of Harold James Glenbrook (date of birth: 07/29/1959), a high-net-worth private banking client and retired equity partner of a consulting firm.\n\nBetween April 15 and September 30, 2024, the bank received six (6) incoming wire transfers totaling $1,920,000 into Mr. Glenbrook's personal checking account. All six wires originated from an account at Helvetica Private Bank AG in Geneva, Switzerland, in the name of 'Glenbrook Family Trust.' The wires were received in amounts of $250,000 to $420,000 and described in the payment reference field as 'personal distribution' or 'trust disbursement.'\n\nDuring an annual relationship review conducted in August 2024, the bank's private banking officer inquired about the existence of foreign financial accounts in connection with the client's Know Your Customer (KYC) refresh. Mr. Glenbrook initially denied holding any foreign accounts. When presented with the incoming wire documentation, he amended his disclosure to acknowledge a trust account at Helvetica Private Bank AG but stated he was 'advised by prior counsel' that the account was not reportable.\n\nA review of publicly available FinCEN FBAR filing records (where accessible through customer attestation) indicated no FBAR filings consistent with Mr. Glenbrook's identity for tax years 2021, 2022, or 2023. The incoming wire amounts are inconsistent with the client's domestic investment account distributions and tax return summaries previously provided to the bank's compliance team.\n\nThe bank also notes that the Glenbrook Family Trust was established in the British Virgin Islands in 2011, a jurisdiction commonly associated with tax-minimization structures. No prior SARs are on file for Mr. Glenbrook. The bank has not contacted law enforcement but is providing this report to FinCEN.",
+  "expected_json": {
+    "sar_id": "SAR-2024-02788",
+    "filing_institution_name": "First National Wealth Management Bank",
+    "filing_date": "2024-10-25",
+    "subject_name": "Harold James Glenbrook",
+    "subject_tax_id_masked": "XXX-XX-5509",
+    "subject_address": "27 Ridgewood Estates Drive, Greenwich, CT 06830",
+    "subject_account_number_masked": "XXXX1148",
+    "activity_start_date": "2024-04-15",
+    "activity_end_date": "2024-09-30",
+    "suspicious_activity_type": "TaxEvasion",
+    "amount_involved": 1920000.00,
+    "transaction_count": 6,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "A private banking client received $1,920,000 in wire transfers from an undisclosed Swiss private bank trust account over six months, initially denying the account's existence during a KYC review, with no FBAR filings identified for the associated foreign account across three prior tax years. The pattern is consistent with tax evasion and willful FBAR non-compliance.",
+    "branch_location": "Greenwich Wealth Management Center",
+    "investigator_name": "Frances Holloway"
+  },
+  "expected_avg_confidence": 0.92
+}

@@ -1,0 +1,25 @@
+name: docubricks-review
+display_name: DocuBricks Review & Correction
+description: >
+  Human-in-the-loop review queue for extracted document fields.
+  Reviewers approve, correct, or quarantine AI extraction results.
+
+entrypoint: app.py
+python_version: "3.11"
+
+env:
+  - LAKEBASE_CONN
+  - DATABRICKS_HOST
+  - DATABRICKS_TOKEN
+  - SQL_WH_HTTP_PATH
+  - PIPELINE_JOB_ID
+  - GENIE_SPACE_ID_FS
+  - OTEL_EXPORTER_OTLP_ENDPOINT   # optional
+
+resources:
+  memory: 1Gi
+  cpu: 0.5
+
+routing:
+  auth: header          # X-Forwarded-User injected by gateway
+  min_role: reviewer

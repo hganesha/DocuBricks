@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_017",
+  "document_type": "kyc_cdd_form",
+  "description": "Complex beneficial ownership involving a five-layer holding company structure with indirect ownership chain traced to ultimate beneficial owners",
+  "parsed_text": "KYC / BENEFICIAL OWNERSHIP — COMPLEX ENTITY PROFILE\nLegal Entity Name: Stratford Global Holdings Inc\nCustomer Type: Business\nEIN: XX-XXX9901\nState of Incorporation: Delaware\nPrincipal Business Address: 1209 Orange Street, Wilmington, DE 19801, USA\nPhone: (302) 555-0122   Email: legal@stratfordglobal.example\nBusiness Activity: Holding company — passive investment in subsidiary operating companies\nSource of Funds: Dividend distributions from subsidiaries, intercompany management fees\nExpected Monthly Activity: $2,300,000\n\nOWNERSHIP CHAIN — FIVE LAYERS\nLayer 1 (Account Entity): Stratford Global Holdings Inc (Delaware, USA)\nLayer 2: 100% owned by Stratford International Group Ltd (Cayman Islands — KY-REG-XXXX2201)\nLayer 3: Stratford International Group Ltd is 55% owned by Kenfield Asset Management LP (British Virgin Islands — BVI-XXXX7703)\nLayer 4: Kenfield Asset Management LP is 70% owned by Kenfield Capital Partners SA (Luxembourg — LU-XXXX4418)\nLayer 5: Kenfield Capital Partners SA is owned by two natural persons:\n  - Alexander Roth: 60% (indirect effective ownership in Stratford Global Holdings: approx 23.1%)\n  - Franziska Werner: 40% (indirect effective ownership in Stratford Global Holdings: approx 15.4%)\n\nRemainder Layer 2–3: 45% of Stratford International Group Ltd is publicly traded on the Luxembourg Stock Exchange (LU-ISIN-XXXXXXX003).\n\nULTIMATE BENEFICIAL OWNERS (UBOs) — IDENTIFIED\nAlexander Roth — indirect ownership 23.1% (above 25% threshold not met, but identified per enhanced policy for complex structures)\nFranziska Werner — indirect ownership 15.4%\nControl Person: Stephen Mulvaney, CEO, Stratford Global Holdings Inc\n\nID DOCUMENTS COLLECTED\nAlexander Roth — Passport: DE-XXXX3309 (Germany), Exp: 2028-05-15\nFranziska Werner — Passport: DE-XXXX8812 (Germany), Exp: 2027-11-30\nStephen Mulvaney — Driver License: DL-DE-XX6622, Exp: 2026-08-20\n\nSCREENING RESULTS\nOFAC / SDN: Clear for all UBOs, control person, and all intermediate entities.\nEU Consolidated Sanctions: Clear.\nCayman / BVI / Luxembourg AML Framework Review: All intermediate jurisdictions assessed. BVI and Cayman flagged as enhanced-monitoring jurisdictions per internal policy. Mitigation: regulated funds administrators documented for each entity.\nPEP Check: No PEP associations for Alexander Roth, Franziska Werner, or Stephen Mulvaney.\nAdverse Media: No adverse media for UBOs or intermediate entities.\n\nRISK ASSESSMENT\nEDD Trigger: Yes — complex multi-jurisdictional holding structure and presence of offshore intermediate entities.\nCDD Level: Enhanced\nRisk Rating: High\nPEP Status: No\nCompliance Notes: Legal entity ownership chart prepared by external law firm (Maynard & Crew LLP, Wilmington). UBO trace completed to natural-person level. Senior compliance officer approval granted.\nReview Date: 2025-12-10   Reviewer: Oliver Bassett",
+  "expected_json": {
+    "customer_name": "Stratford Global Holdings Inc",
+    "customer_type": "Business",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX9901",
+    "address_line1": "1209 Orange Street",
+    "city": "Wilmington",
+    "state": "DE",
+    "postal_code": "19801",
+    "country": "USA",
+    "phone": "(302) 555-0122",
+    "email": "legal@stratfordglobal.example",
+    "occupation_or_business": "Holding company — passive investment in subsidiary operating companies",
+    "source_of_funds": "Dividend distributions from subsidiaries, intercompany management fees",
+    "expected_monthly_activity": 2300000.00,
+    "risk_rating": "High",
+    "pep_status": false,
+    "beneficial_owner_name": "Alexander Roth",
+    "beneficial_owner_ownership_percent": 23.1,
+    "id_document_type": "Passport",
+    "id_document_number_masked": "DE-XXXX3309",
+    "id_expiration_date": "2028-05-15",
+    "review_date": "2025-12-10",
+    "reviewer_name": "Oliver Bassett"
+  },
+  "expected_avg_confidence": 0.86
+}

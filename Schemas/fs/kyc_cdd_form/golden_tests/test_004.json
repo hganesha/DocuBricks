@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_004",
+  "document_type": "kyc_cdd_form",
+  "description": "Trust account with trustee as beneficial owner",
+  "parsed_text": "CUSTOMER IDENTIFICATION AND DUE DILIGENCE\nCustomer Name: The Rowan Family Trust\nCustomer Type: Trust   TIN: XX-XXX5104\nMailing Address: 2300 Walnut Hill Road, Dallas, TX 75229, USA\nPhone: (214) 555-0121\nBusiness/Occupation: Family trust account\nSource of Funds: Investment assets\nExpected Monthly Activity: $35,000\nBeneficial Owner/Control Person: Daniel Rowan   Ownership/Control: 100%\nPEP Status: No   Risk Rating: Medium\nReview Date: 2025-04-09   Reviewer Name: Amir Patel",
+  "expected_json": {
+    "customer_name": "The Rowan Family Trust",
+    "customer_type": "Trust",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX5104",
+    "address_line1": "2300 Walnut Hill Road",
+    "city": "Dallas",
+    "state": "TX",
+    "postal_code": "75229",
+    "country": "USA",
+    "phone": "(214) 555-0121",
+    "email": null,
+    "occupation_or_business": "Family trust account",
+    "source_of_funds": "Investment assets",
+    "expected_monthly_activity": 35000.00,
+    "risk_rating": "Medium",
+    "pep_status": false,
+    "beneficial_owner_name": "Daniel Rowan",
+    "beneficial_owner_ownership_percent": 100.0,
+    "id_document_type": null,
+    "id_document_number_masked": null,
+    "id_expiration_date": null,
+    "review_date": "2025-04-09",
+    "reviewer_name": "Amir Patel"
+  },
+  "expected_avg_confidence": 0.89
+}

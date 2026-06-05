@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_019",
+  "document_type": "invoice",
+  "description": "Freight and logistics invoice with carrier name, tracking number, shipment weight, freight class, and fuel surcharge",
+  "parsed_text": "FREIGHT INVOICE\nInvoice #: FRT-2025-099341\nInvoice Date: 2025-12-02   Due Date: 2025-12-17\nCarrier: Heartland Freight Lines Inc.\nCarrier Tax ID: XX-XXX6622\nCarrier Address: 800 Logistics Way, Indianapolis, IN 46241\nCarrier MC#: MC-411820   DOT#: 1882940\nBill To (Shipper): Granite Ridge Building Materials Co.\n   3 Quarry Lane, Columbus, OH 43228\nConsignee: Mountain View Construction Supply\n   7700 Summit Ridge Road, Denver, CO 80239\nPO Number: PO-GRB-20251120\nPayment Terms: Net 15   Currency: USD\n\nShipment Details:\nBOL Number: BOL-2025-HR-44891\nTracking Number: HFL-2025-TRK-099341\nPick-Up Date: 2025-11-25   Delivery Date: 2025-11-29\nOrigin: Columbus, OH   Destination: Denver, CO\nService Level: Standard LTL — Transit Time: 4 Days\n\nCargo Description:\n  Masonry Block 8x8x16 — 2 pallets\n  Quarried Granite Slab — 1 pallet (strapped)\n  Bagged Mortar Mix — 3 pallets\n\nLine Items:\n1. Base Freight — LTL Rate\n   Actual Weight: 8,420 lbs | Billed Weight: 8,420 lbs\n   Freight Class: 60 | Rate: $0.088/lb                    $741.00\n2. Fuel Surcharge (22.5% of base freight)                 $166.73\n3. Residential Delivery Fee — N/A                           $0.00\n4. Liftgate Service — Origin (Requested)                   $85.00\n5. Pallet Jack Service — Destination                        $65.00\n6. Declared Value Coverage ($50,000 @ $1.10/100)          $550.00\n\nSubtotal:                      $1,607.73\nTax: $0.00 (freight tax-exempt)\nInvoice Total:                 $1,607.73\nAmount Due:                    $1,607.73\n\nPayment: ACH preferred. Include BOL number in memo.\nbilling@heartlandfreightlines.com | 317-555-0288\nDispute window: 180 days per NMFC tariff.",
+  "expected_json": {
+    "invoice_number": "FRT-2025-099341",
+    "invoice_date": "2025-12-02",
+    "due_date": "2025-12-17",
+    "vendor_name": "Heartland Freight Lines Inc.",
+    "vendor_tax_id_masked": "XX-XXX6622",
+    "vendor_address": "800 Logistics Way, Indianapolis, IN 46241",
+    "customer_name": "Granite Ridge Building Materials Co.",
+    "customer_address": "3 Quarry Lane, Columbus, OH 43228",
+    "purchase_order_number": "PO-GRB-20251120",
+    "currency": "USD",
+    "subtotal": 1607.73,
+    "tax_amount": 0.00,
+    "shipping_amount": null,
+    "discount_amount": null,
+    "total_amount": 1607.73,
+    "amount_due": 1607.73,
+    "payment_terms": "Net 15",
+    "line_item_count": 6
+  },
+  "expected_avg_confidence": 0.86
+}

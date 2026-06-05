@@ -1,0 +1,52 @@
+{
+  "wave": 1,
+  "agent": "schema",
+  "status": "COMPLETE",
+  "document_types": ["mortgage_application", "kyc_cdd_form", "aml_sar", "invoice"],
+  "schema_paths": {
+    "mortgage_application": "schemas/fs/mortgage_application/",
+    "kyc_cdd_form":         "schemas/fs/kyc_cdd_form/",
+    "aml_sar":              "schemas/fs/aml_sar/",
+    "invoice":              "schemas/fs/invoice/"
+  },
+  "files_per_type": ["prompt_v1.txt", "validation_rules.json", "field_thresholds.json", "model_routing.json"],
+  "golden_test_counts": {
+    "mortgage_application": 5,
+    "kyc_cdd_form": 5,
+    "aml_sar": 5,
+    "invoice": 5
+  },
+  "key_fields": {
+    "mortgage_application": [
+      "loan_amount", "loan_purpose", "loan_type", "borrower_last_name",
+      "debt_to_income_ratio", "ltv_percent", "credit_score", "property_address",
+      "occupancy_type", "interest_rate_percent"
+    ],
+    "kyc_cdd_form": [
+      "customer_type", "customer_id", "overall_risk_rating", "pep_status",
+      "sanctions_screening_status", "due_diligence_level", "beneficial_ownership_collected",
+      "risk_score", "relationship_status"
+    ],
+    "aml_sar": [
+      "sar_id", "subject_name", "subject_type", "suspicious_activity_type",
+      "transaction_amount", "transaction_currency", "filing_date",
+      "filing_institution", "narrative_summary"
+    ],
+    "invoice": [
+      "invoice_number", "vendor_name", "vendor_id", "total_amount",
+      "currency", "invoice_date", "due_date", "po_number", "line_item_count"
+    ]
+  },
+  "model_routing": {
+    "mortgage_application": "databricks-dbrx-instruct",
+    "kyc_cdd_form":         "databricks-claude-sonnet",
+    "aml_sar":              "databricks-claude-sonnet",
+    "invoice":              "databricks-dbrx-instruct"
+  },
+  "regulatory_alignment": {
+    "mortgage_application": "URLA/MISMO v3.x, HMDA, TRID",
+    "kyc_cdd_form":         "FinCEN CDD Rule, BSA, FFIEC, NIST SP 800-63-4",
+    "aml_sar":              "FinCEN BSA e-Filing, SAR form TD F 90-22.47",
+    "invoice":              "Standard AP/AR, GAAP"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_002",
+  "document_type": "kyc_cdd_form",
+  "description": "Business customer with beneficial owner",
+  "parsed_text": "KYC/CDD ENTITY PROFILE\nLegal Customer Name: Blue Harbor Imports LLC\nCustomer Type: Business   EIN: XX-XXX7821\nBusiness Address: 77 Pier Avenue, Newark, NJ 07105, USA\nPhone: (973) 555-0188   Email: compliance@blueharbor.example\nBusiness Activity: Wholesale food importer\nSource of Funds: Operating revenue\nExpected Monthly Activity: $225,000\nBeneficial Owner: Sofia Martinez   Ownership: 62.5%\nPEP Status: No   Risk Rating: Medium\nReview Date: 2025-02-03   Reviewer: Priya Shah",
+  "expected_json": {
+    "customer_name": "Blue Harbor Imports LLC",
+    "customer_type": "Business",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX7821",
+    "address_line1": "77 Pier Avenue",
+    "city": "Newark",
+    "state": "NJ",
+    "postal_code": "07105",
+    "country": "USA",
+    "phone": "(973) 555-0188",
+    "email": "compliance@blueharbor.example",
+    "occupation_or_business": "Wholesale food importer",
+    "source_of_funds": "Operating revenue",
+    "expected_monthly_activity": 225000.00,
+    "risk_rating": "Medium",
+    "pep_status": false,
+    "beneficial_owner_name": "Sofia Martinez",
+    "beneficial_owner_ownership_percent": 62.5,
+    "id_document_type": null,
+    "id_document_number_masked": null,
+    "id_expiration_date": null,
+    "review_date": "2025-02-03",
+    "reviewer_name": "Priya Shah"
+  },
+  "expected_avg_confidence": 0.91
+}

@@ -1,0 +1,32 @@
+resources:
+  pipelines:
+    processing_pipeline:
+      name: "DocuBricks — Processing [${bundle.target}]"
+      catalog: ${var.catalog_name}
+      target: silver
+      channel: PREVIEW
+      serverless: true
+      continuous: false
+      configuration:
+        catalog_name:  ${var.catalog_name}
+        secret_scope:  ${var.secret_scope}
+      libraries:
+        - notebook:
+            path: src/pipelines/silver/parse_classify.py
+        - notebook:
+            path: src/pipelines/silver/extract_router.py
+        - notebook:
+            path: src/pipelines/silver/extractors/_base.py
+        - notebook:
+            path: src/pipelines/silver/extractors/mortgage_application.py
+        - notebook:
+            path: src/pipelines/silver/extractors/kyc_cdd_form.py
+        - notebook:
+            path: src/pipelines/silver/extractors/aml_sar.py
+        - notebook:
+            path: src/pipelines/silver/extractors/invoice.py
+      notifications:
+        - email_recipients: []
+          alerts:
+            - on-update-failure
+            - on-flow-failure

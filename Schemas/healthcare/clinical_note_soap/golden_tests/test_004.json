@@ -1,0 +1,46 @@
+{
+  "test_case_id": "soap_004",
+  "document_type": "clinical_note_soap",
+  "description": "Psychiatry progress note — major depressive disorder follow-up, medication adjustment, PHQ-9 scored",
+  "parsed_text": "PSYCHIATRY PROGRESS NOTE\nHarbor Behavioral Health Center\nDepartment: Outpatient Psychiatry\nEncounter ID: HBH-PSY-2025-020447\nDate: 2025-11-05\n\nProvider: Dr. Asha Mehta, MD\nNPI: 6677889900\nSpecialty: Psychiatry\n\nPatient: Brennan, Christopher J.\nDOB: 1989-12-02\nMRN: HBH-MRN-0055891\n\nFacility: Harbor Behavioral Health Center\nDepartment: Outpatient Psychiatry\n\n---\nCHIEF COMPLAINT\nFollow-up for depression management. Patient reports partial improvement on current medication.\n\nSUBJECTIVE\n35-year-old male presenting for follow-up of major depressive disorder (MDD). Started sertraline 50 mg 6 weeks ago. Reports some improvement in mood and motivation, but still experiencing significant fatigue, hypersomnia (sleeping 10-12 hours), and poor concentration affecting work performance. PHQ-9 score today: 14 (moderate depression). Previous PHQ-9 was 19 (severe) at initial visit. No suicidal ideation, homicidal ideation, or psychotic symptoms. Denies alcohol or substance use. Therapist sessions ongoing, weekly with Dr. Lau.\n\nOBJECTIVE\nVitals:\n  BP: 122/78 mmHg   HR: 72 bpm   Temp: 98.0°F   RR: 14 breaths/min\n  SpO2: 99% on room air   Weight: 178 lbs\n\nMental Status Exam:\n  Appearance: Well-groomed, appropriate dress. Behavior: Cooperative, mild psychomotor slowing.\n  Speech: Normal rate and volume. Mood: \"A little better but still dragging.\" Affect: Mildly dysphoric, restricted range.\n  Thought process: Linear, goal-directed. Thought content: No SI/HI, no delusions, no AH/VH.\n  Cognition: Alert, oriented x4. Insight: Good. Judgment: Intact.\n\nASSESSMENT\n1. Major depressive disorder, recurrent, moderate (F33.1) — Partial response to sertraline 50 mg at 6 weeks. PHQ-9 improved from 19 to 14 but still symptomatic with residual fatigue and hypersomnia.\n2. Generalized anxiety disorder (F41.1) — Subthreshold symptoms, not primary complaint today, monitoring.\n\nPLAN\n1. Increase sertraline to 100 mg daily (titration per MDD protocol). Counseled on expected delay of 2-4 weeks for full effect.\n2. Continue weekly therapy with Dr. Lau. Recommend adding CBT focus on behavioral activation.\n3. Sleep hygiene education provided — limit sleep to 8 hours, consistent wake time, avoid daytime napping.\n4. PHQ-9 to be repeated at next visit.\n5. Patient instructed to call crisis line (988) or go to nearest ED if suicidal ideation develops.\n6. Follow-up in 4 weeks to reassess sertraline dose response.\n\nElectronically signed: Dr. Asha Mehta, MD — 2025-11-05 10:58",
+  "expected_json": {
+    "note_date": "2025-11-05",
+    "note_type": "Progress",
+    "document_id": "HBH-PSY-2025-020447",
+    "provider_name": "Dr. Asha Mehta, MD",
+    "provider_npi": "6677889900",
+    "provider_specialty": "Psychiatry",
+    "patient_name": "Brennan, Christopher J.",
+    "patient_dob": "1989-12-02",
+    "patient_mrn": "HBH-MRN-0055891",
+    "facility_name": "Harbor Behavioral Health Center",
+    "department": "Outpatient Psychiatry",
+    "chief_complaint": "Follow-up for depression management. Patient reports partial improvement on current medication.",
+    "subjective_summary": "35-year-old male, MDD follow-up on sertraline 50 mg x6 weeks. PHQ-9 improved 19→14. Still fatigued, hypersomnia, poor concentration. No SI/HI. Weekly therapy ongoing with Dr. Lau...",
+    "objective_vitals": {
+      "bp": "122/78 mmHg",
+      "hr": "72 bpm",
+      "temp": "98.0°F",
+      "rr": "14 breaths/min",
+      "spo2": "99% on room air",
+      "weight": "178 lbs"
+    },
+    "assessment_diagnoses": [
+      {
+        "icd10_code": "F33.1",
+        "description": "Major depressive disorder, recurrent, moderate",
+        "status": "Active"
+      },
+      {
+        "icd10_code": "F41.1",
+        "description": "Generalized anxiety disorder",
+        "status": "Active"
+      }
+    ],
+    "plan_summary": "Increase sertraline to 100 mg daily. Continue weekly CBT therapy. Sleep hygiene education. PHQ-9 at next visit. Crisis line (988) instructions given. Follow-up in 4 weeks...",
+    "medications_mentioned": ["sertraline"],
+    "follow_up_instructions": "Call crisis line (988) or go to nearest ED if suicidal ideation develops. Follow-up in 4 weeks to reassess sertraline dose response.",
+    "follow_up_timeframe": "4 weeks"
+  },
+  "expected_avg_confidence": 0.92
+}

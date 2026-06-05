@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_019",
+  "document_type": "aml_sar",
+  "description": "Insurance fraud — staged accident claims filed with multiple carriers through the same attorney",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-03244\nFiling Institution: Northshore Insurance Premium Finance Co.\nFiling Date: 2024-11-15\nSubject: Consolidated Claims Recovery LLC   Tax ID: XX-XXXXXXX (on file)\nSubject Address: 3300 NW 79th Avenue, Suite 550, Doral, FL 33122\nAccount: XXXX6631\nActivity Dates: 2024-02-15 to 2024-10-01\nSuspicious Activity Type: Fraud\nAmount Involved: USD 560,000.00   Transaction Count: 9\nLaw Enforcement Contacted: No\nBranch: Miami Regional Office\nInvestigator: Louis Esperanza\n\nNarrative: Northshore Insurance Premium Finance Co. is filing this Suspicious Activity Report based on a pattern of insurance claim settlement proceeds received by Consolidated Claims Recovery LLC ('CCR'), a Florida-based public adjusting and claims consulting firm, that is consistent with coordinated insurance fraud involving staged automobile accidents.\n\nDuring the period February 15, 2024 through October 1, 2024, the CCR business account at Northshore received nine (9) wire transfers and check deposits totaling $560,000, representing insurance claim settlement proceeds from five separate carriers: two national property-casualty insurers, one regional auto insurer, and two specialty liability carriers. All nine payments were routed through the account of CCR as the designated settlement payee.\n\nA cross-referencing review of the underlying claim files, obtained through industry data-sharing arrangements, revealed the following: all nine claims arose from automobile accidents allegedly occurring in Miami-Dade County between January and August 2024; all nine claims named a single personal injury attorney, Mr. Armando Cifuentes of Cifuentes & Associates P.A., as counsel for the claimants; seven of the nine claimants shared the same primary care physician, Dr. Rosa Linares of South Florida Injury & Rehab Center; and the medical treatment records submitted across all nine claims reflected nearly identical diagnosis codes, treatment durations, and billing structures.\n\nFurther analysis by the bank's compliance team identified that CCR was incorporated in November 2023, one month before the first of the nine accidents was alleged to have occurred. The physical address associated with CCR on Florida's Division of Corporations registry is a mail forwarding service. Additionally, outbound wires from the CCR account were directed primarily to the personal accounts of two individuals — one of whom is a listed member of CCR — and to an entity named Coastal Wellness Billing Corp., which shares a registered agent with Dr. Linares' practice.\n\nNo prior SARs are on file for CCR, Mr. Cifuentes, or Dr. Linares. The bank has not contacted law enforcement at this time.",
+  "expected_json": {
+    "sar_id": "SAR-2024-03244",
+    "filing_institution_name": "Northshore Insurance Premium Finance Co.",
+    "filing_date": "2024-11-15",
+    "subject_name": "Consolidated Claims Recovery LLC",
+    "subject_tax_id_masked": "XX-XXXXXXX",
+    "subject_address": "3300 NW 79th Avenue, Suite 550, Doral, FL 33122",
+    "subject_account_number_masked": "XXXX6631",
+    "activity_start_date": "2024-02-15",
+    "activity_end_date": "2024-10-01",
+    "suspicious_activity_type": "Fraud",
+    "amount_involved": 560000.00,
+    "transaction_count": 9,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "A newly incorporated public adjusting firm received $560,000 in settlement proceeds across nine automobile accident claims, all sharing the same personal injury attorney and majority sharing the same treating physician with near-identical billing records, consistent with a coordinated staged-accident insurance fraud ring. Outbound funds were routed to personal accounts and an entity sharing a registered agent with the treating physician's practice.",
+    "branch_location": "Miami Regional Office",
+    "investigator_name": "Louis Esperanza"
+  },
+  "expected_avg_confidence": 0.89
+}

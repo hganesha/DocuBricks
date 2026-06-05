@@ -1,0 +1,86 @@
+{
+  "effective_date": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Effective date is the anchor for all obligation timelines and renewal monitoring; date accuracy is critical — even a one-day error can affect renewal notice windows"
+  },
+  "expiration_date": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Expiration date drives renewal monitoring and auto-renewal notifications; must be extracted accurately to prevent inadvertent obligations"
+  },
+  "governing_law": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Governing law determines which jurisdiction's rules apply to disputes, enforcement, and permissible confidentiality provisions; errors affect legal risk assessment"
+  },
+  "confidentiality_period_years": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Confidentiality duration is a key obligation metric; inaccurate extraction could cause premature disclosure or over-restriction of information"
+  },
+  "agreement_type": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Agreement type drives routing to the correct contract management workflow and reporting categories"
+  },
+  "party_1_name": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Party identity is essential for counterparty risk management, OFAC screening, and vendor onboarding"
+  },
+  "party_2_name": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Party identity is essential for counterparty risk management, OFAC screening, and vendor onboarding"
+  },
+  "auto_renew": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Auto-renewal status directly affects whether a renewal notice must be sent; false negatives can result in unwanted contract extensions"
+  },
+  "arbitration_clause": {
+    "min_confidence": 0.82,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Presence of arbitration clause determines dispute resolution path; errors affect litigation strategy"
+  },
+  "non_solicitation_clause": {
+    "min_confidence": 0.82,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Non-solicitation status must be tracked for HR and talent acquisition compliance; errors create legal exposure"
+  },
+  "non_compete_clause": {
+    "min_confidence": 0.82,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Non-compete obligations are legally sensitive; accuracy required to inform business development and hiring decisions"
+  },
+  "return_or_destroy_obligation": {
+    "min_confidence": 0.80,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Return/destroy obligation triggers an actionable process upon contract termination; errors cause data governance failures"
+  }
+}

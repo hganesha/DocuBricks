@@ -1,0 +1,37 @@
+{
+  "subject_name": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Primary SAR subject identity field."
+  },
+  "activity_start_date": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Activity date range is required for suspicious activity reporting."
+  },
+  "activity_end_date": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Activity date range is required for suspicious activity reporting."
+  },
+  "amount_involved": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Amount involved supports SAR threshold review and trend analysis."
+  },
+  "suspicious_activity_type": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Activity type routes AML typology and filing workflow."
+  }
+}

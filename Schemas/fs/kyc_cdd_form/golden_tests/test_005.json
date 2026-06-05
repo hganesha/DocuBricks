@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_005",
+  "document_type": "kyc_cdd_form",
+  "description": "Sparse individual CDD form missing contact details",
+  "parsed_text": "KYC UPDATE FORM\nName: Jordan Ellis\nCustomer Type: Individual\nDOB: 1991-12-02\nAddress: 902 Pine Ridge Way, Boise, ID 83702, USA\nOccupation: Electrician\nSource of Funds: Wages\nExpected Activity: $6,500 monthly\nPEP: No\nRisk: Low\nReviewer: Grace Kim\nReview Date: 2025-05-17",
+  "expected_json": {
+    "customer_name": "Jordan Ellis",
+    "customer_type": "Individual",
+    "date_of_birth": "1991-12-02",
+    "tax_id_masked": null,
+    "address_line1": "902 Pine Ridge Way",
+    "city": "Boise",
+    "state": "ID",
+    "postal_code": "83702",
+    "country": "USA",
+    "phone": null,
+    "email": null,
+    "occupation_or_business": "Electrician",
+    "source_of_funds": "Wages",
+    "expected_monthly_activity": 6500.00,
+    "risk_rating": "Low",
+    "pep_status": false,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": null,
+    "id_document_number_masked": null,
+    "id_expiration_date": null,
+    "review_date": "2025-05-17",
+    "reviewer_name": "Grace Kim"
+  },
+  "expected_avg_confidence": 0.86
+}

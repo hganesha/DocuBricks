@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_006",
+  "document_type": "invoice",
+  "description": "Multi-line invoice with 8 line items, mixed tax rates, and distinct subtotal, tax, and total",
+  "parsed_text": "INVOICE\nInvoice #: INV-2025-4418\nInvoice Date: 2025-04-01   Due Date: 2025-05-01\nVendor: Cascade Industrial Supply Co.\nVendor Tax ID: XX-XXX7731\nVendor Address: 900 River Bend Parkway, Louisville, KY 40202\nBill To: Hallmark Manufacturing LLC\n4400 Production Drive, Columbus, OH 43215\nPO Number: PO-88120\nTerms: Net 30   Currency: USD\n\nLine Items:\n1. Steel Hex Bolts M10 x 50mm, Qty 500 @ $0.38 ea        $190.00  Tax: 6%\n2. Stainless Flat Washers M10, Qty 500 @ $0.12 ea         $60.00   Tax: 6%\n3. Nylon Lock Nuts M10, Qty 500 @ $0.09 ea                $45.00   Tax: 6%\n4. Lubricant Spray 400ml, Qty 24 @ $6.75 ea               $162.00  Tax: 6%\n5. Safety Gloves Nitrile L, Qty 10 boxes @ $28.50 ea      $285.00  Tax: 0%\n6. Hard Hat ANSI Class E, Qty 5 @ $42.00 ea               $210.00  Tax: 0%\n7. Torque Wrench 3/8\" Drive, Qty 2 @ $119.00 ea           $238.00  Tax: 6%\n8. Digital Caliper 150mm, Qty 3 @ $54.00 ea               $162.00  Tax: 6%\n\nTaxable Subtotal (Items 1-4, 7-8):   $857.00\nTax @ 6% on Taxable Items:            $51.42\nTax-Exempt Subtotal (Items 5-6):      $495.00\nSubtotal (All Items):                $1,352.00\nTotal Tax:                             $51.42\nShipping & Handling:                   $28.00\nInvoice Total:                       $1,431.42\nAmount Due:                          $1,431.42\n\nRemit payment to: Cascade Industrial Supply Co., PO Box 4100, Louisville, KY 40202\nBank: First National Bank | ABA: 083000137 | Acct: XXXX-XXXX-4418\nQuestions? billing@cascadeindustrial.com | 502-555-0190",
+  "expected_json": {
+    "invoice_number": "INV-2025-4418",
+    "invoice_date": "2025-04-01",
+    "due_date": "2025-05-01",
+    "vendor_name": "Cascade Industrial Supply Co.",
+    "vendor_tax_id_masked": "XX-XXX7731",
+    "vendor_address": "900 River Bend Parkway, Louisville, KY 40202",
+    "customer_name": "Hallmark Manufacturing LLC",
+    "customer_address": "4400 Production Drive, Columbus, OH 43215",
+    "purchase_order_number": "PO-88120",
+    "currency": "USD",
+    "subtotal": 1352.00,
+    "tax_amount": 51.42,
+    "shipping_amount": 28.00,
+    "discount_amount": null,
+    "total_amount": 1431.42,
+    "amount_due": 1431.42,
+    "payment_terms": "Net 30",
+    "line_item_count": 8
+  },
+  "expected_avg_confidence": 0.91
+}

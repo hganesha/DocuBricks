@@ -1,0 +1,51 @@
+{
+  "test_case_id": "sow_003",
+  "document_type": "sow",
+  "description": "Marketing retainer SOW, $15,000/month, 12-month term, vendor retains background IP",
+  "parsed_text": "STATEMENT OF WORK — MARKETING RETAINER SERVICES\nSOW Number: MKT-SOW-2025-003\n\nThis Statement of Work (\"SOW\") is entered into as of August 1, 2025, between:\n\nClearSky Consumer Brands, LLC (\"Client\")\n18300 Von Karman Avenue, Suite 600\nIrvine, CA 92612\nClient Contact: Vanessa Huang, Chief Marketing Officer\nPO Number: CMO-2025-901\n\nand\n\nHarbor Creative Agency, Inc. (\"Vendor\")\n2450 Colorado Avenue, Suite 100E\nSanta Monica, CA 90404\nVendor Contact: Tyler Marsh, Account Director\n\nSOW Title: Integrated Digital Marketing and Brand Management Retainer\n\n1. SERVICES\nVendor shall provide the following ongoing marketing and creative services on a monthly retainer basis:\n\n(a) Content Marketing: Production of four (4) long-form blog articles and eight (8) social media content packages per month across Instagram, LinkedIn, and X (formerly Twitter);\n(b) Paid Media Management: Management of Client's Google Ads, Meta Ads, and LinkedIn Ads campaigns, including strategy, creative, optimization, and monthly reporting;\n(c) Email Marketing: Design and deployment of two (2) email campaigns per month to Client's subscriber list, including A/B testing and performance analytics;\n(d) Brand Management: Ongoing maintenance of brand guidelines, review of third-party use of Client's brand assets, and quarterly brand health reporting;\n(e) SEO Services: Monthly technical SEO audit, keyword research, and on-page optimization recommendations.\n\n2. TERM\nEffective Date: August 1, 2025\nInitial Term End Date: July 31, 2026 (12-month initial term)\nRenewal: This SOW may be renewed by mutual written agreement for successive 12-month terms. Either party may elect not to renew by providing sixty (60) days' written notice prior to the end of the then-current term.\n\n3. DELIVERABLES\nMonthly deliverables include:\n- Monthly Content Calendar (due by the 1st of each month for the following month)\n- Monthly Paid Media Performance Report (due within 5 business days of month end)\n- Email Campaign Deployment (per agreed schedule)\n- Quarterly Brand Health Report (due within 10 business days of each quarter end)\n\n4. PRICING AND PAYMENT\nPricing Model: Monthly Retainer\nMonthly Retainer Fee: $15,000.00 USD per month\nTotal Estimated Contract Value (12-month initial term): $180,000.00 USD\nCurrency: USD\n\nPayment Terms: Monthly retainer invoiced on the first (1st) business day of each month, payment due within fifteen (15) days of invoice date (Net 15). Late payments shall accrue interest at 1.5% per month.\n\n5. ACCEPTANCE AND PERFORMANCE\nClient shall designate a primary point of contact to review and provide feedback on deliverables. Vendor shall incorporate reasonable Client feedback within five (5) business days. Performance will be reviewed quarterly against agreed KPIs including cost per click, email open rates, and organic traffic growth.\n\n6. CHANGE ORDERS\nAdditional services beyond this SOW scope may be requested via a written Change Order. Vendor shall provide a cost estimate within five (5) business days. Change Orders are not effective until executed by both parties.\n\n7. INTELLECTUAL PROPERTY\nAll Client-specific creative deliverables (copy, graphics, campaign assets) created under this SOW shall be the exclusive property of Client upon full payment. Vendor retains ownership of all pre-existing tools, methodologies, templates, and background intellectual property (\"Background IP\"). Vendor grants Client a perpetual, non-exclusive license to Background IP embedded in deliverables solely for Client's internal business use.\n\n8. GOVERNING LAW\nThis SOW is governed by the laws of the State of California.\n\nClearSky Consumer Brands, LLC               Harbor Creative Agency, Inc.\nBy: /s/ Vanessa Huang                        By: /s/ Tyler Marsh\nName: Vanessa Huang                         Name: Tyler Marsh\nTitle: Chief Marketing Officer              Title: Account Director\nDate: August 1, 2025                        Date: August 1, 2025",
+  "expected_json": {
+    "sow_number": "MKT-SOW-2025-003",
+    "sow_title": "Integrated Digital Marketing and Brand Management Retainer",
+    "effective_date": "2025-08-01",
+    "end_date": "2026-07-31",
+    "amendment_number": null,
+    "client_name": "ClearSky Consumer Brands, LLC",
+    "client_contact": "Vanessa Huang",
+    "client_po_number": "CMO-2025-901",
+    "vendor_name": "Harbor Creative Agency, Inc.",
+    "vendor_contact": "Tyler Marsh",
+    "project_description": "Integrated digital marketing retainer covering content marketing, paid media management, email campaigns, brand management, and SEO services across multiple channels",
+    "deliverables": [
+      {
+        "name": "Monthly Content Calendar",
+        "description": "Monthly content calendar for upcoming month's content and social media schedule",
+        "due_date": null
+      },
+      {
+        "name": "Monthly Paid Media Performance Report",
+        "description": "Monthly paid media performance report for Google Ads, Meta Ads, and LinkedIn Ads",
+        "due_date": null
+      },
+      {
+        "name": "Email Campaign Deployment",
+        "description": "Two email campaigns per month including A/B testing and performance analytics",
+        "due_date": null
+      },
+      {
+        "name": "Quarterly Brand Health Report",
+        "description": "Quarterly brand health report due within 10 business days of each quarter end",
+        "due_date": null
+      }
+    ],
+    "pricing_model": "Retainer",
+    "total_contract_value": 180000.00,
+    "currency": "USD",
+    "payment_terms": "Net 15 days from invoice date; invoiced monthly on 1st business day of month",
+    "payment_schedule": "$15,000/month for 12 months; invoiced on 1st business day of each month",
+    "acceptance_criteria_described": true,
+    "change_order_process_described": true,
+    "ip_ownership": "Client",
+    "governing_law": "CA"
+  },
+  "expected_avg_confidence": 0.93
+}

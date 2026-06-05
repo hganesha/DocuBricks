@@ -1,0 +1,46 @@
+{
+  "test_case_id": "sow_002",
+  "document_type": "sow",
+  "description": "Time and Materials IT consulting SOW, $250/hr rate, 500-hour not-to-exceed cap, Illinois governing law",
+  "parsed_text": "STATEMENT OF WORK\nSOW Reference: SOW #7 — IT Infrastructure Assessment and Remediation\n\nThis Statement of Work is issued under the Master Consulting Agreement dated March 1, 2024, between:\n\nMidwest Manufacturing Technologies Corp. (\"Client\")\n2100 Clearwater Drive\nNaperville, IL 60563\nContact: Brian Kowalczyk, Director of IT Operations\nPO Number: Not Applicable\n\nand\n\nTech Compass Advisory Services, Inc. (\"Vendor\")\n333 W. Wacker Drive, 15th Floor\nChicago, IL 60606\nContact: Angela Ferreira, Senior Engagement Manager\n\nProject Title: IT Infrastructure Security Assessment and Remediation Planning\n\n1. SCOPE OF SERVICES\nVendor shall provide IT infrastructure assessment, network security evaluation, vulnerability scanning, and remediation planning services for Client's on-premises and hybrid-cloud environment. Services include:\n- Current-state architecture review and gap analysis against NIST CSF 2.0 framework\n- Network penetration testing (external and internal)\n- Active Directory and identity management review\n- Prioritized remediation roadmap with estimated implementation effort and cost\n- Executive presentation of findings\n\nServices will be provided on a time-and-materials basis, with Vendor personnel providing services at Client's facilities and remotely as mutually agreed.\n\n2. TERM\nCommencement Date: April 15, 2025\nEstimated Completion Date: August 15, 2025\n\n3. DELIVERABLES\n\nDeliverable A: Current-State Assessment Report\nDescription: Comprehensive assessment of Client's IT infrastructure, network architecture, and security posture\nEstimated Delivery: June 15, 2025\n\nDeliverable B: Vulnerability and Risk Register\nDescription: Detailed inventory of identified vulnerabilities, risk ratings, and affected systems\nEstimated Delivery: July 15, 2025\n\nDeliverable C: Remediation Roadmap and Executive Presentation\nDescription: Prioritized remediation roadmap with cost/effort estimates and executive-level summary presentation\nEstimated Delivery: August 15, 2025\n\n4. PRICING\nPricing Model: Time and Materials (T&M)\nBilling Rate: $250.00 per hour for all Vendor personnel regardless of role or seniority\nNot-to-Exceed Cap: $125,000.00 USD (500 hours at $250/hr). Vendor shall notify Client in writing when cumulative billings reach 80% of the cap. No work shall be performed beyond the cap without a written Change Order.\nCurrency: USD\n\n5. PAYMENT TERMS\nVendor shall invoice Client on a bi-weekly basis for actual hours worked and expenses incurred. Payment is due within thirty (30) days of invoice date (Net 30). Invoices shall include a detailed timesheet by consultant name, date, hours, and task description.\n\n6. EXPENSES\nPre-approved travel, lodging, and incidental expenses will be reimbursed at actual cost, not to exceed $5,000.00 without prior Client approval.\n\n7. ACCEPTANCE AND CHANGE ORDERS\nClient shall review each written deliverable within ten (10) business days and provide acceptance or written objections. Changes to scope that increase estimated hours shall require a written Change Order executed by both parties prior to performance.\n\n8. INTELLECTUAL PROPERTY\nAll reports, assessments, and work product delivered under this SOW shall be jointly owned by Client and Vendor. Vendor retains the right to reuse methodologies, frameworks, and non-Client-specific tools developed in connection with services hereunder.\n\n9. GOVERNING LAW\nThis SOW shall be governed by the laws of the State of Illinois.\n\nMidwest Manufacturing Technologies Corp.        Tech Compass Advisory Services, Inc.\nBy: /s/ Brian Kowalczyk                         By: /s/ Angela Ferreira\nName: Brian Kowalczyk                           Name: Angela Ferreira\nTitle: Director of IT Operations                Title: Senior Engagement Manager\nDate: April 10, 2025                            Date: April 10, 2025",
+  "expected_json": {
+    "sow_number": "SOW #7",
+    "sow_title": "IT Infrastructure Security Assessment and Remediation Planning",
+    "effective_date": "2025-04-15",
+    "end_date": "2025-08-15",
+    "amendment_number": null,
+    "client_name": "Midwest Manufacturing Technologies Corp.",
+    "client_contact": "Brian Kowalczyk",
+    "client_po_number": null,
+    "vendor_name": "Tech Compass Advisory Services, Inc.",
+    "vendor_contact": "Angela Ferreira",
+    "project_description": "IT infrastructure assessment, network security evaluation, vulnerability scanning, and remediation planning covering on-premises and hybrid-cloud environment against NIST CSF 2.0",
+    "deliverables": [
+      {
+        "name": "Deliverable A: Current-State Assessment Report",
+        "description": "Comprehensive assessment of IT infrastructure, network architecture, and security posture",
+        "due_date": "2025-06-15"
+      },
+      {
+        "name": "Deliverable B: Vulnerability and Risk Register",
+        "description": "Detailed inventory of identified vulnerabilities, risk ratings, and affected systems",
+        "due_date": "2025-07-15"
+      },
+      {
+        "name": "Deliverable C: Remediation Roadmap and Executive Presentation",
+        "description": "Prioritized remediation roadmap with cost/effort estimates and executive-level summary presentation",
+        "due_date": "2025-08-15"
+      }
+    ],
+    "pricing_model": "T&M",
+    "total_contract_value": 125000.00,
+    "currency": "USD",
+    "payment_terms": "Net 30 days from invoice date",
+    "payment_schedule": "Bi-weekly invoicing for actual hours worked; T&M at $250/hr, not-to-exceed $125,000 (500 hours)",
+    "acceptance_criteria_described": true,
+    "change_order_process_described": true,
+    "ip_ownership": "Joint",
+    "governing_law": "IL"
+  },
+  "expected_avg_confidence": 0.93
+}

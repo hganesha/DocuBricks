@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_001",
+  "document_type": "kyc_cdd_form",
+  "description": "Individual customer with complete identity and low risk rating",
+  "parsed_text": "CUSTOMER DUE DILIGENCE FORM\nCustomer Name: Maya Chen\nCustomer Type: Individual\nDOB: 1988-04-12   SSN: XXX-XX-1944\nAddress: 418 Lake Street, Madison, WI 53703, USA\nPhone: (608) 555-0142   Email: maya.chen@example.com\nOccupation: Pharmacist\nSource of Funds: Salary\nExpected Monthly Activity: $8,000\nPEP: No   Risk Rating: Low\nID Type: Driver License   ID Number: DL-XX-3912   Expiration: 2028-05-31\nReview Date: 2025-01-15   Reviewer: Nolan Reed",
+  "expected_json": {
+    "customer_name": "Maya Chen",
+    "customer_type": "Individual",
+    "date_of_birth": "1988-04-12",
+    "tax_id_masked": "XXX-XX-1944",
+    "address_line1": "418 Lake Street",
+    "city": "Madison",
+    "state": "WI",
+    "postal_code": "53703",
+    "country": "USA",
+    "phone": "(608) 555-0142",
+    "email": "maya.chen@example.com",
+    "occupation_or_business": "Pharmacist",
+    "source_of_funds": "Salary",
+    "expected_monthly_activity": 8000.00,
+    "risk_rating": "Low",
+    "pep_status": false,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": "Driver License",
+    "id_document_number_masked": "DL-XX-3912",
+    "id_expiration_date": "2028-05-31",
+    "review_date": "2025-01-15",
+    "reviewer_name": "Nolan Reed"
+  },
+  "expected_avg_confidence": 0.94
+}

@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_016",
+  "document_type": "kyc_cdd_form",
+  "description": "Estate account for a deceased individual with court-appointed executor and probate documents reviewed",
+  "parsed_text": "ESTATE ACCOUNT ONBOARDING — CUSTOMER DUE DILIGENCE\nAccount Title: Estate of Harold T. Vickers\nCustomer Type: Other (Estate)\nEstate TIN (FEIN): XX-XXX6614\nDeceased's Name: Harold Thomas Vickers\nDate of Death: 2025-08-14\nProbate Court: Maricopa County Superior Court, Arizona — Probate Case No. PB-2025-XXXX3301\n\nEXECUTOR INFORMATION (Account Controller)\nExecutor Name: Patricia Vickers-Hammond\nRelationship to Deceased: Adult Daughter\nDOB: 1975-03-09   SSN: XXX-XX-5503\nAddress: 7812 E. Pinnacle Peak Road, Scottsdale, AZ 85255, USA\nPhone: (480) 555-0133   Email: p.hammond@example.com\nOccupation: Attorney at Law (Vickers & Hammond LLP, Phoenix AZ)\n\nIDENTITY DOCUMENTS (EXECUTOR)\nID Type: Driver License   ID Number: DL-AZ-XX3317   Expiration: 2029-01-31\n\nESTATE ASSETS (Approximate)\nProbate assets: Brokerage account ($412,000), residential property — 7812 E. Pinnacle Peak Rd (value TBD by appraisal), personal property.\nSource of Funds: Deceased's accumulated savings, investment portfolio, and home equity.\nExpected Monthly Activity: $35,000 (estate administration distributions, investment liquidations)\n\nDOCUMENTS REVIEWED\n- Letters Testamentary issued by Maricopa County Superior Court, dated 2025-09-02 — authenticated and on file.\n- Death Certificate: Arizona Department of Health and Human Services, Certificate No. AZ-DEATH-XXXX7741 — reviewed.\n- Last Will and Testament: Copy on file; Patricia Vickers-Hammond named sole executor.\n- Probate Inventory: Filed with court 2025-09-25.\n\nSCREENING RESULTS\nOFAC / SDN (Executor): Clear.\nPEP Check (Executor): Patricia Vickers-Hammond — no PEP flag. Private attorney, not a public official.\nAdverse Media: Clear for both decedent and executor.\n\nRISK ASSESSMENT\nPEP Status: No\nHigh-Risk Factors: None. Estate account with documented probate authority, domestic assets, clear chain of authority.\nRisk Rating: Low\nCDD Level: Standard\nCompliance Notes: Estate account — beneficial ownership rule not applicable (no ongoing business entity). Executor identity verified and legal authority confirmed via court documents.\nReview Date: 2025-10-08   Reviewer: Angela Pryce",
+  "expected_json": {
+    "customer_name": "Estate of Harold T. Vickers",
+    "customer_type": "Other",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX6614",
+    "address_line1": "7812 E. Pinnacle Peak Road",
+    "city": "Scottsdale",
+    "state": "AZ",
+    "postal_code": "85255",
+    "country": "USA",
+    "phone": "(480) 555-0133",
+    "email": "p.hammond@example.com",
+    "occupation_or_business": "Estate administration",
+    "source_of_funds": "Deceased's accumulated savings, investment portfolio, and home equity",
+    "expected_monthly_activity": 35000.00,
+    "risk_rating": "Low",
+    "pep_status": false,
+    "beneficial_owner_name": "Patricia Vickers-Hammond",
+    "beneficial_owner_ownership_percent": 100.0,
+    "id_document_type": "Driver License",
+    "id_document_number_masked": "DL-AZ-XX3317",
+    "id_expiration_date": "2029-01-31",
+    "review_date": "2025-10-08",
+    "reviewer_name": "Angela Pryce"
+  },
+  "expected_avg_confidence": 0.88
+}

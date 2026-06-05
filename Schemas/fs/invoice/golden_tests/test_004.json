@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_004",
+  "document_type": "invoice",
+  "description": "International invoice in EUR",
+  "parsed_text": "TAX INVOICE\nInvoice No: EU-2025-331\nInvoice Date: 2025-04-08\nDue Date: 2025-05-08\nSupplier: Atlas Components GmbH\nSupplier Address: Hafenstrasse 14, Hamburg 20457, Germany\nCustomer Name: Bright Machines USA\nCustomer Address: 700 Mission Street, San Francisco, CA 94103\nPurchase Order: BM-44018\nCurrency: EUR\nLine Items: 5\nNet Subtotal: 9,750.00\nVAT: 1,852.50\nShipping: 220.00\nTotal: 11,822.50\nAmount Due: 11,822.50\nTerms: Net 30",
+  "expected_json": {
+    "invoice_number": "EU-2025-331",
+    "invoice_date": "2025-04-08",
+    "due_date": "2025-05-08",
+    "vendor_name": "Atlas Components GmbH",
+    "vendor_tax_id_masked": null,
+    "vendor_address": "Hafenstrasse 14, Hamburg 20457, Germany",
+    "customer_name": "Bright Machines USA",
+    "customer_address": "700 Mission Street, San Francisco, CA 94103",
+    "purchase_order_number": "BM-44018",
+    "currency": "EUR",
+    "subtotal": 9750.00,
+    "tax_amount": 1852.50,
+    "shipping_amount": 220.00,
+    "discount_amount": null,
+    "total_amount": 11822.50,
+    "amount_due": 11822.50,
+    "payment_terms": "Net 30",
+    "line_item_count": 5
+  },
+  "expected_avg_confidence": 0.92
+}

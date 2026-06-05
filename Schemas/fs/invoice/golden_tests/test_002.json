@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_002",
+  "document_type": "invoice",
+  "description": "Product invoice with shipping and no discount",
+  "parsed_text": "SALES INVOICE\nInvoice Number: S-90881\nDate: 2025-02-14\nDue: 2025-03-16\nVendor Name: Prairie Office Supply Inc.\nVendor Address: 610 Lincoln Avenue, Des Moines, IA 50309\nCustomer: Green Valley Clinic\nShip/Bill Address: 200 Health Park Road, Cedar Rapids, IA 52401\nPO: GV-2025-021\nCurrency USD\nItems: 8\nSubtotal 4,820.50\nSales Tax 337.44\nFreight 125.00\nInvoice Total 5,282.94\nBalance Due 5,282.94\nTerms Net 30",
+  "expected_json": {
+    "invoice_number": "S-90881",
+    "invoice_date": "2025-02-14",
+    "due_date": "2025-03-16",
+    "vendor_name": "Prairie Office Supply Inc.",
+    "vendor_tax_id_masked": null,
+    "vendor_address": "610 Lincoln Avenue, Des Moines, IA 50309",
+    "customer_name": "Green Valley Clinic",
+    "customer_address": "200 Health Park Road, Cedar Rapids, IA 52401",
+    "purchase_order_number": "GV-2025-021",
+    "currency": "USD",
+    "subtotal": 4820.50,
+    "tax_amount": 337.44,
+    "shipping_amount": 125.00,
+    "discount_amount": null,
+    "total_amount": 5282.94,
+    "amount_due": 5282.94,
+    "payment_terms": "Net 30",
+    "line_item_count": 8
+  },
+  "expected_avg_confidence": 0.93
+}

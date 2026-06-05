@@ -1,0 +1,32 @@
+{
+  "test_case_id": "eob_cms1500_004",
+  "document_type": "eob_cms1500",
+  "description": "Inpatient facility claim — DRG-based payment, hip fracture with ORIF surgery, multiple diagnosis codes, Humana Medicare Advantage",
+  "parsed_text": "EXPLANATION OF BENEFITS — INPATIENT FACILITY CLAIM\nHumana Medicare Advantage — Gold Plus HMO\nP.O. Box 14601, Lexington, KY 40512\nPayer ID: 61101\n\nMember: Thompson, Harold E.\nMember ID: H00-7734-2291\nGroup Number: MA-GOLD-0099\nDate of Birth: 1939-02-15\n\nBilling Provider: St. Vincent General Hospital\nBilling NPI: 5566778899\nService Facility: St. Vincent General Hospital — Inpatient\nFacility NPI: 5566778899\nAttending Physician NPI: 6677889900\n\nCLAIM INFORMATION\nClaim Number: HUM-MA-2025-IP-003341\nAdmission Date: 11/03/2025\nDischarge Date: 11/08/2025\nDate of Service From: 11/03/2025\nDate of Service To: 11/08/2025\nDate Processed: 11/19/2025\nClaim Status: PAID\nDRG: 481 — Hip & Femur Procedures Except Major Joint w CC\nLength of Stay: 5 days\n\nDIAGNOSIS CODES\nPrincipal: S72.001A — Fracture of unspecified part of neck of right femur, initial encounter\nSecondary: M81.0 — Age-related osteoporosis without current pathological fracture\nSecondary: I10 — Essential hypertension\nSecondary: E11.9 — Type 2 diabetes mellitus without complications\n\nPROCEDURE CODES\n0QS6044 — Reposition Right Femoral Shaft with Internal Fixation Device, Open Approach (ICD-10-PCS)\n\nFINANCIAL SUMMARY\nTotal Billed:                  $48,750.00\nContractual Adjustment:       -$16,925.00\nTotal Allowed (DRG Rate):      $31,825.00\nCopay / Cost-Share:            $335.00\nDeductible Applied:            $0.00\nPlan Paid to Provider:         $31,490.00\nYour Responsibility:           $335.00\n\nDENIAL REASON CODE: None\nREMARK CODES: N793\n\nApproved under Prior Authorization: PA-2025-STW-88214\nThis is not a bill. Questions? Call Humana Member Services: 1-800-448-6262",
+  "expected_json": {
+    "claim_number": "HUM-MA-2025-IP-003341",
+    "patient_name": "Thompson, Harold E.",
+    "patient_dob": "1939-02-15",
+    "patient_member_id": "H00-7734-2291",
+    "provider_name": "St. Vincent General Hospital",
+    "provider_npi": "5566778899",
+    "rendering_provider_npi": "6677889900",
+    "payer_name": "Humana Medicare Advantage — Gold Plus HMO",
+    "payer_id": "61101",
+    "group_number": "MA-GOLD-0099",
+    "date_of_service_from": "2025-11-03",
+    "date_of_service_to": "2025-11-08",
+    "procedure_codes": ["0QS6044"],
+    "diagnosis_codes": ["S72.001A", "M81.0", "I10", "E11.9"],
+    "billed_amount": 48750.00,
+    "allowed_amount": 31825.00,
+    "paid_amount": 31490.00,
+    "patient_responsibility": 335.00,
+    "claim_status": "Paid",
+    "denial_reason_code": null,
+    "remark_codes": ["N793"],
+    "service_facility_name": "St. Vincent General Hospital — Inpatient",
+    "service_facility_npi": "5566778899"
+  },
+  "expected_avg_confidence": 0.92
+}

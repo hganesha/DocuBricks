@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_009",
+  "document_type": "aml_sar",
+  "description": "Real estate money laundering via all-cash residential purchase through an LLC with unknown beneficial owner",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-00673\nFiling Institution: Granite State Title & Escrow\nFiling Date: 2024-06-03\nSubject: Ridgeline Property Holdings LLC   Tax ID: XX-XXXXXXX (on file)\nSubject Address: 500 Fifth Avenue, Suite 1700, New York, NY 10110 (registered agent)\nAccount: XXXX0092\nActivity Dates: 2024-05-01 to 2024-05-28\nSuspicious Activity Type: MoneyLaundering\nAmount Involved: USD 2,350,000.00   Transaction Count: 1\nLaw Enforcement Contacted: No\nBranch: Manhattan Escrow Office\nInvestigator: Sandra Morrow\n\nNarrative: Granite State Title & Escrow ('Granite State') is filing this Suspicious Activity Report in connection with an all-cash residential real estate transaction closed on May 28, 2024, involving the purchase of a condominium unit located at 320 Park Avenue South, Unit 42C, New York, NY 10010 for a total purchase price of $2,350,000. The buyer of record is Ridgeline Property Holdings LLC, a Delaware limited liability company organized in October 2023.\n\nPrior to closing, Granite State requested beneficial ownership documentation for Ridgeline Property Holdings LLC as required under the FinCEN Geographic Targeting Order (GTO) applicable to Manhattan real estate transactions above $300,000. The managing member, identified on the operating agreement as Horizon Management Services Ltd., is a registered entity in the Cayman Islands. Granite State was unable to identify any natural person as the ultimate beneficial owner despite multiple written requests to the settlement attorney representing the buyer. The settlement attorney, James Forsythe of Forsythe & Reed LLP, provided a certificate of good standing for Ridgeline but declined to produce additional ownership documentation, citing attorney-client privilege.\n\nFunds for the purchase were transmitted via two wire transfers: $1,175,000 received on May 20, 2024 from an account at Banque Privée Européenne S.A. in Luxembourg, and $1,175,000 received on May 23, 2024 from an account at the same institution in the name of a second entity, Hillcrest Capital Partners Ltd., also Cayman Islands-registered. No mortgage financing was involved. The property had been listed for 247 days at an original asking price of $2,750,000 and was sold at a 14.5% discount.\n\nThe pattern of an all-cash purchase by an entity with opaque beneficial ownership, funded by wire transfers from offshore private banking institutions, is consistent with real estate money laundering typologies identified in FinCEN advisories. No prior SARs are on file for any of the named entities.",
+  "expected_json": {
+    "sar_id": "SAR-2024-00673",
+    "filing_institution_name": "Granite State Title & Escrow",
+    "filing_date": "2024-06-03",
+    "subject_name": "Ridgeline Property Holdings LLC",
+    "subject_tax_id_masked": "XX-XXXXXXX",
+    "subject_address": "500 Fifth Avenue, Suite 1700, New York, NY 10110",
+    "subject_account_number_masked": "XXXX0092",
+    "activity_start_date": "2024-05-01",
+    "activity_end_date": "2024-05-28",
+    "suspicious_activity_type": "MoneyLaundering",
+    "amount_involved": 2350000.00,
+    "transaction_count": 1,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "An all-cash $2,350,000 residential purchase was completed by a Delaware LLC whose ultimate beneficial owner could not be identified despite GTO-mandated disclosure requests, with purchase funds wired from two offshore private banking accounts in Luxembourg. The opacity of beneficial ownership and use of layered offshore entities are consistent with real estate money laundering.",
+    "branch_location": "Manhattan Escrow Office",
+    "investigator_name": "Sandra Morrow"
+  },
+  "expected_avg_confidence": 0.90
+}

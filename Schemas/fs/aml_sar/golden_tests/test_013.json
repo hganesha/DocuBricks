@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_013",
+  "document_type": "aml_sar",
+  "description": "Drug proceeds laundered through a cash-intensive car wash business with rapid deposit and withdrawal cycles",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-01502\nFiling Institution: Sunbelt Regional Bank\nFiling Date: 2024-07-11\nSubject: Speedy Shine Auto Wash Inc.   Tax ID: XX-XXXXXXX (on file)\nSubject Address: 6720 Palmetto Boulevard, Houston, TX 77036\nAccount: XXXX2291\nActivity Dates: 2024-01-02 to 2024-06-28\nSuspicious Activity Type: MoneyLaundering\nAmount Involved: USD 875,000.00   Transaction Count: 52\nLaw Enforcement Contacted: No\nBranch: Houston Westside Branch\nInvestigator: Anthony Bernard\n\nNarrative: Sunbelt Regional Bank is filing this Suspicious Activity Report regarding suspected proceeds laundering through the business checking account of Speedy Shine Auto Wash Inc. ('Speedy Shine'), a single-location car wash facility in Houston, Texas, in operation since 2019.\n\nThe bank's transaction monitoring system generated an alert in June 2024 based on a substantial and unexplained increase in cash deposit volume. During the review period January 2, 2024 through June 28, 2024, the Speedy Shine account received fifty-two (52) cash deposits totaling $875,000. For comparison, during the same six-month period in 2023, the account received cash deposits totaling approximately $148,000. No significant change in the business's physical capacity, pricing structure, or hours of operation was identified that would account for this increase.\n\nOf the $875,000 deposited during the review period, $792,000 — approximately 90.5% — was withdrawn within one to three business days via wire transfers to five separate domestic accounts, none of which had previously appeared in Speedy Shine's transaction history. The receiving accounts were held in the names of three individuals and two LLCs. The bank's compliance team was unable to identify any vendor, payroll, or lease relationship that would justify payments of this nature or frequency.\n\nThe account's sole signatory, Mr. Jerome Watkins (date of birth: 09/13/1982), stated during a relationship manager interview that the business had taken on additional fleet contract customers. However, no documentation of fleet service agreements was provided. Property records indicate the car wash facility is a single bay, self-serve location with a maximum throughput inconsistent with the claimed revenue increase.\n\nThe bank's compliance conclusion is that the pattern of rapid cash deposit cycling, combined with the absence of a credible business explanation, is consistent with money laundering through a cash-intensive business. No prior SARs are on file.",
+  "expected_json": {
+    "sar_id": "SAR-2024-01502",
+    "filing_institution_name": "Sunbelt Regional Bank",
+    "filing_date": "2024-07-11",
+    "subject_name": "Speedy Shine Auto Wash Inc.",
+    "subject_tax_id_masked": "XX-XXXXXXX",
+    "subject_address": "6720 Palmetto Boulevard, Houston, TX 77036",
+    "subject_account_number_masked": "XXXX2291",
+    "activity_start_date": "2024-01-02",
+    "activity_end_date": "2024-06-28",
+    "suspicious_activity_type": "MoneyLaundering",
+    "amount_involved": 875000.00,
+    "transaction_count": 52,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "A single-bay car wash business received $875,000 in cash deposits over six months — nearly six times its prior-year volume — with 90% of funds wired out within days to previously unknown recipients, and no credible business explanation provided by the account signatory. The rapid cash cycling pattern through a cash-intensive business is consistent with drug proceeds laundering.",
+    "branch_location": "Houston Westside Branch",
+    "investigator_name": "Anthony Bernard"
+  },
+  "expected_avg_confidence": 0.92
+}

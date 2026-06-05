@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_007",
+  "document_type": "kyc_cdd_form",
+  "description": "Foreign national individual from Nigeria designated as high-risk country, non-resident alien, Enhanced Due Diligence triggered",
+  "parsed_text": "ENHANCED DUE DILIGENCE REFERRAL FORM\nCustomer Name: Emeka Adeyemi\nCustomer Type: Individual\nDate of Birth: 1984-07-22\nTax ID / ITIN: XXX-XX-6618\nResidency Status: Non-Resident Alien (NRA)\nCountry of Citizenship: Nigeria\nCountry of Residence: Nigeria\nUS Address (Correspondent): 881 Lexington Avenue, Apt 14B, New York, NY 10065, USA\nPhone: +234-801-555-0233   Email: e.adeyemi@example.ng\nOccupation: Managing Director, Adeyemi Energy Partners Ltd\nEmployer Address: 22 Broad Street, Lagos, Nigeria\nSource of Funds: Business profit distributions and investment dividends\nExpected Monthly Activity: $310,000\n\nRISK FACTORS\n- Country of origin/residence classified HIGH RISK: Nigeria appears on FATF monitored list and internal high-risk country register.\n- Non-resident alien with cross-border wire activity expected.\n- Cash-intensive sector (oil and gas services).\n- Large monthly transaction volume relative to stated income.\nEDD Trigger: YES — high-risk country of origin and expected wire volume exceeding $200,000/month.\n\nIDENTITY DOCUMENTS\nPassport: NG-XXXX9912, Country: Nigeria, Expiration: 2029-04-18\nSecondary ID: Nigerian National ID Card NIN-XXXX3307\n\nSCREENING RESULTS\nOFAC / SDN Check: Clear — no match.\nUN Consolidated List: Clear.\nFATF High-Risk Jurisdiction Check: FLAGGED — Nigeria on enhanced monitoring list. EDD required per policy section 4.3.\nPEP Check: No — Mr. Adeyemi is not a PEP or close associate of a PEP.\nAdverse Media: No adverse media identified.\n\nEDD ACTIONS COMPLETED\n1. Enhanced source of wealth questionnaire completed and reviewed.\n2. Corporate filings for Adeyemi Energy Partners Ltd obtained from Nigerian CAC; ownership confirmed.\n3. Three years of bank statements reviewed — activity consistent with stated business income.\n4. Senior management sign-off obtained per EDD policy.\nRisk Rating: High\nCDD Level: Enhanced\nReview Date: 2025-07-03   Reviewer: Patricia Osei",
+  "expected_json": {
+    "customer_name": "Emeka Adeyemi",
+    "customer_type": "Individual",
+    "date_of_birth": "1984-07-22",
+    "tax_id_masked": "XXX-XX-6618",
+    "address_line1": "881 Lexington Avenue, Apt 14B",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10065",
+    "country": "USA",
+    "phone": "+234-801-555-0233",
+    "email": "e.adeyemi@example.ng",
+    "occupation_or_business": "Managing Director, Adeyemi Energy Partners Ltd",
+    "source_of_funds": "Business profit distributions and investment dividends",
+    "expected_monthly_activity": 310000.00,
+    "risk_rating": "High",
+    "pep_status": false,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": "Passport",
+    "id_document_number_masked": "NG-XXXX9912",
+    "id_expiration_date": "2029-04-18",
+    "review_date": "2025-07-03",
+    "reviewer_name": "Patricia Osei"
+  },
+  "expected_avg_confidence": 0.88
+}

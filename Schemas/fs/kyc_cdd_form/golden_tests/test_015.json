@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_015",
+  "document_type": "kyc_cdd_form",
+  "description": "Foreign bank correspondent banking relationship with PATRIOT Act Section 312 certification completed confirming no shell bank status",
+  "parsed_text": "CORRESPONDENT BANKING AGREEMENT — DUE DILIGENCE FILE\nInstitution Name: Banco Nuevo Horizonte SA\nCustomer Type: Business (Foreign Bank — Correspondent)\nCountry of Incorporation: Colombia\nSwift/BIC: BNHOCOBB2XX\nRegulatory Authority: Superintendencia Financiera de Colombia — License No. SFC-BANK-XXXX8821\nPrincipal Address: Calle 72 No. 10-51, Piso 12, Bogotá DC, Colombia\nUS Contact Phone: +57-1-555-0161   Email: intloperations@nuevohorizonte.example\nBusiness Activity: Retail and commercial banking; trade finance; international wire transfer services\nSource of Funds: Customer deposits, interbank placements, trade finance fees\nExpected Monthly Activity: $6,800,000\n\nPATRIOT ACT SECTION 312 CERTIFICATION\nAnti-Money Laundering Certification received: 2025-09-15\nCertified by: Alfonso Rios Castaño, Chief Risk Officer, Banco Nuevo Horizonte SA\nCertification confirms:\n(a) The bank is NOT a shell bank — it maintains a physical presence in Colombia at the registered address above as evidenced by its SFC license and published audited financial statements.\n(b) The bank is NOT providing correspondent services to shell banks.\n(c) The bank is subject to AML/CFT supervision by the Superintendencia Financiera de Colombia.\n\nOWNERSHIP\nBeneficial Owner: Nuevo Horizonte Financial Group SAS — 72% controlling shareholder (Colombian holding company, Bogotá Stock Exchange listed). No natural person holds 25%+ directly. Regulated entity / publicly listed exemption documented.\nControl Person: Luciana Vargas Mendez, CEO\n\nSCREENING RESULTS\nOFAC / SDN: Clear — no match.\nUN Consolidated Sanctions List: Clear.\nUS State Department INCSR Colombia Country Report: Colombia remains FATF-monitored jurisdiction. High-risk country designation applied per internal policy — EDD mandatory for all Colombian correspondent accounts.\nPEP Status: Luciana Vargas Mendez — no PEP flag.\nAdverse Media: One 2021 news reference regarding industry-wide SFC inquiry into trade finance practices; Banco Nuevo Horizonte not named. Cleared — no adverse finding for this entity.\nWolfsberg Group Correspondent Banking Due Diligence Questionnaire: Completed and returned 2025-08-30.\n\nRISK ASSESSMENT AND EDD ACTIONS\nEDD Trigger: Yes — Colombia high-risk jurisdiction classification.\n1. Wolfsberg DDQ reviewed and assessed as satisfactory.\n2. SFC license and annual financial statements (2024) reviewed.\n3. PATRIOT Act Section 312 certification filed.\n4. Payable-through account assessment: Not applicable.\n5. Senior management approval: Granted.\nPEP Status: No\nRisk Rating: High\nCDD Level: Enhanced\nReview Date: 2025-11-28   Reviewer: Monique Delacourt",
+  "expected_json": {
+    "customer_name": "Banco Nuevo Horizonte SA",
+    "customer_type": "Business",
+    "date_of_birth": null,
+    "tax_id_masked": null,
+    "address_line1": "Calle 72 No. 10-51, Piso 12",
+    "city": "Bogotá DC",
+    "state": null,
+    "postal_code": null,
+    "country": "Colombia",
+    "phone": "+57-1-555-0161",
+    "email": "intloperations@nuevohorizonte.example",
+    "occupation_or_business": "Retail and commercial banking; trade finance; international wire transfer services",
+    "source_of_funds": "Customer deposits, interbank placements, trade finance fees",
+    "expected_monthly_activity": 6800000.00,
+    "risk_rating": "High",
+    "pep_status": false,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": null,
+    "id_document_number_masked": null,
+    "id_expiration_date": null,
+    "review_date": "2025-11-28",
+    "reviewer_name": "Monique Delacourt"
+  },
+  "expected_avg_confidence": 0.85
+}

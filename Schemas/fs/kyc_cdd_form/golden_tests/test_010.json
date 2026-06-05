@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_010",
+  "document_type": "kyc_cdd_form",
+  "description": "Money Services Business customer with cash-intensive currency exchange operations triggering Enhanced Due Diligence",
+  "parsed_text": "ENHANCED DUE DILIGENCE — MONEY SERVICES BUSINESS (MSB)\nLegal Entity Name: GoldStream Currency Exchange Inc\nCustomer Type: Business\nEIN: XX-XXX5560\nBusiness Type: Money Services Business — Currency Exchange and Check Cashing\nMSB Registration: FinCEN MSB Registration No. 31000XXXXX556\nState License: Texas Department of Banking — License TX-MSB-XXXX3301, Exp: 2026-12-31\nBusiness Address: 1802 W. Commerce Street, San Antonio, TX 78207, USA\nPhone: (210) 555-0193   Email: compliance@goldstream.example\nBusiness Activity: Retail currency exchange, check cashing, domestic and international money transmission\nSource of Funds: Customer transaction fees, foreign exchange spreads\nExpected Monthly Activity: $875,000\n\nOWNERSHIP STRUCTURE\nBeneficial Owner: Ricardo Salinas — Ownership: 80%\nBeneficial Owner 2: Carmen Vela — Ownership: 20%\nControl Person: Ricardo Salinas (CEO)\n\nIDENTIFICATION DOCUMENTS\nRicardo Salinas — Passport: MX-XXXX4482, Exp: 2027-02-28\nCarmen Vela — Driver License: DL-TX-XX9901, Exp: 2028-10-15\n\nRISK FACTORS\n- MSB: Inherently high-risk customer type per FFIEC guidance and FinCEN SAR typologies.\n- Cash-intensive operations; significant volume of over-the-counter cash transactions.\n- International money transmission corridors: USA-Mexico, USA-Guatemala.\n- Prior FinCEN civil penalty (2019, $12,500) for delayed SAR filing; corrective action plan completed.\nEDD Trigger: YES — MSB designation, cash intensity, and international transmission corridors.\n\nEDD ACTIONS COMPLETED\n1. FinCEN MSB registration verified and current.\n2. State licensing reviewed — TX-MSB-XXXX3301 active.\n3. AML program documentation reviewed; policies deemed adequate.\n4. Independent audit report (2024) reviewed — no material findings.\n5. Three years transaction reports (CTRs) reviewed for patterns.\n6. Site visit conducted 2025-10-01; operations consistent with stated model.\n7. Senior management approval obtained.\nCDD Level: Enhanced\nRisk Rating: High\nReview Date: 2025-10-15   Reviewer: James Oduya",
+  "expected_json": {
+    "customer_name": "GoldStream Currency Exchange Inc",
+    "customer_type": "Business",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX5560",
+    "address_line1": "1802 W. Commerce Street",
+    "city": "San Antonio",
+    "state": "TX",
+    "postal_code": "78207",
+    "country": "USA",
+    "phone": "(210) 555-0193",
+    "email": "compliance@goldstream.example",
+    "occupation_or_business": "Retail currency exchange, check cashing, domestic and international money transmission",
+    "source_of_funds": "Customer transaction fees, foreign exchange spreads",
+    "expected_monthly_activity": 875000.00,
+    "risk_rating": "High",
+    "pep_status": false,
+    "beneficial_owner_name": "Ricardo Salinas",
+    "beneficial_owner_ownership_percent": 80.0,
+    "id_document_type": "Passport",
+    "id_document_number_masked": "MX-XXXX4482",
+    "id_expiration_date": "2027-02-28",
+    "review_date": "2025-10-15",
+    "reviewer_name": "James Oduya"
+  },
+  "expected_avg_confidence": 0.90
+}

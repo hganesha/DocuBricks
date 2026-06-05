@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_009",
+  "document_type": "invoice",
+  "description": "Recurring SaaS subscription invoice with annual billing, partial-month pro-ration, and renewal date",
+  "parsed_text": "TAX INVOICE\nInvoice #: INV-SaaS-2025-8801\nInvoice Date: 2025-07-01   Due Date: 2025-07-15\nVendor: CloudStream Software Inc.\nVendor Tax ID: XX-XXX3391\nVendor Address: 500 Silicon Alley, Suite 1200, New York, NY 10018\nBill To: Bridgestone Analytics Corp.\nAccounts Payable, 88 Park Avenue South, New York, NY 10016\nAccount ID: CSI-BRG-0044\nPO Number: None   Terms: Net 15   Currency: USD\n\nSubscription Details:\nProduct: CloudStream Enterprise Analytics Platform\nPlan: Enterprise — Unlimited Users\nBilling Cycle: Annual\nSubscription Period: 2025-07-01 through 2026-06-30\nRenewal Date: 2026-07-01\n\nLine Items:\n1. Annual Subscription Fee (Enterprise)                 $28,800.00\n   Base rate: $2,400.00/month x 12 months\n\n2. Pro-Ration Adjustment — June 2025 (16 days used)     $1,280.00\n   Migrated from Starter plan 2025-06-15\n   Daily rate: $80.00/day x 16 days\n\n3. Professional Onboarding Package (one-time)           $1,500.00\n   Data migration, configuration, admin training\n\nSubtotal:                                              $31,580.00\nSales Tax (NY 8.875%):                                  $2,802.74\nDiscount — Annual Prepay (5%):                         ($1,440.00)\nInvoice Total:                                         $32,942.74\nAmount Due:                                            $32,942.74\n\nNote: Renewal invoice will be automatically issued 30 days before 2026-07-01.\nFor billing questions: billing@cloudstreamsoftware.com | 212-555-0180",
+  "expected_json": {
+    "invoice_number": "INV-SaaS-2025-8801",
+    "invoice_date": "2025-07-01",
+    "due_date": "2025-07-15",
+    "vendor_name": "CloudStream Software Inc.",
+    "vendor_tax_id_masked": "XX-XXX3391",
+    "vendor_address": "500 Silicon Alley, Suite 1200, New York, NY 10018",
+    "customer_name": "Bridgestone Analytics Corp.",
+    "customer_address": "88 Park Avenue South, New York, NY 10016",
+    "purchase_order_number": null,
+    "currency": "USD",
+    "subtotal": 31580.00,
+    "tax_amount": 2802.74,
+    "shipping_amount": null,
+    "discount_amount": 1440.00,
+    "total_amount": 32942.74,
+    "amount_due": 32942.74,
+    "payment_terms": "Net 15",
+    "line_item_count": 3
+  },
+  "expected_avg_confidence": 0.90
+}

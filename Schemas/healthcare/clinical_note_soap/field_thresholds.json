@@ -1,0 +1,79 @@
+{
+  "note_date": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Note date is required for clinical timeline integrity, HIPAA minimum necessary documentation, and regulatory retention scheduling; incorrect dates create medical-legal liability"
+  },
+  "provider_npi": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Provider NPI links note to credentialed clinician record for quality reporting, attestation workflows, and FHIR Practitioner resource matching; format validation is critical"
+  },
+  "patient_mrn": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "MRN is the EMR patient master identifier; extraction errors cause wrong-patient note attribution — a patient safety event and HIPAA violation risk"
+  },
+  "patient_dob": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Date of birth is a required patient identity verification field and is used for age-based clinical decision support; errors may cause mismatched records"
+  },
+  "assessment_diagnoses": {
+    "min_confidence": 0.80,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Diagnoses drive billing code generation, quality measure attribution, and care gap identification; clinical notes often use informal terminology requiring ICD-10 inference — lower threshold reflects this complexity"
+  },
+  "objective_vitals": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Vital signs are critical for clinical decision support (e.g., sepsis alerts, hypertension management) and population health analytics; structured extraction must preserve units and values accurately"
+  },
+  "chief_complaint": {
+    "min_confidence": 0.82,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Chief complaint drives care pathway routing and patient communication; lower threshold acceptable as it is often free text in provider's words rather than a labeled field"
+  },
+  "provider_name": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Provider name required for note attribution, medical staff credentialing verification, and peer review workflows; format variability (signature vs. header) reduces achievable confidence"
+  },
+  "note_type": {
+    "min_confidence": 0.85,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Note type classification routes records to appropriate downstream workflows (discharge planning, consultation reply, admission H&P); misclassification is recoverable through human review"
+  },
+  "medications_mentioned": {
+    "min_confidence": 0.78,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Medication extraction from free-text clinical notes is inherently approximate due to abbreviations, brand/generic mixing, and contextual usage; lower threshold reflects extraction complexity"
+  },
+  "follow_up_timeframe": {
+    "min_confidence": 0.75,
+    "review_on_breach": false,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Follow-up timeframe supports care gap and no-show tracking; acceptable at lower confidence as it is often embedded in narrative Plan text rather than a discrete field"
+  }
+}

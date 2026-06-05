@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_011",
+  "document_type": "kyc_cdd_form",
+  "description": "FINRA-registered broker-dealer undergoing KYB with regulated financial institution exemption applied to beneficial ownership rule",
+  "parsed_text": "KYC / KNOW YOUR BUSINESS (KYB) — REGULATED FINANCIAL INSTITUTION\nLegal Entity Name: Meridian Capital Securities LLC\nCustomer Type: Business\nEIN: XX-XXX7743\nEntity Classification: Broker-Dealer (Registered)\nRegulatory Registration: FINRA Member — CRD# XXXXX8801; SEC Registered — Registration No. 8-XXXXX902\nBusiness Address: 200 Park Avenue, 38th Floor, New York, NY 10166, USA\nPhone: (212) 555-0160   Email: institutional@meridiancap.example\nBusiness Activity: Full-service broker-dealer; equity and fixed income trading, investment banking advisory\nSource of Funds: Brokerage commissions, underwriting fees, proprietary trading revenue\nExpected Monthly Activity: $4,200,000\n\nREGULATED ENTITY EXEMPTION — BENEFICIAL OWNERSHIP RULE\nPer 31 CFR 1010.230(e)(2), regulated financial institutions that are subject to AML program requirements are exempt from the beneficial ownership identification and verification requirements as legal entity customers. Meridian Capital Securities LLC is a registered broker-dealer subject to FINRA Rule 3310 and SEC Rule 17a-8. Exemption applied: Beneficial ownership form NOT required.\nControl Person Identified: Diana Kessler, Chief Compliance Officer\n\nIDENTITY AND LICENSING DOCUMENTS REVIEWED\nFINRA BrokerCheck: Confirmed — no disclosure events, active registration.\nSEC EDGAR: Confirmed — Form BD current, annual amendment filed 2025-03-01.\nNYS DFS License: Active.\n\nSCREENING RESULTS\nOFAC / SDN: Clear.\nFATF High-Risk Country Exposure: Minimal — no correspondent relationships with FATF-listed jurisdictions.\nPEP Status: Not applicable at entity level; control person Diana Kessler — no PEP flag.\nAdverse Media: One FINRA regulatory notice (2022) for recordkeeping deficiency; $45,000 fine; corrective measures implemented.\n\nRISK ASSESSMENT\nPEP Status: No\nRisk Rating: Medium\nCDD Level: Standard\nCompliance Notes: Regulated entity exemption documented and supervisor-approved. Annual FINRA certification reviewed.\nReview Date: 2025-11-04   Reviewer: Marcus Holden",
+  "expected_json": {
+    "customer_name": "Meridian Capital Securities LLC",
+    "customer_type": "Business",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX7743",
+    "address_line1": "200 Park Avenue, 38th Floor",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10166",
+    "country": "USA",
+    "phone": "(212) 555-0160",
+    "email": "institutional@meridiancap.example",
+    "occupation_or_business": "Full-service broker-dealer; equity and fixed income trading, investment banking advisory",
+    "source_of_funds": "Brokerage commissions, underwriting fees, proprietary trading revenue",
+    "expected_monthly_activity": 4200000.00,
+    "risk_rating": "Medium",
+    "pep_status": false,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": null,
+    "id_document_number_masked": null,
+    "id_expiration_date": null,
+    "review_date": "2025-11-04",
+    "reviewer_name": "Marcus Holden"
+  },
+  "expected_avg_confidence": 0.88
+}

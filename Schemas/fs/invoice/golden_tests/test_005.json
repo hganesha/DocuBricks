@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_005",
+  "document_type": "invoice",
+  "description": "Sparse invoice missing PO and customer address",
+  "parsed_text": "INVOICE\nNo. 55219\nVendor: Blue Ridge Repair Co.\nInvoice Date: 2025-05-12\nBill To: Lakeside Apartments\nTerms: Net 15\nCurrency: USD\nSubtotal: $640.00\nTax: $51.20\nTotal Due: $691.20\nAmount Due: $691.20\nItems: 1",
+  "expected_json": {
+    "invoice_number": "55219",
+    "invoice_date": "2025-05-12",
+    "due_date": null,
+    "vendor_name": "Blue Ridge Repair Co.",
+    "vendor_tax_id_masked": null,
+    "vendor_address": null,
+    "customer_name": "Lakeside Apartments",
+    "customer_address": null,
+    "purchase_order_number": null,
+    "currency": "USD",
+    "subtotal": 640.00,
+    "tax_amount": 51.20,
+    "shipping_amount": null,
+    "discount_amount": null,
+    "total_amount": 691.20,
+    "amount_due": 691.20,
+    "payment_terms": "Net 15",
+    "line_item_count": 1
+  },
+  "expected_avg_confidence": 0.87
+}

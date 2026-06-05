@@ -1,0 +1,44 @@
+resources:
+  jobs:
+    daily_health_check:
+      name: "DocuBricks — Ops: Daily Health Check [${bundle.target}]"
+      description: >
+        Runs every day at 05:00 UTC. Verifies that all DocuBricks components
+        are operational: Lakebase connectivity, DLT pipeline last run status,
+        Genie space availability, Vector Search index freshness, app health
+        endpoints. Writes results to monitoring.monitoring_alerts.
+        Sends an email notification if any check fails.
+
+      schedule:
+        quartz_cron_expression: "0 0 5 * * ?"
+        timezone_id: "UTC"
+        pause_status: UNPAUSED
+
+      tasks:
+        - task_key: run
+          python_file:
+            path: src/ops/daily_health_check.py
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: "Standard_DS3_v2"
+            num_workers: 0
+            spark_conf:
+              spark.master: "local[*, 4]"
+              catalog_name: ${var.catalog_name}
+              secret_scope: ${var.secret_scope}
+              otel_endpoint: ${var.otel_endpoint}
+            custom_tags:
+              docubricks_component: ops
+              docubricks_job: daily_health_check
+
+      email_notifications:
+        on_failure:
+          - hariganesh@msn.com
+        no_alert_for_skipped_runs: true
+
+      max_concurrent_runs: 1
+      timeout_seconds: 1200
+
+      tags:
+        component: ops
+        managed_by: databricks_bundle

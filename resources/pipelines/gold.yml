@@ -1,0 +1,20 @@
+resources:
+  pipelines:
+    gold_pipeline:
+      name: "DocuBricks — Gold [${bundle.target}]"
+      catalog: ${var.catalog_name}
+      target: gold
+      channel: PREVIEW
+      serverless: true
+      continuous: false
+      configuration:
+        catalog_name: ${var.catalog_name}
+      libraries:
+        - notebook:
+            path: src/pipelines/gold/fs_portfolio.py
+        - notebook:
+            path: src/pipelines/gold/platform_health.py
+      notifications:
+        - email_recipients: []
+          alerts:
+            - on-update-failure

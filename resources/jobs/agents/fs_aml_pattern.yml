@@ -1,0 +1,32 @@
+resources:
+  jobs:
+    fs_aml_pattern_agent:
+      name: "DocuBricks — FS AML Pattern Agent [${bundle.target}]"
+      tags:
+        vertical: fs
+        agent: aml_pattern
+      schedule:
+        quartz_cron_expression: "0 30 7 * * ?"
+        timezone_id: "UTC"
+        pause_status: PAUSED
+      tasks:
+        - task_key: run_agent
+          python_file:
+            path: src/agents/fs/aml_pattern.py
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: "Standard_DS3_v2"
+            num_workers: 0
+            spark_conf:
+              catalog_name: ${var.catalog_name}
+              secret_scope: ${var.secret_scope}
+          libraries:
+            - pypi:
+                package: psycopg2-binary>=2.9
+      email_notifications:
+        on_failure: []
+      health:
+        - metric: RUN_DURATION_SECONDS
+          op: GREATER_THAN
+          value: 1800
+      max_concurrent_runs: 1

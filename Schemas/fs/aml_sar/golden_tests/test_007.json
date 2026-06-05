@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_007",
+  "document_type": "aml_sar",
+  "description": "Business Email Compromise wire fraud via CEO impersonation resulting in $185,000 international wire transfer",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-01194\nFiling Institution: Atlantic Commerce Bank\nFiling Date: 2024-07-22\nSubject: Meridian Logistics Group LLC   Tax ID: XX-XXXXXXX (on file)\nSubject Address: 4400 Harbor View Drive, Suite 300, Baltimore, MD 21224\nAccount: XXXX7089\nActivity Dates: 2024-07-08 to 2024-07-09\nSuspicious Activity Type: WireFraud\nAmount Involved: USD 185,000.00   Transaction Count: 1\nLaw Enforcement Contacted: Yes\nBranch: Baltimore Harbor Branch\nInvestigator: Patricia Hendricks\n\nNarrative: Atlantic Commerce Bank is filing this Suspicious Activity Report concerning a Business Email Compromise (BEC) scheme targeting Meridian Logistics Group LLC ('Meridian'), a commercial account holder since 2018 with average monthly outgoing wire volume of approximately $40,000 to established domestic vendors.\n\nOn July 8, 2024, the bank received a wire transfer instruction via the online commercial banking portal submitted by an authorized user of the Meridian account. The instruction directed a wire of $185,000 to a beneficiary account at Banco Internacional de Comercio S.A. in Mexico City, Mexico, with the beneficiary name listed as 'Global Supply Chain Partners S. de R.L.' The instruction contained a memo field reading 'Urgent — CEO Approved — Q3 Vendor Prepayment.' The submitting user's IP address resolved to a VPN endpoint in Eastern Europe, inconsistent with the user's prior login history from a Baltimore-area IP range.\n\nThe bank's wire operations team attempted to reach the Meridian Chief Financial Officer via the phone number on file to verbally confirm the instruction, per the bank's high-value wire callback policy. The CFO confirmed she had not authorized the transfer and was unaware of any payment obligation to the named beneficiary. She stated the company's CEO email account had reportedly been spoofed the previous week. The CFO immediately contacted local law enforcement and the FBI.\n\nThe bank placed a hold on the wire and notified its compliance department. A review of the Meridian account showed no prior international wire transfers to Mexico or any account at Banco Internacional de Comercio S.A. The bank subsequently froze outgoing wire access on the account pending further investigation. Law enforcement was notified on July 9, 2024.",
+  "expected_json": {
+    "sar_id": "SAR-2024-01194",
+    "filing_institution_name": "Atlantic Commerce Bank",
+    "filing_date": "2024-07-22",
+    "subject_name": "Meridian Logistics Group LLC",
+    "subject_tax_id_masked": "XX-XXXXXXX",
+    "subject_address": "4400 Harbor View Drive, Suite 300, Baltimore, MD 21224",
+    "subject_account_number_masked": "XXXX7089",
+    "activity_start_date": "2024-07-08",
+    "activity_end_date": "2024-07-09",
+    "suspicious_activity_type": "WireFraud",
+    "amount_involved": 185000.00,
+    "transaction_count": 1,
+    "currency": "USD",
+    "law_enforcement_contacted": true,
+    "narrative_summary": "A $185,000 international wire transfer instruction submitted via a compromised commercial banking portal was consistent with a Business Email Compromise scheme involving CEO impersonation. The bank intercepted the wire after a callback to the CFO confirmed no authorized request existed, and law enforcement was subsequently notified.",
+    "branch_location": "Baltimore Harbor Branch",
+    "investigator_name": "Patricia Hendricks"
+  },
+  "expected_avg_confidence": 0.95
+}

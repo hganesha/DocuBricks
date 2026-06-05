@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_012",
+  "document_type": "invoice",
+  "description": "Construction milestone billing invoice with project name, percentage complete, and retainage held",
+  "parsed_text": "PROGRESS BILLING INVOICE\nInvoice #: PBI-2025-0008\nInvoice Date: 2025-09-01   Due Date: 2025-10-01\nContractor: Ironbridge General Contractors Inc.\nContractor License #: OH-GC-44892\nVendor Tax ID: XX-XXX6614\nVendor Address: 1400 Builders Row, Cleveland, OH 44115\nBill To: Lakefront Development Group LLC\n   Owner Representative: Marcus Tran\n   200 Shoreline Plaza, Suite 900, Cleveland, OH 44114\nProject Name: Lakefront Mixed-Use Development — Phase 2\nProject Number: LDG-2025-P2\nContract Number: CNT-2025-1188\nPO Number: PO-LDG-2025-008\nPayment Terms: Net 30   Currency: USD\n\nMilestone: Foundation & Structural Steel — Complete\n\nBilling Summary:\nOriginal Contract Value:                         $4,250,000.00\nPreviously Billed (Invoices PBI-2025-0001 through 0007):  $1,870,000.00\n\nThis Billing Period:\n1. Concrete Foundation Work (100% complete)      $425,000.00\n2. Structural Steel Erection (85% complete)      $318,750.00\n   Budgeted: $375,000.00 | 85% this period\n3. Anchor Bolt Installation (100% complete)       $62,400.00\n4. Temporary Shoring & Bracing                    $28,900.00\n\nGross Amount This Invoice:                       $835,050.00\nRetainage Withheld (10%):                        ($83,505.00)\nNet Amount Due This Invoice:                     $751,545.00\n\nCumulative % Complete (Contract):                        49.5%\nCumulative Retainage Held to Date:               $270,505.00\n\nCertified by Owner's Representative: ________________  Date: ________\nSubmit payment to: Ironbridge GC, 1400 Builders Row, Cleveland, OH 44115\nbilling@ironbridgegc.com | 216-555-0302",
+  "expected_json": {
+    "invoice_number": "PBI-2025-0008",
+    "invoice_date": "2025-09-01",
+    "due_date": "2025-10-01",
+    "vendor_name": "Ironbridge General Contractors Inc.",
+    "vendor_tax_id_masked": "XX-XXX6614",
+    "vendor_address": "1400 Builders Row, Cleveland, OH 44115",
+    "customer_name": "Lakefront Development Group LLC",
+    "customer_address": "200 Shoreline Plaza, Suite 900, Cleveland, OH 44114",
+    "purchase_order_number": "PO-LDG-2025-008",
+    "currency": "USD",
+    "subtotal": 835050.00,
+    "tax_amount": null,
+    "shipping_amount": null,
+    "discount_amount": 83505.00,
+    "total_amount": 751545.00,
+    "amount_due": 751545.00,
+    "payment_terms": "Net 30",
+    "line_item_count": 4
+  },
+  "expected_avg_confidence": 0.86
+}

@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_011",
+  "document_type": "aml_sar",
+  "description": "Shell company integration scheme — luxury goods purchased for cash, resold, and proceeds deposited to business account",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-01877\nFiling Institution: Metropolitan Trust Bank\nFiling Date: 2024-08-19\nSubject: Pinnacle Luxury Resale LLC   Tax ID: XX-XXXXXXX (on file)\nSubject Address: 2240 Brickell Avenue, Suite 800, Miami, FL 33129\nAccount: XXXX4453\nActivity Dates: 2024-02-01 to 2024-07-31\nSuspicious Activity Type: MoneyLaundering\nAmount Involved: USD 1,640,000.00   Transaction Count: 34\nLaw Enforcement Contacted: No\nBranch: Miami Brickell Branch\nInvestigator: Carlos Reyes\n\nNarrative: Metropolitan Trust Bank is filing this Suspicious Activity Report concerning integration-phase money laundering activity conducted through the business checking account of Pinnacle Luxury Resale LLC ('Pinnacle'), a Florida limited liability company engaged in secondary-market sales of high-end watches, handbags, and jewelry.\n\nDuring the review period February 1, 2024 through July 31, 2024, the Pinnacle account received thirty-four (34) cash and check deposits totaling $1,640,000. Compliance staff initiated a review following a branch teller alert noting repeated large-denomination cash deposits accompanied by handwritten inventory receipts that referenced watch and handbag purchases at prices significantly below retail.\n\nBank records reflect the following pattern: Pinnacle made cash payments ranging from $8,000 to $45,000 to individual sellers for luxury goods, as documented on consignment receipts retained by the branch. The goods were subsequently listed and sold through the company's online marketplace and boutique storefront, with sale proceeds deposited as business revenue. The goods' provenance documentation was absent or incomplete in the majority of transactions reviewed.\n\nA beneficial ownership review of Pinnacle revealed a sole member, Mr. Raul Fontaine (date of birth 06/22/1978), who holds no other verifiable employment or business income on file with the bank. Mr. Fontaine was unable to identify a consistent supplier base when interviewed by the bank's relationship manager in June 2024. Third-party open-source research identified two prior civil judgments against Mr. Fontaine for breach of contract in connection with separate business ventures.\n\nThe bank notes that cash purchases of luxury goods from private individuals with no documentation of provenance, combined with the deposit of resale proceeds into a business account, is consistent with the integration stage of a money laundering cycle. No prior SARs are on file for Pinnacle or Mr. Fontaine.",
+  "expected_json": {
+    "sar_id": "SAR-2024-01877",
+    "filing_institution_name": "Metropolitan Trust Bank",
+    "filing_date": "2024-08-19",
+    "subject_name": "Pinnacle Luxury Resale LLC",
+    "subject_tax_id_masked": "XX-XXXXXXX",
+    "subject_address": "2240 Brickell Avenue, Suite 800, Miami, FL 33129",
+    "subject_account_number_masked": "XXXX4453",
+    "activity_start_date": "2024-02-01",
+    "activity_end_date": "2024-07-31",
+    "suspicious_activity_type": "MoneyLaundering",
+    "amount_involved": 1640000.00,
+    "transaction_count": 34,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "Pinnacle Luxury Resale LLC received $1,640,000 in deposits over six months derived from the resale of luxury goods purchased for cash from private individuals with no provenance documentation, consistent with integration-phase money laundering. The beneficial owner could not provide a coherent supplier base, and prior civil judgments were identified through open-source research.",
+    "branch_location": "Miami Brickell Branch",
+    "investigator_name": "Carlos Reyes"
+  },
+  "expected_avg_confidence": 0.91
+}

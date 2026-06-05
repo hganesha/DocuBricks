@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_012",
+  "document_type": "kyc_cdd_form",
+  "description": "Foreign Financial Institution establishing a correspondent banking relationship subject to FFIEC enhanced screening requirements",
+  "parsed_text": "CORRESPONDENT BANKING DUE DILIGENCE — FOREIGN FINANCIAL INSTITUTION\nInstitution Name: Nordvik Savings and Commercial Bank AS\nCustomer Type: Business (Foreign Financial Institution)\nCountry of Incorporation: Norway\nSwift/BIC: NVKBNOK2XXX\nRegulatory License: Finanstilsynet (Norwegian FSA) — License No. NO-BANK-XXXX4411\nPrimary Business Address: Dronning Eufemias Gate 30, 0191 Oslo, Norway\nUS Contact Phone: +47-22-555-0177   Email: correspondent@nordvik.example\nBusiness Activity: Commercial banking, retail deposits, corporate lending, trade finance\nSource of Funds: Customer deposit base, interbank lending, bond issuance\nExpected Monthly Activity: $9,500,000\n\nFFIEC ENHANCED CORRESPONDENT BANKING SCREENING\nPATRIOT Act Section 312 (Enhanced Due Diligence for Foreign Financial Institutions): APPLICABLE.\nCertification of Non-Shell Bank Status: Received — signed by CEO Bjorn Andersen, dated 2025-10-20. Nordvik Bank is not a shell bank; it maintains a physical presence in Norway as evidenced by its Finanstilsynet license and published annual report.\nCorrespondent Account Agreement: Signed 2025-11-01.\n\nOWNERSHIP\nBeneficial Owner: Nordvik Group ASA (publicly listed, Oslo Stock Exchange — ticker NVKB). No individual beneficial owner holds 25% or more. Regulated entity exemption per 31 CFR 1010.230(e)(2) applied.\nControl Person: Ingrid Sorensen, Head of International Banking\n\nSCREENING RESULTS\nOFAC / SDN: Clear.\nEU Consolidated Sanctions List: Clear.\nUN Security Council List: Clear.\nNorway FATF Status: Norway is a FATF member — low-risk jurisdiction.\nPEP Status: Not applicable at institution level; Ingrid Sorensen — no PEP flag.\nAdverse Media: No adverse media. Nordvik Bank holds a clean regulatory record per Finanstilsynet public registry.\nCorrespondent Due Diligence Questionnaire (Wolfsberg): Completed and reviewed.\n\nRISK ASSESSMENT\nPEP Status: No\nRisk Rating: Low\nCDD Level: Enhanced (required for all foreign correspondent banking relationships per policy)\nCompliance Notes: PATRIOT Act Section 312 checklist completed. Payable-through account assessment: Not applicable — this is a standard correspondent account. Annual review scheduled.\nReview Date: 2025-11-18   Reviewer: Alicia Pemberton",
+  "expected_json": {
+    "customer_name": "Nordvik Savings and Commercial Bank AS",
+    "customer_type": "Business",
+    "date_of_birth": null,
+    "tax_id_masked": null,
+    "address_line1": "Dronning Eufemias Gate 30",
+    "city": "Oslo",
+    "state": null,
+    "postal_code": "0191",
+    "country": "Norway",
+    "phone": "+47-22-555-0177",
+    "email": "correspondent@nordvik.example",
+    "occupation_or_business": "Commercial banking, retail deposits, corporate lending, trade finance",
+    "source_of_funds": "Customer deposit base, interbank lending, bond issuance",
+    "expected_monthly_activity": 9500000.00,
+    "risk_rating": "Low",
+    "pep_status": false,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": null,
+    "id_document_number_masked": null,
+    "id_expiration_date": null,
+    "review_date": "2025-11-18",
+    "reviewer_name": "Alicia Pemberton"
+  },
+  "expected_avg_confidence": 0.85
+}

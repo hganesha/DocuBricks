@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_009",
+  "document_type": "kyc_cdd_form",
+  "description": "Revocable living trust with two trustees, living settlor, three named beneficiaries, and trust assets described",
+  "parsed_text": "TRUST ACCOUNT DUE DILIGENCE FORM\nCustomer Name: The Harrington Revocable Living Trust\nCustomer Type: Trust\nTrust TIN: XX-XXX8817\nDate of Trust Instrument: 2018-11-05\nTrust Jurisdiction: California\nMailing Address: 5621 Vineyard Lane, Napa, CA 94558, USA\nPhone: (707) 555-0162   Email: trust.admin@harrington.example\n\nSETTLOR\nName: William Harrington   DOB: 1952-04-28   Status: Living\nSSN: XXX-XX-4491\nID: Passport P-XXXX0034, Expiration: 2026-09-01\n\nTRUSTEES\nTrustee 1: William Harrington (Settlor / Trustee)\nTrustee 2: Margaret Harrington (Co-Trustee)   DOB: 1955-01-17\nID: Driver License DL-CA-XX7721, Expiration: 2027-06-30\n\nBENEFICIARIES\n1. Emily Harrington (Adult Child) — Revocable interest, contingent on settlor's death\n2. Daniel Harrington (Adult Child) — Revocable interest, contingent on settlor's death\n3. Harrington Family Charitable Foundation — Residual 10% bequest\n\nTRUST ASSETS\nPrimary assets: Residential real property (4 parcels, Napa County), brokerage portfolio (estimated value $2.8M), checking account.\nSource of Funds: Proceeds from sale of Harrington Vineyards LLC (2021), investment dividends.\nExpected Monthly Activity: $55,000\n\nBENEFICIAL OWNERSHIP / CONTROL\nControl Person: William Harrington (Trustee) — 100% control authority under trust instrument.\nOwnership % (control person): 100%\nBeneficiaries have no present vested interest while settlor is living.\n\nRISK ASSESSMENT\nPEP Status: None — no PEP associations identified for settlor, trustees, or named beneficiaries.\nSanctions Screening: Clear — OFAC, SDN, and EU consolidated list all negative.\nAdverse Media: Clear.\nHigh-Risk Factors: None identified. Domestic trust, documented asset origin.\nCDD Level: Standard\nRisk Rating: Low\nReview Date: 2025-09-12   Reviewer: Karen Nishida",
+  "expected_json": {
+    "customer_name": "The Harrington Revocable Living Trust",
+    "customer_type": "Trust",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX8817",
+    "address_line1": "5621 Vineyard Lane",
+    "city": "Napa",
+    "state": "CA",
+    "postal_code": "94558",
+    "country": "USA",
+    "phone": "(707) 555-0162",
+    "email": "trust.admin@harrington.example",
+    "occupation_or_business": "Family trust account",
+    "source_of_funds": "Proceeds from sale of Harrington Vineyards LLC (2021), investment dividends",
+    "expected_monthly_activity": 55000.00,
+    "risk_rating": "Low",
+    "pep_status": false,
+    "beneficial_owner_name": "William Harrington",
+    "beneficial_owner_ownership_percent": 100.0,
+    "id_document_type": "Passport",
+    "id_document_number_masked": "P-XXXX0034",
+    "id_expiration_date": "2026-09-01",
+    "review_date": "2025-09-12",
+    "reviewer_name": "Karen Nishida"
+  },
+  "expected_avg_confidence": 0.87
+}

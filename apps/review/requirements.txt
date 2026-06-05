@@ -1,0 +1,7 @@
+streamlit>=1.35.0
+psycopg2-binary>=2.9.9
+databricks-sdk>=0.28.0
+opentelemetry-api>=1.24.0
+opentelemetry-sdk>=1.24.0
+opentelemetry-exporter-otlp-proto-grpc>=1.24.0
+pandas>=2.2.0

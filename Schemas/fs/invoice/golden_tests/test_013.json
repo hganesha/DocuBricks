@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_013",
+  "document_type": "invoice",
+  "description": "Professional services time-and-materials invoice with hours by consultant, day rates, and separately itemized expenses",
+  "parsed_text": "PROFESSIONAL SERVICES INVOICE\nInvoice #: PSI-2025-0441\nInvoice Date: 2025-10-05   Due Date: 2025-11-04\nFirm: Stratford Management Consulting LLP\nTax ID: XX-XXX9920\nAddress: 600 Fifth Avenue, 18th Floor, New York, NY 10020\nBill To: Harborview Financial Group\n   Attn: COO Office\n   1 Financial Square, New York, NY 10005\nEngagement: Operational Efficiency Review — Phase 1\nEngagement Code: ENG-2025-HFG-03\nPO Number: PO-HFG-7714\nPayment Terms: Net 30   Currency: USD\nBilling Period: September 1 – September 30, 2025\n\nProfessional Fees — Time & Materials:\n1. Dr. Patricia Owens, Managing Director\n   5.0 days @ $3,200.00/day                          $16,000.00\n2. James Wickfield, Senior Consultant\n   12.0 days @ $1,800.00/day                         $21,600.00\n3. Amara Singh, Business Analyst\n   10.5 days @ $950.00/day                            $9,975.00\n4. Data Modeling & Scenario Analysis (fixed fee)      $4,500.00\n\nFees Subtotal:                                        $52,075.00\n\nReimbursable Expenses:\n5. Airfare — 2 roundtrips NYC–Chicago (coach)          $1,148.00\n6. Hotel — 5 nights Chicago Marriott @ $229/night      $1,145.00\n7. Ground Transportation & Parking                       $312.40\n8. Business Meals (per per diem policy)                  $480.00\n9. Printing & Document Production                        $125.60\n\nExpenses Subtotal:                                     $3,211.00\n\nTotal Before Tax:                                     $55,286.00\nNY City/State Tax (8.875% on fees only):               $4,621.66\nTotal Invoice Amount:                                 $59,907.66\nAmount Due:                                           $59,907.66\n\nPlease reference engagement code ENG-2025-HFG-03 on remittance.\nbilling@stratfordmc.com | 212-555-0199",
+  "expected_json": {
+    "invoice_number": "PSI-2025-0441",
+    "invoice_date": "2025-10-05",
+    "due_date": "2025-11-04",
+    "vendor_name": "Stratford Management Consulting LLP",
+    "vendor_tax_id_masked": "XX-XXX9920",
+    "vendor_address": "600 Fifth Avenue, 18th Floor, New York, NY 10020",
+    "customer_name": "Harborview Financial Group",
+    "customer_address": "1 Financial Square, New York, NY 10005",
+    "purchase_order_number": "PO-HFG-7714",
+    "currency": "USD",
+    "subtotal": 55286.00,
+    "tax_amount": 4621.66,
+    "shipping_amount": null,
+    "discount_amount": null,
+    "total_amount": 59907.66,
+    "amount_due": 59907.66,
+    "payment_terms": "Net 30",
+    "line_item_count": 9
+  },
+  "expected_avg_confidence": 0.89
+}

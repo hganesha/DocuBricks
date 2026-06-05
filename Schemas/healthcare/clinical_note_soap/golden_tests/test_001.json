@@ -1,0 +1,51 @@
+{
+  "test_case_id": "soap_001",
+  "document_type": "clinical_note_soap",
+  "description": "Primary care progress note — hypertension and type 2 diabetes management, established patient quarterly follow-up",
+  "parsed_text": "PROGRESS NOTE\nGreat Plains Family Medicine\nDepartment: Primary Care\nEncounter ID: ENC-2025-0091847\nDate of Service: 2025-10-22\n\nPatient: Anderson, James R.\nDOB: 1961-08-05\nMRN: GP-MRN-00334712\n\nProvider: Dr. Maria Santos, MD\nNPI: 1122334455\nSpecialty: Family Medicine\n\n---\nCHIEF COMPLAINT\nPatient presents for routine 3-month follow-up of hypertension and diabetes management.\n\nSUBJECTIVE\nMr. Anderson is a 64-year-old male presenting for quarterly chronic disease management. He reports blood pressure has been running higher at home this past month, averaging 148/90 on home cuff. Blood sugars fasting have been 130-160 mg/dL, up from previous range. He has been less adherent to low-sodium diet due to work stress. Denies chest pain, shortness of breath, headache, visual changes, polyuria, or polydipsia. Reports some fatigue. No medication side effects noted.\n\nOBJECTIVE\nVitals:\n  BP: 152/94 mmHg   HR: 78 bpm   Temp: 98.4°F   RR: 14 breaths/min\n  SpO2: 98% on room air   Weight: 212 lbs\n\nPhysical Exam: Alert and oriented x3. No acute distress. Cardiovascular: RRR, no murmurs. Pulmonary: CTA bilaterally. Abdomen: Soft, non-tender. Extremities: No edema. No diabetic foot ulcers noted.\n\nLabs reviewed (drawn 10/20/2025):\n  HbA1c: 8.1% (prev 7.6% in July)\n  BMP: Cr 1.1, K+ 4.2, eGFR 67\n  LDL: 112 mg/dL (on statin)\n\nASSESSMENT\n1. Essential hypertension (I10) — Suboptimally controlled. BP elevated today and per home monitoring. Contributing factor: dietary nonadherence and increased stress.\n2. Type 2 diabetes mellitus without complications (E11.9) — Worsening glycemic control, HbA1c up to 8.1%.\n3. Hyperlipidemia (E78.5) — LDL borderline on current statin, stable.\n\nPLAN\n1. Hypertension: Increase lisinopril from 10 mg to 20 mg daily. Reinforce low-sodium diet counseling. Home BP log reviewed.\n2. Diabetes: Increase metformin to 1000 mg twice daily. Refer to diabetes education program. Recheck HbA1c in 3 months.\n3. Hyperlipidemia: Continue atorvastatin 40 mg. Recheck fasting lipids in 6 months.\n4. Ordered: Urine microalbumin, repeat BMP in 4 weeks.\n5. Follow-up: Return to clinic in 3 months or sooner if BP > 160/100 or blood sugars consistently > 250 mg/dL.\n\nElectronically signed: Dr. Maria Santos, MD — 2025-10-22 14:32",
+  "expected_json": {
+    "note_date": "2025-10-22",
+    "note_type": "Progress",
+    "document_id": "ENC-2025-0091847",
+    "provider_name": "Dr. Maria Santos, MD",
+    "provider_npi": "1122334455",
+    "provider_specialty": "Family Medicine",
+    "patient_name": "Anderson, James R.",
+    "patient_dob": "1961-08-05",
+    "patient_mrn": "GP-MRN-00334712",
+    "facility_name": "Great Plains Family Medicine",
+    "department": "Primary Care",
+    "chief_complaint": "Routine 3-month follow-up of hypertension and diabetes management.",
+    "subjective_summary": "64-year-old male, quarterly chronic disease follow-up. BP averaging 148/90 at home, fasting BG 130-160 mg/dL, worse than prior. Less adherent to low-sodium diet due to work stress. Denies chest pain, SOB...",
+    "objective_vitals": {
+      "bp": "152/94 mmHg",
+      "hr": "78 bpm",
+      "temp": "98.4°F",
+      "rr": "14 breaths/min",
+      "spo2": "98% on room air",
+      "weight": "212 lbs"
+    },
+    "assessment_diagnoses": [
+      {
+        "icd10_code": "I10",
+        "description": "Essential hypertension",
+        "status": "Chronic"
+      },
+      {
+        "icd10_code": "E11.9",
+        "description": "Type 2 diabetes mellitus without complications",
+        "status": "Chronic"
+      },
+      {
+        "icd10_code": "E78.5",
+        "description": "Hyperlipidemia",
+        "status": "Chronic"
+      }
+    ],
+    "plan_summary": "Increase lisinopril to 20 mg daily. Metformin increased to 1000 mg BID, refer to diabetes education. Continue atorvastatin 40 mg. Order urine microalbumin, repeat BMP in 4 weeks...",
+    "medications_mentioned": ["lisinopril", "metformin", "atorvastatin"],
+    "follow_up_instructions": "Return to clinic in 3 months or sooner if BP > 160/100 or blood sugars consistently > 250 mg/dL.",
+    "follow_up_timeframe": "3 months"
+  },
+  "expected_avg_confidence": 0.91
+}

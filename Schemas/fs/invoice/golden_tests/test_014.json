@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_014",
+  "document_type": "invoice",
+  "description": "International invoice from German supplier with IBAN, BIC/SWIFT, and correspondent bank details for wire payment",
+  "parsed_text": "INVOICE / RECHNUNG\nInvoice Number: INV-DE-2025-3301\nInvoice Date: 2025-11-03   Payment Due: 2025-12-03\nSupplier: Schreiber & Voss Maschinenbau GmbH\nVAT Registration: DE192847561\nTax Number: 21/815/08150\nSupplier Address: Steinweg 17, 60313 Frankfurt am Main, Germany\nContact: export@schreiber-voss.de | +49 69 5500 4400\nBill To: Consolidated Automation Systems Inc.\n   Accounts Payable\n   8800 Industrial Parkway, Detroit, MI 48201, USA\nCustomer VAT / EIN: XX-XXX7740\nPurchase Order: PO-CAS-20251022\nPayment Terms: Net 30   Currency: EUR\n\nDelivery: Ex Works (EXW) Frankfurt, Incoterms 2020\n\nLine Items:\n1. Servo Motor 400W 3000rpm (Model SM-400-3K), Qty 10 @ EUR 620.00     EUR 6,200.00\n2. Planetary Gearbox Ratio 1:20 (Model PG-20), Qty 10 @ EUR 480.00     EUR 4,800.00\n3. Control Cabinet Assembly (custom per spec), Qty 1 @ EUR 8,400.00    EUR 8,400.00\n4. Cable Harness 10m (incl. connectors), Qty 4 @ EUR 165.00            EUR   660.00\n5. Installation Manual & Wiring Diagrams (digital), Qty 1               EUR   200.00\n\nSubtotal (excl. VAT):                                                  EUR 20,260.00\nVAT: 0% (Reverse Charge — §13b UStG, EU cross-border B2B supply):     EUR       0.00\nExport Documentation Fee:                                              EUR     120.00\nTotal Invoice Amount:                                                  EUR 20,380.00\nAmount Due:                                                            EUR 20,380.00\n\nWire Transfer Instructions:\nBeneficiary Bank: Commerzbank AG, Frankfurt\nBeneficiary Name: Schreiber & Voss Maschinenbau GmbH\nIBAN: DE89 2004 0060 0512 3400 00\nBIC/SWIFT: COBADEFFXXX\nCorrespondent Bank (USD clearing): JPMorgan Chase, New York\nCorrespondent SWIFT: CHASUS33\nReference: INV-DE-2025-3301 / PO-CAS-20251022\n\nLate payment interest: 9% p.a. above ECB base rate per §288 BGB.",
+  "expected_json": {
+    "invoice_number": "INV-DE-2025-3301",
+    "invoice_date": "2025-11-03",
+    "due_date": "2025-12-03",
+    "vendor_name": "Schreiber & Voss Maschinenbau GmbH",
+    "vendor_tax_id_masked": "DE192847561",
+    "vendor_address": "Steinweg 17, 60313 Frankfurt am Main, Germany",
+    "customer_name": "Consolidated Automation Systems Inc.",
+    "customer_address": "8800 Industrial Parkway, Detroit, MI 48201, USA",
+    "purchase_order_number": "PO-CAS-20251022",
+    "currency": "EUR",
+    "subtotal": 20260.00,
+    "tax_amount": 0.00,
+    "shipping_amount": 120.00,
+    "discount_amount": null,
+    "total_amount": 20380.00,
+    "amount_due": 20380.00,
+    "payment_terms": "Net 30",
+    "line_item_count": 5
+  },
+  "expected_avg_confidence": 0.87
+}

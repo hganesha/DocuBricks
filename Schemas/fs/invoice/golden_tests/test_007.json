@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_007",
+  "document_type": "invoice",
+  "description": "Foreign currency invoice denominated in EUR with exchange rate and USD equivalent noted",
+  "parsed_text": "RECHNUNG / INVOICE\nInvoice #: RE-2025-0892\nDate: 2025-05-15   Payment Due: 2025-06-14\nVendor: Müller Precision GmbH\nUst-IdNr. (VAT ID): DE289334710\nVendor Address: Industriestraße 44, 80807 München, Germany\nBill To: Atlantic Components Inc.\n1850 Harbor View Boulevard, Baltimore, MD 21230, USA\nPurchase Order: PO-AC-5503\nPayment Terms: Net 30   Currency: EUR\n\nLine Items:\n1. CNC-Turned Shaft Assembly Type A, Qty 50 @ EUR 84.00 ea    EUR 4,200.00\n2. Precision Ball Bearing 6205-2RS, Qty 200 @ EUR 7.40 ea     EUR 1,480.00\n3. Aluminum Housing EN-AW-6082, Qty 30 @ EUR 112.50 ea        EUR 3,375.00\n4. Engineering Drawings & Specs Package (1 lot)                EUR   450.00\n\nSubtotal (excl. VAT):                                         EUR 9,505.00\nVAT 19% (reverse charge — EU cross-border, customer liable):  EUR     0.00\nFreight / Export Packing:                                      EUR   380.00\nInvoice Total (EUR):                                          EUR 9,885.00\n\nExchange Rate Note:\nFor buyer reference only: EUR/USD rate as of 2025-05-15 = 1.0842\nApproximate USD equivalent: USD 10,717.12\n\nPayment Instructions:\nBank: Deutsche Bank AG, Frankfurt\nIBAN: DE44 2004 1155 0534 1200 00\nBIC/SWIFT: DEUTDEDB\nPlease include invoice number RE-2025-0892 in wire reference.\nLate payments subject to 1.5% monthly interest per §286 BGB.",
+  "expected_json": {
+    "invoice_number": "RE-2025-0892",
+    "invoice_date": "2025-05-15",
+    "due_date": "2025-06-14",
+    "vendor_name": "Müller Precision GmbH",
+    "vendor_tax_id_masked": "DE289334710",
+    "vendor_address": "Industriestraße 44, 80807 München, Germany",
+    "customer_name": "Atlantic Components Inc.",
+    "customer_address": "1850 Harbor View Boulevard, Baltimore, MD 21230, USA",
+    "purchase_order_number": "PO-AC-5503",
+    "currency": "EUR",
+    "subtotal": 9505.00,
+    "tax_amount": 0.00,
+    "shipping_amount": 380.00,
+    "discount_amount": null,
+    "total_amount": 9885.00,
+    "amount_due": 9885.00,
+    "payment_terms": "Net 30",
+    "line_item_count": 4
+  },
+  "expected_avg_confidence": 0.88
+}

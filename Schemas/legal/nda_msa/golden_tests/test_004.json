@@ -1,0 +1,36 @@
+{
+  "test_case_id": "nda_msa_004",
+  "document_type": "nda_msa",
+  "description": "NDA Amendment No. 2 extending original term by 2 years and adding new permitted use for due diligence activities",
+  "parsed_text": "AMENDMENT NO. 2 TO NON-DISCLOSURE AGREEMENT\n\nThis Amendment No. 2 to Non-Disclosure Agreement (\"Amendment\") is entered into as of September 10, 2025 (\"Amendment Effective Date\") by and between:\n\nRedstone Industrial Partners, LP, a Texas limited partnership (\"Redstone\"), and\nVanguard Composite Materials, Inc., a Texas corporation (\"Vanguard\").\n\nRECITALS\nA. Redstone and Vanguard entered into that certain Non-Disclosure Agreement dated February 28, 2022 (the \"Original Agreement\"), as amended by Amendment No. 1 dated August 15, 2023 (collectively, the \"Agreement\").\nB. The Agreement is currently set to expire on February 27, 2027 pursuant to Amendment No. 1.\nC. The parties desire to further extend the term of the Agreement and to expand the permitted uses of Confidential Information as set forth herein.\n\nAGREEMENT\n\nNOW, THEREFORE, in consideration of the mutual covenants contained herein and for other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the parties agree as follows:\n\n1. EXTENSION OF TERM. Section 5 of the Original Agreement, as amended by Amendment No. 1, is hereby further amended to extend the expiration date of the Agreement by two (2) years. Accordingly, the Agreement shall now expire on February 27, 2029, unless earlier terminated pursuant to the terms of the Agreement.\n\n2. ADDITIONAL PERMITTED USES. Section 3 of the Original Agreement is hereby amended to add the following as an additional permitted use of Confidential Information:\n   (c) Conducting due diligence in connection with a potential strategic transaction, merger, acquisition, joint venture, or financing involving one or both parties; and\n   (d) Preparation and submission of regulatory filings and government approvals required in connection with any transaction contemplated under clause (c) above.\n\n3. CONFIDENTIALITY PERIOD EXTENSION. The confidentiality obligations applicable to Confidential Information disclosed on or after the Amendment Effective Date shall survive the termination or expiration of the Agreement for a period of four (4) years.\n\n4. NON-COMPETE ADDITION. Effective as of the Amendment Effective Date, the Agreement is hereby amended to add the following covenant: During the term of the Agreement and for eighteen (18) months following its termination, neither party shall, directly or indirectly, engage in any business in the State of Texas that directly competes with the other party's core composite materials manufacturing business without prior written consent.\n\n5. GOVERNING LAW. The Agreement, including this Amendment, shall continue to be governed by the laws of the State of Texas.\n\n6. RATIFICATION. Except as expressly amended hereby, all terms and conditions of the Agreement shall remain in full force and effect. In the event of any conflict between this Amendment and the Agreement, this Amendment shall control.\n\nRedstone Industrial Partners, LP                Vanguard Composite Materials, Inc.\nBy: /s/ James R. Calloway                       By: /s/ Susan T. Breckenridge\nName: James R. Calloway                         Name: Susan T. Breckenridge\nTitle: Managing Partner                         Title: Chief Executive Officer\nDate: September 10, 2025                        Date: September 10, 2025",
+  "expected_json": {
+    "agreement_type": "NDA",
+    "effective_date": "2025-09-10",
+    "expiration_date": "2029-02-27",
+    "auto_renew": false,
+    "renewal_notice_days": null,
+    "amendment_number": 2,
+    "party_1_name": "Redstone Industrial Partners, LP",
+    "party_1_role": "Both",
+    "party_1_state": "TX",
+    "party_2_name": "Vanguard Composite Materials, Inc.",
+    "party_2_role": "Both",
+    "party_2_state": "TX",
+    "governing_law": "TX",
+    "confidentiality_period_years": 4.0,
+    "confidentiality_scope": "Confidential Information as defined in the Original Agreement, expanded to include due diligence and regulatory filings for potential transactions",
+    "permitted_uses": [
+      "Existing permitted uses under the Original Agreement as amended",
+      "Conducting due diligence in connection with a potential strategic transaction, merger, acquisition, joint venture, or financing",
+      "Preparation and submission of regulatory filings and government approvals required in connection with a transaction"
+    ],
+    "excluded_information": null,
+    "return_or_destroy_obligation": null,
+    "non_solicitation_clause": null,
+    "non_compete_clause": true,
+    "liquidated_damages_amount": null,
+    "arbitration_clause": null,
+    "arbitration_venue": null
+  },
+  "expected_avg_confidence": 0.88
+}

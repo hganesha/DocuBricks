@@ -1,0 +1,32 @@
+{
+  "test_case_id": "eob_cms1500_005",
+  "document_type": "eob_cms1500",
+  "description": "DME equipment claim — monthly CPAP rental with supplies, HCPCS Level II codes, Medicare Part B",
+  "parsed_text": "MEDICARE SUMMARY NOTICE — PART B\nCenters for Medicare & Medicaid Services\nWellMed Medicare Advantage Part B\nPayer ID: CMS-PARTB\n\nBeneficiary: Garcia, Elena R.\nMedicare ID: 1EG4-TE5-MK72\nMember ID: WM-MC-004481923\nGroup Number: MEDICARE-B-2025\nDate of Birth: 1951-09-30\n\nBilling Provider / Supplier: SleepCare DME Solutions, LLC\nBilling NPI: 7788990011\nRendering Provider NPI: 7788990011\nDME MAC Jurisdiction: Jurisdiction D\n\nCLAIM INFORMATION\nClaim Number: CMS-DME-2025-00773452\nDate of Service: 11/01/2025 — 11/30/2025\nDate Processed: 12/05/2025\nClaim Status: PAID\nEquipment Type: CPAP — Continuous Positive Airway Pressure Device (Rental Month 3 of 13)\n\nSERVICE LINE DETAIL\n-------------------------------------------------------------------------------------------\nLine  HCPCS   Modifier  ICD-10  Dates           Qty   Billed    Allowed   Paid\n-------------------------------------------------------------------------------------------\n1     E0601    RR        G47.33  11/01-11/30/25  1     $185.00   $148.76   $119.01\n2     A4604    --        G47.33  11/01-11/30/25  1     $42.00    $33.84    $27.07\n3     A7034    --        G47.33  11/01-11/30/25  1     $28.00    $21.62    $17.30\n-------------------------------------------------------------------------------------------\n\nDiagnosis Codes: G47.33 (Obstructive sleep apnea, adult)\n\nFINANCIAL SUMMARY\nTotal Billed:                  $255.00\nMedicare-Approved Amount:      $204.22\nMedicare Paid (80%):           $163.38\nYour Responsibility (20%):     $40.84\n(Note: Medigap/supplement may cover your responsibility)\n\nDENIAL REASON CODE: None\nREMARK CODES: A6, N432\n\nNote: CPAP rental authorization on file. Continued coverage requires compliance documentation (AHI compliance report) every 90 days per LCD L33718.\n\nThis is not a bill. Keep this notice for your records.",
+  "expected_json": {
+    "claim_number": "CMS-DME-2025-00773452",
+    "patient_name": "Garcia, Elena R.",
+    "patient_dob": "1951-09-30",
+    "patient_member_id": "WM-MC-004481923",
+    "provider_name": "SleepCare DME Solutions, LLC",
+    "provider_npi": "7788990011",
+    "rendering_provider_npi": "7788990011",
+    "payer_name": "WellMed Medicare Advantage Part B",
+    "payer_id": "CMS-PARTB",
+    "group_number": "MEDICARE-B-2025",
+    "date_of_service_from": "2025-11-01",
+    "date_of_service_to": "2025-11-30",
+    "procedure_codes": ["E0601-RR", "A4604", "A7034"],
+    "diagnosis_codes": ["G47.33"],
+    "billed_amount": 255.00,
+    "allowed_amount": 204.22,
+    "paid_amount": 163.38,
+    "patient_responsibility": 40.84,
+    "claim_status": "Paid",
+    "denial_reason_code": null,
+    "remark_codes": ["A6", "N432"],
+    "service_facility_name": null,
+    "service_facility_npi": null
+  },
+  "expected_avg_confidence": 0.91
+}

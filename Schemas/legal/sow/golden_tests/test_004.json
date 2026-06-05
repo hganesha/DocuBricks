@@ -1,0 +1,36 @@
+{
+  "test_case_id": "sow_004",
+  "document_type": "sow",
+  "description": "SOW Amendment No. 1 adding a new deliverable and increasing contract value by $25,000",
+  "parsed_text": "AMENDMENT NO. 1 TO STATEMENT OF WORK NO. SOW-2025-014\n\nThis Amendment No. 1 to Statement of Work (\"Amendment\") is entered into as of April 5, 2025, by and between:\n\nBluePath Retail Solutions, Inc. (\"Client\") and\nCodeForge Development Group, LLC (\"Vendor\")\n\nRecitals:\nA. The parties entered into Statement of Work No. SOW-2025-014, dated February 1, 2025 (the \"Original SOW\"), with a total contract value of $150,000.00, for the E-Commerce Platform Redesign and Payment Gateway Integration project.\nB. The parties have agreed to expand the scope of the Original SOW to include integration of a third-party inventory management system (NetSuite), which was not included in the original project scope.\nC. The parties desire to amend the Original SOW to add a new deliverable, adjust the project end date, and increase the total contract value accordingly.\n\nAmendment:\n\n1. NEW DELIVERABLE — MILESTONE 4: NETSUITE INTEGRATION\nThe following new deliverable is hereby added to the SOW Deliverables and Schedule table:\n\nMilestone 4: NetSuite Inventory Integration\nDescription: Design, develop, test, and deploy a bi-directional API integration between the Client's new e-commerce platform and NetSuite ERP for real-time inventory synchronization, order fulfillment status updates, and product catalog management. Includes integration design document, API specifications, unit tests, and UAT support.\nNew Due Date: September 30, 2025\n\n2. PROJECT END DATE\nSection 2 of the Original SOW is amended to extend the Project End Date from July 31, 2025 to September 30, 2025.\n\n3. TOTAL CONTRACT VALUE INCREASE\nSection 4 (Pricing and Payment) of the Original SOW is amended as follows:\n- Original Total Contract Value: $150,000.00\n- Amendment No. 1 Increase: $25,000.00\n- New Total Contract Value: $175,000.00 USD\n\n4. ADDITIONAL PAYMENT MILESTONE\nThe following payment milestone is added:\n- Milestone 4 Completion: $25,000.00 — due upon Client written acceptance of the NetSuite integration deliverable\n\n5. PAYMENT TERMS\nPayment terms remain Net 30 days from date of invoice following milestone acceptance, consistent with the Original SOW.\n\n6. ALL OTHER TERMS UNCHANGED\nExcept as expressly modified by this Amendment, all terms and conditions of the Original SOW and the underlying Master Service Agreement shall remain in full force and effect. In the event of a conflict between this Amendment and the Original SOW, this Amendment shall control.\n\nBluePath Retail Solutions, Inc.             CodeForge Development Group, LLC\nBy: /s/ Jennifer Okafor                     By: /s/ Derek Voss\nName: Jennifer Okafor                       Name: Derek Voss\nTitle: VP of Technology                     Title: Project Manager\nDate: April 5, 2025                         Date: April 5, 2025",
+  "expected_json": {
+    "sow_number": "SOW-2025-014",
+    "sow_title": "E-Commerce Platform Redesign and Payment Gateway Integration",
+    "effective_date": "2025-04-05",
+    "end_date": "2025-09-30",
+    "amendment_number": 1,
+    "client_name": "BluePath Retail Solutions, Inc.",
+    "client_contact": null,
+    "client_po_number": null,
+    "vendor_name": "CodeForge Development Group, LLC",
+    "vendor_contact": null,
+    "project_description": "Amendment adding NetSuite ERP bi-directional API integration for real-time inventory sync, order fulfillment, and product catalog management to the original e-commerce platform SOW",
+    "deliverables": [
+      {
+        "name": "Milestone 4: NetSuite Inventory Integration",
+        "description": "Bi-directional API integration between e-commerce platform and NetSuite ERP for inventory sync and order fulfillment",
+        "due_date": "2025-09-30"
+      }
+    ],
+    "pricing_model": "Fixed",
+    "total_contract_value": 25000.00,
+    "currency": "USD",
+    "payment_terms": "Net 30 days from date of invoice following milestone acceptance",
+    "payment_schedule": "$25,000 upon Client written acceptance of Milestone 4 NetSuite integration deliverable",
+    "acceptance_criteria_described": false,
+    "change_order_process_described": false,
+    "ip_ownership": null,
+    "governing_law": null
+  },
+  "expected_avg_confidence": 0.89
+}

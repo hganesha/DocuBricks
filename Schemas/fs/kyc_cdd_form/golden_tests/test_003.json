@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_003",
+  "document_type": "kyc_cdd_form",
+  "description": "High-risk customer with PEP flag",
+  "parsed_text": "CDD REVIEW\nCustomer: Arman Petrov\nType: Individual\nDOB: 1972-09-20   Tax ID: XXX-XX-8220\nAddress Line 1: 19 Market Square\nCity/State/Postal: Miami, FL 33131   Country: USA\nOccupation: International consultant\nSource of Funds: Consulting fees and investments\nExpected Monthly Activity: $95,000\nPEP: Yes - former foreign official family member\nRisk Rating: High\nPassport: P-XXXX4419   Exp: 2027-11-10\nReviewed By: Elena Morris   Review Date: 2025-03-21",
+  "expected_json": {
+    "customer_name": "Arman Petrov",
+    "customer_type": "Individual",
+    "date_of_birth": "1972-09-20",
+    "tax_id_masked": "XXX-XX-8220",
+    "address_line1": "19 Market Square",
+    "city": "Miami",
+    "state": "FL",
+    "postal_code": "33131",
+    "country": "USA",
+    "phone": null,
+    "email": null,
+    "occupation_or_business": "International consultant",
+    "source_of_funds": "Consulting fees and investments",
+    "expected_monthly_activity": 95000.00,
+    "risk_rating": "High",
+    "pep_status": true,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": "Passport",
+    "id_document_number_masked": "P-XXXX4419",
+    "id_expiration_date": "2027-11-10",
+    "review_date": "2025-03-21",
+    "reviewer_name": "Elena Morris"
+  },
+  "expected_avg_confidence": 0.90
+}

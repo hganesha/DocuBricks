@@ -1,0 +1,28 @@
+{
+  "wave": 1,
+  "agent": "onboarding",
+  "status": "COMPLETE",
+  "app_path": "apps/onboarding-web/",
+  "framework": "React 19 + Vite + Zustand + Tailwind CSS + react-router-dom",
+  "note": "All screens, store, types, and components are COMPLETE. Do not modify them.",
+  "real_api_implemented": "apps/onboarding-web/src/api/databricks/index.ts",
+  "api_selector": "apps/onboarding-web/src/api/index.ts",
+  "env_toggle": "VITE_USE_MOCK_API=true uses mock; unset uses real Databricks API",
+  "deploy_step_keys_to_endpoints": {
+    "verify_workspace":         "GET {host}/api/2.0/clusters/spark-versions + UC check",
+    "create_service_principal": "POST {host}/api/2.0/preview/scim/v2/ServicePrincipals",
+    "create_uc_schemas":        "POST {host}/api/2.1/unity-catalog/schemas (x7)",
+    "upload_schema_registry":   "POST {host}/api/2.1/jobs/run-now (job: 01_schema_registry)",
+    "create_dlt_pipeline":      "POST {host}/api/2.0/pipelines",
+    "provision_lakebase":       "Lakebase provisioning API or validate existing conn",
+    "run_db_migrations":        "POST {host}/api/2.1/jobs/run-now (job: 01_lakebase_migrate)",
+    "create_genie_workspace":   "POST {host}/api/2.0/genie/spaces",
+    "seed_genie":               "POST {host}/api/2.0/genie/spaces/{id}/messages (x20)",
+    "create_vector_index":      "POST {host}/api/2.0/vector-search/endpoints + indexes",
+    "deploy_portal_app":        "POST {host}/api/2.0/apps",
+    "deploy_review_app":        "POST {host}/api/2.0/apps",
+    "deploy_admin_app":         "POST {host}/api/2.0/apps",
+    "write_secrets":            "PUT {host}/api/2.0/secrets/put (x5 secrets)",
+    "run_health_check":         "GET each app URL + Genie API ping"
+  }
+}

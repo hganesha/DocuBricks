@@ -1,0 +1,32 @@
+{
+  "test_case_id": "eob_cms1500_003",
+  "document_type": "eob_cms1500",
+  "description": "Adjusted claim — coordination of benefits (COB) with secondary payer, outpatient visit with multiple CPT codes, Medicare primary / UnitedHealthcare secondary",
+  "parsed_text": "SECONDARY PAYER EXPLANATION OF BENEFITS\nUnitedHealthcare — Medicare Supplement Plan G\nP.O. Box 740810, Atlanta, GA 30374\nPayer ID: UHC-MEDSUP\n\nInsured: Chen, Margaret L.\nMember ID: UHC-SUP-00192847\nGroup Number: SUP-GROUP-4421\nDate of Birth: 1944-07-28\n\nBilling Provider: Riverside Cardiology Group\nBilling NPI: 3344556677\nRendering Provider: Dr. David Park, MD\nRendering NPI: 3344556688\nService Facility: Riverside Medical Center — Cardiology Outpatient\nFacility NPI: 3344000011\n\nCLAIM INFORMATION\nClaim Number: UHC-2025-COB-008812\nOriginal Claim / Medicare ICN: 20251003-99182744\nDate(s) of Service: 10/15/2025 — 10/15/2025\nDate Processed: 10/28/2025\nClaim Status: ADJUSTED (COB Secondary Payment)\n\nCOB PRIMARY PAYER INFORMATION\nPrimary Payer: Medicare Part B (CMS)\nPrimary Paid: $187.60\nPrimary Contractual Adjustment: $52.40\n\nSERVICE LINE DETAIL\n------------------------------------------------------------------------------------------\nLine  CPT    Diag    Date        Billed    Primary   Allowed   Sec Paid  Pt Resp\n------------------------------------------------------------------------------------------\n1     93000  I25.10  10/15/25    $95.00    $67.20    $85.00    $14.40    $3.40\n2     99213  I10     10/15/25    $145.00   $120.40   $130.00   $9.60     $0.00\n------------------------------------------------------------------------------------------\n\nDiagnosis Codes: I25.10 (Atherosclerotic heart disease of native coronary artery without angina pectoris), I10 (Essential hypertension)\n\nFINANCIAL SUMMARY — SECONDARY EOB\nTotal Billed:                  $240.00\nPrimary Payer Paid:            $187.60\nTotal Allowed (Secondary):     $215.00\nSecondary Plan Paid:           $24.00\nTotal Patient Responsibility:  $3.40\n\nDENIAL REASON CODE: CO-23 (Adjusted - COB)\nREMARK CODES: OA-23, N89\n\nThis is not a bill. COB processing applied per Medicare Secondary Payer rules.",
+  "expected_json": {
+    "claim_number": "UHC-2025-COB-008812",
+    "patient_name": "Chen, Margaret L.",
+    "patient_dob": "1944-07-28",
+    "patient_member_id": "UHC-SUP-00192847",
+    "provider_name": "Riverside Cardiology Group",
+    "provider_npi": "3344556677",
+    "rendering_provider_npi": "3344556688",
+    "payer_name": "UnitedHealthcare — Medicare Supplement Plan G",
+    "payer_id": "UHC-MEDSUP",
+    "group_number": "SUP-GROUP-4421",
+    "date_of_service_from": "2025-10-15",
+    "date_of_service_to": "2025-10-15",
+    "procedure_codes": ["93000", "99213"],
+    "diagnosis_codes": ["I25.10", "I10"],
+    "billed_amount": 240.00,
+    "allowed_amount": 215.00,
+    "paid_amount": 24.00,
+    "patient_responsibility": 3.40,
+    "claim_status": "Adjusted",
+    "denial_reason_code": "CO-23",
+    "remark_codes": ["OA-23", "N89"],
+    "service_facility_name": "Riverside Medical Center — Cardiology Outpatient",
+    "service_facility_npi": "3344000011"
+  },
+  "expected_avg_confidence": 0.90
+}

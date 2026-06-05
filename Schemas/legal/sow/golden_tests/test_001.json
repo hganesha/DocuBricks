@@ -1,0 +1,46 @@
+{
+  "test_case_id": "sow_001",
+  "document_type": "sow",
+  "description": "Fixed-price software development SOW, $150K total, 3 milestone payments, client IP ownership",
+  "parsed_text": "STATEMENT OF WORK NO. SOW-2025-014\n\nThis Statement of Work (\"SOW\") is entered into as of February 1, 2025, pursuant to the Master Service Agreement dated January 10, 2025, between:\n\nBluePath Retail Solutions, Inc. (\"Client\")\n4501 Meridian Drive, Suite 200\nScottsdale, AZ 85251\nClient Contact: Jennifer Okafor, VP of Technology\nClient PO Number: PO-2025-00347\n\nand\n\nCodeForge Development Group, LLC (\"Vendor\")\n220 E. Congress Street, Suite 500\nTucson, AZ 85701\nVendor Contact: Derek Voss, Project Manager\n\nSOW Title: E-Commerce Platform Redesign and Payment Gateway Integration\n\n1. PROJECT DESCRIPTION\nVendor shall design, develop, test, and deploy a redesigned e-commerce platform for Client, including a new React-based frontend, Node.js API layer, PostgreSQL database migration, and integration with Stripe and PayPal payment gateways. The scope includes mobile-responsive design, user authentication, product catalog management, order processing, and an administrative dashboard.\n\n2. TERM\nEffective Date: February 1, 2025\nProject End Date: July 31, 2025\n\n3. DELIVERABLES AND SCHEDULE\n\n| Deliverable | Description | Due Date |\n|-------------|-------------|----------|\n| Milestone 1: Design & Architecture | Wireframes, UI/UX designs, system architecture document, and approved technical specification | March 15, 2025 |\n| Milestone 2: Development & Integration | Fully functional frontend and backend code, payment gateway integration, and unit test results | June 1, 2025 |\n| Milestone 3: UAT & Deployment | User acceptance testing report, defect resolution, production deployment, and post-launch support documentation | July 31, 2025 |\n\n4. PRICING AND PAYMENT\nPricing Model: Fixed Price\nTotal Contract Value: $150,000.00 USD\n\nPayment Schedule:\n- Milestone 1 Completion: $45,000.00 (30%) — due upon Client written acceptance of design deliverables\n- Milestone 2 Completion: $75,000.00 (50%) — due upon Client written acceptance of development deliverables\n- Milestone 3 Completion: $30,000.00 (20%) — due upon production deployment and go-live sign-off\n\nPayment Terms: Net 30 days from date of invoice following milestone acceptance.\n\n5. ACCEPTANCE CRITERIA\nEach deliverable shall be subject to a ten (10)-business-day acceptance period. Client shall review each deliverable and either: (a) provide written acceptance, or (b) provide a written punch list of defects. Vendor shall have fifteen (15) business days to remediate identified defects.\n\n6. CHANGE ORDER PROCESS\nAny change to scope, schedule, or pricing must be documented in a written Change Order executed by authorized representatives of both parties. No work shall be performed under a Change Order until it is fully executed. Change Orders shall include a description of the change, impact on schedule, and impact on total contract value.\n\n7. INTELLECTUAL PROPERTY\nAll work product, deliverables, source code, documentation, and other materials developed by Vendor under this SOW shall be considered works-made-for-hire and shall be the exclusive property of Client upon full payment of all fees. Vendor hereby assigns to Client all right, title, and interest in and to such work product.\n\n8. GOVERNING LAW\nThis SOW shall be governed by the laws of the State of Arizona.\n\nBluePath Retail Solutions, Inc.             CodeForge Development Group, LLC\nBy: /s/ Jennifer Okafor                     By: /s/ Derek Voss\nName: Jennifer Okafor                       Name: Derek Voss\nTitle: VP of Technology                     Title: Project Manager\nDate: February 1, 2025                      Date: February 1, 2025",
+  "expected_json": {
+    "sow_number": "SOW-2025-014",
+    "sow_title": "E-Commerce Platform Redesign and Payment Gateway Integration",
+    "effective_date": "2025-02-01",
+    "end_date": "2025-07-31",
+    "amendment_number": null,
+    "client_name": "BluePath Retail Solutions, Inc.",
+    "client_contact": "Jennifer Okafor",
+    "client_po_number": "PO-2025-00347",
+    "vendor_name": "CodeForge Development Group, LLC",
+    "vendor_contact": "Derek Voss",
+    "project_description": "Redesigned e-commerce platform including React frontend, Node.js API, PostgreSQL migration, Stripe/PayPal integration, mobile-responsive design, and admin dashboard",
+    "deliverables": [
+      {
+        "name": "Milestone 1: Design & Architecture",
+        "description": "Wireframes, UI/UX designs, system architecture document, and approved technical specification",
+        "due_date": "2025-03-15"
+      },
+      {
+        "name": "Milestone 2: Development & Integration",
+        "description": "Fully functional frontend and backend code, payment gateway integration, and unit test results",
+        "due_date": "2025-06-01"
+      },
+      {
+        "name": "Milestone 3: UAT & Deployment",
+        "description": "User acceptance testing report, defect resolution, production deployment, and post-launch support documentation",
+        "due_date": "2025-07-31"
+      }
+    ],
+    "pricing_model": "Fixed",
+    "total_contract_value": 150000.00,
+    "currency": "USD",
+    "payment_terms": "Net 30 days from date of invoice following milestone acceptance",
+    "payment_schedule": "30% ($45K) at Milestone 1 acceptance; 50% ($75K) at Milestone 2 acceptance; 20% ($30K) at Milestone 3 go-live sign-off",
+    "acceptance_criteria_described": true,
+    "change_order_process_described": true,
+    "ip_ownership": "Client",
+    "governing_law": "AZ"
+  },
+  "expected_avg_confidence": 0.95
+}

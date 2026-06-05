@@ -1,0 +1,40 @@
+{
+  "test_case_id": "nda_msa_001",
+  "document_type": "nda_msa",
+  "description": "Mutual NDA between tech startup and enterprise company, 3-year confidentiality term, California governing law",
+  "parsed_text": "MUTUAL NON-DISCLOSURE AGREEMENT\n\nThis Mutual Non-Disclosure Agreement (\"Agreement\") is entered into as of January 15, 2025 (the \"Effective Date\") by and between:\n\nNovaSpark Technologies, Inc., a Delaware corporation with its principal place of business at 350 Brannan Street, Suite 400, San Francisco, CA 94107 (\"Party A\"), and\n\nOmega Enterprises, LLC, a California limited liability company with its principal place of business at 2000 Alameda de las Pulgas, San Mateo, CA 94403 (\"Party B\").\n\nParty A and Party B are each referred to herein as a \"Disclosing Party\" with respect to Confidential Information it discloses and as a \"Receiving Party\" with respect to Confidential Information it receives.\n\n1. PURPOSE. The parties wish to explore a potential business collaboration involving artificial intelligence product integration (the \"Purpose\"). In connection with the Purpose, each party may disclose to the other certain confidential and proprietary information.\n\n2. DEFINITION OF CONFIDENTIAL INFORMATION. \"Confidential Information\" means any non-public information disclosed by a Disclosing Party to the Receiving Party, whether orally, in writing, or by any other means, that is designated as confidential or that reasonably should be understood to be confidential given the nature of the information and the circumstances of disclosure, including but not limited to trade secrets, business plans, financial projections, technical data, product roadmaps, and customer lists.\n\n3. EXCLUSIONS. Confidential Information shall not include information that: (a) is or becomes publicly known through no breach of this Agreement; (b) was rightfully known by the Receiving Party prior to disclosure; (c) is independently developed by the Receiving Party without use of Confidential Information; or (d) is received from a third party without restriction on disclosure.\n\n4. OBLIGATIONS. Each Receiving Party agrees to: (a) hold the Disclosing Party's Confidential Information in strict confidence; (b) use Confidential Information solely for the Purpose; (c) limit disclosure to employees and contractors with a need to know; and (d) use at least the same degree of care it uses to protect its own confidential information, but no less than reasonable care.\n\n5. PERMITTED USES. Confidential Information may be used solely for evaluating the potential business relationship between the parties and, if such relationship is consummated, for performing obligations under any resulting agreement.\n\n6. TERM AND TERMINATION. This Agreement shall commence on the Effective Date and shall remain in effect for a period of three (3) years, expiring on January 14, 2028, unless earlier terminated by either party upon thirty (30) days' written notice. The confidentiality obligations set forth herein shall survive termination of this Agreement for a period of three (3) years following the date of termination.\n\n7. RETURN OR DESTRUCTION. Upon request by the Disclosing Party or upon termination of this Agreement, the Receiving Party shall promptly return or destroy all tangible materials containing Confidential Information, and shall certify in writing that such return or destruction has been completed.\n\n8. RESTRICTIVE COVENANTS. During the term of this Agreement and for a period of one (1) year thereafter, neither party shall solicit for employment any employee of the other party who was involved in activities related to the Purpose without the prior written consent of the other party. This Agreement does not contain a non-compete restriction.\n\n9. REMEDIES. The parties acknowledge that a breach of this Agreement may cause irreparable harm for which monetary damages would be an inadequate remedy, and that injunctive relief may be appropriate.\n\n10. DISPUTE RESOLUTION. Any dispute arising out of or related to this Agreement shall be resolved by binding arbitration administered by JAMS in San Francisco, California, under JAMS Comprehensive Arbitration Rules.\n\n11. GOVERNING LAW. This Agreement shall be governed by the laws of the State of California, without regard to its conflict of laws provisions.\n\nIN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.\n\nNovaSpark Technologies, Inc.                    Omega Enterprises, LLC\nBy: /s/ Elena Marchetti                          By: /s/ Robert Dunham\nName: Elena Marchetti                            Name: Robert Dunham\nTitle: Chief Executive Officer                   Title: Vice President, Business Development\nDate: January 15, 2025                           Date: January 15, 2025",
+  "expected_json": {
+    "agreement_type": "MNDA",
+    "effective_date": "2025-01-15",
+    "expiration_date": "2028-01-14",
+    "auto_renew": false,
+    "renewal_notice_days": null,
+    "amendment_number": null,
+    "party_1_name": "NovaSpark Technologies, Inc.",
+    "party_1_role": "Both",
+    "party_1_state": "DE",
+    "party_2_name": "Omega Enterprises, LLC",
+    "party_2_role": "Both",
+    "party_2_state": "CA",
+    "governing_law": "CA",
+    "confidentiality_period_years": 3.0,
+    "confidentiality_scope": "Non-public information including trade secrets, business plans, financial projections, technical data, product roadmaps, and customer lists",
+    "permitted_uses": [
+      "Evaluating the potential business relationship between the parties",
+      "Performing obligations under any resulting agreement"
+    ],
+    "excluded_information": [
+      "Publicly known information through no breach of this Agreement",
+      "Information rightfully known by Receiving Party prior to disclosure",
+      "Independently developed information without use of Confidential Information",
+      "Information received from a third party without restriction"
+    ],
+    "return_or_destroy_obligation": true,
+    "non_solicitation_clause": true,
+    "non_compete_clause": false,
+    "liquidated_damages_amount": null,
+    "arbitration_clause": true,
+    "arbitration_venue": "San Francisco, California"
+  },
+  "expected_avg_confidence": 0.93
+}

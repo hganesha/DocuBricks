@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_017",
+  "document_type": "aml_sar",
+  "description": "Ponzi scheme — investor funds commingled in operating account, Reg D offering, redemption requests refused",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-03588\nFiling Institution: Meridian Capital Trust Bank\nFiling Date: 2024-11-30\nSubject: Evergreen Yield Partners LLC   Tax ID: XX-XXXXXXX (on file)\nSubject Address: 1550 Market Street, Suite 1200, Denver, CO 80202\nAccount: XXXX7712\nActivity Dates: 2023-09-01 to 2024-10-31\nSuspicious Activity Type: Fraud\nAmount Involved: USD 8,750,000.00   Transaction Count: 143\nLaw Enforcement Contacted: No\nBranch: Denver Financial District Branch\nInvestigator: Stephen Aldrich\n\nNarrative: Meridian Capital Trust Bank is filing this Suspicious Activity Report concerning suspected Ponzi scheme activity conducted through the accounts of Evergreen Yield Partners LLC ('Evergreen'), an investment fund purportedly offering fixed-return alternative investments to accredited investors under a Regulation D private placement offering.\n\nEvergreen opened its business account at Meridian Capital Trust Bank in September 2023. During the review period September 1, 2023 through October 31, 2024, the account received one hundred forty-three (143) inbound wire transfers totaling $8,750,000 from individual and entity investors. Review of the account activity revealed that rather than being invested in the asset classes described in Evergreen's private placement memorandum (specifically, commercial real estate bridge loans), the funds were commingled and primarily disbursed as follows: $3,200,000 in outbound wires to personal accounts held by Mr. Victor Ashby (the managing member of Evergreen, date of birth: 03/05/1971); $2,100,000 to prior investors in amounts consistent with claimed 'quarterly returns'; and $1,450,000 to operating expenses including office rent, payroll for five employees, and marketing expenditures.\n\nBeginning in August 2024, Meridian Capital Trust Bank's relationship manager received five separate telephone inquiries from investors attempting to confirm wire instructions for redemption requests. In each case, the investor stated that Evergreen had failed to honor a redemption request and cited various explanations provided by Mr. Ashby, including 'temporary liquidity constraints' and 'portfolio repositioning.' No redemption payments were identified in the account during the August to October 2024 period.\n\nA review of available public records identified no evidence that Evergreen's Regulation D offering had been filed with the SEC via a Form D. The state securities regulator for Colorado issued a public notice on October 15, 2024 indicating that Evergreen was operating without registration and was the subject of a pending examination. No prior SARs are on file.",
+  "expected_json": {
+    "sar_id": "SAR-2024-03588",
+    "filing_institution_name": "Meridian Capital Trust Bank",
+    "filing_date": "2024-11-30",
+    "subject_name": "Evergreen Yield Partners LLC",
+    "subject_tax_id_masked": "XX-XXXXXXX",
+    "subject_address": "1550 Market Street, Suite 1200, Denver, CO 80202",
+    "subject_account_number_masked": "XXXX7712",
+    "activity_start_date": "2023-09-01",
+    "activity_end_date": "2024-10-31",
+    "suspicious_activity_type": "Fraud",
+    "amount_involved": 8750000.00,
+    "transaction_count": 143,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "An unregistered investment fund received $8,750,000 from 143 investor wire transfers over 14 months and commingled funds to pay the managing member personally, fund earlier investor returns, and cover operating expenses rather than investing in the stated asset class. Investor redemption requests went unfulfilled and the state securities regulator issued a public notice of an unregistered offering investigation.",
+    "branch_location": "Denver Financial District Branch",
+    "investigator_name": "Stephen Aldrich"
+  },
+  "expected_avg_confidence": 0.90
+}

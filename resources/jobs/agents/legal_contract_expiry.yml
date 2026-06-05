@@ -1,0 +1,32 @@
+resources:
+  jobs:
+    legal_contract_expiry:
+      name: "DocuBricks — Legal Contract Expiry [${bundle.target}]"
+
+      schedule:
+        quartz_cron_expression: "0 0 8 * * ?"
+        timezone_id: "UTC"
+        pause_status: PAUSED  # overridden to UNPAUSED in prod target
+
+      tasks:
+        - task_key: run_agent
+          python_file:
+            path: src/agents/legal/contract_expiry.py
+          existing_cluster_id: ${var.agent_cluster_id}
+          libraries:
+            - pypi:
+                package: psycopg2-binary
+
+      email_notifications:
+        on_failure: []
+
+      health:
+        rules:
+          - metric: RUN_DURATION_SECONDS
+            op: GREATER_THAN
+            value: 1800
+
+      tags:
+        vertical: legal
+        agent: contract_expiry
+        team: docubricks-platform

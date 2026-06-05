@@ -1,0 +1,26 @@
+{
+  "test_case_id": "aml_sar_008",
+  "document_type": "aml_sar",
+  "description": "Trade-based money laundering via over-invoicing for electronics imports involving three shell companies",
+  "parsed_text": "SUSPICIOUS ACTIVITY REPORT\nSAR ID: SAR-2024-02057\nFiling Institution: Pacific Rim Trade Finance Bank\nFiling Date: 2024-09-30\nSubject: Apex Global Imports Inc.   Tax ID: XX-XXXXXXX (on file)\nSubject Address: 1800 Commerce Parkway, Los Angeles, CA 90021\nAccount: XXXX5541\nActivity Dates: 2024-01-15 to 2024-08-30\nSuspicious Activity Type: MoneyLaundering\nAmount Involved: USD 4,720,000.00   Transaction Count: 18\nLaw Enforcement Contacted: No\nBranch: Los Angeles Trade Finance Division\nInvestigator: Kevin Tanaka\n\nNarrative: Pacific Rim Trade Finance Bank is filing this Suspicious Activity Report regarding suspected trade-based money laundering (TBML) activity conducted through the account of Apex Global Imports Inc. ('Apex'), a registered California corporation engaged in the importation and wholesale distribution of consumer electronics.\n\nDuring the review period from January 15, 2024 through August 30, 2024, Apex submitted eighteen (18) Letters of Credit and wire payment requests totaling $4,720,000 for electronics shipments purportedly originating from suppliers in Shenzhen, China. Bank compliance staff undertook a trade finance review after an internal alert flagged unusually high declared unit values for the imported goods. Specifically, commercial invoices submitted by Apex declared per-unit values for consumer-grade tablet computers at $1,850 per unit, significantly exceeding publicly available market pricing data from comparable import records (approximately $280-$340 per unit).\n\nA beneficial ownership review revealed that the three named overseas supplier entities — Zhongshan Bright Electronics Co. Ltd., Pacific Edge Supply Ltd. (registered in the British Virgin Islands), and Crestview Holdings (HK) Ltd. — share overlapping registered agent information and were incorporated within a six-month period in 2022. None of the three entities could be identified in publicly available electronics industry databases or trade registries.\n\nAdditionally, the bank identified that proceeds from the sale of imported goods were not deposited into the Apex account at Pacific Rim Trade Finance Bank. Instead, Apex's operating account reflected incoming wires from a fourth entity, Silverline Distribution LLC (Nevada), whose beneficial ownership could not be verified. The bank was unable to identify legitimate business operations associated with Silverline.\n\nThe filing institution believes the invoicing irregularities and opaque corporate ownership structures are consistent with over-invoicing as a trade-based value transfer mechanism. No prior SARs are on file for Apex or associated entities.",
+  "expected_json": {
+    "sar_id": "SAR-2024-02057",
+    "filing_institution_name": "Pacific Rim Trade Finance Bank",
+    "filing_date": "2024-09-30",
+    "subject_name": "Apex Global Imports Inc.",
+    "subject_tax_id_masked": "XX-XXXXXXX",
+    "subject_address": "1800 Commerce Parkway, Los Angeles, CA 90021",
+    "subject_account_number_masked": "XXXX5541",
+    "activity_start_date": "2024-01-15",
+    "activity_end_date": "2024-08-30",
+    "suspicious_activity_type": "MoneyLaundering",
+    "amount_involved": 4720000.00,
+    "transaction_count": 18,
+    "currency": "USD",
+    "law_enforcement_contacted": false,
+    "narrative_summary": "Apex Global Imports Inc. submitted eighteen trade finance instruments over eight months reflecting significant over-invoicing for consumer electronics, with declared unit values approximately five times market price, routed through three newly incorporated shell entities with overlapping beneficial ownership. The pattern is consistent with trade-based money laundering using invoice manipulation as a value transfer mechanism.",
+    "branch_location": "Los Angeles Trade Finance Division",
+    "investigator_name": "Kevin Tanaka"
+  },
+  "expected_avg_confidence": 0.91
+}

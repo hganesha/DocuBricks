@@ -1,0 +1,39 @@
+resources:
+  jobs:
+    schema_test_harness:
+      name: "DocuBricks — Ops: Schema Test Harness [${bundle.target}]"
+      description: >
+        On-demand job (no schedule) that runs the golden-test suite against a
+        candidate schema version before promoting it to is_active=true.
+        Accepts document_type and candidate_version as parameters.
+        Writes pass/fail results to schema_registry.schema_test_results.
+
+      # No schedule — triggered on demand via the Jobs API or CI/CD
+      tasks:
+        - task_key: run
+          python_file:
+            path: src/ops/schema_test_harness.py
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: "Standard_DS3_v2"
+            num_workers: 0
+            spark_conf:
+              spark.master: "local[*, 4]"
+              catalog_name: ${var.catalog_name}
+              secret_scope: ${var.secret_scope}
+            custom_tags:
+              docubricks_component: ops
+              docubricks_job: schema_test_harness
+
+      parameters:
+        - name: document_type
+          default: "mortgage_application"
+        - name: candidate_version
+          default: "1"
+
+      max_concurrent_runs: 3
+      timeout_seconds: 1800
+
+      tags:
+        component: ops
+        managed_by: databricks_bundle

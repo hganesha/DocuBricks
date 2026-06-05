@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_003",
+  "document_type": "invoice",
+  "description": "Consulting invoice with partial payment applied",
+  "parsed_text": "Invoice INV-7782\nVendor: Meridian Consulting Partners\nVendor Tax ID: XX-XXX8822\nAddress: 45 Bay Road, Boston, MA 02110\nBill To: Solace Health Plan, 310 Harbor Street, Providence, RI 02903\nInvoice Date 2025-03-01\nPayment Terms: Due on receipt\nCurrency: USD\nLine Item Count: 2\nSubtotal: $18,000.00\nTax: $0.00\nTotal Amount: $18,000.00\nPayment Received: $5,000.00\nAmount Due: $13,000.00",
+  "expected_json": {
+    "invoice_number": "INV-7782",
+    "invoice_date": "2025-03-01",
+    "due_date": null,
+    "vendor_name": "Meridian Consulting Partners",
+    "vendor_tax_id_masked": "XX-XXX8822",
+    "vendor_address": "45 Bay Road, Boston, MA 02110",
+    "customer_name": "Solace Health Plan",
+    "customer_address": "310 Harbor Street, Providence, RI 02903",
+    "purchase_order_number": null,
+    "currency": "USD",
+    "subtotal": 18000.00,
+    "tax_amount": 0.00,
+    "shipping_amount": null,
+    "discount_amount": null,
+    "total_amount": 18000.00,
+    "amount_due": 13000.00,
+    "payment_terms": "Due on receipt",
+    "line_item_count": 2
+  },
+  "expected_avg_confidence": 0.91
+}

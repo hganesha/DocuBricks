@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_015",
+  "document_type": "invoice",
+  "description": "Partial delivery invoice for 60% of PO quantity shipped with outstanding balance and partial acceptance noted",
+  "parsed_text": "PARTIAL SHIPMENT INVOICE\nInvoice #: INV-2025-7720\nInvoice Date: 2025-08-20   Due Date: 2025-09-19\nVendor: Overland Textile Mills Inc.\nVendor Tax ID: XX-XXX4453\nVendor Address: 500 Mill Creek Road, Greenville, SC 29601\nBill To: Northern Apparel Distributors LLC\n   Purchasing Department\n   3300 Garment District Way, Chicago, IL 60654\nPurchase Order: PO-NAD-20250701\nShipment Reference: SHIP-2025-4490\nPayment Terms: Net 30   Currency: USD\n\nNote: This invoice covers Partial Delivery #1 against PO-NAD-20250701.\nTotal PO Quantity: 10,000 units. Shipped this delivery: 6,000 units (60%).\nRemaining balance of 4,000 units (40%) to follow per confirmed delivery schedule of 2025-09-15.\n\nLine Items (Partial Delivery #1 — 60% of PO):\n1. Men's Crewneck T-Shirt White S/M/L/XL Assort (SKU: TEX-MCN-WH)\n   PO Qty: 4,000 | Shipped: 2,400 @ $6.80 ea              $16,320.00\n2. Men's Crewneck T-Shirt Black S/M/L/XL Assort (SKU: TEX-MCN-BK)\n   PO Qty: 3,500 | Shipped: 2,100 @ $6.80 ea              $14,280.00\n3. Men's Polo Shirt Navy Blue M/L/XL (SKU: TEX-MPL-NV)\n   PO Qty: 2,500 | Shipped: 1,500 @ $11.40 ea             $17,100.00\n\nSubtotal (Partial Delivery):                               $47,700.00\nSales Tax: $0.00 (wholesale resale exemption)\nFreight — Truckload to Chicago:                             $1,840.00\nInvoice Total:                                             $49,540.00\nAmount Due This Invoice:                                   $49,540.00\n\nEstimated Balance Invoice (Delivery #2, ~$33,100 + freight): to be issued 2025-09-20.\nPartial acceptance confirmed per Buyer acknowledgment form NAD-ACK-7720.\nQuestions: invoices@overlandtextile.com | 864-555-0311",
+  "expected_json": {
+    "invoice_number": "INV-2025-7720",
+    "invoice_date": "2025-08-20",
+    "due_date": "2025-09-19",
+    "vendor_name": "Overland Textile Mills Inc.",
+    "vendor_tax_id_masked": "XX-XXX4453",
+    "vendor_address": "500 Mill Creek Road, Greenville, SC 29601",
+    "customer_name": "Northern Apparel Distributors LLC",
+    "customer_address": "3300 Garment District Way, Chicago, IL 60654",
+    "purchase_order_number": "PO-NAD-20250701",
+    "currency": "USD",
+    "subtotal": 47700.00,
+    "tax_amount": 0.00,
+    "shipping_amount": 1840.00,
+    "discount_amount": null,
+    "total_amount": 49540.00,
+    "amount_due": 49540.00,
+    "payment_terms": "Net 30",
+    "line_item_count": 3
+  },
+  "expected_avg_confidence": 0.90
+}

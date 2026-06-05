@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_020",
+  "document_type": "invoice",
+  "description": "Software license renewal invoice with per-seat pricing, license key count, and maintenance and support split",
+  "parsed_text": "LICENSE RENEWAL INVOICE\nInvoice #: LR-2026-00188\nInvoice Date: 2026-01-01   Due Date: 2026-01-31\nVendor: Vericore Software Corp.\nVendor Tax ID: XX-XXX4419\nVendor Address: 4000 Innovation Boulevard, Suite 300, San Jose, CA 95134\nSales Contact: renewals@vericoresoftware.com | 408-555-0165\nBill To: Pacific Northwest Insurance Group\n   IT Procurement Department\n   1200 Fourth Avenue, Suite 2200, Seattle, WA 98101\nAccount Manager: Sarah Okonkwo\nCustomer Account #: VCOR-PNIG-1048\nPO Number: PO-PNIG-2025-LIC-09\nPayment Terms: Net 30   Currency: USD\n\nProduct: Vericore Enterprise Risk Platform v8\nLicense Type: Named User — Perpetual with Annual M&S\nRenewal Period: January 1, 2026 – December 31, 2026\nPrevious License Invoice: LR-2025-00144 (Renewed)\n\nLine Items:\n1. Software License Renewal — Named Users (90 seats)\n   Seat Count: 90 | Per-Seat Rate: $620.00/year             $55,800.00\n   License Keys: VCOR-ENT-0901 through VCOR-ENT-0990\n\n2. Annual Maintenance & Support (M&S) — Gold Tier\n   Included Coverage: 24x7 phone, upgrades, patches\n   M&S Fee: 22% of license value                           $12,276.00\n   ($55,800.00 x 22%)\n\n3. Training Credit Pack — 10 hours (Carryover Applied)       ($500.00)\n   Per renewal agreement Section 4.2\n\n4. Implementation Consulting — Q1 Onboarding (4 hours)\n   @ $275.00/hr                                             $1,100.00\n\nSubtotal:                                                  $68,676.00\nCA Sales Tax (9.25% on software only — seats portion):      $5,161.50\nDiscount — Multi-Year Loyalty (3% on M&S):                  ($368.28)\nInvoice Total:                                             $73,469.22\nAmount Due:                                                $73,469.22\n\nLicense keys will be delivered electronically to it-admin@pnig.com within 24 hours of payment receipt.\nFor licensing questions: licensing@vericoresoftware.com",
+  "expected_json": {
+    "invoice_number": "LR-2026-00188",
+    "invoice_date": "2026-01-01",
+    "due_date": "2026-01-31",
+    "vendor_name": "Vericore Software Corp.",
+    "vendor_tax_id_masked": "XX-XXX4419",
+    "vendor_address": "4000 Innovation Boulevard, Suite 300, San Jose, CA 95134",
+    "customer_name": "Pacific Northwest Insurance Group",
+    "customer_address": "1200 Fourth Avenue, Suite 2200, Seattle, WA 98101",
+    "purchase_order_number": "PO-PNIG-2025-LIC-09",
+    "currency": "USD",
+    "subtotal": 68676.00,
+    "tax_amount": 5161.50,
+    "shipping_amount": null,
+    "discount_amount": 368.28,
+    "total_amount": 73469.22,
+    "amount_due": 73469.22,
+    "payment_terms": "Net 30",
+    "line_item_count": 4
+  },
+  "expected_avg_confidence": 0.90
+}

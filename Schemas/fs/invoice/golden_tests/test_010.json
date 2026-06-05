@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_010",
+  "document_type": "invoice",
+  "description": "PO-based three-way match invoice with PO number, goods receipt number, and invoice all present",
+  "parsed_text": "VENDOR INVOICE\nInvoice Number: VI-2025-6640\nInvoice Date: 2025-08-12   Due Date: 2025-09-11\nVendor: Keystone Electronic Components Corp.\nVendor Tax ID: XX-XXX2284\nVendor Address: 7200 Technology Blvd, Raleigh, NC 27617\nRemit To: PO Box 9300, Raleigh, NC 27626\nBill To: Zenith Consumer Electronics\n   Accounts Payable Department\n   5500 Innovation Drive, Austin, TX 78759\nPurchase Order Number: PO-ZCE-20250801\nGoods Receipt Number: GRN-2025-4471\nReceipt Date: 2025-08-10\nPayment Terms: Net 30   Currency: USD\n\nLine Items (per PO-ZCE-20250801):\n1. Capacitor 100µF 50V Electrolytic (MPN: CAP-E1050-100)\n   Ordered: 5,000 | Shipped: 5,000 | Unit Price: $0.22    $1,100.00\n2. Resistor 10kΩ 1/4W 1% (MPN: RES-1K-025)\n   Ordered: 10,000 | Shipped: 10,000 | Unit Price: $0.04  $  400.00\n3. MOSFET N-Channel 60V 30A (MPN: MOS-N6030)\n   Ordered: 500 | Shipped: 500 | Unit Price: $1.85        $  925.00\n4. PCB Connector 10-Pin (MPN: CON-PCB-10P)\n   Ordered: 2,000 | Shipped: 2,000 | Unit Price: $0.68    $1,360.00\n5. Fuse 5A 250V Fast Blow (MPN: FUS-5A250)\n   Ordered: 1,000 | Shipped: 1,000 | Unit Price: $0.31    $  310.00\n\nSubtotal:                    $4,095.00\nSales Tax (NC 4.75%):        $  194.51\nShipping (FedEx Ground):     $   87.40\nInvoice Total:               $4,376.91\nAmount Due:                  $4,376.91\n\nThis invoice corresponds to PO-ZCE-20250801 fully received per GRN-2025-4471.\nAll items inspected and accepted. Three-way match complete.\nAP Contact: ap@zenithce.com | Vendor Inquiries: ar@keystoneelec.com | 919-555-0138",
+  "expected_json": {
+    "invoice_number": "VI-2025-6640",
+    "invoice_date": "2025-08-12",
+    "due_date": "2025-09-11",
+    "vendor_name": "Keystone Electronic Components Corp.",
+    "vendor_tax_id_masked": "XX-XXX2284",
+    "vendor_address": "7200 Technology Blvd, Raleigh, NC 27617",
+    "customer_name": "Zenith Consumer Electronics",
+    "customer_address": "5500 Innovation Drive, Austin, TX 78759",
+    "purchase_order_number": "PO-ZCE-20250801",
+    "currency": "USD",
+    "subtotal": 4095.00,
+    "tax_amount": 194.51,
+    "shipping_amount": 87.40,
+    "discount_amount": null,
+    "total_amount": 4376.91,
+    "amount_due": 4376.91,
+    "payment_terms": "Net 30",
+    "line_item_count": 5
+  },
+  "expected_avg_confidence": 0.93
+}

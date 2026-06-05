@@ -1,0 +1,27 @@
+{
+  "test_case_id": "invoice_017",
+  "document_type": "invoice",
+  "description": "Government/public sector invoice with agency PO, DUNS number, and required federal vendor fields",
+  "parsed_text": "VENDOR INVOICE — FEDERAL CONTRACT\nInvoice #: FCI-2025-GOV-0088\nInvoice Date: 2025-10-10   Payment Due: 2025-11-09\nVendor: Nexus Government Solutions LLC\nVendor Tax ID: XX-XXX5580\nVendor DUNS Number: 078-442-1190\nSAM.gov Unique Entity ID: NXS7G8K2P4R1\nVendor Address: 1500 Crystal Drive, Suite 400, Arlington, VA 22202\nCage Code: 7XRM2\nVendor Contact: contracts@nexusgovsolutions.com | 703-555-0220\n\nBill To: U.S. Department of Health and Human Services\n   Office of the Chief Information Officer\n   200 Independence Avenue SW, Washington, DC 20201\nContracting Officer: Amanda L. Forsythe, CO\nCOR: David Park, PhD\nAgency PO Number: HHS-CIO-2025-0042\nContract Number: HHSP-2333020C0019\nTask Order Number: TO-2025-007\nAppropriation Code: 75-0181-0-1-551\nPayment Terms: Net 30   Currency: USD\n\nServices Rendered: October 1–31, 2025\nIT Program Management & Advisory Support\n\nLine Items:\n1. Program Manager, Sr. (Labor Category I)\n   160 hours @ $185.00/hr                              $29,600.00\n2. Business Systems Analyst (Labor Category II)\n   140 hours @ $130.00/hr                              $18,200.00\n3. Cloud Migration SME (Labor Category III)\n   80 hours @ $165.00/hr                               $13,200.00\n4. Travel — DC Metro Area (per GSA per diem)              $840.00\n\nSubtotal:                                              $61,840.00\nTax: $0.00 (Federal government tax-exempt)\nInvoice Total:                                         $61,840.00\nAmount Due:                                            $61,840.00\n\nPayment Method: ACH via IPP (Invoice Processing Platform)\nIPP Submission ID: IPP-2025-00441188\nPrompt Payment Act applies. Interest accrues after Day 30 at Treasury rate.\nDo not remit check — ACH only per agency directive.",
+  "expected_json": {
+    "invoice_number": "FCI-2025-GOV-0088",
+    "invoice_date": "2025-10-10",
+    "due_date": "2025-11-09",
+    "vendor_name": "Nexus Government Solutions LLC",
+    "vendor_tax_id_masked": "XX-XXX5580",
+    "vendor_address": "1500 Crystal Drive, Suite 400, Arlington, VA 22202",
+    "customer_name": "U.S. Department of Health and Human Services",
+    "customer_address": "200 Independence Avenue SW, Washington, DC 20201",
+    "purchase_order_number": "HHS-CIO-2025-0042",
+    "currency": "USD",
+    "subtotal": 61840.00,
+    "tax_amount": 0.00,
+    "shipping_amount": null,
+    "discount_amount": null,
+    "total_amount": 61840.00,
+    "amount_due": 61840.00,
+    "payment_terms": "Net 30",
+    "line_item_count": 4
+  },
+  "expected_avg_confidence": 0.91
+}

@@ -1,0 +1,7 @@
+{
+  "preferred_model": "databricks-claude-sonnet",
+  "fallback_model": "databricks-claude-haiku",
+  "max_tokens": 8192,
+  "temperature": 0.0,
+  "rationale": "Regulatory submissions span a wide range of formats and lengths — from short FinCEN CTR forms to multi-hundred-page FDA PMAs and SEC 10-K filings. Claude Sonnet is preferred for its ability to correctly classify submission types across different regulatory domains (FDA, SEC, FinCEN, CFTC, FINRA), accurately extract regulatory identifiers in varying formats (EDGAR accession numbers, FDA K-numbers, SEC CIK codes), and interpret regulatory-specific terminology. The maximum token budget (8192) is required to accommodate lengthy regulatory filings, cover letters, and supporting summaries. Temperature 0.0 ensures deterministic extraction of regulatory identifiers and dates where precision is legally required. Claude Haiku serves as fallback for simple, structured form submissions (e.g., FinCEN CTR) where the layout is predictable and reasoning depth is less critical."
+}

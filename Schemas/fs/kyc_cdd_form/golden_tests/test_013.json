@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_013",
+  "document_type": "kyc_cdd_form",
+  "description": "Non-profit 501(c)(3) charitable organization with EIN provided and governance documents reviewed during onboarding",
+  "parsed_text": "KYC / CDD FORM — NON-PROFIT ORGANIZATION\nOrganization Name: Bright Futures Community Fund\nCustomer Type: Business (Non-Profit 501(c)(3))\nEIN: XX-XXX3309\nIRS Tax-Exempt Status: 501(c)(3) — Charitable Organization\nIRS Determination Letter Date: 2011-06-22\nState Registration: Minnesota Attorney General Charitable Trust Registration No. MN-CT-XXXX7722\nPrincipal Address: 720 Nicollet Mall, Suite 400, Minneapolis, MN 55402, USA\nPhone: (612) 555-0148   Email: grants@brightfutures.example\nPrimary Activity / Mission: Providing educational scholarships and after-school programming for underserved youth in the Twin Cities metro area.\nSource of Funds: Foundation grants, individual donations, government contracts (Title I), fundraising events\nExpected Monthly Activity: $185,000\n\nGOVERNANCE DOCUMENTS REVIEWED\n- IRS Form 990 (2023): Reviewed — total revenue $2.1M, program service expenses 78% of total expenditures.\n- Articles of Incorporation: On file, filed with Minnesota Secretary of State 2011-04-10.\n- Bylaws: Reviewed — board of directors structure confirmed, term limits present.\n- Board Resolution authorizing account opening: Signed by Board Chair Leon Ashford, dated 2025-10-28.\n\nCONTROL PERSON\nName: Sofia Reyes-Morales   Title: Executive Director\nDOB: 1979-05-11   SSN: XXX-XX-8872\nID Type: Driver License   ID Number: DL-MN-XX4431   Expiration: 2027-08-15\n\nBENEFICIAL OWNERSHIP\nNon-profit organizations have no equity owners. Per policy, beneficial ownership form is not applicable. Control person (Executive Director) identified and verified.\n\nSCREENING RESULTS\nOFAC / SDN: Clear.\nIRS Tax-Exempt Status Verification: Confirmed via IRS Tax-Exempt Organization Search — active.\nAdverse Media: No adverse media found.\nPEP Status: Sofia Reyes-Morales — no PEP flag.\n\nRISK ASSESSMENT\nPEP Status: No\nHigh-Risk Factors: None. Domestic non-profit, fully documented charitable purpose, IRS compliance confirmed.\nRisk Rating: Low\nCDD Level: Standard\nReview Date: 2025-11-07   Reviewer: Hannah Birch",
+  "expected_json": {
+    "customer_name": "Bright Futures Community Fund",
+    "customer_type": "Business",
+    "date_of_birth": null,
+    "tax_id_masked": "XX-XXX3309",
+    "address_line1": "720 Nicollet Mall, Suite 400",
+    "city": "Minneapolis",
+    "state": "MN",
+    "postal_code": "55402",
+    "country": "USA",
+    "phone": "(612) 555-0148",
+    "email": "grants@brightfutures.example",
+    "occupation_or_business": "Providing educational scholarships and after-school programming for underserved youth",
+    "source_of_funds": "Foundation grants, individual donations, government contracts, fundraising events",
+    "expected_monthly_activity": 185000.00,
+    "risk_rating": "Low",
+    "pep_status": false,
+    "beneficial_owner_name": "Sofia Reyes-Morales",
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": "Driver License",
+    "id_document_number_masked": "DL-MN-XX4431",
+    "id_expiration_date": "2027-08-15",
+    "review_date": "2025-11-07",
+    "reviewer_name": "Hannah Birch"
+  },
+  "expected_avg_confidence": 0.89
+}

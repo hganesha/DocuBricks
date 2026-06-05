@@ -1,0 +1,32 @@
+{
+  "test_case_id": "kyc_cdd_014",
+  "document_type": "kyc_cdd_form",
+  "description": "Private banking ultra-high-net-worth individual with AUM of $15M, assets spanning multiple jurisdictions, Enhanced Due Diligence completed",
+  "parsed_text": "PRIVATE BANKING — ENHANCED DUE DILIGENCE PROFILE\nCustomer Name: Claudette Beaumont-Archer\nCustomer Type: Individual (Private Banking)\nDate of Birth: 1961-11-03   SSN: XXX-XX-2207\nAddress (Primary US): 21 Harbor View Drive, Greenwich, CT 06830, USA\nAddress (Secondary): Villa Rosamont, 12 Chemin des Crêtes, Geneva, Switzerland CH-1206\nPhone (US): (203) 555-0115   Phone (CH): +41-22-555-0198\nEmail: c.beaumont@example.com\nOccupation: Private Investor / Retired Board Member (Beaumont Pharmaceuticals Inc)\nSource of Funds: Proceeds from partial sale of equity stake in Beaumont Pharmaceuticals (2019, $38M net), ongoing investment portfolio income, real estate rental income (Switzerland and France)\nExpected Monthly Activity: $620,000\nAssets Under Management (AUM): $15,000,000 (on-boarded to private banking program)\n\nMULTI-JURISDICTIONAL PROFILE\nUS Person: Yes (USC)\nAdditional Tax Residency: Switzerland (Swiss Resident Permit B)\nFATCA Status: US Person — W-9 collected.\nForeign Accounts / Assets: Swiss brokerage (Credit Suisse successor entity), French rental property (Provence), Cayman Islands private equity fund interest (LP interest ~$1.2M).\n\nIDENTITY DOCUMENTS\nID Type: Passport   ID Number: US-XXXX5512   Expiration: 2030-07-14\nSecondary: Swiss Permit B — CHPB-XXXX3301\n\nSCREENING RESULTS\nOFAC / SDN: Clear.\nPEP Check: No PEP status. Ms. Beaumont-Archer is not a current or former government official. Former non-executive board member of private pharmaceutical company; not subject to PEP designation.\nAdverse Media: Reviewed. One 2018 Bloomberg article referencing the Beaumont Pharmaceuticals IPO regulatory review — resolved favorably; no adverse findings.\nSwiss/Cayman Jurisdiction Assessment: Switzerland and Cayman Islands flagged as enhanced-monitoring jurisdictions per internal policy. Documented mitigation: Swiss assets held at licensed bank; Cayman LP interest is in regulated fund.\n\nEDD ACTIONS COMPLETED\n1. Source of wealth letter received and reviewed against publicly available IPO filings confirming $38M proceeds.\n2. Cayman Islands fund subscription documents reviewed.\n3. Tax attestations (W-9, Swiss tax declaration) on file.\n4. Relationship Manager attestation completed.\n5. Senior private banking officer approval: Granted.\nCDD Level: Enhanced\nRisk Rating: High\nReview Date: 2025-12-01   Reviewer: Robert Fairweather",
+  "expected_json": {
+    "customer_name": "Claudette Beaumont-Archer",
+    "customer_type": "Individual",
+    "date_of_birth": "1961-11-03",
+    "tax_id_masked": "XXX-XX-2207",
+    "address_line1": "21 Harbor View Drive",
+    "city": "Greenwich",
+    "state": "CT",
+    "postal_code": "06830",
+    "country": "USA",
+    "phone": "(203) 555-0115",
+    "email": "c.beaumont@example.com",
+    "occupation_or_business": "Private Investor / Retired Board Member (Beaumont Pharmaceuticals Inc)",
+    "source_of_funds": "Proceeds from partial sale of equity stake in Beaumont Pharmaceuticals, investment portfolio income, real estate rental income",
+    "expected_monthly_activity": 620000.00,
+    "risk_rating": "High",
+    "pep_status": false,
+    "beneficial_owner_name": null,
+    "beneficial_owner_ownership_percent": null,
+    "id_document_type": "Passport",
+    "id_document_number_masked": "US-XXXX5512",
+    "id_expiration_date": "2030-07-14",
+    "review_date": "2025-12-01",
+    "reviewer_name": "Robert Fairweather"
+  },
+  "expected_avg_confidence": 0.90
+}

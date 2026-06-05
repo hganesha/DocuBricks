@@ -1,0 +1,44 @@
+[
+  {
+    "name": "document_id_present",
+    "expression": "document_id IS NOT NULL AND LENGTH(TRIM(document_id)) > 0",
+    "severity": "fail",
+    "description": "Every extracted record must carry a document_id — system invariant required for lineage tracking, audit trail, and deduplication"
+  },
+  {
+    "name": "avg_confidence_acceptable",
+    "expression": "avg_confidence >= 0.68",
+    "severity": "drop",
+    "description": "Overall extraction confidence below 0.68 indicates the document may be a scan of low quality, partially missing, or in an unsupported format; route to quarantine for human review"
+  },
+  {
+    "name": "effective_date_not_null",
+    "expression": "effective_date IS NOT NULL",
+    "severity": "drop",
+    "description": "Effective date is required to anchor the project timeline, trigger billing schedules, and manage SLA obligations; records without it are not actionable"
+  },
+  {
+    "name": "total_contract_value_positive",
+    "expression": "total_contract_value IS NULL OR total_contract_value > 0",
+    "severity": "drop",
+    "description": "Contract value must be positive when present; zero or negative values indicate an extraction error or corrupt financial data"
+  },
+  {
+    "name": "deliverables_present",
+    "expression": "deliverables IS NOT NULL AND JSON_ARRAY_LENGTH(deliverables) > 0",
+    "severity": "warn",
+    "description": "A SOW should define at least one deliverable; absence may indicate extraction failure or an incomplete document requiring human review"
+  },
+  {
+    "name": "payment_terms_present",
+    "expression": "payment_terms IS NOT NULL AND LENGTH(TRIM(payment_terms)) > 0",
+    "severity": "warn",
+    "description": "Payment terms are required for accounts payable / receivable processing; absence blocks invoice automation"
+  },
+  {
+    "name": "end_date_after_effective_date",
+    "expression": "end_date IS NULL OR effective_date IS NULL OR end_date > effective_date",
+    "severity": "warn",
+    "description": "End date must be after effective date if both are present; inversion indicates a date extraction or data entry error"
+  }
+]
