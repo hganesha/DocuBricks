@@ -1,0 +1,8 @@
+{
+  "preferred_model": "databricks-gemini-flash",
+  "fallback_model": "databricks-dbrx-instruct",
+  "max_tokens": 4096,
+  "temperature": 0.0,
+  "rationale": "Prior authorization packets mix structured forms, payer letters, checkboxes, stamps, and clinical attachments. Gemini Flash is preferred for scanned packets; DBRX Instruct can process digitally native payer letters."
+}
+

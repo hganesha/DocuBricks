@@ -1,0 +1,86 @@
+{
+  "schema_catalog_version": "2026-06-05",
+  "rollout_notes": "Initial commercial lending expansion after mortgage, KYC, AML SAR, invoice, healthcare, and core legal bundles.",
+  "document_types": [
+    {
+      "vertical": "fs",
+      "family": "commercial_lending",
+      "doc_type": "commercial_loan_application",
+      "display_name": "Commercial Loan Application",
+      "priority": 1,
+      "rollout_status": "registry_ready",
+      "aliases": ["business loan application", "commercial credit application", "borrower application"],
+      "regulatory_alignment": "ECOA, Reg B, BSA/KYB, internal credit policy"
+    },
+    {
+      "vertical": "fs",
+      "family": "commercial_lending",
+      "doc_type": "commercial_credit_memo",
+      "display_name": "Commercial Credit Memo",
+      "priority": 1,
+      "rollout_status": "registry_ready",
+      "aliases": ["credit approval memo", "loan approval memo", "underwriting memo"],
+      "regulatory_alignment": "Safety and soundness, OCC/FDIC/Fed credit risk management guidance"
+    },
+    {
+      "vertical": "fs",
+      "family": "commercial_lending",
+      "doc_type": "loan_agreement",
+      "display_name": "Loan Agreement",
+      "priority": 1,
+      "rollout_status": "registry_ready",
+      "aliases": ["commercial loan agreement", "credit agreement", "term loan agreement"],
+      "regulatory_alignment": "UCC Article 9, commercial lending policy, contract governance"
+    },
+    {
+      "vertical": "fs",
+      "family": "commercial_lending",
+      "doc_type": "covenant_compliance_certificate",
+      "display_name": "Covenant Compliance Certificate",
+      "priority": 1,
+      "rollout_status": "registry_ready",
+      "aliases": ["compliance certificate", "financial covenant certificate", "borrower compliance certificate"],
+      "regulatory_alignment": "Credit monitoring, loan agreement covenants, risk rating governance"
+    },
+    {
+      "vertical": "fs",
+      "family": "collateral_perfection",
+      "doc_type": "collateral_schedule",
+      "display_name": "Collateral Schedule",
+      "priority": 1,
+      "rollout_status": "registry_ready",
+      "aliases": ["borrowing base collateral schedule", "asset schedule", "collateral listing"],
+      "regulatory_alignment": "Secured lending controls, borrowing base monitoring, UCC Article 9"
+    },
+    {
+      "vertical": "fs",
+      "family": "collateral_perfection",
+      "doc_type": "ucc_financing_statement",
+      "display_name": "UCC Financing Statement",
+      "priority": 1,
+      "rollout_status": "registry_ready",
+      "aliases": ["UCC-1", "financing statement", "fixture filing"],
+      "regulatory_alignment": "UCC Article 9 perfection and lien filing"
+    },
+    {
+      "vertical": "fs",
+      "family": "commercial_lending",
+      "doc_type": "guaranty_agreement",
+      "display_name": "Guaranty Agreement",
+      "priority": 1,
+      "rollout_status": "registry_ready",
+      "aliases": ["commercial guaranty", "limited guaranty", "unconditional guaranty"],
+      "regulatory_alignment": "Credit support documentation, UCC/common law guaranty enforcement"
+    },
+    {
+      "vertical": "fs",
+      "family": "collateral_perfection",
+      "doc_type": "security_agreement",
+      "display_name": "Security Agreement",
+      "priority": 1,
+      "rollout_status": "registry_ready",
+      "aliases": ["commercial security agreement", "collateral security agreement", "pledge and security agreement"],
+      "regulatory_alignment": "UCC Article 9 security interests and collateral attachment"
+    }
+  ]
+}

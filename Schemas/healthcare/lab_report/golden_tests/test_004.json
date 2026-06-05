@@ -1,0 +1,29 @@
+{
+  "test_case_id": "lab_report_004",
+  "document_type": "lab_report",
+  "description": "Preliminary respiratory PCR swab report",
+  "parsed_text": "CityCare Molecular Diagnostics\nCLIA #: 08D5551212\nPatient: Nguyen, Peter\nDOB: 2014-03-22\nMRN: PED-100234\nOrdering Provider: Leah Watkins, NP\nSample Type: Swab\nCollected: 2025-12-01\nReceived: 2025-12-01\nReported: 2025-12-01\nStatus: Preliminary\n\nRespiratory Pathogen Panel\nSARS-CoV-2 RNA: NOT DETECTED\nInfluenza A RNA: DETECTED\nInfluenza B RNA: NOT DETECTED\nRSV RNA: NOT DETECTED\nComment: Final confirmation pending supervisor review.",
+  "expected_json": {
+    "report_date": "2025-12-01",
+    "collection_date": "2025-12-01",
+    "received_date": "2025-12-01",
+    "ordering_provider_name": "Leah Watkins, NP",
+    "ordering_provider_npi": null,
+    "patient_name": "Nguyen, Peter",
+    "patient_dob": "2014-03-22",
+    "patient_mrn": "PED-100234",
+    "lab_name": "CityCare Molecular Diagnostics",
+    "lab_clia_number": "08D5551212",
+    "specimen_type": "Swab",
+    "test_results": [
+      {"test_name": "SARS-CoV-2 RNA", "loinc_code": null, "result_value": "NOT DETECTED", "unit": null, "reference_range": "Negative", "flag": null, "status": "Preliminary"},
+      {"test_name": "Influenza A RNA", "loinc_code": null, "result_value": "DETECTED", "unit": null, "reference_range": "Negative", "flag": "H", "status": "Preliminary"}
+    ],
+    "overall_status": "Preliminary",
+    "critical_values_present": false,
+    "pathologist_name": null,
+    "clinical_notes": "Final confirmation pending supervisor review."
+  },
+  "expected_avg_confidence": 0.91
+}
+

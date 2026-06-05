@@ -1,0 +1,28 @@
+{
+  "test_case_id": "lab_report_005",
+  "document_type": "lab_report",
+  "description": "Cancelled toxicology report with no final result rows",
+  "parsed_text": "West Valley Toxicology Lab\nCLIA 99D0001122\nPatient: Carter, Evelyn\nDOB: 1988-06-30\nMRN WV-443901\nOrdering Provider: James Patel, MD\nSpecimen: Plasma\nCollected: 2025-08-20\nReceived: 2025-08-21\nReported: 2025-08-21\nStatus: Cancelled\n\nTest: Tacrolimus\nResult: Cancelled\nReason: Quantity not sufficient for analysis. Submit new specimen.",
+  "expected_json": {
+    "report_date": "2025-08-21",
+    "collection_date": "2025-08-20",
+    "received_date": "2025-08-21",
+    "ordering_provider_name": "James Patel, MD",
+    "ordering_provider_npi": null,
+    "patient_name": "Carter, Evelyn",
+    "patient_dob": "1988-06-30",
+    "patient_mrn": "WV-443901",
+    "lab_name": "West Valley Toxicology Lab",
+    "lab_clia_number": "99D0001122",
+    "specimen_type": "Plasma",
+    "test_results": [
+      {"test_name": "Tacrolimus", "loinc_code": null, "result_value": "Cancelled", "unit": null, "reference_range": null, "flag": null, "status": "Cancelled"}
+    ],
+    "overall_status": "Cancelled",
+    "critical_values_present": false,
+    "pathologist_name": null,
+    "clinical_notes": "Quantity not sufficient for analysis. Submit new specimen."
+  },
+  "expected_avg_confidence": 0.89
+}
+

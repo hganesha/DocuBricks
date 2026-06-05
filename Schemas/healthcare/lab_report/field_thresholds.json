@@ -1,0 +1,45 @@
+{
+  "patient_name": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Patient identity must be exact before results are posted to a chart."
+  },
+  "patient_mrn": {
+    "min_confidence": 0.94,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "MRN is the primary chart-matching key for lab result ingestion."
+  },
+  "report_date": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Report date drives result timeliness and audit chronology."
+  },
+  "lab_clia_number": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "CLIA identifier is required for performing-lab auditability."
+  },
+  "test_results": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Result rows contain clinical values, flags, ranges, and statuses; errors can alter clinical interpretation."
+  },
+  "critical_values_present": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Critical value flags drive urgent notification workflow."
+  }
+}
+

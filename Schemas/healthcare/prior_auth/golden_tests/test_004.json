@@ -1,0 +1,27 @@
+{
+  "test_case_id": "prior_auth_004",
+  "document_type": "prior_auth",
+  "description": "Pending inpatient surgery request",
+  "parsed_text": "Summit Blue Plan Prior Authorization Intake\nTracking #: IP-8891007\nCurrent Status: PENDING\nReceived Date: 2025-12-12\nMember Name: Aaron Kim\nMember DOB: 1958-09-02\nMember ID: SBP22334455\nRequesting Surgeon: Dana Russell MD\nRequesting NPI 3334445556\nFacility: Central Medical Center\nFacility NPI: 4445556667\nRequested Service: Inpatient total knee arthroplasty\nCPT 27447\nDiagnosis M17.11\nPlace of Service: Inpatient Hospital\nUnits Requested: 1 admission\nMissing item: conservative therapy notes.",
+  "expected_json": {
+    "authorization_id": "IP-8891007",
+    "request_status": "Pending",
+    "request_date": "2025-12-12",
+    "decision_date": null,
+    "expiration_date": null,
+    "patient_name": "Aaron Kim",
+    "patient_dob": "1958-09-02",
+    "patient_member_id": "SBP22334455",
+    "requesting_provider_name": "Dana Russell MD",
+    "requesting_provider_npi": "3334445556",
+    "servicing_provider_name": "Central Medical Center",
+    "servicing_provider_npi": "4445556667",
+    "diagnosis_codes": ["M17.11"],
+    "procedure_codes": ["27447"],
+    "service_description": "Inpatient total knee arthroplasty",
+    "place_of_service": "Inpatient Hospital",
+    "units_requested": 1
+  },
+  "expected_avg_confidence": 0.90
+}
+

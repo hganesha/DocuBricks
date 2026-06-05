@@ -1,0 +1,33 @@
+[
+  {
+    "name": "patient_mrn_present",
+    "expression": "patient_mrn IS NOT NULL AND LENGTH(TRIM(patient_mrn)) > 0",
+    "severity": "fail",
+    "description": "MRN is required to attach results to the right patient chart and downstream FHIR DiagnosticReport resource."
+  },
+  {
+    "name": "lab_clia_number_format",
+    "expression": "lab_clia_number IS NULL OR lab_clia_number REGEXP '^[0-9]{2}D[0-9]{7}$'",
+    "severity": "warn",
+    "description": "CLIA certificate numbers should follow the standard two digits, D, seven digits format."
+  },
+  {
+    "name": "test_results_not_empty",
+    "expression": "size(test_results) > 0",
+    "severity": "fail",
+    "description": "A laboratory report without test result rows cannot support clinical review or quality reporting."
+  },
+  {
+    "name": "overall_status_valid",
+    "expression": "overall_status IN ('Final', 'Preliminary', 'Corrected', 'Cancelled')",
+    "severity": "drop",
+    "description": "Report status must be one of the supported HL7/FHIR diagnostic report states."
+  },
+  {
+    "name": "avg_confidence_minimum",
+    "expression": "avg_confidence >= 0.70",
+    "severity": "drop",
+    "description": "Low average confidence on lab reports can misstate critical values and must be routed to review."
+  }
+]
+

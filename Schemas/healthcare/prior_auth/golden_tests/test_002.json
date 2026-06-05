@@ -1,0 +1,27 @@
+{
+  "test_case_id": "prior_auth_002",
+  "document_type": "prior_auth",
+  "description": "Denied medication authorization with appeal deadline",
+  "parsed_text": "Evergreen Pharmacy Benefits\nPrior Authorization Determination\nCase Number: RX-PA-771245\nStatus: DENIED\nRequest Date 2025-09-15\nDecision Date 2025-09-17\nPatient: Thomas Reed DOB 1969-01-04\nMember ID: EGP9981200\nDrug Requested: Ozempic 1 mg pen injector\nDiagnosis Code: E66.9\nPrescriber: Hannah Ortiz MD NPI 5647382910\nDenial Reason Code: MN-203\nReason: Documentation does not show type 2 diabetes diagnosis or failed formulary alternatives.\nAppeal must be received by 2025-11-16.",
+  "expected_json": {
+    "authorization_id": "RX-PA-771245",
+    "request_status": "Denied",
+    "request_date": "2025-09-15",
+    "decision_date": "2025-09-17",
+    "expiration_date": null,
+    "patient_name": "Thomas Reed",
+    "patient_dob": "1969-01-04",
+    "patient_member_id": "EGP9981200",
+    "payer_name": "Evergreen Pharmacy Benefits",
+    "requesting_provider_name": "Hannah Ortiz MD",
+    "requesting_provider_npi": "5647382910",
+    "diagnosis_codes": ["E66.9"],
+    "procedure_codes": [],
+    "medication_name": "Ozempic 1 mg pen injector",
+    "denial_reason_code": "MN-203",
+    "denial_reason_text": "Documentation does not show type 2 diabetes diagnosis or failed formulary alternatives.",
+    "appeal_deadline": "2025-11-16"
+  },
+  "expected_avg_confidence": 0.93
+}
+

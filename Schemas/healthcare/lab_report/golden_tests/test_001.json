@@ -1,0 +1,30 @@
+{
+  "test_case_id": "lab_report_001",
+  "document_type": "lab_report",
+  "description": "Final CBC and CMP report with normal and high flags",
+  "parsed_text": "Apex Diagnostics Lab\nCLIA #: 45D1234567\nPatient: Maria Lopez\nDOB: 1979-02-18\nMRN: MRN-448820\nOrdering Provider: Priya Shah, MD\nNPI: 1357924680\nSpecimen: Blood\nCollected: 2025-10-02 08:10\nReceived: 2025-10-02 13:42\nReported: 2025-10-03\nStatus: Final\n\nTest                 LOINC    Result   Unit    Reference Range   Flag\nHemoglobin           718-7    13.8     g/dL    12.0-15.5\nGlucose              2345-7   112      mg/dL   70-99             H\nCreatinine           2160-0   0.92     mg/dL   0.57-1.00\n\nReviewed by: Alan Chen, MD",
+  "expected_json": {
+    "report_date": "2025-10-03",
+    "collection_date": "2025-10-02",
+    "received_date": "2025-10-02",
+    "ordering_provider_name": "Priya Shah, MD",
+    "ordering_provider_npi": "1357924680",
+    "patient_name": "Maria Lopez",
+    "patient_dob": "1979-02-18",
+    "patient_mrn": "MRN-448820",
+    "lab_name": "Apex Diagnostics Lab",
+    "lab_clia_number": "45D1234567",
+    "specimen_type": "Blood",
+    "test_results": [
+      {"test_name": "Hemoglobin", "loinc_code": "718-7", "result_value": "13.8", "unit": "g/dL", "reference_range": "12.0-15.5", "flag": null, "status": "Final"},
+      {"test_name": "Glucose", "loinc_code": "2345-7", "result_value": "112", "unit": "mg/dL", "reference_range": "70-99", "flag": "H", "status": "Final"},
+      {"test_name": "Creatinine", "loinc_code": "2160-0", "result_value": "0.92", "unit": "mg/dL", "reference_range": "0.57-1.00", "flag": null, "status": "Final"}
+    ],
+    "overall_status": "Final",
+    "critical_values_present": false,
+    "pathologist_name": "Alan Chen, MD",
+    "clinical_notes": null
+  },
+  "expected_avg_confidence": 0.94
+}
+

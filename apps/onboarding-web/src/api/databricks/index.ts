@@ -54,7 +54,8 @@ async function dbFetch<T = unknown>(
     throw new Error(
       `Cannot reach ${url} — check the workspace URL and ensure this app is ` +
         `running inside the Databricks workspace (or configure a proxy for local dev). ` +
-        `Original error: ${(networkErr as Error).message}`
+        `Original error: ${(networkErr as Error).message}`,
+      { cause: networkErr }
     )
   }
 
@@ -153,8 +154,6 @@ interface DBRunResponse { run_id: number }
 interface DBRunGetResponse { state: DBRunState }
 
 interface DBPipelineCreateResponse { pipeline_id: string }
-interface DBPipelineGetResponse { state: string; cause?: string }
-
 interface DBSPCreateResponse { id: string }
 interface DBTokenCreateResponse { token_value: string; token_info: { token_id: string } }
 
@@ -1095,7 +1094,7 @@ async function validateWorkspaceInternal(
   }
 
   // 2. Unity Catalog check: GET /api/2.1/unity-catalog/metastores
-  let ucEnabled = false
+  let ucEnabled: boolean
   try {
     await dbFetch(h, token, '/api/2.1/unity-catalog/metastores')
     ucEnabled = true
@@ -1326,7 +1325,10 @@ export class DatabricksAPIImpl implements DatabricksAPI {
         throw new Error(`Upload failed (HTTP ${uploadResp.status}): ${errBody}`)
       }
     } catch (err) {
-      throw new Error(`Failed to upload document to UC Volume: ${(err as Error).message}`)
+      throw new Error(
+        `Failed to upload document to UC Volume: ${(err as Error).message}`,
+        { cause: err }
+      )
     }
 
     onProgress({ documentId, documentType, status: 'processing' })

@@ -1,0 +1,26 @@
+{
+  "test_case_id": "prior_auth_003",
+  "document_type": "prior_auth",
+  "description": "Partially approved physical therapy request",
+  "parsed_text": "CanyonCare Utilization Management\nAuthorization ID UM-4500229\nStatus: PARTIALLY APPROVED\nRequested 2025-08-01\nDecision 2025-08-03\nExpires 2025-10-03\nPatient: Grace Wu\nDOB: 1982-04-23\nMember: CC-1122459\nRequesting Provider: MotionWorks Therapy NPI 1112223334\nDiagnosis: S83.511A\nService: Physical therapy, therapeutic exercises\nCPT: 97110\nUnits Requested: 16 visits\nUnits Approved: 8 visits\nCriteria: Milliman Care Guidelines knee ligament repair pathway.",
+  "expected_json": {
+    "authorization_id": "UM-4500229",
+    "request_status": "Partially_Approved",
+    "request_date": "2025-08-01",
+    "decision_date": "2025-08-03",
+    "expiration_date": "2025-10-03",
+    "patient_name": "Grace Wu",
+    "patient_dob": "1982-04-23",
+    "patient_member_id": "CC-1122459",
+    "requesting_provider_name": "MotionWorks Therapy",
+    "requesting_provider_npi": "1112223334",
+    "diagnosis_codes": ["S83.511A"],
+    "procedure_codes": ["97110"],
+    "service_description": "Physical therapy, therapeutic exercises",
+    "units_requested": 16,
+    "units_approved": 8,
+    "clinical_criteria_referenced": "Milliman Care Guidelines knee ligament repair pathway"
+  },
+  "expected_avg_confidence": 0.91
+}
+

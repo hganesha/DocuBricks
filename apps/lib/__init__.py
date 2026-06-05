@@ -1,16 +1,17 @@
-"""
-apps/lib — DocuBricks shared application library.
+"""Shared application helpers for the DocuBricks Databricks Apps.
 
-All three Streamlit apps (portal, review, admin) import from this package.
+Submodules intentionally own their optional Databricks/runtime dependencies so
+tests and lightweight scripts can import ``apps.lib`` without installing every
+workspace connector.
 """
-from .lakebase import lakebase_conn, lb_query, lb_exec, lb_exec_returning
-from .sql_warehouse import wh_query, wh_query_df
-from .auth import get_session, require_role
-from .theme import apply_docubricks_theme
 
 __all__ = [
-    "lakebase_conn", "lb_query", "lb_exec", "lb_exec_returning",
-    "wh_query", "wh_query_df",
-    "get_session", "require_role",
-    "apply_docubricks_theme",
+    "auth",
+    "components",
+    "databricks_api",
+    "genie",
+    "lakebase",
+    "otel",
+    "sql_warehouse",
+    "theme",
 ]

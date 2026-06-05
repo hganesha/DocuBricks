@@ -14,10 +14,22 @@ import os
 from contextlib import contextmanager
 from typing import Any
 
-import psycopg2
-import psycopg2.extras
-import psycopg2.pool
-import streamlit as st
+try:
+    import psycopg2
+    import psycopg2.extras
+    import psycopg2.pool
+except ModuleNotFoundError:
+    psycopg2 = None  # type: ignore[assignment]
+
+try:
+    import streamlit as st
+except ModuleNotFoundError:
+    class _StreamlitFallback:
+        @staticmethod
+        def cache_resource(fn):
+            return fn
+
+    st = _StreamlitFallback()  # type: ignore[assignment]
 
 
 # ---------------------------------------------------------------------------
@@ -25,8 +37,13 @@ import streamlit as st
 # ---------------------------------------------------------------------------
 
 @st.cache_resource
-def _pool() -> psycopg2.pool.ThreadedConnectionPool:
+def _pool() -> Any:
     """Return the singleton ThreadedConnectionPool (cached per Streamlit process)."""
+    if psycopg2 is None:
+        raise RuntimeError(
+            "psycopg2 is required for Lakebase connections. Install psycopg2-binary "
+            "in the Databricks App environment."
+        )
     dsn = os.environ["LAKEBASE_CONN"]
     return psycopg2.pool.ThreadedConnectionPool(
         minconn=2,
@@ -73,7 +90,8 @@ def lb_query(sql: str, params: tuple = ()) -> list[dict]:
     maintain positional indexes.
     """
     with lakebase_conn() as conn:
-        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        cursor_factory = psycopg2.extras.RealDictCursor if psycopg2 is not None else None
+        with conn.cursor(cursor_factory=cursor_factory) as cur:
             cur.execute(sql, params)
             rows = cur.fetchall()
             # RealDictRow is not a plain dict — convert so callers get real dicts
@@ -98,7 +116,8 @@ def lb_exec_returning(sql: str, params: tuple = ()) -> dict | None:
     first row as a dict, or ``None`` if no row was returned.
     """
     with lakebase_conn() as conn:
-        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+        cursor_factory = psycopg2.extras.RealDictCursor if psycopg2 is not None else None
+        with conn.cursor(cursor_factory=cursor_factory) as cur:
             cur.execute(sql, params)
             row = cur.fetchone()
             return dict(row) if row is not None else None

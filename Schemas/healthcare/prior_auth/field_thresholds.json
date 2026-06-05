@@ -1,0 +1,45 @@
+{
+  "authorization_id": {
+    "min_confidence": 0.94,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Authorization ID links the request to payer decisions, claim edits, and appeals."
+  },
+  "request_status": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Status determines whether the downstream workflow releases, appeals, or holds care."
+  },
+  "patient_member_id": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Member ID is required for eligibility, payer lookup, and claims matching."
+  },
+  "requesting_provider_npi": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Provider NPI identifies the ordering clinician or organization."
+  },
+  "procedure_codes": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "CPT/HCPCS codes define the requested service and payer coverage rules."
+  },
+  "denial_reason_text": {
+    "min_confidence": 0.82,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Denial rationale is required for appeal packet preparation."
+  }
+}
+

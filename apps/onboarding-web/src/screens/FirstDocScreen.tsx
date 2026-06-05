@@ -3,7 +3,7 @@ import { CheckCircle2, Upload, XCircle } from 'lucide-react'
 import { Button } from '../components'
 import { useOnboardingStore } from '../store'
 import { api } from '../api'
-import type { DocumentProcessingResult } from '../types'
+import type { DocumentProcessingResult, OnboardingConfig } from '../types'
 import { cn } from '../lib/utils'
 
 function formatDocType(t: string) {
@@ -24,7 +24,7 @@ export default function FirstDocScreen() {
     setUploadedFile(file)
     setProcessing(true)
     setResult(null)
-    const r = await api.processDocument(file, store.config as any, () => {})
+    const r = await api.processDocument(file, store.config as OnboardingConfig, () => {})
     setResult(r)
     setProcessing(false)
   }
@@ -32,7 +32,7 @@ export default function FirstDocScreen() {
   async function handleSample(key: 'sample_kyc' | 'sample_mortgage' | 'sample_aml') {
     setProcessing(true)
     setResult(null)
-    const r = await api.processDocument(key, store.config as any, () => {})
+    const r = await api.processDocument(key, store.config as OnboardingConfig, () => {})
     setResult(r)
     setProcessing(false)
   }

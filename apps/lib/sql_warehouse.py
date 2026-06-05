@@ -18,9 +18,25 @@ from __future__ import annotations
 import os
 from typing import Any
 
-import pandas as pd
-import streamlit as st
-from databricks import sql as dbsql
+try:
+    import pandas as pd
+except ModuleNotFoundError:
+    pd = None  # type: ignore[assignment]
+
+try:
+    import streamlit as st
+except ModuleNotFoundError:
+    class _StreamlitFallback:
+        @staticmethod
+        def cache_resource(fn):
+            return fn
+
+    st = _StreamlitFallback()  # type: ignore[assignment]
+
+try:
+    from databricks import sql as dbsql
+except (ImportError, ModuleNotFoundError):
+    dbsql = None  # type: ignore[assignment]
 
 
 # ---------------------------------------------------------------------------
@@ -30,6 +46,11 @@ from databricks import sql as dbsql
 @st.cache_resource
 def _wh_conn():
     """Return a cached Databricks SQL connection object."""
+    if dbsql is None:
+        raise RuntimeError(
+            "databricks-sql-connector is required for SQL Warehouse queries. "
+            "Install it in the Databricks App environment."
+        )
     host = os.environ["DATABRICKS_HOST"].replace("https://", "").rstrip("/")
     http_path = os.environ["SQL_WH_HTTP_PATH"]
     token = os.environ["DATABRICKS_TOKEN"]
@@ -67,6 +88,10 @@ def wh_query_df(sql_text: str, params: tuple = ()) -> pd.DataFrame:
     Column names are taken from the cursor description; an empty DataFrame
     with correct columns is returned when the query produces no rows.
     """
+    if pd is None:
+        raise RuntimeError(
+            "pandas is required for wh_query_df. Install pandas in the Databricks App environment."
+        )
     conn = _wh_conn()
     with conn.cursor() as cur:
         cur.execute(sql_text, params if params else None)

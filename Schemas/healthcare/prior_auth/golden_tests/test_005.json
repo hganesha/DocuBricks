@@ -1,0 +1,28 @@
+{
+  "test_case_id": "prior_auth_005",
+  "document_type": "prior_auth",
+  "description": "Expired home health authorization",
+  "parsed_text": "Riverbend Medicare Advantage\nAuthorization Summary\nAuthorization Number: HH-2025-21009\nStatus: EXPIRED\nRequest Date: 2025-06-01\nDecision Date: 2025-06-02\nAuthorization End Date: 2025-07-15\nPatient: Beatrice Allen\nDOB: 1942-10-30\nMember ID: RMA01020304\nOrdering Provider: Paul Mendes MD NPI 2223334445\nServicing Provider: HomeFirst Health NPI 5556667778\nService: Skilled nursing home visits\nHCPCS: G0299\nDiagnosis: I50.9\nUnits Requested: 12\nUnits Approved: 12",
+  "expected_json": {
+    "authorization_id": "HH-2025-21009",
+    "request_status": "Expired",
+    "request_date": "2025-06-01",
+    "decision_date": "2025-06-02",
+    "expiration_date": "2025-07-15",
+    "patient_name": "Beatrice Allen",
+    "patient_dob": "1942-10-30",
+    "patient_member_id": "RMA01020304",
+    "payer_name": "Riverbend Medicare Advantage",
+    "requesting_provider_name": "Paul Mendes MD",
+    "requesting_provider_npi": "2223334445",
+    "servicing_provider_name": "HomeFirst Health",
+    "servicing_provider_npi": "5556667778",
+    "diagnosis_codes": ["I50.9"],
+    "procedure_codes": ["G0299"],
+    "service_description": "Skilled nursing home visits",
+    "units_requested": 12,
+    "units_approved": 12
+  },
+  "expected_avg_confidence": 0.92
+}
+

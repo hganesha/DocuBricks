@@ -1,0 +1,30 @@
+{
+  "test_case_id": "lab_report_003",
+  "document_type": "lab_report",
+  "description": "Corrected microbiology report with qualitative results",
+  "parsed_text": "Northline Reference Laboratory\nCLIA: 33D0099887\nCORRECTED REPORT\nPatient: Stevens, Allison\nDOB 1991-12-04\nMRN NL-77820\nOrdering: Marcus Lee, MD\nSpecimen: Urine\nCollected 2025-09-08\nReceived 2025-09-08\nReported 2025-09-10\n\nCulture, Urine: POSITIVE\nOrganism: E. coli\nNitrofurantoin: SUSCEPTIBLE\nCiprofloxacin: RESISTANT\nCorrection: Ciprofloxacin susceptibility amended after repeat panel.",
+  "expected_json": {
+    "report_date": "2025-09-10",
+    "collection_date": "2025-09-08",
+    "received_date": "2025-09-08",
+    "ordering_provider_name": "Marcus Lee, MD",
+    "ordering_provider_npi": null,
+    "patient_name": "Stevens, Allison",
+    "patient_dob": "1991-12-04",
+    "patient_mrn": "NL-77820",
+    "lab_name": "Northline Reference Laboratory",
+    "lab_clia_number": "33D0099887",
+    "specimen_type": "Urine",
+    "test_results": [
+      {"test_name": "Culture, Urine", "loinc_code": null, "result_value": "POSITIVE", "unit": null, "reference_range": null, "flag": null, "status": "Corrected"},
+      {"test_name": "Nitrofurantoin", "loinc_code": null, "result_value": "SUSCEPTIBLE", "unit": null, "reference_range": null, "flag": null, "status": "Corrected"},
+      {"test_name": "Ciprofloxacin", "loinc_code": null, "result_value": "RESISTANT", "unit": null, "reference_range": null, "flag": null, "status": "Corrected"}
+    ],
+    "overall_status": "Corrected",
+    "critical_values_present": false,
+    "pathologist_name": null,
+    "clinical_notes": "Correction: Ciprofloxacin susceptibility amended after repeat panel."
+  },
+  "expected_avg_confidence": 0.90
+}
+

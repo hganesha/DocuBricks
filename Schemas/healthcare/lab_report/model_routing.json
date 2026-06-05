@@ -1,0 +1,8 @@
+{
+  "preferred_model": "databricks-gemini-flash",
+  "fallback_model": "databricks-dbrx-instruct",
+  "max_tokens": 4096,
+  "temperature": 0.0,
+  "rationale": "Lab reports often contain dense result tables, flags, footnotes, and fax artifacts. Gemini Flash is preferred for scanned or mixed-layout reports; DBRX Instruct is acceptable for digitally native text exports."
+}
+

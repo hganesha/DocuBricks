@@ -1,0 +1,26 @@
+{
+  "test_case_id": "prior_auth_001",
+  "document_type": "prior_auth",
+  "description": "Approved imaging authorization",
+  "parsed_text": "Payer: Northstar Health Plan\nAuthorization Approval Notice\nAuth ID: PA-2025-884201\nStatus: APPROVED\nRequest Date: 2025-10-05\nDecision Date: 2025-10-06\nValid Through: 2025-12-31\nMember: Alicia Martin\nDOB: 1975-05-11\nMember ID: NSH44590012\nRequesting Provider: Ridgeview Orthopedics\nRequesting NPI: 1029384756\nServicing Provider: Lakeside Imaging Center\nServicing NPI: 9081726354\nDiagnosis: M54.16\nProcedure: 72148 MRI lumbar spine without contrast\nUnits Requested: 1\nUnits Approved: 1\nPlace of Service: Outpatient Hospital",
+  "expected_json": {
+    "authorization_id": "PA-2025-884201",
+    "request_status": "Approved",
+    "request_date": "2025-10-05",
+    "decision_date": "2025-10-06",
+    "expiration_date": "2025-12-31",
+    "patient_name": "Alicia Martin",
+    "patient_dob": "1975-05-11",
+    "patient_member_id": "NSH44590012",
+    "payer_name": "Northstar Health Plan",
+    "requesting_provider_npi": "1029384756",
+    "servicing_provider_npi": "9081726354",
+    "diagnosis_codes": ["M54.16"],
+    "procedure_codes": ["72148"],
+    "units_requested": 1,
+    "units_approved": 1,
+    "denial_reason_text": null
+  },
+  "expected_avg_confidence": 0.94
+}
+

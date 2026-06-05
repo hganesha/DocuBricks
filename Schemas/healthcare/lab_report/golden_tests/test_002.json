@@ -1,0 +1,29 @@
+{
+  "test_case_id": "lab_report_002",
+  "document_type": "lab_report",
+  "description": "Critical potassium value with physician notification note",
+  "parsed_text": "Metro Hospital Laboratory\nCLIA # 12D7654321\nPatient Name: Owens, Daniel\nDOB: 1965-07-09\nPatient MRN: HOSP-902114\nProvider: Elena Morris DO NPI 2468135790\nSpecimen Type: Serum\nCollection Date: 2025-11-14\nReceived: 2025-11-14\nReport Date: 2025-11-14\nFINAL REPORT\n\nTest          Result Unit Reference Flag\nPotassium     6.4    mmol/L 3.5-5.1 C\nSodium        139    mmol/L 136-145\n\nCritical Value Notification: Potassium 6.4 called to Dr. Morris at 18:22.",
+  "expected_json": {
+    "report_date": "2025-11-14",
+    "collection_date": "2025-11-14",
+    "received_date": "2025-11-14",
+    "ordering_provider_name": "Elena Morris DO",
+    "ordering_provider_npi": "2468135790",
+    "patient_name": "Owens, Daniel",
+    "patient_dob": "1965-07-09",
+    "patient_mrn": "HOSP-902114",
+    "lab_name": "Metro Hospital Laboratory",
+    "lab_clia_number": "12D7654321",
+    "specimen_type": "Serum",
+    "test_results": [
+      {"test_name": "Potassium", "loinc_code": null, "result_value": "6.4", "unit": "mmol/L", "reference_range": "3.5-5.1", "flag": "C", "status": "Final"},
+      {"test_name": "Sodium", "loinc_code": null, "result_value": "139", "unit": "mmol/L", "reference_range": "136-145", "flag": null, "status": "Final"}
+    ],
+    "overall_status": "Final",
+    "critical_values_present": true,
+    "pathologist_name": null,
+    "clinical_notes": "Critical Value Notification: Potassium 6.4 called to Dr. Morris at 18:22."
+  },
+  "expected_avg_confidence": 0.93
+}
+

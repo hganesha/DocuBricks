@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { XCircle } from 'lucide-react'
 import { Button, StepItem } from '../components'
@@ -13,13 +13,7 @@ export default function DeployingScreen() {
 
   const [failed, setFailed] = useState(false)
 
-  useEffect(() => {
-    if (hasStarted.current) return
-    hasStarted.current = true
-    startProvisioning()
-  }, [])
-
-  async function startProvisioning() {
+  const startProvisioning = useCallback(async () => {
     setFailed(false)
     store.initDeployLog()
     try {
@@ -32,7 +26,13 @@ export default function DeployingScreen() {
     } catch {
       setFailed(true)
     }
-  }
+  }, [navigate, store])
+
+  useEffect(() => {
+    if (hasStarted.current) return
+    hasStarted.current = true
+    startProvisioning()
+  }, [startProvisioning])
 
   const deployLog = store.deployLog
   const currentStep = deployLog.find((s) => s.status === 'running')
