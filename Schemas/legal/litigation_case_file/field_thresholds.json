@@ -1,0 +1,30 @@
+{
+  "case_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "High-impact field for Litigation Case File workflow."
+  },
+  "case_number": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Litigation Case File workflow."
+  },
+  "next_deadline_date": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Litigation Case File workflow."
+  },
+  "exposure_amount": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Litigation Case File workflow."
+  }
+}

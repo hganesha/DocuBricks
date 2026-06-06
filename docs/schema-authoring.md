@@ -6,13 +6,20 @@ This guide explains how to add a new document type to DocuBricks or customise an
 
 ## Schema Bundle Anatomy
 
-Every document type is defined by a **schema bundle** — a directory of exactly 5 files stored in `schema_registry/<vertical>/<document_type>/`.
+Every document type is defined by a **schema bundle** — a directory of required schema assets stored in `Schemas/<vertical>/<document_type>/`.
 
 ```
-schema_registry/
+Schemas/
+  schema_catalog.json        ← inventory of available and future document types
+  prompt_catalog.json        ← prompt inventory tied to available schema entries
+  prompts/
+    fs/
+      mortgage_application/
+        prompt_v1.txt        ← centralized prompt copy for registry/runtime use
   fs/
     mortgage_application/
-      prompt.txt                  ← extraction prompt sent to the LLM
+      fields.json                 ← machine-readable field schema
+      prompt_v1.txt               ← bundle-local prompt copy for compatibility
       validation_rules.json       ← field-level validation rules and severities
       field_thresholds.json       ← per-field confidence thresholds
       model_routing.json          ← which model to use and fallback chain
@@ -22,7 +29,43 @@ schema_registry/
         ...
 ```
 
-All 5 components must be present before the schema promotion gate will pass.
+All components must be present before the schema promotion gate will pass for an `available` schema.
+
+`fields.json` is the canonical machine-readable field inventory. Prompts should reference or mirror it, but field definitions should not live only in prompt prose.
+
+`prompt_catalog.json` is the canonical prompt inventory. It ties each `available` `schema_catalog.json` entry to:
+
+- a centralized prompt under `Schemas/prompts/<vertical>/<document_type>/prompt_v1.txt`
+- the corresponding `fields.json`
+- validation, threshold, and model routing assets
+- a SHA-256 checksum for stale prompt detection
+
+The bundle-local `prompt_v1.txt` files are retained for compatibility with existing bootstrap and runtime loaders. New automation should prefer `prompt_catalog.json` for prompt discovery.
+
+### Field Schema Format
+
+```json
+{
+  "document_type": "mortgage_application",
+  "vertical": "fs",
+  "family": "mortgage_real_estate_finance",
+  "schema_version": "MISMO_v3.4_URLA",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "loan_amount",
+      "type": "number",
+      "required": true,
+      "description": "Requested loan amount as decimal."
+    }
+  ]
+}
+```
 
 ---
 

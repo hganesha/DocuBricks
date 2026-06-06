@@ -1,0 +1,32 @@
+[
+  {
+    "name": "applicant_legal_name_present",
+    "expression": "applicant_legal_name IS NOT NULL AND LENGTH(TRIM(applicant_legal_name)) > 0",
+    "severity": "fail",
+    "description": "A commercial loan application is not actionable without borrower legal identity."
+  },
+  {
+    "name": "requested_loan_amount_positive",
+    "expression": "requested_loan_amount IS NOT NULL AND requested_loan_amount > 0",
+    "severity": "fail",
+    "description": "Requested loan amount is required and must be positive."
+  },
+  {
+    "name": "application_date_valid",
+    "expression": "application_date IS NULL OR application_date <= CURRENT_DATE()",
+    "severity": "warn",
+    "description": "Future application dates usually indicate extraction or data-entry errors."
+  },
+  {
+    "name": "entity_type_present",
+    "expression": "applicant_entity_type IS NOT NULL AND LENGTH(TRIM(applicant_entity_type)) > 0",
+    "severity": "warn",
+    "description": "Entity type is important for KYB, authority, and beneficial ownership review."
+  },
+  {
+    "name": "guarantors_array_valid",
+    "expression": "guarantor_names IS NULL OR JSON_ARRAY_LENGTH(guarantor_names) >= 0",
+    "severity": "warn",
+    "description": "Guarantors should be represented as an array when present."
+  }
+]

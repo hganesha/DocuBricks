@@ -1,0 +1,122 @@
+{
+  "document_type": "invoice",
+  "vertical": "fs",
+  "family": "accounts_payable",
+  "schema_version": "FS_INVOICE_v0",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "invoice_number",
+      "type": "string",
+      "required": true,
+      "description": "Invoice number"
+    },
+    {
+      "name": "invoice_date",
+      "type": "date",
+      "required": false,
+      "description": "Invoice date"
+    },
+    {
+      "name": "due_date",
+      "type": "date",
+      "required": false,
+      "description": "Due date"
+    },
+    {
+      "name": "vendor_name",
+      "type": "string",
+      "required": true,
+      "description": "Vendor name"
+    },
+    {
+      "name": "vendor_tax_id_masked",
+      "type": "string",
+      "required": false,
+      "description": "Vendor tax id masked"
+    },
+    {
+      "name": "vendor_address",
+      "type": "string",
+      "required": false,
+      "description": "Vendor address"
+    },
+    {
+      "name": "customer_name",
+      "type": "string",
+      "required": false,
+      "description": "Customer name"
+    },
+    {
+      "name": "customer_address",
+      "type": "string",
+      "required": false,
+      "description": "Customer address"
+    },
+    {
+      "name": "purchase_order_number",
+      "type": "string",
+      "required": false,
+      "description": "Purchase order number"
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "description": "Currency"
+    },
+    {
+      "name": "subtotal",
+      "type": "number",
+      "required": false,
+      "description": "Subtotal"
+    },
+    {
+      "name": "tax_amount",
+      "type": "number",
+      "required": false,
+      "description": "Tax amount"
+    },
+    {
+      "name": "shipping_amount",
+      "type": "number",
+      "required": false,
+      "description": "Shipping amount"
+    },
+    {
+      "name": "discount_amount",
+      "type": "number",
+      "required": false,
+      "description": "Discount amount"
+    },
+    {
+      "name": "total_amount",
+      "type": "number",
+      "required": true,
+      "description": "Total amount"
+    },
+    {
+      "name": "amount_due",
+      "type": "number",
+      "required": false,
+      "description": "Amount due"
+    },
+    {
+      "name": "payment_terms",
+      "type": "number",
+      "required": false,
+      "description": "Payment terms"
+    },
+    {
+      "name": "line_item_count",
+      "type": "integer",
+      "required": false,
+      "description": "Line item count"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "test_case_id": "regulatory_submission_001",
+  "document_type": "regulatory_submission",
+  "description": "SEC Form 8-K submission with accession number and material event",
+  "parsed_text": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION\nFORM 8-K CURRENT REPORT\nRegistrant: Meridian Bankshares Inc.\nCIK: 0001234567\nAccession Number: 0001234567-26-000041\nSubmission Date: April 8, 2026\nAccepted: April 8, 2026\nFiling Period: April 8, 2026 to April 8, 2026\nStatus: Accepted\nSubject: Entry into a material definitive agreement relating to a $300 million syndicated credit facility.\nThe registrant reports a material change under Item 1.01. No confidential treatment request is included.",
+  "expected_json": {
+    "submission_type": "8-K",
+    "regulator": "SEC",
+    "submission_date": "2026-04-08",
+    "acceptance_date": "2026-04-08",
+    "decision_date": null,
+    "submission_status": "Accepted",
+    "submission_id": "0001234567-26-000041",
+    "cover_letter_date": null,
+    "filing_period_from": "2026-04-08",
+    "filing_period_to": "2026-04-08",
+    "submitting_entity_name": "Meridian Bankshares Inc.",
+    "submitting_entity_id": "0001234567",
+    "review_division": null,
+    "subject_of_submission": "Entry into a material definitive agreement relating to a $300 million syndicated credit facility.",
+    "material_change_described": true,
+    "confidentiality_request": false
+  },
+  "expected_avg_confidence": 0.94
+}

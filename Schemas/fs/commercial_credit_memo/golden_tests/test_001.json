@@ -1,0 +1,33 @@
+{
+  "test_case_id": "commercial_credit_memo_001",
+  "document_type": "commercial_credit_memo",
+  "description": "Credit approval memo with facility amount, ratios, rating, and conditions",
+  "parsed_text": "COMMERCIAL CREDIT MEMORANDUM\nMemo Date: 2026-03-01\nBorrower: Prairie Ridge Manufacturing LLC\nIndustry: Precision metal components\nRelationship Manager: Aaron Patel\nUnderwriter: Mia Chen\nRequest: Approve $4,250,000 equipment term loan\nTotal Exposure After Approval: $5,100,000\nPurpose: Acquire CNC equipment and refinance existing equipment debt\nCollateral: First priority lien on financed equipment and blanket lien on business assets\nGuarantors: Elena Morris and Daniel Morris\nCurrent Risk Rating: 5\nProposed Risk Rating: 5\nPD: 1.85%\nDSCR: 1.42x\nDebt/EBITDA: 2.8x\nLTV: 72.0%\nLiquidity: Borrower maintains $1.6MM unrestricted cash and positive operating cash flow\nCovenants: Minimum DSCR 1.25x; maximum Debt/EBITDA 3.25x; quarterly compliance certificates\nPolicy Exceptions: Equipment appraisal older than 90 days\nApproval Authority: Regional Credit Committee\nApproval Status: Approved subject to conditions\nApproval Conditions: Updated appraisal; executed guaranties; UCC-1 filing\nNext Review Date: 2027-03-01",
+  "expected_json": {
+    "memo_date": "2026-03-01",
+    "borrower_name": "Prairie Ridge Manufacturing LLC",
+    "borrower_industry": "Precision metal components",
+    "relationship_manager_name": "Aaron Patel",
+    "underwriter_name": "Mia Chen",
+    "facility_type": "equipment term loan",
+    "proposed_commitment_amount": 4250000.0,
+    "total_exposure_amount": 5100000.0,
+    "loan_purpose": "Acquire CNC equipment and refinance existing equipment debt",
+    "collateral_summary": "First priority lien on financed equipment and blanket lien on business assets",
+    "guarantor_summary": "Elena Morris and Daniel Morris",
+    "risk_rating_current": "5",
+    "risk_rating_proposed": "5",
+    "probability_of_default": 1.85,
+    "debt_service_coverage_ratio": 1.42,
+    "leverage_ratio": 2.8,
+    "ltv_percent": 72.0,
+    "liquidity_summary": "Borrower maintains $1.6MM unrestricted cash and positive operating cash flow",
+    "covenant_summary": "Minimum DSCR 1.25x; maximum Debt/EBITDA 3.25x; quarterly compliance certificates",
+    "policy_exceptions": ["Equipment appraisal older than 90 days"],
+    "approval_authority": "Regional Credit Committee",
+    "approval_status": "Approved subject to conditions",
+    "approval_conditions": ["Updated appraisal", "executed guaranties", "UCC-1 filing"],
+    "next_review_date": "2027-03-01"
+  },
+  "expected_avg_confidence": 0.93
+}

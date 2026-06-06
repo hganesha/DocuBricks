@@ -1,0 +1,152 @@
+{
+  "document_type": "loan_agreement",
+  "vertical": "fs",
+  "family": "commercial_lending",
+  "schema_version": "fs_loan_agreement_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "agreement_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of the agreement."
+    },
+    {
+      "name": "borrower_name",
+      "type": "string",
+      "required": true,
+      "description": "Borrower legal name."
+    },
+    {
+      "name": "lender_name",
+      "type": "string",
+      "required": false,
+      "description": "Lender, administrative agent, or bank."
+    },
+    {
+      "name": "facility_type",
+      "type": "string",
+      "required": false,
+      "description": "Term loan, revolving credit facility, delayed draw, line of credit, or other."
+    },
+    {
+      "name": "commitment_amount",
+      "type": "number",
+      "required": false,
+      "description": "Principal commitment amount."
+    },
+    {
+      "name": "maturity_date",
+      "type": "date",
+      "required": false,
+      "description": "Final maturity date."
+    },
+    {
+      "name": "interest_rate_type",
+      "type": "string",
+      "required": false,
+      "description": "Fixed, floating, SOFR, prime, base rate, or other."
+    },
+    {
+      "name": "interest_rate_margin",
+      "type": "number",
+      "required": false,
+      "description": "Margin/spread as percent if stated."
+    },
+    {
+      "name": "benchmark_rate",
+      "type": "string",
+      "required": false,
+      "description": "SOFR, Term SOFR, Prime, Base Rate, or other."
+    },
+    {
+      "name": "default_rate_margin",
+      "type": "number",
+      "required": false,
+      "description": "Additional default interest margin."
+    },
+    {
+      "name": "amortization_terms",
+      "type": "string",
+      "required": false,
+      "description": "Payment/amortization description."
+    },
+    {
+      "name": "payment_frequency",
+      "type": "string",
+      "required": false,
+      "description": "Monthly, quarterly, semiannual, annual, on demand, or other."
+    },
+    {
+      "name": "collateral_description",
+      "type": "string",
+      "required": false,
+      "description": "Collateral securing the facility."
+    },
+    {
+      "name": "guarantor_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Guarantors."
+    },
+    {
+      "name": "affirmative_covenants",
+      "type": "array<string>",
+      "required": false,
+      "description": "Affirmative covenants."
+    },
+    {
+      "name": "negative_covenants",
+      "type": "array<string>",
+      "required": false,
+      "description": "Negative covenants."
+    },
+    {
+      "name": "financial_covenants",
+      "type": "array<string>",
+      "required": false,
+      "description": "DSCR, leverage, liquidity, net worth, borrowing base, or other covenants."
+    },
+    {
+      "name": "reporting_requirements",
+      "type": "array<string>",
+      "required": false,
+      "description": "Financial statements, certificates, borrowing base reports, or other reporting."
+    },
+    {
+      "name": "events_of_default",
+      "type": "array<string>",
+      "required": false,
+      "description": "Events of default."
+    },
+    {
+      "name": "governing_law",
+      "type": "string",
+      "required": false,
+      "description": "Governing law jurisdiction."
+    },
+    {
+      "name": "jurisdiction_venue",
+      "type": "string",
+      "required": false,
+      "description": "Court or venue clause."
+    },
+    {
+      "name": "jury_trial_waiver",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether a jury trial waiver appears."
+    },
+    {
+      "name": "assignment_clause_present",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether assignments/transfers are addressed."
+    }
+  ]
+}

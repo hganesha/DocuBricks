@@ -1,0 +1,116 @@
+{
+  "document_type": "aml_sar",
+  "vertical": "fs",
+  "family": "kyc_aml_sanctions",
+  "schema_version": "FS_AML_SAR_v0",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "sar_id",
+      "type": "string",
+      "required": false,
+      "description": "Sar id"
+    },
+    {
+      "name": "filing_institution_name",
+      "type": "string",
+      "required": false,
+      "description": "Filing institution name"
+    },
+    {
+      "name": "filing_date",
+      "type": "date",
+      "required": false,
+      "description": "Filing date"
+    },
+    {
+      "name": "subject_name",
+      "type": "string",
+      "required": true,
+      "description": "Subject name"
+    },
+    {
+      "name": "subject_tax_id_masked",
+      "type": "string",
+      "required": false,
+      "description": "Subject tax id masked"
+    },
+    {
+      "name": "subject_address",
+      "type": "string",
+      "required": false,
+      "description": "Subject address"
+    },
+    {
+      "name": "subject_account_number_masked",
+      "type": "string",
+      "required": false,
+      "description": "Subject account number masked"
+    },
+    {
+      "name": "activity_start_date",
+      "type": "date",
+      "required": false,
+      "description": "Activity start date"
+    },
+    {
+      "name": "activity_end_date",
+      "type": "date",
+      "required": false,
+      "description": "Activity end date"
+    },
+    {
+      "name": "suspicious_activity_type",
+      "type": "string",
+      "required": false,
+      "description": "Suspicious activity type"
+    },
+    {
+      "name": "amount_involved",
+      "type": "number",
+      "required": false,
+      "description": "Amount involved"
+    },
+    {
+      "name": "transaction_count",
+      "type": "integer",
+      "required": false,
+      "description": "Transaction count"
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "description": "Currency"
+    },
+    {
+      "name": "law_enforcement_contacted",
+      "type": "string",
+      "required": false,
+      "description": "Law enforcement contacted"
+    },
+    {
+      "name": "narrative_summary",
+      "type": "string",
+      "required": false,
+      "description": "Narrative summary"
+    },
+    {
+      "name": "branch_location",
+      "type": "string",
+      "required": false,
+      "description": "Branch location"
+    },
+    {
+      "name": "investigator_name",
+      "type": "string",
+      "required": false,
+      "description": "Investigator name"
+    }
+  ]
+}

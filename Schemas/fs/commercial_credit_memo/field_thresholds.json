@@ -1,0 +1,37 @@
+{
+  "borrower_name": {
+    "min_confidence": 0.93,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "Borrower identity must align with the credit file."
+  },
+  "proposed_commitment_amount": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "Commitment amount controls approval authority and exposure."
+  },
+  "risk_rating_proposed": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Risk rating is a regulated credit monitoring and allowance input."
+  },
+  "approval_status": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Approval status determines whether the memo is actionable."
+  },
+  "policy_exceptions": {
+    "min_confidence": 0.82,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Policy exceptions should be reviewable by credit administration."
+  }
+}

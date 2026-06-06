@@ -9,6 +9,7 @@ const ResourcesScreen = React.lazy(() => import('./screens/ResourcesScreen'))
 const ReviewScreen = React.lazy(() => import('./screens/ReviewScreen'))
 const DeployingScreen = React.lazy(() => import('./screens/DeployingScreen'))
 const FirstDocScreen = React.lazy(() => import('./screens/FirstDocScreen'))
+const CatalogScreen = React.lazy(() => import('./screens/CatalogScreen'))
 
 function PageFallback() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/review" element={<ReviewScreen />} />
           <Route path="/deploying" element={<DeployingScreen />} />
           <Route path="/first-doc" element={<FirstDocScreen />} />
+          <Route path="/catalog" element={<CatalogScreen />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

@@ -1,0 +1,37 @@
+{
+  "applicant_legal_name": {
+    "min_confidence": 0.93,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Borrower legal identity anchors KYB, credit file, and downstream loan records."
+  },
+  "applicant_tax_id_masked": {
+    "min_confidence": 0.90,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "Masked EIN supports borrower identity matching."
+  },
+  "requested_loan_amount": {
+    "min_confidence": 0.94,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "Requested amount drives underwriting and approval thresholds."
+  },
+  "requested_facility_type": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Facility type routes the application to the right credit workflow."
+  },
+  "signature_name": {
+    "min_confidence": 0.86,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Signer identity supports authorization review."
+  }
+}

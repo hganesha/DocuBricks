@@ -1,0 +1,128 @@
+{
+  "document_type": "ucc_financing_statement",
+  "vertical": "fs",
+  "family": "commercial_lending",
+  "schema_version": "fs_ucc_financing_statement_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "filing_type",
+      "type": "string",
+      "required": false,
+      "description": "Initial financing statement, amendment, continuation, assignment, termination, fixture filing, or other."
+    },
+    {
+      "name": "filing_number",
+      "type": "string",
+      "required": true,
+      "description": "State filing or document number."
+    },
+    {
+      "name": "filing_date",
+      "type": "date",
+      "required": true,
+      "description": "Filing date."
+    },
+    {
+      "name": "lapse_date",
+      "type": "date",
+      "required": false,
+      "description": "Lapse or continuation deadline if present."
+    },
+    {
+      "name": "filing_office",
+      "type": "string",
+      "required": false,
+      "description": "Secretary of State, county, or filing office."
+    },
+    {
+      "name": "filing_jurisdiction",
+      "type": "string",
+      "required": false,
+      "description": "State or jurisdiction."
+    },
+    {
+      "name": "debtor_names",
+      "type": "array<string>",
+      "required": true,
+      "description": "Debtor legal names."
+    },
+    {
+      "name": "debtor_addresses",
+      "type": "array<string>",
+      "required": false,
+      "description": "Debtor addresses."
+    },
+    {
+      "name": "secured_party_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Secured party names."
+    },
+    {
+      "name": "secured_party_addresses",
+      "type": "array<string>",
+      "required": false,
+      "description": "Secured party addresses."
+    },
+    {
+      "name": "collateral_description",
+      "type": "string",
+      "required": false,
+      "description": "UCC collateral text."
+    },
+    {
+      "name": "fixture_filing_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether fixture filing is indicated."
+    },
+    {
+      "name": "transmitting_utility_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether debtor is transmitting utility."
+    },
+    {
+      "name": "public_finance_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Public finance transaction indicator."
+    },
+    {
+      "name": "manufactured_home_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Manufactured home transaction indicator."
+    },
+    {
+      "name": "related_filing_number",
+      "type": "string",
+      "required": false,
+      "description": "Original filing number for amendment, continuation, termination, or assignment."
+    },
+    {
+      "name": "assignee_name",
+      "type": "string",
+      "required": false,
+      "description": "Assignee if assignment is present."
+    },
+    {
+      "name": "termination_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether filing terminates a record."
+    },
+    {
+      "name": "continuation_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether filing continues a record."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "merchant_legal_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "High-impact field for Merchant Onboarding Application workflow."
+  },
+  "merchant_tax_id_masked": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Merchant Onboarding Application workflow."
+  },
+  "estimated_monthly_volume": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "High-impact field for Merchant Onboarding Application workflow."
+  },
+  "underwriting_decision": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Merchant Onboarding Application workflow."
+  }
+}

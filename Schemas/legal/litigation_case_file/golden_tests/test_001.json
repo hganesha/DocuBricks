@@ -1,0 +1,44 @@
+{
+  "test_case_id": "litigation_case_file_001",
+  "document_type": "litigation_case_file",
+  "description": "Seed golden test for Litigation Case File",
+  "parsed_text": "LITIGATION CASE FILE SUMMARY\nMatter ID: LIT-2026-087\nCase: Apex Supply Co. v. Meridian Bank, N.A.\nCourt: Superior Court of California, County of Los Angeles\nCase No.: 26STCV10482\nCase Type: Commercial contract dispute\nPlaintiffs: Apex Supply Co.\nDefendants: Meridian Bank, N.A.; Meridian Commercial Finance LLC\nClient Role: Defendant\nLead Counsel: Andrea Wolfe\nLaw Firm: Wolfe & Kim LLP\nInitial Filing Date: 2026-02-11\nNext Deadline: July 15, 2026 - opposition to motion for preliminary injunction\nClaims: breach of contract; negligent misrepresentation; unfair business practices\nKey Motions: motion for preliminary injunction pending; demurrer filed\nDiscovery Status: written discovery served, document production in progress\nHearings: 2026-07-29 preliminary injunction hearing; 2026-09-04 case management conference\nSettlement Status: mediation scheduled, no demand accepted\nExposure: $8,500,000\nCase Status: Open",
+  "expected_json": {
+    "matter_id": "LIT-2026-087",
+    "case_name": "Apex Supply Co. v. Meridian Bank, N.A.",
+    "court_name": "Superior Court of California, County of Los Angeles",
+    "case_number": "26STCV10482",
+    "case_type": "Commercial contract dispute",
+    "plaintiff_names": [
+      "Apex Supply Co."
+    ],
+    "defendant_names": [
+      "Meridian Bank, N.A.",
+      "Meridian Commercial Finance LLC"
+    ],
+    "client_role": "Defendant",
+    "lead_counsel_name": "Andrea Wolfe",
+    "law_firm": "Wolfe & Kim LLP",
+    "filing_date": "2026-02-11",
+    "next_deadline_date": "2026-07-15",
+    "next_deadline_description": "opposition to motion for preliminary injunction",
+    "claims_or_causes": [
+      "breach of contract",
+      "negligent misrepresentation",
+      "unfair business practices"
+    ],
+    "key_motions": [
+      "motion for preliminary injunction pending",
+      "demurrer filed"
+    ],
+    "discovery_status": "written discovery served, document production in progress",
+    "hearing_dates": [
+      "2026-07-29 preliminary injunction hearing",
+      "2026-09-04 case management conference"
+    ],
+    "settlement_status": "mediation scheduled, no demand accepted",
+    "exposure_amount": 8500000.0,
+    "case_status": "Open"
+  },
+  "expected_avg_confidence": 0.92
+}

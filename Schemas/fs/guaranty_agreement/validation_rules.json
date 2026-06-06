@@ -1,0 +1,32 @@
+[
+  {
+    "name": "guarantor_name_present",
+    "expression": "guarantor_name IS NOT NULL AND LENGTH(TRIM(guarantor_name)) > 0",
+    "severity": "fail",
+    "description": "Guaranty agreement must identify the guarantor."
+  },
+  {
+    "name": "borrower_name_present",
+    "expression": "borrower_name IS NOT NULL AND LENGTH(TRIM(borrower_name)) > 0",
+    "severity": "warn",
+    "description": "Borrower should be captured to link guaranty to the obligation."
+  },
+  {
+    "name": "maximum_liability_positive",
+    "expression": "maximum_liability_amount IS NULL OR maximum_liability_amount > 0",
+    "severity": "warn",
+    "description": "Liability cap must be positive when present."
+  },
+  {
+    "name": "waivers_array_valid",
+    "expression": "waivers IS NULL OR JSON_ARRAY_LENGTH(waivers) >= 0",
+    "severity": "warn",
+    "description": "Waivers should be represented as an array."
+  },
+  {
+    "name": "governing_law_present",
+    "expression": "governing_law IS NOT NULL AND LENGTH(TRIM(governing_law)) > 0",
+    "severity": "warn",
+    "description": "Governing law should be captured for enforceability review."
+  }
+]

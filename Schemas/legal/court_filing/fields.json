@@ -1,0 +1,140 @@
+{
+  "document_type": "court_filing",
+  "vertical": "legal",
+  "family": "litigation_disputes",
+  "schema_version": "legal_court_filing_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "filing_type",
+      "type": "string",
+      "required": false,
+      "description": "The type of court document. One of: Complaint | Answer | Motion | Brief | Opposition | Reply | Order | Judgment | Stipulation | Subpoena | Notice | Declaration | Deposition | Petition | Other"
+    },
+    {
+      "name": "court_level",
+      "type": "string",
+      "required": false,
+      "description": "The level of the court. One of: Federal | State | Appellate | Administrative | Tribal | Other"
+    },
+    {
+      "name": "court_name",
+      "type": "string",
+      "required": false,
+      "description": "Full official name of the court (e.g., \"United States District Court for the Southern District of New York\", \"Superior Court of the State of California, County of Los Angeles\")"
+    },
+    {
+      "name": "district_or_division",
+      "type": "string",
+      "required": false,
+      "description": "The specific district, division, or department of the court (e.g., \"Southern District of New York\", \"Civil Division, Dept. 45\")"
+    },
+    {
+      "name": "judge_name",
+      "type": "string",
+      "required": false,
+      "description": "Name of the presiding judge or magistrate (null if not yet assigned or not stated)"
+    },
+    {
+      "name": "case_number",
+      "type": "string",
+      "required": true,
+      "description": "The official docket or case number assigned by the court (e.g., \"1:25-cv-04812-LTS\", \"Case No. BC712345\")"
+    },
+    {
+      "name": "case_name",
+      "type": "string",
+      "required": false,
+      "description": "The case caption name (e.g., \"Apex Corp. v. Meridian Technologies, Inc.\")"
+    },
+    {
+      "name": "filing_date",
+      "type": "date",
+      "required": false,
+      "description": "Date the document was filed with the court, format YYYY-MM-DD"
+    },
+    {
+      "name": "hearing_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of any associated hearing, trial, or oral argument, format YYYY-MM-DD (null if not scheduled or not stated)"
+    },
+    {
+      "name": "plaintiff_name",
+      "type": "string",
+      "required": false,
+      "description": "Full name of the plaintiff(s); if multiple, concatenate with \"; \" separator"
+    },
+    {
+      "name": "defendant_name",
+      "type": "string",
+      "required": false,
+      "description": "Full name of the defendant(s); if multiple, concatenate with \"; \" separator"
+    },
+    {
+      "name": "filing_party",
+      "type": "string",
+      "required": false,
+      "description": "Which party filed this document. One of: Plaintiff | Defendant | Third_Party | Court | Other"
+    },
+    {
+      "name": "attorney_name",
+      "type": "string",
+      "required": false,
+      "description": "Full name of the attorney signing or filing the document"
+    },
+    {
+      "name": "bar_number",
+      "type": "string",
+      "required": false,
+      "description": "State bar number of the filing attorney"
+    },
+    {
+      "name": "law_firm",
+      "type": "string",
+      "required": false,
+      "description": "Name of the law firm representing the filing party (null if in-house or pro se)"
+    },
+    {
+      "name": "attorney_email",
+      "type": "string",
+      "required": false,
+      "description": "Email address of the filing attorney (null if not provided)"
+    },
+    {
+      "name": "relief_requested",
+      "type": "string",
+      "required": false,
+      "description": "Summary of the relief sought in this filing (up to 300 chars)"
+    },
+    {
+      "name": "causes_of_action",
+      "type": "array<string>",
+      "required": false,
+      "description": "Array of strings naming each cause of action or claim (e.g., [\"Breach of Contract\", \"Fraudulent Misrepresentation\", \"Unjust Enrichment\"])"
+    },
+    {
+      "name": "jurisdictional_basis",
+      "type": "string",
+      "required": false,
+      "description": "The basis for the court's jurisdiction. One of: Federal_Question | Diversity | Supplemental | State | Bankruptcy | Admiralty | Other"
+    },
+    {
+      "name": "jury_demand",
+      "type": "boolean",
+      "required": false,
+      "description": "Boolean \u2014 true if the filing includes a demand for trial by jury"
+    },
+    {
+      "name": "pages",
+      "type": "integer",
+      "required": false,
+      "description": "Total number of pages in the filed document as integer (null if not stated)"
+    }
+  ]
+}

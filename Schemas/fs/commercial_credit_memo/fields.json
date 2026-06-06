@@ -1,0 +1,158 @@
+{
+  "document_type": "commercial_credit_memo",
+  "vertical": "fs",
+  "family": "commercial_lending",
+  "schema_version": "fs_commercial_credit_memo_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "memo_date",
+      "type": "date",
+      "required": false,
+      "description": "Credit memo date."
+    },
+    {
+      "name": "borrower_name",
+      "type": "string",
+      "required": true,
+      "description": "Borrower or obligor name."
+    },
+    {
+      "name": "borrower_industry",
+      "type": "string",
+      "required": false,
+      "description": "Industry or NAICS description."
+    },
+    {
+      "name": "relationship_manager_name",
+      "type": "string",
+      "required": false,
+      "description": "RM, banker, or officer."
+    },
+    {
+      "name": "underwriter_name",
+      "type": "string",
+      "required": false,
+      "description": "Credit analyst or underwriter."
+    },
+    {
+      "name": "facility_type",
+      "type": "string",
+      "required": false,
+      "description": "Term loan, revolver, CRE, equipment, SBA, or other."
+    },
+    {
+      "name": "proposed_commitment_amount",
+      "type": "number",
+      "required": false,
+      "description": "Proposed loan or commitment amount."
+    },
+    {
+      "name": "total_exposure_amount",
+      "type": "number",
+      "required": false,
+      "description": "Total borrower relationship exposure after approval."
+    },
+    {
+      "name": "loan_purpose",
+      "type": "string",
+      "required": false,
+      "description": "Use of proceeds."
+    },
+    {
+      "name": "collateral_summary",
+      "type": "string",
+      "required": false,
+      "description": "Collateral package summary."
+    },
+    {
+      "name": "guarantor_summary",
+      "type": "string",
+      "required": false,
+      "description": "Guarantor support summary."
+    },
+    {
+      "name": "risk_rating_current",
+      "type": "string",
+      "required": false,
+      "description": "Existing risk rating."
+    },
+    {
+      "name": "risk_rating_proposed",
+      "type": "string",
+      "required": false,
+      "description": "Proposed risk rating."
+    },
+    {
+      "name": "probability_of_default",
+      "type": "number",
+      "required": false,
+      "description": "PD if stated."
+    },
+    {
+      "name": "debt_service_coverage_ratio",
+      "type": "number",
+      "required": false,
+      "description": "DSCR."
+    },
+    {
+      "name": "leverage_ratio",
+      "type": "number",
+      "required": false,
+      "description": "Debt/EBITDA, debt/equity, or leverage ratio as stated."
+    },
+    {
+      "name": "ltv_percent",
+      "type": "number",
+      "required": false,
+      "description": "Loan-to-value percent."
+    },
+    {
+      "name": "liquidity_summary",
+      "type": "string",
+      "required": false,
+      "description": "Liquidity or cash flow narrative."
+    },
+    {
+      "name": "covenant_summary",
+      "type": "string",
+      "required": false,
+      "description": "Financial or reporting covenants."
+    },
+    {
+      "name": "policy_exceptions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Credit policy exceptions."
+    },
+    {
+      "name": "approval_authority",
+      "type": "string",
+      "required": false,
+      "description": "Committee, officer, or authority approving."
+    },
+    {
+      "name": "approval_status",
+      "type": "string",
+      "required": false,
+      "description": "Approved, declined, conditional, recommended, or other."
+    },
+    {
+      "name": "approval_conditions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Conditions to close or fund."
+    },
+    {
+      "name": "next_review_date",
+      "type": "date",
+      "required": false,
+      "description": "Next annual review or monitoring date."
+    }
+  ]
+}

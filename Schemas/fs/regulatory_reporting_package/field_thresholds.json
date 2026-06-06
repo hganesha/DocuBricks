@@ -1,0 +1,30 @@
+{
+  "report_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "High-impact field for Regulatory Reporting Package workflow."
+  },
+  "report_type": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "High-impact field for Regulatory Reporting Package workflow."
+  },
+  "reporting_period_end_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "High-impact field for Regulatory Reporting Package workflow."
+  },
+  "filing_status": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Regulatory Reporting Package workflow."
+  }
+}

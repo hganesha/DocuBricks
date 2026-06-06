@@ -1,0 +1,134 @@
+{
+  "document_type": "litigation_case_file",
+  "vertical": "legal",
+  "family": "litigation_disputes",
+  "schema_version": "legal_litigation_case_file_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "matter_id",
+      "type": "string",
+      "required": false,
+      "description": "Internal matter or case file identifier."
+    },
+    {
+      "name": "case_name",
+      "type": "string",
+      "required": true,
+      "description": "Case caption or matter name."
+    },
+    {
+      "name": "court_name",
+      "type": "string",
+      "required": false,
+      "description": "Court, arbitration forum, or tribunal."
+    },
+    {
+      "name": "case_number",
+      "type": "string",
+      "required": false,
+      "description": "Court docket or arbitration number."
+    },
+    {
+      "name": "case_type",
+      "type": "string",
+      "required": false,
+      "description": "Commercial, employment, collections, bankruptcy, class action, arbitration, or other."
+    },
+    {
+      "name": "plaintiff_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Plaintiffs, claimants, or petitioners."
+    },
+    {
+      "name": "defendant_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Defendants, respondents, or opposing parties."
+    },
+    {
+      "name": "client_role",
+      "type": "string",
+      "required": false,
+      "description": "Plaintiff, defendant, third party, creditor, debtor, witness, or other."
+    },
+    {
+      "name": "lead_counsel_name",
+      "type": "string",
+      "required": false,
+      "description": "Lead internal or external counsel."
+    },
+    {
+      "name": "law_firm",
+      "type": "string",
+      "required": false,
+      "description": "Outside counsel firm if present."
+    },
+    {
+      "name": "filing_date",
+      "type": "date",
+      "required": false,
+      "description": "Initial filing or demand date."
+    },
+    {
+      "name": "next_deadline_date",
+      "type": "date",
+      "required": false,
+      "description": "Next upcoming deadline."
+    },
+    {
+      "name": "next_deadline_description",
+      "type": "string",
+      "required": false,
+      "description": "Description of next deadline."
+    },
+    {
+      "name": "claims_or_causes",
+      "type": "array<string>",
+      "required": false,
+      "description": "Claims, causes of action, or legal theories."
+    },
+    {
+      "name": "key_motions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Key pending or decided motions."
+    },
+    {
+      "name": "discovery_status",
+      "type": "string",
+      "required": false,
+      "description": "Discovery phase or status."
+    },
+    {
+      "name": "hearing_dates",
+      "type": "array<string>",
+      "required": false,
+      "description": "Upcoming hearing, mediation, trial, or conference dates."
+    },
+    {
+      "name": "settlement_status",
+      "type": "string",
+      "required": false,
+      "description": "Settlement posture or demand status."
+    },
+    {
+      "name": "exposure_amount",
+      "type": "number",
+      "required": false,
+      "description": "Claimed damages, reserve, or exposure amount."
+    },
+    {
+      "name": "case_status",
+      "type": "string",
+      "required": true,
+      "description": "Open, stayed, settled, judgment, closed, appealed, or other."
+    }
+  ]
+}

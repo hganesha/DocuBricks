@@ -1,0 +1,26 @@
+{
+  "test_case_id": "guaranty_agreement_001",
+  "document_type": "guaranty_agreement",
+  "description": "Unlimited continuing commercial guaranty",
+  "parsed_text": "CONTINUING UNCONDITIONAL GUARANTY\nDate: March 15, 2026\nGuarantor: Elena Morris, an individual\nBorrower: Prairie Ridge Manufacturing LLC\nLender: Heartland Bank, N.A.\nThis Guaranty supports the Loan Agreement and Promissory Note dated March 15, 2026. Guarantor absolutely and unconditionally guarantees payment and performance of all obligations of Borrower to Lender, whether now existing or hereafter arising. This is an unlimited continuing guaranty. There is no maximum liability cap. Guarantor is jointly and severally liable with any other guarantor. Payment is due upon written demand by Lender. Guarantor waives notice of acceptance, presentment, demand, protest, notice of default, defenses based on impairment of collateral, subrogation until payment in full, and trial by jury. Guaranty may not be terminated for obligations existing before written revocation is received by Lender. Governing Law: Iowa. Signed: Elena Morris.",
+  "expected_json": {
+    "agreement_date": "2026-03-15",
+    "guarantor_name": "Elena Morris",
+    "guarantor_type": "Individual",
+    "borrower_name": "Prairie Ridge Manufacturing LLC",
+    "lender_name": "Heartland Bank, N.A.",
+    "underlying_agreement_reference": "Loan Agreement and Promissory Note dated March 15, 2026",
+    "guaranty_type": "unlimited continuing guaranty",
+    "guaranteed_obligations": "payment and performance of all obligations of Borrower to Lender, whether now existing or hereafter arising",
+    "maximum_liability_amount": null,
+    "continuing_guaranty": true,
+    "joint_and_several": true,
+    "payment_on_demand": true,
+    "waivers": ["notice of acceptance", "presentment", "demand", "protest", "notice of default", "defenses based on impairment of collateral", "subrogation until payment in full", "trial by jury"],
+    "termination_rights": "may not be terminated for obligations existing before written revocation is received by Lender",
+    "governing_law": "Iowa",
+    "signature_name": "Elena Morris",
+    "signature_title": null
+  },
+  "expected_avg_confidence": 0.92
+}

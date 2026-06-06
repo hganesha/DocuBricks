@@ -19,7 +19,7 @@ DocuBricks turns unstructured documents — mortgage applications, KYC/CDD forms
 | Phase 1 | Financial Services (mortgage, KYC/CDD, AML SAR, invoice) | Generally Available |
 | Phase 2 | Healthcare (EOB/CMS-1500, prior authorisation) | Preview |
 | Phase 2 | Legal (contracts, NDAs, court filings) | Preview |
-| Roadmap | Manufacturing, Insurance, Real Estate | Coming Soon |
+| Roadmap | Insurance, Manufacturing, Real Estate | Coming Soon |
 
 ## Architecture Overview
 
@@ -83,6 +83,7 @@ The wizard walks you through secret configuration, vertical selection, first-doc
 | Legal | Contracts, NDAs, Court Filings | GDPR Art. 30, e-SIGN Act |
 | Insurance | Policy Applications, Claims | NAIC Model Laws |
 | Manufacturing | Purchase Orders, Quality Records | ISO 9001, IATF 16949 |
+| Real Estate | Leases, Title, Property Management | RESPA, local recording rules |
 
 ## Pricing Tiers
 

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "vendor_name_present",
+    "expression": "vendor_name IS NOT NULL AND LENGTH(TRIM(vendor_name)) > 0",
+    "severity": "fail",
+    "description": "vendor_name is required for Third-party Risk Assessment extraction."
+  },
+  {
+    "name": "assessment_date_present",
+    "expression": "assessment_date IS NOT NULL AND LENGTH(TRIM(assessment_date)) > 0",
+    "severity": "fail",
+    "description": "assessment_date is required for Third-party Risk Assessment extraction."
+  }
+]

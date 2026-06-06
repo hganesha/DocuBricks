@@ -14,7 +14,7 @@ All variables are declared in the top-level `variables:` block and can be overri
 | `tier` | enum | `community` | Schema bundle tier. Controls which document types, agents, and features are enabled. One of: `community`, `starter`, `professional`, `enterprise`. |
 | `secret_scope` | string | `docubricks-prod` | Name of the Databricks secret scope that holds API keys and connection strings. |
 | `enable_agents` | bool string | `"false"` | Whether to deploy vertical agent Workflow jobs. Set `"true"` for staging and prod. Use `"false"` for dev to avoid unnecessary scheduled runs. |
-| `vertical` | enum | `fs` | Primary vertical for this deployment. One of: `fs`, `healthcare`, `legal`. Determines which schema bundles are seeded and which agents are deployed. |
+| `vertical` | enum | `fs` | Primary vertical for this deployment. One of: `fs`, `healthcare`, `legal`, `insurance`, `manufacturing`, `real_estate`. Determines which schema bundles are seeded and which agents are deployed. |
 | `sql_warehouse_id` | string | `""` | Serverless SQL warehouse ID used by Genie and Gold query jobs. Find it in Compute → SQL Warehouses → your warehouse → Overview. |
 | `otel_endpoint` | string | `""` | OpenTelemetry collector endpoint for distributed tracing. Leave empty to disable. Example: `https://otel.your-org.com:4318`. |
 

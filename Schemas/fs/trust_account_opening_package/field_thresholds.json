@@ -1,0 +1,30 @@
+{
+  "trust_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "High-impact field for Trust Account Opening Package workflow."
+  },
+  "trust_tax_id_masked": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Trust Account Opening Package workflow."
+  },
+  "trustee_names": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "High-impact field for Trust Account Opening Package workflow."
+  },
+  "initial_deposit_amount": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Trust Account Opening Package workflow."
+  }
+}

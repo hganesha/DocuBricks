@@ -1,0 +1,26 @@
+{
+  "test_case_id": "security_agreement_001",
+  "document_type": "security_agreement",
+  "description": "Commercial security agreement with all-assets grant and perfection obligations",
+  "parsed_text": "SECURITY AGREEMENT dated March 15, 2026. Debtor/Grantor: Prairie Ridge Manufacturing LLC. Secured Party: Heartland Bank, N.A. Borrower: Prairie Ridge Manufacturing LLC. This agreement secures all obligations under the Loan Agreement dated March 15, 2026 and related promissory note. Grantor grants a security interest in all assets, including accounts, inventory, equipment, machinery, general intangibles, instruments, chattel paper, deposit accounts, investment property, proceeds, and supporting obligations. Excluded Collateral: motor vehicles subject to certificate of title until lien notation is completed. Perfection requirements include UCC-1 financing statement, lender possession of titled equipment documents, and deposit account control agreement for operating account. Debtor represents it owns the collateral free of liens except permitted liens and has authority to grant the security interest. Covenants include maintain insurance, keep collateral in good repair, maintain records, permit inspections, and not transfer collateral outside ordinary course. Events of Default include payment default, covenant breach, bankruptcy, and unauthorized sale of collateral. Remedies include foreclosure, sale of collateral, collection of accounts, and setoff. Governing Law: Iowa. Signed by Elena Morris, Chief Financial Officer.",
+  "expected_json": {
+    "agreement_date": "2026-03-15",
+    "debtor_name": "Prairie Ridge Manufacturing LLC",
+    "secured_party_name": "Heartland Bank, N.A.",
+    "borrower_name": "Prairie Ridge Manufacturing LLC",
+    "underlying_obligation_reference": "Loan Agreement dated March 15, 2026 and related promissory note",
+    "collateral_description": "all assets, including accounts, inventory, equipment, machinery, general intangibles, instruments, chattel paper, deposit accounts, investment property, proceeds, and supporting obligations",
+    "all_assets_clause": true,
+    "collateral_categories": ["accounts", "inventory", "equipment", "machinery", "general intangibles", "instruments", "chattel paper", "deposit accounts", "investment property", "proceeds", "supporting obligations"],
+    "excluded_collateral": ["motor vehicles subject to certificate of title until lien notation is completed"],
+    "perfection_requirements": ["UCC-1 financing statement", "lender possession of titled equipment documents", "deposit account control agreement for operating account"],
+    "debtor_representations": ["owns the collateral free of liens except permitted liens", "has authority to grant the security interest"],
+    "covenants": ["maintain insurance", "keep collateral in good repair", "maintain records", "permit inspections", "not transfer collateral outside ordinary course"],
+    "events_of_default": ["payment default", "covenant breach", "bankruptcy", "unauthorized sale of collateral"],
+    "remedies": ["foreclosure", "sale of collateral", "collection of accounts", "setoff"],
+    "governing_law": "Iowa",
+    "signature_name": "Elena Morris",
+    "signature_title": "Chief Financial Officer"
+  },
+  "expected_avg_confidence": 0.91
+}

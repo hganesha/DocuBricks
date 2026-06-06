@@ -1,0 +1,152 @@
+{
+  "document_type": "kyc_cdd_form",
+  "vertical": "fs",
+  "family": "kyc_aml_sanctions",
+  "schema_version": "FS_KYC_CDD_v0",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "customer_name",
+      "type": "string",
+      "required": true,
+      "description": "Customer name"
+    },
+    {
+      "name": "customer_type",
+      "type": "string",
+      "required": false,
+      "description": "Individual | Business | Trust | Other"
+    },
+    {
+      "name": "date_of_birth",
+      "type": "string",
+      "required": false,
+      "description": "Date of birth"
+    },
+    {
+      "name": "tax_id_masked",
+      "type": "string",
+      "required": false,
+      "description": "Tax id masked"
+    },
+    {
+      "name": "address_line1",
+      "type": "string",
+      "required": false,
+      "description": "Address line1"
+    },
+    {
+      "name": "city",
+      "type": "string",
+      "required": false,
+      "description": "City"
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "required": false,
+      "description": "State"
+    },
+    {
+      "name": "postal_code",
+      "type": "string",
+      "required": false,
+      "description": "Postal code"
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "required": false,
+      "description": "Country"
+    },
+    {
+      "name": "phone",
+      "type": "string",
+      "required": false,
+      "description": "Phone"
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "required": false,
+      "description": "Email"
+    },
+    {
+      "name": "occupation_or_business",
+      "type": "string",
+      "required": false,
+      "description": "Occupation or business"
+    },
+    {
+      "name": "source_of_funds",
+      "type": "string",
+      "required": false,
+      "description": "Source of funds"
+    },
+    {
+      "name": "expected_monthly_activity",
+      "type": "string",
+      "required": false,
+      "description": "Expected monthly activity"
+    },
+    {
+      "name": "risk_rating",
+      "type": "string",
+      "required": false,
+      "description": "Low | Medium | High"
+    },
+    {
+      "name": "pep_status",
+      "type": "string",
+      "required": false,
+      "description": "Pep status"
+    },
+    {
+      "name": "beneficial_owner_name",
+      "type": "string",
+      "required": false,
+      "description": "Beneficial owner name"
+    },
+    {
+      "name": "beneficial_owner_ownership_percent",
+      "type": "number",
+      "required": false,
+      "description": "Beneficial owner ownership percent"
+    },
+    {
+      "name": "id_document_type",
+      "type": "string",
+      "required": false,
+      "description": "Id document type"
+    },
+    {
+      "name": "id_document_number_masked",
+      "type": "string",
+      "required": false,
+      "description": "Id document number masked"
+    },
+    {
+      "name": "id_expiration_date",
+      "type": "date",
+      "required": false,
+      "description": "Id expiration date"
+    },
+    {
+      "name": "review_date",
+      "type": "date",
+      "required": false,
+      "description": "Review date"
+    },
+    {
+      "name": "reviewer_name",
+      "type": "string",
+      "required": false,
+      "description": "Reviewer name"
+    }
+  ]
+}

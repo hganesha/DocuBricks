@@ -1,0 +1,50 @@
+{
+  "test_case_id": "trust_account_opening_package_001",
+  "document_type": "trust_account_opening_package",
+  "description": "Seed golden test for Trust Account Opening Package",
+  "parsed_text": "TRUST ACCOUNT OPENING PACKAGE\nApplication Date: 2026-05-04\nTrust Name: The Eleanor Park Revocable Trust dated May 1, 2021\nTrust Type: Revocable Trust\nTax ID: XX-XXX4412\nGoverning Law: California\nGrantor: Eleanor Park\nTrustees: Eleanor Park; Samuel Park\nAuthorized Signers: Eleanor Park; Samuel Park\nBeneficiaries: Samuel Park; Mina Park\nFiduciary Powers: invest assets; open brokerage accounts; make distributions; pledge assets only with trustee consent\nInvestment Objective: balanced income and growth\nRisk Tolerance: Moderate\nSource of Funds: transfer from existing brokerage account\nInitial Deposit: $1,250,000\nAccount Requested: Trust brokerage managed account\nTax Certification: W-9 received\nBeneficial Ownership Certification Required: No\nDocuments: trust certification; trustee IDs; W-9; investment profile\nApproval Status: Approved\nRelationship Manager: Dana Ortiz",
+  "expected_json": {
+    "application_date": "2026-05-04",
+    "trust_name": "The Eleanor Park Revocable Trust dated May 1, 2021",
+    "trust_type": "Revocable Trust",
+    "trust_tax_id_masked": "XX-XXX4412",
+    "jurisdiction": "California",
+    "grantor_names": [
+      "Eleanor Park"
+    ],
+    "trustee_names": [
+      "Eleanor Park",
+      "Samuel Park"
+    ],
+    "authorized_signer_names": [
+      "Eleanor Park",
+      "Samuel Park"
+    ],
+    "beneficiary_names": [
+      "Samuel Park",
+      "Mina Park"
+    ],
+    "fiduciary_powers": [
+      "invest assets",
+      "open brokerage accounts",
+      "make distributions",
+      "pledge assets only with trustee consent"
+    ],
+    "investment_objective": "balanced income and growth",
+    "risk_tolerance": "Moderate",
+    "source_of_funds": "transfer from existing brokerage account",
+    "initial_deposit_amount": 1250000.0,
+    "account_type_requested": "Trust brokerage managed account",
+    "tax_certification_status": "W-9 received",
+    "beneficial_ownership_required": false,
+    "document_checklist": [
+      "trust certification",
+      "trustee IDs",
+      "W-9",
+      "investment profile"
+    ],
+    "approval_status": "Approved",
+    "relationship_manager_name": "Dana Ortiz"
+  },
+  "expected_avg_confidence": 0.92
+}

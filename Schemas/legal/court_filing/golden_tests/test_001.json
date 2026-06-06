@@ -1,0 +1,30 @@
+{
+  "test_case_id": "court_filing_001",
+  "document_type": "court_filing",
+  "description": "Federal civil complaint with caption, parties, counsel, claims, and jury demand",
+  "parsed_text": "UNITED STATES DISTRICT COURT FOR THE SOUTHERN DISTRICT OF NEW YORK\nApex Supply Co., Plaintiff, v. Meridian Bank, N.A., Defendant.\nCase No. 1:26-cv-04812-LTS\nCOMPLAINT AND JURY DEMAND\nFiled: March 4, 2026\nPlaintiff Apex Supply Co. brings this complaint for breach of contract, fraudulent misrepresentation, and unjust enrichment. The Court has diversity jurisdiction under 28 U.S.C. 1332. Plaintiff seeks damages in excess of $8,500,000, costs, interest, and such other relief as the Court deems just. Plaintiff demands a trial by jury. Attorney for Plaintiff: Rachel Kim, Kim & Avery LLP, NY Bar No. 512334, rkim@kimavery.example. Judge Laura Taylor Swain.",
+  "expected_json": {
+    "filing_type": "Complaint",
+    "court_level": "Federal",
+    "court_name": "United States District Court for the Southern District of New York",
+    "district_or_division": "Southern District of New York",
+    "judge_name": "Laura Taylor Swain",
+    "case_number": "1:26-cv-04812-LTS",
+    "case_name": "Apex Supply Co. v. Meridian Bank, N.A.",
+    "filing_date": "2026-03-04",
+    "hearing_date": null,
+    "plaintiff_name": "Apex Supply Co.",
+    "defendant_name": "Meridian Bank, N.A.",
+    "filing_party": "Plaintiff",
+    "attorney_name": "Rachel Kim",
+    "bar_number": "512334",
+    "law_firm": "Kim & Avery LLP",
+    "attorney_email": "rkim@kimavery.example",
+    "relief_requested": "damages in excess of $8,500,000, costs, interest, and such other relief as the Court deems just",
+    "causes_of_action": ["Breach of Contract", "Fraudulent Misrepresentation", "Unjust Enrichment"],
+    "jurisdictional_basis": "Diversity",
+    "jury_demand": true,
+    "pages": null
+  },
+  "expected_avg_confidence": 0.93
+}

@@ -1,0 +1,164 @@
+{
+  "document_type": "prior_auth",
+  "vertical": "healthcare",
+  "family": "healthcare_authorization",
+  "schema_version": "prior_auth_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "authorization_id",
+      "type": "string",
+      "required": true,
+      "description": "Authorization id"
+    },
+    {
+      "name": "request_status",
+      "type": "string",
+      "required": false,
+      "description": "Requested | Approved | Denied | Pending | Partially_Approved | Expired"
+    },
+    {
+      "name": "request_date",
+      "type": "date",
+      "required": false,
+      "description": "Request date"
+    },
+    {
+      "name": "decision_date",
+      "type": "date",
+      "required": false,
+      "description": "Decision date"
+    },
+    {
+      "name": "expiration_date",
+      "type": "date",
+      "required": false,
+      "description": "Expiration date"
+    },
+    {
+      "name": "patient_name",
+      "type": "string",
+      "required": false,
+      "description": "Patient name"
+    },
+    {
+      "name": "patient_dob",
+      "type": "string",
+      "required": false,
+      "description": "Patient dob"
+    },
+    {
+      "name": "patient_member_id",
+      "type": "string",
+      "required": true,
+      "description": "Patient member id"
+    },
+    {
+      "name": "payer_name",
+      "type": "string",
+      "required": false,
+      "description": "Payer name"
+    },
+    {
+      "name": "plan_name",
+      "type": "string",
+      "required": false,
+      "description": "Plan name"
+    },
+    {
+      "name": "requesting_provider_name",
+      "type": "string",
+      "required": false,
+      "description": "Requesting provider name"
+    },
+    {
+      "name": "requesting_provider_npi",
+      "type": "string",
+      "required": false,
+      "description": "Requesting provider npi"
+    },
+    {
+      "name": "servicing_provider_name",
+      "type": "string",
+      "required": false,
+      "description": "Servicing provider name"
+    },
+    {
+      "name": "servicing_provider_npi",
+      "type": "string",
+      "required": false,
+      "description": "Servicing provider npi"
+    },
+    {
+      "name": "diagnosis_codes",
+      "type": "array<string>",
+      "required": false,
+      "description": "Diagnosis codes"
+    },
+    {
+      "name": "procedure_codes",
+      "type": "array<string>",
+      "required": false,
+      "description": "Procedure codes"
+    },
+    {
+      "name": "medication_name",
+      "type": "string",
+      "required": false,
+      "description": "Medication name"
+    },
+    {
+      "name": "service_description",
+      "type": "string",
+      "required": false,
+      "description": "Service description"
+    },
+    {
+      "name": "units_requested",
+      "type": "string",
+      "required": false,
+      "description": "Units requested"
+    },
+    {
+      "name": "units_approved",
+      "type": "string",
+      "required": false,
+      "description": "Units approved"
+    },
+    {
+      "name": "place_of_service",
+      "type": "string",
+      "required": false,
+      "description": "Place of service"
+    },
+    {
+      "name": "denial_reason_code",
+      "type": "string",
+      "required": false,
+      "description": "Denial reason code"
+    },
+    {
+      "name": "denial_reason_text",
+      "type": "string",
+      "required": false,
+      "description": "Denial reason text"
+    },
+    {
+      "name": "appeal_deadline",
+      "type": "string",
+      "required": false,
+      "description": "Appeal deadline"
+    },
+    {
+      "name": "clinical_criteria_referenced",
+      "type": "string",
+      "required": false,
+      "description": "Clinical criteria referenced"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "test_case_id": "covenant_compliance_certificate_001",
+  "document_type": "covenant_compliance_certificate",
+  "description": "Quarterly certificate showing compliance with DSCR and leverage covenants",
+  "parsed_text": "COMPLIANCE CERTIFICATE\nCertificate Date: April 30, 2026\nReporting Period Ended: March 31, 2026\nBorrower: Prairie Ridge Manufacturing LLC\nLender: Heartland Bank, N.A.\nReference: Loan Agreement dated March 15, 2026\nThe undersigned certifies that Borrower is in compliance with all financial covenants and no Default or Event of Default exists.\nMinimum DSCR Required: 1.25x\nActual DSCR: 1.42x\nMaximum Debt/EBITDA Required: 3.25x\nActual Debt/EBITDA: 2.80x\nMinimum Liquidity Required: $750,000\nActual Liquidity: $1,600,000\nMinimum Net Worth Required: $5,000,000\nActual Net Worth: $6,300,000\nExceptions/Waivers: None\nFinancial statements attached: Yes\nSigned: Elena Morris, Chief Financial Officer",
+  "expected_json": {
+    "certificate_date": "2026-04-30",
+    "reporting_period_end_date": "2026-03-31",
+    "borrower_name": "Prairie Ridge Manufacturing LLC",
+    "lender_name": "Heartland Bank, N.A.",
+    "agreement_reference": "Loan Agreement dated March 15, 2026",
+    "signer_name": "Elena Morris",
+    "signer_title": "Chief Financial Officer",
+    "compliance_status": "in compliance",
+    "default_declared": false,
+    "dscr_required": 1.25,
+    "dscr_actual": 1.42,
+    "leverage_required": 3.25,
+    "leverage_actual": 2.8,
+    "liquidity_required": 750000.0,
+    "liquidity_actual": 1600000.0,
+    "net_worth_required": 5000000.0,
+    "net_worth_actual": 6300000.0,
+    "borrowing_base_required": null,
+    "borrowing_base_actual": null,
+    "exceptions_or_waivers": [],
+    "financial_statements_attached": true
+  },
+  "expected_avg_confidence": 0.95
+}

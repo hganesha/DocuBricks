@@ -1,0 +1,182 @@
+{
+  "document_type": "clinical_note_soap",
+  "vertical": "healthcare",
+  "family": "clinical_documents",
+  "schema_version": "HL7_FHIR_R4_SNOMED_ICD10CM",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "note_date",
+      "type": "date",
+      "required": true,
+      "description": "Date the note was authored/signed, format YYYY-MM-DD"
+    },
+    {
+      "name": "note_type",
+      "type": "string",
+      "required": false,
+      "description": "Type of clinical note. One of: Progress | Discharge | Consultation | Admission"
+    },
+    {
+      "name": "document_id",
+      "type": "string",
+      "required": true,
+      "description": "Electronic Medical Record (EMR) note identifier or encounter number if present"
+    },
+    {
+      "name": "provider_name",
+      "type": "string",
+      "required": true,
+      "description": "Full name of the clinician authoring the note (e.g., \"Dr. Sarah Chen, MD\")"
+    },
+    {
+      "name": "provider_npi",
+      "type": "string",
+      "required": false,
+      "description": "National Provider Identifier (NPI) of the authoring provider \u2014 10-digit numeric; null if not embedded in note"
+    },
+    {
+      "name": "provider_specialty",
+      "type": "string",
+      "required": false,
+      "description": "Clinical specialty or department of the provider (e.g., \"Internal Medicine\", \"Emergency Medicine\", \"Orthopedics\")"
+    },
+    {
+      "name": "patient_name",
+      "type": "string",
+      "required": false,
+      "description": "Full name of the patient"
+    },
+    {
+      "name": "patient_dob",
+      "type": "string",
+      "required": false,
+      "description": "Patient date of birth, format YYYY-MM-DD"
+    },
+    {
+      "name": "patient_mrn",
+      "type": "string",
+      "required": false,
+      "description": "Medical Record Number (MRN) assigned by the facility"
+    },
+    {
+      "name": "facility_name",
+      "type": "string",
+      "required": false,
+      "description": "Name of the hospital, clinic, or practice where the note was created"
+    },
+    {
+      "name": "department",
+      "type": "string",
+      "required": false,
+      "description": "Clinical department or unit (e.g., \"Cardiology Outpatient Clinic\", \"Emergency Department\", \"2-North Med/Surg\")"
+    },
+    {
+      "name": "chief_complaint",
+      "type": "string",
+      "required": false,
+      "description": "Patient's primary stated reason for visit in their own words or as paraphrased by provider. Free text, maximum 200 characters. Extract the most specific complaint from the \"Chief Complaint\" or \"CC:\" label"
+    },
+    {
+      "name": "subjective_summary",
+      "type": "string",
+      "required": false,
+      "description": "Summary of the full Subjective section including history of present illness (HPI), review of systems, and relevant history. Free text, maximum 300 characters. Truncate with ellipsis if longer"
+    },
+    {
+      "name": "objective_vitals",
+      "type": "string",
+      "required": false,
+      "description": "Structured object containing vital signs. Extract each of the following sub-fields as a string value (include units). Set to null if not documented:"
+    },
+    {
+      "name": "bp",
+      "type": "string",
+      "required": false,
+      "description": "Blood pressure (e.g., \"138/88 mmHg\")"
+    },
+    {
+      "name": "hr",
+      "type": "string",
+      "required": false,
+      "description": "Heart rate (e.g., \"76 bpm\")"
+    },
+    {
+      "name": "temp",
+      "type": "string",
+      "required": false,
+      "description": "Temperature (e.g., \"98.6\u00b0F\" or \"37.0\u00b0C\")"
+    },
+    {
+      "name": "rr",
+      "type": "string",
+      "required": false,
+      "description": "Respiratory rate (e.g., \"16 breaths/min\")"
+    },
+    {
+      "name": "spo2",
+      "type": "string",
+      "required": false,
+      "description": "Oxygen saturation (e.g., \"97% on room air\")"
+    },
+    {
+      "name": "weight",
+      "type": "string",
+      "required": false,
+      "description": "Body weight (e.g., \"185 lbs\" or \"83.9 kg\")"
+    },
+    {
+      "name": "assessment_diagnoses",
+      "type": "array<string>",
+      "required": false,
+      "description": "Array of diagnosis objects. For each diagnosis found in the Assessment section, extract:"
+    },
+    {
+      "name": "icd10_code",
+      "type": "string",
+      "required": false,
+      "description": "ICD-10-CM code (e.g., \"I10\", \"E11.9\"). Null if only described without a code"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "Diagnosis description or name as written in the note"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": "One of: Active | Chronic | Resolved | New | Suspected (infer from context if not explicit)"
+    },
+    {
+      "name": "plan_summary",
+      "type": "string",
+      "required": false,
+      "description": "Summary of the Plan section including medications prescribed/adjusted, orders placed, referrals, and instructions. Free text, maximum 300 characters. Truncate with ellipsis if longer"
+    },
+    {
+      "name": "medications_mentioned",
+      "type": "array<string>",
+      "required": false,
+      "description": "Array of medication names referenced anywhere in the note (including current medications list, new prescriptions, discontinued medications). Include drug name only \u2014 no dosing details"
+    },
+    {
+      "name": "follow_up_instructions",
+      "type": "string",
+      "required": false,
+      "description": "Specific follow-up instruction text (e.g., \"Return to clinic if fever > 101.5\u00b0F or worsening symptoms\")"
+    },
+    {
+      "name": "follow_up_timeframe",
+      "type": "string",
+      "required": false,
+      "description": "Time interval for scheduled follow-up (e.g., \"2 weeks\", \"3 months\", \"as needed\")"
+    }
+  ]
+}

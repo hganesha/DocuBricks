@@ -1,0 +1,140 @@
+{
+  "document_type": "covenant_compliance_certificate",
+  "vertical": "fs",
+  "family": "commercial_lending",
+  "schema_version": "fs_covenant_compliance_certificate_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "certificate_date",
+      "type": "date",
+      "required": false,
+      "description": "Date signed or delivered."
+    },
+    {
+      "name": "reporting_period_end_date",
+      "type": "date",
+      "required": true,
+      "description": "Financial reporting period end."
+    },
+    {
+      "name": "borrower_name",
+      "type": "string",
+      "required": true,
+      "description": "Borrower or obligor."
+    },
+    {
+      "name": "lender_name",
+      "type": "string",
+      "required": false,
+      "description": "Lender, bank, or administrative agent."
+    },
+    {
+      "name": "agreement_reference",
+      "type": "string",
+      "required": false,
+      "description": "Loan agreement name/date referenced."
+    },
+    {
+      "name": "signer_name",
+      "type": "string",
+      "required": false,
+      "description": "Authorized signer."
+    },
+    {
+      "name": "signer_title",
+      "type": "string",
+      "required": false,
+      "description": "Signer title."
+    },
+    {
+      "name": "compliance_status",
+      "type": "string",
+      "required": false,
+      "description": "In compliance, not in compliance, default, waiver requested, or other."
+    },
+    {
+      "name": "default_declared",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether a default or event of default is disclosed."
+    },
+    {
+      "name": "dscr_required",
+      "type": "number",
+      "required": false,
+      "description": "Required debt service coverage ratio."
+    },
+    {
+      "name": "dscr_actual",
+      "type": "number",
+      "required": false,
+      "description": "Actual DSCR."
+    },
+    {
+      "name": "leverage_required",
+      "type": "number",
+      "required": false,
+      "description": "Required maximum leverage ratio."
+    },
+    {
+      "name": "leverage_actual",
+      "type": "number",
+      "required": false,
+      "description": "Actual leverage ratio."
+    },
+    {
+      "name": "liquidity_required",
+      "type": "number",
+      "required": false,
+      "description": "Required minimum liquidity."
+    },
+    {
+      "name": "liquidity_actual",
+      "type": "number",
+      "required": false,
+      "description": "Actual liquidity."
+    },
+    {
+      "name": "net_worth_required",
+      "type": "number",
+      "required": false,
+      "description": "Required minimum net worth."
+    },
+    {
+      "name": "net_worth_actual",
+      "type": "number",
+      "required": false,
+      "description": "Actual net worth."
+    },
+    {
+      "name": "borrowing_base_required",
+      "type": "number",
+      "required": false,
+      "description": "Required borrowing base or availability."
+    },
+    {
+      "name": "borrowing_base_actual",
+      "type": "number",
+      "required": false,
+      "description": "Actual borrowing base or availability."
+    },
+    {
+      "name": "exceptions_or_waivers",
+      "type": "array<string>",
+      "required": false,
+      "description": "Exceptions, waivers, cure periods, or explanations."
+    },
+    {
+      "name": "financial_statements_attached",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether financial statements are attached or certified."
+    }
+  ]
+}

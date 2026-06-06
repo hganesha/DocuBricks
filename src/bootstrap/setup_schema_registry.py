@@ -37,7 +37,33 @@ REPO_ROOT    = Path(os.environ.get("REPO_ROOT", "/Workspace/Repos/docubricks/Doc
 # starter      — FS full (7 doc types: + trade_confirmation, 10k_filing, kyc_edd)
 # professional — FS + Healthcare (EOB, clinical note, lab report, prior auth)
 #              — FS + Legal    (NDA/MSA, SOW, regulatory submission, court filing)
-# enterprise   — All verticals + all doc types
+# enterprise   — All verticals + commercial lending expansion + all doc types
+
+COMMERCIAL_LENDING_DOC_TYPES = [
+    "commercial_loan_application",
+    "commercial_credit_memo",
+    "loan_agreement",
+    "syndicated_credit_agreement",
+    "covenant_compliance_certificate",
+    "collateral_schedule",
+    "ucc_financing_statement",
+    "guaranty_agreement",
+    "security_agreement",
+]
+
+PAYMENTS_DOC_TYPES = [
+    "merchant_onboarding_application",
+]
+
+WEALTH_DOC_TYPES = [
+    "trust_account_opening_package",
+]
+
+RISK_COMPLIANCE_DOC_TYPES = [
+    "third_party_risk_assessment",
+    "issue_management_record",
+    "regulatory_reporting_package",
+]
 
 TIER_SCHEMA_MAP: dict[str, dict[str, list[str]]] = {
     "community": {
@@ -52,9 +78,18 @@ TIER_SCHEMA_MAP: dict[str, dict[str, list[str]]] = {
         "legal":      ["nda_msa", "sow", "regulatory_submission", "court_filing"],
     },
     "enterprise": {
-        "fs":         ["mortgage_application", "kyc_cdd_form", "aml_sar", "invoice"],
+        "fs":         [
+            "mortgage_application",
+            "kyc_cdd_form",
+            "aml_sar",
+            "invoice",
+            *COMMERCIAL_LENDING_DOC_TYPES,
+            *PAYMENTS_DOC_TYPES,
+            *WEALTH_DOC_TYPES,
+            *RISK_COMPLIANCE_DOC_TYPES,
+        ],
         "healthcare": ["eob_cms1500", "clinical_note_soap", "lab_report", "prior_auth"],
-        "legal":      ["nda_msa", "sow", "regulatory_submission", "court_filing"],
+        "legal":      ["nda_msa", "sow", "regulatory_submission", "court_filing", "litigation_case_file"],
     },
 }
 
@@ -86,6 +121,21 @@ REGULATORY_ALIGNMENT = {
     "sow":                   "FAR/DFARS (government), commercial SOW standards",
     "regulatory_submission": "FDA 21 CFR, SEC Reg S-K, FinCEN BSA",
     "court_filing":          "FRCP, PACER, state-specific rules of civil procedure",
+    "commercial_loan_application": "ECOA, Reg B, BSA/KYB, internal credit policy",
+    "commercial_credit_memo": "Safety and soundness, OCC/FDIC/Fed credit risk management guidance",
+    "loan_agreement": "UCC Article 9, commercial lending policy, contract governance",
+    "syndicated_credit_agreement": "Syndicated lending, private credit, loan market association-style deal governance",
+    "covenant_compliance_certificate": "Credit monitoring, loan agreement covenants, risk rating governance",
+    "collateral_schedule": "Secured lending controls, borrowing base monitoring, UCC Article 9",
+    "ucc_financing_statement": "UCC Article 9 perfection and lien filing",
+    "guaranty_agreement": "Credit support documentation, UCC/common law guaranty enforcement",
+    "security_agreement": "UCC Article 9 security interests and collateral attachment",
+    "merchant_onboarding_application": "NACHA, card network rules, merchant acquiring, fraud and dispute risk controls",
+    "trust_account_opening_package": "Fiduciary account opening, tax certification, suitability, trust authority review",
+    "third_party_risk_assessment": "Third-party risk management, outsourcing governance, SOC review, BCP/DR controls",
+    "issue_management_record": "Regulatory exam management, MRA/MRIA tracking, audit issue remediation",
+    "regulatory_reporting_package": "Call Report, HMDA, CRA, SAR/CTR, CECL, CCAR/DFAST and liquidity reporting",
+    "litigation_case_file": "Matter management, court deadlines, discovery, motions, exposure and settlement tracking",
 }
 
 # ---------------------------------------------------------------------------
@@ -402,6 +452,21 @@ DOC_TYPE_DISPLAY = {
     "kyc_cdd_form":         "KYC / CDD Form",
     "aml_sar":              "AML Suspicious Activity Report",
     "invoice":              "Invoice",
+    "commercial_loan_application":      "Commercial Loan Application",
+    "commercial_credit_memo":           "Commercial Credit Memo",
+    "loan_agreement":                   "Loan Agreement",
+    "syndicated_credit_agreement":      "Syndicated Credit Agreement",
+    "covenant_compliance_certificate":  "Covenant Compliance Certificate",
+    "collateral_schedule":              "Collateral Schedule",
+    "ucc_financing_statement":          "UCC Financing Statement",
+    "guaranty_agreement":               "Guaranty Agreement",
+    "security_agreement":               "Security Agreement",
+    "merchant_onboarding_application":  "Merchant Onboarding Application",
+    "trust_account_opening_package":    "Trust Account Opening Package",
+    "third_party_risk_assessment":      "Third-Party Risk Assessment",
+    "issue_management_record":          "Issue Management Record",
+    "regulatory_reporting_package":     "Regulatory Reporting Package",
+    "litigation_case_file":             "Litigation Case File",
 }
 
 def load_document_type_label(doc_type: str) -> str:

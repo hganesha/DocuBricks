@@ -1,0 +1,134 @@
+{
+  "document_type": "trust_account_opening_package",
+  "vertical": "fs",
+  "family": "wealth_brokerage_investment",
+  "schema_version": "fs_trust_account_opening_package_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "application_date",
+      "type": "date",
+      "required": false,
+      "description": "Date the account package was completed."
+    },
+    {
+      "name": "trust_name",
+      "type": "string",
+      "required": true,
+      "description": "Legal name of trust or estate."
+    },
+    {
+      "name": "trust_type",
+      "type": "string",
+      "required": false,
+      "description": "Revocable, irrevocable, testamentary, estate, charitable, special needs, or other."
+    },
+    {
+      "name": "trust_tax_id_masked",
+      "type": "string",
+      "required": false,
+      "description": "Masked trust EIN or tax identifier."
+    },
+    {
+      "name": "jurisdiction",
+      "type": "string",
+      "required": false,
+      "description": "Governing state or country."
+    },
+    {
+      "name": "grantor_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Grantors, settlors, or decedent names."
+    },
+    {
+      "name": "trustee_names",
+      "type": "array<string>",
+      "required": true,
+      "description": "Trustees or personal representatives."
+    },
+    {
+      "name": "authorized_signer_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Authorized account signers."
+    },
+    {
+      "name": "beneficiary_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Named beneficiaries when present."
+    },
+    {
+      "name": "fiduciary_powers",
+      "type": "array<string>",
+      "required": false,
+      "description": "Investment, distribution, borrowing, pledge, or other powers."
+    },
+    {
+      "name": "investment_objective",
+      "type": "string",
+      "required": false,
+      "description": "Investment objective or account purpose."
+    },
+    {
+      "name": "risk_tolerance",
+      "type": "string",
+      "required": false,
+      "description": "Conservative, moderate, aggressive, or stated risk profile."
+    },
+    {
+      "name": "source_of_funds",
+      "type": "string",
+      "required": false,
+      "description": "Source of initial funding."
+    },
+    {
+      "name": "initial_deposit_amount",
+      "type": "number",
+      "required": false,
+      "description": "Initial deposit or transfer amount."
+    },
+    {
+      "name": "account_type_requested",
+      "type": "string",
+      "required": false,
+      "description": "Trust brokerage, fiduciary checking, estate account, managed account, or other."
+    },
+    {
+      "name": "tax_certification_status",
+      "type": "string",
+      "required": false,
+      "description": "W-9, W-8, exempt, missing, or other tax certification status."
+    },
+    {
+      "name": "beneficial_ownership_required",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether beneficial ownership certification is required or referenced."
+    },
+    {
+      "name": "document_checklist",
+      "type": "array<string>",
+      "required": false,
+      "description": "Documents received or required."
+    },
+    {
+      "name": "approval_status",
+      "type": "string",
+      "required": false,
+      "description": "Approved, pending, rejected, conditional, or other."
+    },
+    {
+      "name": "relationship_manager_name",
+      "type": "string",
+      "required": false,
+      "description": "Advisor, banker, or relationship manager."
+    }
+  ]
+}

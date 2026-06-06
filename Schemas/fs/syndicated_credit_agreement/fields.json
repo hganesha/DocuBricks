@@ -1,0 +1,134 @@
+{
+  "document_type": "syndicated_credit_agreement",
+  "vertical": "fs",
+  "family": "commercial_lending",
+  "schema_version": "fs_syndicated_credit_agreement_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "agreement_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of credit agreement or amendment."
+    },
+    {
+      "name": "borrower_name",
+      "type": "string",
+      "required": true,
+      "description": "Borrower legal name."
+    },
+    {
+      "name": "administrative_agent_name",
+      "type": "string",
+      "required": true,
+      "description": "Administrative agent or collateral agent."
+    },
+    {
+      "name": "lead_arranger_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Lead arrangers, bookrunners, or private credit sponsors."
+    },
+    {
+      "name": "lender_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Named lenders or lender groups."
+    },
+    {
+      "name": "facility_type",
+      "type": "string",
+      "required": false,
+      "description": "Revolver, term loan A, term loan B, delayed draw, unitranche, or other."
+    },
+    {
+      "name": "total_commitment_amount",
+      "type": "number",
+      "required": true,
+      "description": "Total commitments across all tranches."
+    },
+    {
+      "name": "tranches",
+      "type": "array<object>",
+      "required": false,
+      "description": "Tranche entries with name, amount, maturity, pricing, and currency when present."
+    },
+    {
+      "name": "maturity_date",
+      "type": "date",
+      "required": false,
+      "description": "Final maturity date."
+    },
+    {
+      "name": "pricing_grid",
+      "type": "string",
+      "required": false,
+      "description": "Pricing grid or spread mechanics."
+    },
+    {
+      "name": "benchmark_rate",
+      "type": "string",
+      "required": false,
+      "description": "SOFR, base rate, prime, EURIBOR, or other benchmark."
+    },
+    {
+      "name": "commitment_fee",
+      "type": "number",
+      "required": false,
+      "description": "Unused commitment fee percentage if stated."
+    },
+    {
+      "name": "collateral_summary",
+      "type": "string",
+      "required": false,
+      "description": "Collateral or security package summary."
+    },
+    {
+      "name": "guarantor_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Guarantors or loan parties."
+    },
+    {
+      "name": "financial_covenants",
+      "type": "array<string>",
+      "required": false,
+      "description": "Financial covenants."
+    },
+    {
+      "name": "negative_covenants",
+      "type": "array<string>",
+      "required": false,
+      "description": "Negative covenants."
+    },
+    {
+      "name": "mandatory_prepayment_events",
+      "type": "array<string>",
+      "required": false,
+      "description": "Asset sale, debt issuance, excess cash flow, or other prepayment triggers."
+    },
+    {
+      "name": "assignment_minimum_amount",
+      "type": "number",
+      "required": false,
+      "description": "Minimum assignment amount if stated."
+    },
+    {
+      "name": "required_lender_threshold",
+      "type": "string",
+      "required": false,
+      "description": "Required lender voting threshold."
+    },
+    {
+      "name": "governing_law",
+      "type": "string",
+      "required": false,
+      "description": "Governing law jurisdiction."
+    }
+  ]
+}

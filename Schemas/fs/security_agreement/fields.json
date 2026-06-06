@@ -1,0 +1,116 @@
+{
+  "document_type": "security_agreement",
+  "vertical": "fs",
+  "family": "commercial_lending",
+  "schema_version": "fs_security_agreement_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "agreement_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of security agreement."
+    },
+    {
+      "name": "debtor_name",
+      "type": "string",
+      "required": true,
+      "description": "Grantor or debtor."
+    },
+    {
+      "name": "secured_party_name",
+      "type": "string",
+      "required": false,
+      "description": "Secured party or lender."
+    },
+    {
+      "name": "borrower_name",
+      "type": "string",
+      "required": false,
+      "description": "Borrower if different from debtor."
+    },
+    {
+      "name": "underlying_obligation_reference",
+      "type": "string",
+      "required": false,
+      "description": "Note, loan agreement, or obligations secured."
+    },
+    {
+      "name": "collateral_description",
+      "type": "string",
+      "required": true,
+      "description": "Granting clause collateral description."
+    },
+    {
+      "name": "all_assets_clause",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether agreement grants all assets or substantially all assets."
+    },
+    {
+      "name": "collateral_categories",
+      "type": "array<string>",
+      "required": false,
+      "description": "Accounts, inventory, equipment, general intangibles, deposit accounts, investment property, fixtures, vehicles, real estate-related, or other."
+    },
+    {
+      "name": "excluded_collateral",
+      "type": "array<string>",
+      "required": false,
+      "description": "Collateral excluded from grant."
+    },
+    {
+      "name": "perfection_requirements",
+      "type": "array<string>",
+      "required": false,
+      "description": "UCC filing, possession, control, title notation, mortgage, account control agreement, or other."
+    },
+    {
+      "name": "debtor_representations",
+      "type": "array<string>",
+      "required": false,
+      "description": "Key representations about ownership, liens, location, authority, etc."
+    },
+    {
+      "name": "covenants",
+      "type": "array<string>",
+      "required": false,
+      "description": "Collateral maintenance, insurance, records, inspection, transfer restrictions, etc."
+    },
+    {
+      "name": "events_of_default",
+      "type": "array<string>",
+      "required": false,
+      "description": "Defaults under the agreement."
+    },
+    {
+      "name": "remedies",
+      "type": "array<string>",
+      "required": false,
+      "description": "Remedies available to secured party."
+    },
+    {
+      "name": "governing_law",
+      "type": "string",
+      "required": false,
+      "description": "Governing law jurisdiction."
+    },
+    {
+      "name": "signature_name",
+      "type": "string",
+      "required": false,
+      "description": "Signer name."
+    },
+    {
+      "name": "signature_title",
+      "type": "string",
+      "required": false,
+      "description": "Signer title."
+    }
+  ]
+}

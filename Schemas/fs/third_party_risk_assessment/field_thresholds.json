@@ -1,0 +1,30 @@
+{
+  "vendor_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "High-impact field for Third-party Risk Assessment workflow."
+  },
+  "criticality_tier": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Third-party Risk Assessment workflow."
+  },
+  "residual_risk_rating": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Third-party Risk Assessment workflow."
+  },
+  "approval_status": {
+    "min_confidence": 0.85,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "High-impact field for Third-party Risk Assessment workflow."
+  }
+}

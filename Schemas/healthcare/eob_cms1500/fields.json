@@ -1,0 +1,152 @@
+{
+  "document_type": "eob_cms1500",
+  "vertical": "healthcare",
+  "family": "healthcare_claims",
+  "schema_version": "ANSI_X12_835_HIPAA5010_CMS1500",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "claim_number",
+      "type": "string",
+      "required": true,
+      "description": "Unique claim identifier assigned by payer (X12 835 CLM01 or payer-assigned reference number)"
+    },
+    {
+      "name": "patient_name",
+      "type": "string",
+      "required": false,
+      "description": "Full name of the patient (Last, First Middle or First Last format)"
+    },
+    {
+      "name": "patient_dob",
+      "type": "string",
+      "required": false,
+      "description": "Patient date of birth, format YYYY-MM-DD"
+    },
+    {
+      "name": "patient_member_id",
+      "type": "string",
+      "required": false,
+      "description": "Health plan member/subscriber ID number"
+    },
+    {
+      "name": "provider_name",
+      "type": "string",
+      "required": false,
+      "description": "Name of the billing/rendering provider or group practice"
+    },
+    {
+      "name": "provider_npi",
+      "type": "string",
+      "required": false,
+      "description": "National Provider Identifier (NPI) of billing provider \u2014 10-digit numeric"
+    },
+    {
+      "name": "rendering_provider_npi",
+      "type": "string",
+      "required": false,
+      "description": "NPI of the actual rendering/treating provider if different from billing provider"
+    },
+    {
+      "name": "payer_name",
+      "type": "string",
+      "required": false,
+      "description": "Name of the insurance company or health plan paying the claim"
+    },
+    {
+      "name": "payer_id",
+      "type": "string",
+      "required": false,
+      "description": "Payer's electronic ID or NAIC code"
+    },
+    {
+      "name": "group_number",
+      "type": "string",
+      "required": false,
+      "description": "Patient's insurance group number"
+    },
+    {
+      "name": "date_of_service_from",
+      "type": "string",
+      "required": false,
+      "description": "Start date of service, format YYYY-MM-DD (CMS-1500 Box 24A From)"
+    },
+    {
+      "name": "date_of_service_to",
+      "type": "string",
+      "required": false,
+      "description": "End date of service, format YYYY-MM-DD (CMS-1500 Box 24A To); same as from if single-day service"
+    },
+    {
+      "name": "procedure_codes",
+      "type": "array<string>",
+      "required": false,
+      "description": "Array of CPT/HCPCS procedure codes billed (e.g., [\"99213\", \"93000\"]). Each entry is a string. Include modifiers as suffix if present (e.g., \"99213-25\")"
+    },
+    {
+      "name": "diagnosis_codes",
+      "type": "array<string>",
+      "required": false,
+      "description": "Array of ICD-10-CM diagnosis codes (e.g., [\"I10\", \"E11.9\"]). Extract all listed diagnosis pointers"
+    },
+    {
+      "name": "billed_amount",
+      "type": "number",
+      "required": true,
+      "description": "Total amount billed/charged by provider as decimal (CMS-1500 Box 28 or EOB \"Billed\" column total)"
+    },
+    {
+      "name": "allowed_amount",
+      "type": "number",
+      "required": false,
+      "description": "Payer-allowed/contracted amount as decimal (EOB \"Allowed\" or \"Eligible\" amount)"
+    },
+    {
+      "name": "paid_amount",
+      "type": "number",
+      "required": false,
+      "description": "Amount actually paid by payer to provider as decimal (X12 835 BPR02 or EOB \"Plan Paid\" amount)"
+    },
+    {
+      "name": "patient_responsibility",
+      "type": "string",
+      "required": false,
+      "description": "Total amount patient owes (copay + coinsurance + deductible) as decimal"
+    },
+    {
+      "name": "claim_status",
+      "type": "string",
+      "required": false,
+      "description": "Adjudication outcome. One of: Paid | Denied | Pending | Adjusted"
+    },
+    {
+      "name": "denial_reason_code",
+      "type": "string",
+      "required": false,
+      "description": "ANSI X12 835 Group/Claim Adjustment Reason Code (CARC) if denied or adjusted (e.g., \"96\", \"CO-4\", \"PR-1\"). Null if claim was fully paid"
+    },
+    {
+      "name": "remark_codes",
+      "type": "array<string>",
+      "required": false,
+      "description": "Array of Remittance Advice Remark Codes (RARC) associated with the claim (e.g., [\"N130\", \"MA01\"]). Null or empty array if none"
+    },
+    {
+      "name": "service_facility_name",
+      "type": "string",
+      "required": false,
+      "description": "Name of the facility where services were rendered (if different from billing provider)"
+    },
+    {
+      "name": "service_facility_npi",
+      "type": "string",
+      "required": false,
+      "description": "NPI of the service facility (CMS-1500 Box 32b)"
+    }
+  ]
+}

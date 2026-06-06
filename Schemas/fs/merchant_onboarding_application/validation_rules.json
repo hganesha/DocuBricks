@@ -1,0 +1,32 @@
+[
+  {
+    "name": "merchant_legal_name_present",
+    "expression": "merchant_legal_name IS NOT NULL AND LENGTH(TRIM(merchant_legal_name)) > 0",
+    "severity": "fail",
+    "description": "merchant_legal_name is required for Merchant Onboarding Application extraction."
+  },
+  {
+    "name": "estimated_monthly_volume_present",
+    "expression": "estimated_monthly_volume IS NOT NULL AND LENGTH(TRIM(estimated_monthly_volume)) > 0",
+    "severity": "fail",
+    "description": "estimated_monthly_volume is required for Merchant Onboarding Application extraction."
+  },
+  {
+    "name": "estimated_monthly_volume_non_negative",
+    "expression": "estimated_monthly_volume IS NULL OR estimated_monthly_volume >= 0",
+    "severity": "warn",
+    "description": "estimated_monthly_volume should be non-negative when present."
+  },
+  {
+    "name": "average_ticket_amount_non_negative",
+    "expression": "average_ticket_amount IS NULL OR average_ticket_amount >= 0",
+    "severity": "warn",
+    "description": "average_ticket_amount should be non-negative when present."
+  },
+  {
+    "name": "high_ticket_amount_non_negative",
+    "expression": "high_ticket_amount IS NULL OR high_ticket_amount >= 0",
+    "severity": "warn",
+    "description": "high_ticket_amount should be non-negative when present."
+  }
+]

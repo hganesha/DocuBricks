@@ -1,0 +1,28 @@
+{
+  "test_case_id": "ucc_financing_statement_001",
+  "document_type": "ucc_financing_statement",
+  "description": "UCC-1 financing statement with debtor, secured party, and collateral text",
+  "parsed_text": "UCC FINANCING STATEMENT\nFiling Type: Initial Financing Statement\nFiling No.: IA-2026-0048127\nFiling Date: March 16, 2026\nLapse Date: March 16, 2031\nFiling Office: Iowa Secretary of State\nJurisdiction: Iowa\nDebtor: Prairie Ridge Manufacturing LLC, 4100 Foundry Road, Des Moines, IA 50309\nSecured Party: Heartland Bank, N.A., 200 Capital Avenue, Des Moines, IA 50309\nCollateral: All equipment, machinery, inventory, accounts, general intangibles, instruments, chattel paper, deposit accounts, proceeds, products, accessions, replacements, and supporting obligations, whether now owned or hereafter acquired.\nFixture Filing: No\nTransmitting Utility: No\nPublic Finance: No\nManufactured Home Transaction: No",
+  "expected_json": {
+    "filing_type": "Initial Financing Statement",
+    "filing_number": "IA-2026-0048127",
+    "filing_date": "2026-03-16",
+    "lapse_date": "2031-03-16",
+    "filing_office": "Iowa Secretary of State",
+    "filing_jurisdiction": "Iowa",
+    "debtor_names": ["Prairie Ridge Manufacturing LLC"],
+    "debtor_addresses": ["4100 Foundry Road, Des Moines, IA 50309"],
+    "secured_party_names": ["Heartland Bank, N.A."],
+    "secured_party_addresses": ["200 Capital Avenue, Des Moines, IA 50309"],
+    "collateral_description": "All equipment, machinery, inventory, accounts, general intangibles, instruments, chattel paper, deposit accounts, proceeds, products, accessions, replacements, and supporting obligations, whether now owned or hereafter acquired.",
+    "fixture_filing_indicator": false,
+    "transmitting_utility_indicator": false,
+    "public_finance_indicator": false,
+    "manufactured_home_indicator": false,
+    "related_filing_number": null,
+    "assignee_name": null,
+    "termination_indicator": false,
+    "continuation_indicator": false
+  },
+  "expected_avg_confidence": 0.96
+}

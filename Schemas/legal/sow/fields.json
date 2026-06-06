@@ -1,0 +1,158 @@
+{
+  "document_type": "sow",
+  "vertical": "legal",
+  "family": "contracts",
+  "schema_version": "legal_sow_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "sow_number",
+      "type": "string",
+      "required": false,
+      "description": "The unique SOW identifier or reference number (e.g., \"SOW-2025-007\", \"SOW #3\")"
+    },
+    {
+      "name": "sow_title",
+      "type": "string",
+      "required": false,
+      "description": "Descriptive title of the statement of work"
+    },
+    {
+      "name": "effective_date",
+      "type": "date",
+      "required": true,
+      "description": "The date the SOW becomes effective, format YYYY-MM-DD"
+    },
+    {
+      "name": "end_date",
+      "type": "date",
+      "required": false,
+      "description": "The date the SOW terminates or the project is expected to complete, format YYYY-MM-DD"
+    },
+    {
+      "name": "amendment_number",
+      "type": "string",
+      "required": false,
+      "description": "If this is an amendment to an existing SOW, the amendment number as integer (null if original)"
+    },
+    {
+      "name": "client_name",
+      "type": "string",
+      "required": false,
+      "description": "Full legal name of the client organization"
+    },
+    {
+      "name": "client_contact",
+      "type": "string",
+      "required": false,
+      "description": "Name of the primary client contact person (project manager, sponsor, or signatory)"
+    },
+    {
+      "name": "client_po_number",
+      "type": "string",
+      "required": false,
+      "description": "Client's Purchase Order number referenced in the SOW (null if not present)"
+    },
+    {
+      "name": "vendor_name",
+      "type": "string",
+      "required": false,
+      "description": "Full legal name of the vendor / service provider organization"
+    },
+    {
+      "name": "vendor_contact",
+      "type": "string",
+      "required": false,
+      "description": "Name of the primary vendor contact person (project manager or account manager)"
+    },
+    {
+      "name": "project_description",
+      "type": "string",
+      "required": false,
+      "description": "Brief description of the project or engagement scope (up to 300 characters)"
+    },
+    {
+      "name": "deliverables",
+      "type": "array<string>",
+      "required": false,
+      "description": "Array of deliverable objects. Each object must contain:"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Short name of the deliverable"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "Brief description of the deliverable (up to 150 chars)"
+    },
+    {
+      "name": "due_date",
+      "type": "date",
+      "required": false,
+      "description": "Due date in format YYYY-MM-DD (null if not specified for this deliverable)"
+    },
+    {
+      "name": "pricing_model",
+      "type": "string",
+      "required": false,
+      "description": "The pricing structure. One of: Fixed | T&M | Retainer | Milestone | Other"
+    },
+    {
+      "name": "total_contract_value",
+      "type": "number",
+      "required": false,
+      "description": "Total value of the SOW as decimal (null if T&M with no cap, or retainer with no stated total)"
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "description": "Currency code (e.g., \"USD\", \"EUR\", \"GBP\")"
+    },
+    {
+      "name": "payment_terms",
+      "type": "number",
+      "required": false,
+      "description": "Payment terms as stated (e.g., \"Net 30\", \"50% upfront / 50% on completion\", \"Monthly in arrears\")"
+    },
+    {
+      "name": "payment_schedule",
+      "type": "number",
+      "required": false,
+      "description": "Description of the payment schedule or milestones for billing (up to 200 chars)"
+    },
+    {
+      "name": "acceptance_criteria_described",
+      "type": "string",
+      "required": false,
+      "description": "Boolean \u2014 true if the SOW contains defined acceptance criteria for deliverables"
+    },
+    {
+      "name": "change_order_process_described",
+      "type": "string",
+      "required": false,
+      "description": "Boolean \u2014 true if the SOW describes a change order or change control process"
+    },
+    {
+      "name": "ip_ownership",
+      "type": "string",
+      "required": false,
+      "description": "Who owns intellectual property created under this SOW. One of: Client | Vendor | Joint | null"
+    },
+    {
+      "name": "governing_law",
+      "type": "string",
+      "required": false,
+      "description": "The state or jurisdiction whose laws govern the SOW (e.g., \"CA\", \"NY\", \"DE\")"
+    }
+  ]
+}

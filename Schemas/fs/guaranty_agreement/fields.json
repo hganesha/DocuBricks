@@ -1,0 +1,116 @@
+{
+  "document_type": "guaranty_agreement",
+  "vertical": "fs",
+  "family": "commercial_lending",
+  "schema_version": "fs_guaranty_agreement_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "agreement_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of guaranty."
+    },
+    {
+      "name": "guarantor_name",
+      "type": "string",
+      "required": true,
+      "description": "Guarantor legal name."
+    },
+    {
+      "name": "guarantor_type",
+      "type": "string",
+      "required": false,
+      "description": "Individual, entity, trust, spouse, affiliate, or other."
+    },
+    {
+      "name": "borrower_name",
+      "type": "string",
+      "required": false,
+      "description": "Borrower whose obligations are guaranteed."
+    },
+    {
+      "name": "lender_name",
+      "type": "string",
+      "required": false,
+      "description": "Lender or beneficiary."
+    },
+    {
+      "name": "underlying_agreement_reference",
+      "type": "string",
+      "required": false,
+      "description": "Loan agreement or note referenced."
+    },
+    {
+      "name": "guaranty_type",
+      "type": "string",
+      "required": false,
+      "description": "Unlimited, limited, payment, collection, completion, carve-out, springing, or other."
+    },
+    {
+      "name": "guaranteed_obligations",
+      "type": "string",
+      "required": false,
+      "description": "Description of obligations guaranteed."
+    },
+    {
+      "name": "maximum_liability_amount",
+      "type": "number",
+      "required": false,
+      "description": "Cap or maximum amount if stated."
+    },
+    {
+      "name": "continuing_guaranty",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether guaranty is continuing."
+    },
+    {
+      "name": "joint_and_several",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether liability is joint and several."
+    },
+    {
+      "name": "payment_on_demand",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether payment is due on demand."
+    },
+    {
+      "name": "waivers",
+      "type": "array<string>",
+      "required": false,
+      "description": "Waivers of notice, presentment, defenses, subrogation, jury trial, etc."
+    },
+    {
+      "name": "termination_rights",
+      "type": "string",
+      "required": false,
+      "description": "Termination or revocation language."
+    },
+    {
+      "name": "governing_law",
+      "type": "string",
+      "required": false,
+      "description": "Governing law jurisdiction."
+    },
+    {
+      "name": "signature_name",
+      "type": "string",
+      "required": false,
+      "description": "Signer name."
+    },
+    {
+      "name": "signature_title",
+      "type": "string",
+      "required": false,
+      "description": "Signer title if entity guarantor."
+    }
+  ]
+}

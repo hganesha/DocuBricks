@@ -1,0 +1,55 @@
+{
+  "test_case_id": "regulatory_reporting_package_001",
+  "document_type": "regulatory_reporting_package",
+  "description": "Seed golden test for Regulatory Reporting Package",
+  "parsed_text": "REGULATORY REPORTING PACKAGE\nReport Name: Q1 2026 Consolidated Reports of Condition and Income\nReport Type: Call Report\nReporting Period End: 2026-03-31\nInstitution: Meridian Bank, N.A.\nRSSD ID: 1234567\nRegulator: FFIEC / OCC\nSubmission Due Date: 2026-04-30\nSubmission Date: 2026-04-28\nFiling Status: Accepted\nPreparer: Luis Romero\nApprover: Karen Blake, Chief Financial Officer\nAttestation Required: Yes\nKey Metrics: Total Assets $18,420,000,000; Tier 1 Capital Ratio 11.2%; Total Loans $12,750,000,000\nExceptions: Schedule RC-C commercial loan reconciliation variance resolved; edit check E-212 cleared\nAmendment: No\nEvidence: trial balance reconciliation; loan system tie-out; CFO certification; edit check report\nControl Signoffs: Financial Reporting Control FR-12; Regulatory Reporting Manager review; CFO certification",
+  "expected_json": {
+    "report_name": "Q1 2026 Consolidated Reports of Condition and Income",
+    "report_type": "Call Report",
+    "reporting_period_end_date": "2026-03-31",
+    "institution_name": "Meridian Bank, N.A.",
+    "institution_identifier": "1234567",
+    "regulator_name": "FFIEC / OCC",
+    "submission_due_date": "2026-04-30",
+    "submission_date": "2026-04-28",
+    "filing_status": "Accepted",
+    "preparer_name": "Luis Romero",
+    "approver_name": "Karen Blake, Chief Financial Officer",
+    "attestation_required": true,
+    "key_metrics": [
+      {
+        "name": "Total Assets",
+        "value": 18420000000.0,
+        "unit": "USD"
+      },
+      {
+        "name": "Tier 1 Capital Ratio",
+        "value": 11.2,
+        "unit": "percent"
+      },
+      {
+        "name": "Total Loans",
+        "value": 12750000000.0,
+        "unit": "USD"
+      }
+    ],
+    "exceptions": [
+      "Schedule RC-C commercial loan reconciliation variance resolved",
+      "edit check E-212 cleared"
+    ],
+    "amendment_indicator": false,
+    "amendment_reason": null,
+    "evidence_documents": [
+      "trial balance reconciliation",
+      "loan system tie-out",
+      "CFO certification",
+      "edit check report"
+    ],
+    "control_signoffs": [
+      "Financial Reporting Control FR-12",
+      "Regulatory Reporting Manager review",
+      "CFO certification"
+    ]
+  },
+  "expected_avg_confidence": 0.92
+}

@@ -1,0 +1,37 @@
+{
+  "guarantor_name": {
+    "min_confidence": 0.94,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "Guarantor identity anchors credit support."
+  },
+  "borrower_name": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Borrower links guaranty to the loan obligation."
+  },
+  "guaranty_type": {
+    "min_confidence": 0.86,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Guaranty type affects enforcement and exposure analysis."
+  },
+  "maximum_liability_amount": {
+    "min_confidence": 0.93,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Liability cap materially limits credit support."
+  },
+  "continuing_guaranty": {
+    "min_confidence": 0.84,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Continuing status affects future advances."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "test_case_id": "merchant_onboarding_application_001",
+  "document_type": "merchant_onboarding_application",
+  "description": "Seed golden test for Merchant Onboarding Application",
+  "parsed_text": "MERCHANT ONBOARDING APPLICATION\nApplication Date: 2026-03-22\nLegal Name: Lakeside Outdoor Gear LLC\nDBA: LakesideGear.com\nEIN: XX-XXX9201\nMCC: 5941 Sporting Goods Stores\nBusiness Type: Ecommerce retailer\nWebsite: https://lakesidegear.example\nProcessing Channels: ecommerce; mobile wallet; keyed phone orders\nEstimated Monthly Volume: $850,000\nAverage Ticket: $115.00\nHigh Ticket: $2,500.00\nRefund Policy: 30-day returns for unused goods\nChargeback History: prior processor reported 0.65% chargeback ratio\nReserve Required: Yes\nReserve Terms: 5% rolling reserve for 180 days\nBeneficial Owners: Priya Raman; Cole Bennett\nPrincipal Signer: Priya Raman\nRisk Rating: Medium\nUnderwriting Decision: Approved with conditions\nConditions: rolling reserve agreement; website terms update; proof of inventory financing",
+  "expected_json": {
+    "application_date": "2026-03-22",
+    "merchant_legal_name": "Lakeside Outdoor Gear LLC",
+    "merchant_dba_name": "LakesideGear.com",
+    "merchant_tax_id_masked": "XX-XXX9201",
+    "merchant_category_code": "5941",
+    "business_type": "Ecommerce retailer",
+    "website_url": "https://lakesidegear.example",
+    "processing_channels": [
+      "ecommerce",
+      "mobile wallet",
+      "keyed phone orders"
+    ],
+    "estimated_monthly_volume": 850000.0,
+    "average_ticket_amount": 115.0,
+    "high_ticket_amount": 2500.0,
+    "refund_policy": "30-day returns for unused goods",
+    "chargeback_history": "prior processor reported 0.65% chargeback ratio",
+    "reserve_required": true,
+    "reserve_terms": "5% rolling reserve for 180 days",
+    "beneficial_owner_names": [
+      "Priya Raman",
+      "Cole Bennett"
+    ],
+    "principal_signer_name": "Priya Raman",
+    "risk_rating": "Medium",
+    "underwriting_decision": "Approved with conditions",
+    "approval_conditions": [
+      "rolling reserve agreement",
+      "website terms update",
+      "proof of inventory financing"
+    ]
+  },
+  "expected_avg_confidence": 0.92
+}

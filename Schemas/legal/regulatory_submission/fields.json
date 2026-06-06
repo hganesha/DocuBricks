@@ -1,0 +1,110 @@
+{
+  "document_type": "regulatory_submission",
+  "vertical": "legal",
+  "family": "regulatory_exams_audit",
+  "schema_version": "legal_regulatory_submission_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "submission_type",
+      "type": "string",
+      "required": true,
+      "description": "The specific type of regulatory submission. Examples:"
+    },
+    {
+      "name": "regulator",
+      "type": "string",
+      "required": false,
+      "description": "The regulatory body receiving the submission. One of: FDA | SEC | FinCEN | CFTC | FINRA | FTC | CFPB | State | Other"
+    },
+    {
+      "name": "submission_date",
+      "type": "date",
+      "required": false,
+      "description": "Date the submission was filed or submitted, format YYYY-MM-DD"
+    },
+    {
+      "name": "acceptance_date",
+      "type": "date",
+      "required": false,
+      "description": "Date the regulator formally accepted the submission for review, format YYYY-MM-DD (null if not stated)"
+    },
+    {
+      "name": "decision_date",
+      "type": "date",
+      "required": false,
+      "description": "Date the regulator issued a final decision, format YYYY-MM-DD (null if pending or not stated)"
+    },
+    {
+      "name": "submission_status",
+      "type": "string",
+      "required": false,
+      "description": "Current status of the submission. One of: Accepted | Under_Review | Approved | Refused | Withdrawn | Pending | Deficient | null"
+    },
+    {
+      "name": "submission_id",
+      "type": "string",
+      "required": false,
+      "description": "The unique identifier assigned to the submission. This may be a docket number (FDA), accession number (SEC EDGAR), CTR/SAR reference number (FinCEN), or other regulatory reference ID"
+    },
+    {
+      "name": "cover_letter_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of the cover letter accompanying the submission, format YYYY-MM-DD (null if no cover letter)"
+    },
+    {
+      "name": "filing_period_from",
+      "type": "string",
+      "required": false,
+      "description": "Start date of the filing period (e.g., fiscal year start for 10-K, quarter start for 10-Q), format YYYY-MM-DD"
+    },
+    {
+      "name": "filing_period_to",
+      "type": "string",
+      "required": false,
+      "description": "End date of the filing period (e.g., fiscal year end for 10-K), format YYYY-MM-DD"
+    },
+    {
+      "name": "submitting_entity_name",
+      "type": "string",
+      "required": true,
+      "description": "Full legal name of the entity filing the submission"
+    },
+    {
+      "name": "submitting_entity_id",
+      "type": "string",
+      "required": false,
+      "description": "The primary regulatory identifier for the submitting entity. This may be a CIK (SEC), LEI, EIN, FDA Establishment Identifier, or other ID"
+    },
+    {
+      "name": "review_division",
+      "type": "string",
+      "required": false,
+      "description": "The specific division, branch, or office within the regulator that reviews this submission (null if not applicable or not stated)"
+    },
+    {
+      "name": "subject_of_submission",
+      "type": "string",
+      "required": false,
+      "description": "Brief description of the subject matter of the filing (up to 300 chars)"
+    },
+    {
+      "name": "material_change_described",
+      "type": "string",
+      "required": false,
+      "description": "Boolean \u2014 true if the submission discloses or describes a material change, event, or condition"
+    },
+    {
+      "name": "confidentiality_request",
+      "type": "string",
+      "required": false,
+      "description": "Boolean \u2014 true if the submitting entity has requested confidential treatment of all or part of the submission"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "document_type": "third_party_risk_assessment",
+  "vertical": "fs",
+  "family": "regulatory_exams_audit",
+  "schema_version": "risk_third_party_risk_assessment_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "assessment_date",
+      "type": "date",
+      "required": true,
+      "description": "Date the assessment was completed."
+    },
+    {
+      "name": "vendor_name",
+      "type": "string",
+      "required": true,
+      "description": "Legal or operating name of the vendor."
+    },
+    {
+      "name": "vendor_service_description",
+      "type": "string",
+      "required": false,
+      "description": "Description of products or services provided."
+    },
+    {
+      "name": "business_owner",
+      "type": "string",
+      "required": false,
+      "description": "Internal owner or relationship manager."
+    },
+    {
+      "name": "criticality_tier",
+      "type": "string",
+      "required": false,
+      "description": "Critical, high, medium, low, or other tier."
+    },
+    {
+      "name": "inherent_risk_rating",
+      "type": "string",
+      "required": false,
+      "description": "Inherent risk before controls."
+    },
+    {
+      "name": "residual_risk_rating",
+      "type": "string",
+      "required": false,
+      "description": "Residual risk after controls."
+    },
+    {
+      "name": "data_access_level",
+      "type": "string",
+      "required": false,
+      "description": "Customer data, confidential data, payment data, PHI, none, or other."
+    },
+    {
+      "name": "customer_impact",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether vendor failure could materially affect customers."
+    },
+    {
+      "name": "outsourcing_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether this is an outsourcing or material service provider."
+    },
+    {
+      "name": "subcontractors",
+      "type": "array<string>",
+      "required": false,
+      "description": "Named material subcontractors or fourth parties."
+    },
+    {
+      "name": "soc_report_type",
+      "type": "string",
+      "required": false,
+      "description": "SOC 1, SOC 2, bridge letter, none, or other."
+    },
+    {
+      "name": "soc_report_date",
+      "type": "date",
+      "required": false,
+      "description": "Date or period end of SOC report."
+    },
+    {
+      "name": "information_security_rating",
+      "type": "string",
+      "required": false,
+      "description": "Information security control rating."
+    },
+    {
+      "name": "business_continuity_rating",
+      "type": "string",
+      "required": false,
+      "description": "BCP/DR control rating."
+    },
+    {
+      "name": "financial_condition_rating",
+      "type": "string",
+      "required": false,
+      "description": "Financial strength or viability rating."
+    },
+    {
+      "name": "regulatory_compliance_rating",
+      "type": "string",
+      "required": false,
+      "description": "Compliance control rating."
+    },
+    {
+      "name": "open_issues",
+      "type": "array<string>",
+      "required": false,
+      "description": "Open issues, findings, or remediation items."
+    },
+    {
+      "name": "remediation_due_date",
+      "type": "date",
+      "required": false,
+      "description": "Due date for remediation if stated."
+    },
+    {
+      "name": "approval_status",
+      "type": "string",
+      "required": false,
+      "description": "Approved, conditionally approved, rejected, pending, or other."
+    },
+    {
+      "name": "approver_name",
+      "type": "string",
+      "required": false,
+      "description": "Approver, committee, or risk officer."
+    },
+    {
+      "name": "next_review_date",
+      "type": "date",
+      "required": false,
+      "description": "Next periodic review date."
+    }
+  ]
+}

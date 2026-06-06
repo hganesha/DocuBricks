@@ -1,0 +1,122 @@
+{
+  "document_type": "regulatory_reporting_package",
+  "vertical": "fs",
+  "family": "regulatory_reporting",
+  "schema_version": "risk_regulatory_reporting_package_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "report_name",
+      "type": "string",
+      "required": true,
+      "description": "Name of report package or filing."
+    },
+    {
+      "name": "report_type",
+      "type": "string",
+      "required": true,
+      "description": "Call Report, HMDA, CRA, SAR, CTR, CECL, CCAR, DFAST, liquidity, or other."
+    },
+    {
+      "name": "reporting_period_end_date",
+      "type": "date",
+      "required": true,
+      "description": "Reporting period end date."
+    },
+    {
+      "name": "institution_name",
+      "type": "string",
+      "required": false,
+      "description": "Reporting institution legal name."
+    },
+    {
+      "name": "institution_identifier",
+      "type": "string",
+      "required": false,
+      "description": "RSSD, FDIC certificate, LEI, NMLS, or other identifier."
+    },
+    {
+      "name": "regulator_name",
+      "type": "string",
+      "required": false,
+      "description": "Regulator or filing recipient."
+    },
+    {
+      "name": "submission_due_date",
+      "type": "date",
+      "required": false,
+      "description": "Submission due date."
+    },
+    {
+      "name": "submission_date",
+      "type": "date",
+      "required": false,
+      "description": "Actual submission date if filed."
+    },
+    {
+      "name": "filing_status",
+      "type": "string",
+      "required": false,
+      "description": "Draft, filed, accepted, rejected, amended, or other."
+    },
+    {
+      "name": "preparer_name",
+      "type": "string",
+      "required": false,
+      "description": "Report preparer or owner."
+    },
+    {
+      "name": "approver_name",
+      "type": "string",
+      "required": false,
+      "description": "Approver or certifying officer."
+    },
+    {
+      "name": "attestation_required",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether certification or attestation is required."
+    },
+    {
+      "name": "key_metrics",
+      "type": "array<object>",
+      "required": false,
+      "description": "Material report metrics with name, value, and unit if present."
+    },
+    {
+      "name": "exceptions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Known exceptions, edits, or validation issues."
+    },
+    {
+      "name": "amendment_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether package is an amendment or resubmission."
+    },
+    {
+      "name": "amendment_reason",
+      "type": "string",
+      "required": false,
+      "description": "Reason for amendment or resubmission."
+    },
+    {
+      "name": "evidence_documents",
+      "type": "array<string>",
+      "required": false,
+      "description": "Supporting schedules, reconciliations, or evidence."
+    },
+    {
+      "name": "control_signoffs",
+      "type": "array<string>",
+      "required": false,
+      "description": "Control owners or signoff records."
+    }
+  ]
+}

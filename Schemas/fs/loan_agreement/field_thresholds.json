@@ -1,0 +1,37 @@
+{
+  "borrower_name": {
+    "min_confidence": 0.94,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "Borrower name anchors the legal obligation."
+  },
+  "lender_name": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Lender or agent identity controls document matching."
+  },
+  "commitment_amount": {
+    "min_confidence": 0.95,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "Commitment amount is a core credit exposure field."
+  },
+  "maturity_date": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Maturity date drives monitoring and renewal workflows."
+  },
+  "financial_covenants": {
+    "min_confidence": 0.82,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Financial covenants feed compliance monitoring."
+  }
+}

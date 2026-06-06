@@ -1,0 +1,152 @@
+{
+  "document_type": "nda_msa",
+  "vertical": "legal",
+  "family": "contracts",
+  "schema_version": "legal_nda_msa_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "agreement_type",
+      "type": "string",
+      "required": false,
+      "description": "Classification of the agreement. One of: NDA | MSA | MNDA | MOU | LOI | Other"
+    },
+    {
+      "name": "effective_date",
+      "type": "date",
+      "required": true,
+      "description": "The date the agreement becomes effective, format YYYY-MM-DD"
+    },
+    {
+      "name": "expiration_date",
+      "type": "date",
+      "required": false,
+      "description": "The date the agreement expires or terminates, format YYYY-MM-DD (null if perpetual or not stated)"
+    },
+    {
+      "name": "auto_renew",
+      "type": "boolean",
+      "required": false,
+      "description": "Boolean \u2014 true if the agreement contains an automatic renewal clause"
+    },
+    {
+      "name": "renewal_notice_days",
+      "type": "string",
+      "required": false,
+      "description": "Number of days' advance notice required to prevent auto-renewal, as integer (null if not applicable)"
+    },
+    {
+      "name": "amendment_number",
+      "type": "string",
+      "required": false,
+      "description": "If this document is an amendment or addendum, the amendment number as integer (e.g., 1 for \"Amendment No. 1\"; null if original agreement)"
+    },
+    {
+      "name": "party_1_name",
+      "type": "string",
+      "required": false,
+      "description": "Full legal name of the first party"
+    },
+    {
+      "name": "party_1_role",
+      "type": "string",
+      "required": false,
+      "description": "Role of the first party. One of: Disclosing | Receiving | Both (for mutual agreements)"
+    },
+    {
+      "name": "party_1_state",
+      "type": "string",
+      "required": false,
+      "description": "State or jurisdiction of incorporation/organization for party 1 (two-letter state code or country if non-US)"
+    },
+    {
+      "name": "party_2_name",
+      "type": "string",
+      "required": false,
+      "description": "Full legal name of the second party"
+    },
+    {
+      "name": "party_2_role",
+      "type": "string",
+      "required": false,
+      "description": "Role of the second party. One of: Disclosing | Receiving | Both"
+    },
+    {
+      "name": "party_2_state",
+      "type": "string",
+      "required": false,
+      "description": "State or jurisdiction of incorporation/organization for party 2"
+    },
+    {
+      "name": "governing_law",
+      "type": "string",
+      "required": false,
+      "description": "The state or jurisdiction whose laws govern the agreement (e.g., \"CA\", \"NY\", \"DE\", \"England and Wales\")"
+    },
+    {
+      "name": "confidentiality_period_years",
+      "type": "string",
+      "required": false,
+      "description": "Duration of the confidentiality obligation in years as decimal (null if perpetual or not explicitly stated in years)"
+    },
+    {
+      "name": "confidentiality_scope",
+      "type": "string",
+      "required": false,
+      "description": "Brief description of what information is deemed confidential (up to 200 chars)"
+    },
+    {
+      "name": "permitted_uses",
+      "type": "array<string>",
+      "required": false,
+      "description": "Array of strings describing the permitted uses of confidential information (e.g., [\"Evaluating potential business relationship\", \"Performing services under the MSA\"])"
+    },
+    {
+      "name": "excluded_information",
+      "type": "array<string>",
+      "required": false,
+      "description": "Array of strings listing categories of information excluded from confidentiality obligations (e.g., [\"Publicly available information\", \"Independently developed information\", \"Information received from third parties without restriction\"])"
+    },
+    {
+      "name": "return_or_destroy_obligation",
+      "type": "string",
+      "required": false,
+      "description": "Boolean \u2014 true if the agreement requires return or destruction of confidential materials upon termination or request"
+    },
+    {
+      "name": "non_solicitation_clause",
+      "type": "boolean",
+      "required": false,
+      "description": "Boolean \u2014 true if the agreement contains a non-solicitation clause restricting hiring of the other party's employees"
+    },
+    {
+      "name": "non_compete_clause",
+      "type": "boolean",
+      "required": false,
+      "description": "Boolean \u2014 true if the agreement contains a non-compete or non-competition clause"
+    },
+    {
+      "name": "liquidated_damages_amount",
+      "type": "number",
+      "required": false,
+      "description": "The liquidated damages amount stated in the agreement as decimal (null if not specified)"
+    },
+    {
+      "name": "arbitration_clause",
+      "type": "boolean",
+      "required": false,
+      "description": "Boolean \u2014 true if the agreement requires disputes to be resolved by arbitration"
+    },
+    {
+      "name": "arbitration_venue",
+      "type": "number",
+      "required": false,
+      "description": "City and/or state where arbitration proceedings would be held (null if no arbitration clause)"
+    }
+  ]
+}

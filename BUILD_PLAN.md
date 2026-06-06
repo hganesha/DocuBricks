@@ -278,7 +278,7 @@ variables:
     description: Deploy vertical agent Workflow jobs
     default: "false"
   vertical:
-    description: Primary vertical (fs | healthcare | legal)
+    description: Primary vertical (fs | healthcare | legal | insurance | manufacturing | real_estate)
     default: fs
 
 include:

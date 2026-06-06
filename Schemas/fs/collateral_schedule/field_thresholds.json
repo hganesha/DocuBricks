@@ -1,0 +1,37 @@
+{
+  "borrower_name": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "Borrower identity links collateral to the credit facility."
+  },
+  "collateral_category": {
+    "min_confidence": 0.86,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Collateral category determines monitoring and perfection controls."
+  },
+  "total_collateral_value": {
+    "min_confidence": 0.93,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Collateral value affects borrowing base and exposure coverage."
+  },
+  "borrowing_base_amount": {
+    "min_confidence": 0.93,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Borrowing base amount controls availability."
+  },
+  "lien_position": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Lien priority is central to secured credit risk."
+  }
+}

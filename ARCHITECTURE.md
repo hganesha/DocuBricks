@@ -152,7 +152,7 @@ catalog: docubricks_prod
   schema: raw_landing
     volume: /Volumes/docubricks_prod/raw_landing/documents/
       {tenant_id}/
-        {vertical}/          # fs | healthcare | legal | manufacturing
+        {vertical}/          # fs | healthcare | legal | insurance | manufacturing | real_estate
           {year}/{month}/{day}/
             {document_id}.{ext}
 ```

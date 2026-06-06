@@ -1,0 +1,122 @@
+{
+  "document_type": "collateral_schedule",
+  "vertical": "fs",
+  "family": "commercial_lending",
+  "schema_version": "fs_collateral_schedule_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "schedule_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of schedule."
+    },
+    {
+      "name": "borrower_name",
+      "type": "string",
+      "required": true,
+      "description": "Borrower or owner of collateral."
+    },
+    {
+      "name": "lender_name",
+      "type": "string",
+      "required": false,
+      "description": "Secured party or lender."
+    },
+    {
+      "name": "agreement_reference",
+      "type": "string",
+      "required": false,
+      "description": "Loan/security agreement referenced."
+    },
+    {
+      "name": "collateral_category",
+      "type": "string",
+      "required": false,
+      "description": "Accounts receivable, inventory, equipment, real estate, deposit accounts, securities, vehicles, mixed, or other."
+    },
+    {
+      "name": "collateral_description",
+      "type": "string",
+      "required": true,
+      "description": "General description of collateral."
+    },
+    {
+      "name": "collateral_location",
+      "type": "string",
+      "required": false,
+      "description": "Location of collateral if stated."
+    },
+    {
+      "name": "total_collateral_value",
+      "type": "number",
+      "required": false,
+      "description": "Total stated value."
+    },
+    {
+      "name": "eligible_collateral_value",
+      "type": "number",
+      "required": false,
+      "description": "Eligible value after exclusions/reserves."
+    },
+    {
+      "name": "advance_rate_percent",
+      "type": "number",
+      "required": false,
+      "description": "Advance rate percentage."
+    },
+    {
+      "name": "borrowing_base_amount",
+      "type": "number",
+      "required": false,
+      "description": "Borrowing base amount."
+    },
+    {
+      "name": "appraisal_date",
+      "type": "date",
+      "required": false,
+      "description": "Appraisal or valuation date."
+    },
+    {
+      "name": "valuation_method",
+      "type": "string",
+      "required": false,
+      "description": "Appraisal, book value, market value, invoice value, NADA, or other."
+    },
+    {
+      "name": "lien_position",
+      "type": "string",
+      "required": false,
+      "description": "First priority, second priority, subordinated, unknown, or other."
+    },
+    {
+      "name": "prior_liens_amount",
+      "type": "number",
+      "required": false,
+      "description": "Amount of prior liens if stated."
+    },
+    {
+      "name": "insurance_required",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether insurance is required or referenced."
+    },
+    {
+      "name": "perfection_method",
+      "type": "string",
+      "required": false,
+      "description": "UCC filing, possession, control agreement, title lien, mortgage, or other."
+    },
+    {
+      "name": "collateral_items",
+      "type": "array<object>",
+      "required": false,
+      "description": "Item-level collateral entries with item_id, description, value, location, serial_number, vin, or account_number_masked when present."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "test_case_id": "syndicated_credit_agreement_001",
+  "document_type": "syndicated_credit_agreement",
+  "description": "Seed golden test for Syndicated Credit Agreement",
+  "parsed_text": "SYNDICATED CREDIT AGREEMENT dated June 1, 2026. Borrower: Northstar Components Holdings Inc. Administrative Agent and Collateral Agent: Atlantic Bank, N.A. Lead Arrangers: Atlantic Bank Securities; Blue Ridge Private Credit. Lenders: Atlantic Bank, N.A.; Blue Ridge Direct Lending Fund; Harbor Credit Partners. Facilities: $75,000,000 revolving credit facility and $225,000,000 term loan. Total Commitments: $300,000,000. Tranche A Revolver: $75,000,000, maturity June 1, 2031, SOFR plus 2.25%. Term Loan: $225,000,000, maturity June 1, 2032, SOFR plus 4.75%. Pricing Grid: leverage-based grid. Benchmark: Term SOFR. Commitment Fee: 0.35%. Collateral: substantially all assets of borrower and domestic subsidiaries. Guarantors: Northstar Components LLC; Northstar Distribution LLC. Financial Covenants: maximum first lien leverage ratio 4.50x; minimum fixed charge coverage ratio 1.10x. Negative Covenants: debt, liens, restricted payments, investments, asset sales. Mandatory Prepayments: asset sales; debt issuance; excess cash flow. Minimum Assignment Amount: $5,000,000. Required Lenders: more than 50% of commitments. Governing Law: New York.",
+  "expected_json": {
+    "agreement_date": "2026-06-01",
+    "borrower_name": "Northstar Components Holdings Inc.",
+    "administrative_agent_name": "Atlantic Bank, N.A.",
+    "lead_arranger_names": [
+      "Atlantic Bank Securities",
+      "Blue Ridge Private Credit"
+    ],
+    "lender_names": [
+      "Atlantic Bank, N.A.",
+      "Blue Ridge Direct Lending Fund",
+      "Harbor Credit Partners"
+    ],
+    "facility_type": "revolving credit facility and term loan",
+    "total_commitment_amount": 300000000.0,
+    "tranches": [
+      {
+        "name": "Tranche A Revolver",
+        "amount": 75000000.0,
+        "maturity": "2031-06-01",
+        "pricing": "SOFR plus 2.25%"
+      },
+      {
+        "name": "Term Loan",
+        "amount": 225000000.0,
+        "maturity": "2032-06-01",
+        "pricing": "SOFR plus 4.75%"
+      }
+    ],
+    "maturity_date": "2032-06-01",
+    "pricing_grid": "leverage-based grid",
+    "benchmark_rate": "Term SOFR",
+    "commitment_fee": 0.35,
+    "collateral_summary": "substantially all assets of borrower and domestic subsidiaries",
+    "guarantor_names": [
+      "Northstar Components LLC",
+      "Northstar Distribution LLC"
+    ],
+    "financial_covenants": [
+      "maximum first lien leverage ratio 4.50x",
+      "minimum fixed charge coverage ratio 1.10x"
+    ],
+    "negative_covenants": [
+      "debt",
+      "liens",
+      "restricted payments",
+      "investments",
+      "asset sales"
+    ],
+    "mandatory_prepayment_events": [
+      "asset sales",
+      "debt issuance",
+      "excess cash flow"
+    ],
+    "assignment_minimum_amount": 5000000.0,
+    "required_lender_threshold": "more than 50% of commitments",
+    "governing_law": "New York"
+  },
+  "expected_avg_confidence": 0.92
+}

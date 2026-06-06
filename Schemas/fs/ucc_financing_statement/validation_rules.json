@@ -1,0 +1,32 @@
+[
+  {
+    "name": "filing_number_present",
+    "expression": "filing_number IS NOT NULL AND LENGTH(TRIM(filing_number)) > 0",
+    "severity": "fail",
+    "description": "UCC filings require a filing number for public-record matching."
+  },
+  {
+    "name": "filing_date_present",
+    "expression": "filing_date IS NOT NULL",
+    "severity": "drop",
+    "description": "Filing date is required for perfection and lapse monitoring."
+  },
+  {
+    "name": "debtor_names_present",
+    "expression": "debtor_names IS NOT NULL AND JSON_ARRAY_LENGTH(debtor_names) > 0",
+    "severity": "fail",
+    "description": "At least one debtor name is required."
+  },
+  {
+    "name": "secured_party_names_present",
+    "expression": "secured_party_names IS NOT NULL AND JSON_ARRAY_LENGTH(secured_party_names) > 0",
+    "severity": "warn",
+    "description": "Secured party should be present for lien management."
+  },
+  {
+    "name": "lapse_after_filing_date",
+    "expression": "lapse_date IS NULL OR filing_date IS NULL OR lapse_date > filing_date",
+    "severity": "warn",
+    "description": "Lapse date should be after filing date."
+  }
+]

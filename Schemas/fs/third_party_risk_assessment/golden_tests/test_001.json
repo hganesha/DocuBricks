@@ -1,0 +1,37 @@
+{
+  "test_case_id": "third_party_risk_assessment_001",
+  "document_type": "third_party_risk_assessment",
+  "description": "Seed golden test for Third-party Risk Assessment",
+  "parsed_text": "THIRD-PARTY RISK ASSESSMENT\nAssessment Date: 2026-04-12\nVendor: ClearPay Data Services LLC\nService: hosted payment dispute workflow and evidence repository\nBusiness Owner: Nora Singh\nCriticality: High\nInherent Risk: High\nResidual Risk: Medium\nData Access: customer PII and payment dispute records\nCustomer Impact: Yes\nOutsourcing: Yes\nMaterial Subcontractors: NorthCloud Hosting; Sentinel SOC Services\nSOC Report: SOC 2 Type II, period ended 2026-02-28\nInformation Security Rating: Satisfactory\nBusiness Continuity Rating: Needs Improvement\nFinancial Condition Rating: Stable\nRegulatory Compliance Rating: Satisfactory\nOpen Issues: update incident response contact list; complete DR test evidence\nRemediation Due Date: 2026-06-30\nApproval Status: Conditionally Approved\nApprover: Third Party Risk Committee\nNext Review Date: 2027-04-12",
+  "expected_json": {
+    "assessment_date": "2026-04-12",
+    "vendor_name": "ClearPay Data Services LLC",
+    "vendor_service_description": "hosted payment dispute workflow and evidence repository",
+    "business_owner": "Nora Singh",
+    "criticality_tier": "High",
+    "inherent_risk_rating": "High",
+    "residual_risk_rating": "Medium",
+    "data_access_level": "customer PII and payment dispute records",
+    "customer_impact": true,
+    "outsourcing_indicator": true,
+    "subcontractors": [
+      "NorthCloud Hosting",
+      "Sentinel SOC Services"
+    ],
+    "soc_report_type": "SOC 2 Type II",
+    "soc_report_date": "2026-02-28",
+    "information_security_rating": "Satisfactory",
+    "business_continuity_rating": "Needs Improvement",
+    "financial_condition_rating": "Stable",
+    "regulatory_compliance_rating": "Satisfactory",
+    "open_issues": [
+      "update incident response contact list",
+      "complete DR test evidence"
+    ],
+    "remediation_due_date": "2026-06-30",
+    "approval_status": "Conditionally Approved",
+    "approver_name": "Third Party Risk Committee",
+    "next_review_date": "2027-04-12"
+  },
+  "expected_avg_confidence": 0.92
+}

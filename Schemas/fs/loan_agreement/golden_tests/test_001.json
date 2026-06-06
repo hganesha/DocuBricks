@@ -1,0 +1,32 @@
+{
+  "test_case_id": "loan_agreement_001",
+  "document_type": "loan_agreement",
+  "description": "Commercial term loan agreement with SOFR pricing and covenants",
+  "parsed_text": "LOAN AGREEMENT dated March 15, 2026 between Prairie Ridge Manufacturing LLC, as Borrower, and Heartland Bank, N.A., as Lender. Facility: $4,250,000 equipment term loan. Maturity Date: March 15, 2033. Interest: Term SOFR plus 2.75% per annum. Upon default, the rate shall increase by 2.00%. Payments are monthly principal and interest based on an 84-month amortization. Collateral consists of financed CNC equipment, machinery, equipment, accounts, inventory, and general intangibles. Guarantors: Elena Morris and Daniel Morris. Affirmative covenants include maintaining insurance and providing quarterly financial statements. Negative covenants include no additional debt, no liens, and no asset sales outside ordinary course. Financial covenants: minimum DSCR 1.25x and maximum Debt/EBITDA 3.25x. Reporting: quarterly compliance certificates and annual CPA-reviewed financial statements. Events of Default include payment default, covenant breach, bankruptcy, and material misrepresentation. Governing Law: Iowa. Venue: state or federal courts located in Polk County, Iowa. Borrower waives trial by jury. Assignments permitted with borrower consent, not unreasonably withheld.",
+  "expected_json": {
+    "agreement_date": "2026-03-15",
+    "borrower_name": "Prairie Ridge Manufacturing LLC",
+    "lender_name": "Heartland Bank, N.A.",
+    "facility_type": "equipment term loan",
+    "commitment_amount": 4250000.0,
+    "maturity_date": "2033-03-15",
+    "interest_rate_type": "floating",
+    "interest_rate_margin": 2.75,
+    "benchmark_rate": "Term SOFR",
+    "default_rate_margin": 2.0,
+    "amortization_terms": "84-month amortization",
+    "payment_frequency": "monthly",
+    "collateral_description": "financed CNC equipment, machinery, equipment, accounts, inventory, and general intangibles",
+    "guarantor_names": ["Elena Morris", "Daniel Morris"],
+    "affirmative_covenants": ["maintaining insurance", "providing quarterly financial statements"],
+    "negative_covenants": ["no additional debt", "no liens", "no asset sales outside ordinary course"],
+    "financial_covenants": ["minimum DSCR 1.25x", "maximum Debt/EBITDA 3.25x"],
+    "reporting_requirements": ["quarterly compliance certificates", "annual CPA-reviewed financial statements"],
+    "events_of_default": ["payment default", "covenant breach", "bankruptcy", "material misrepresentation"],
+    "governing_law": "Iowa",
+    "jurisdiction_venue": "state or federal courts located in Polk County, Iowa",
+    "jury_trial_waiver": true,
+    "assignment_clause_present": true
+  },
+  "expected_avg_confidence": 0.91
+}

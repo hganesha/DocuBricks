@@ -1,0 +1,182 @@
+{
+  "document_type": "commercial_loan_application",
+  "vertical": "fs",
+  "family": "commercial_lending",
+  "schema_version": "fs_commercial_loan_application_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "application_date",
+      "type": "date",
+      "required": false,
+      "description": "Date the application was signed or submitted."
+    },
+    {
+      "name": "applicant_legal_name",
+      "type": "string",
+      "required": true,
+      "description": "Legal name of the borrowing business."
+    },
+    {
+      "name": "applicant_dba_name",
+      "type": "string",
+      "required": false,
+      "description": "DBA or trade name."
+    },
+    {
+      "name": "applicant_tax_id_masked",
+      "type": "string",
+      "required": false,
+      "description": "Masked EIN or tax identifier."
+    },
+    {
+      "name": "applicant_entity_type",
+      "type": "string",
+      "required": false,
+      "description": "Corporation, LLC, partnership, sole proprietorship, nonprofit, trust, or other."
+    },
+    {
+      "name": "applicant_naics_code",
+      "type": "string",
+      "required": false,
+      "description": "NAICS code if present."
+    },
+    {
+      "name": "applicant_industry",
+      "type": "string",
+      "required": false,
+      "description": "Industry or business description."
+    },
+    {
+      "name": "applicant_address",
+      "type": "string",
+      "required": false,
+      "description": "Principal business address."
+    },
+    {
+      "name": "contact_name",
+      "type": "string",
+      "required": false,
+      "description": "Primary contact or authorized representative."
+    },
+    {
+      "name": "contact_email",
+      "type": "string",
+      "required": false,
+      "description": "Email address."
+    },
+    {
+      "name": "contact_phone",
+      "type": "string",
+      "required": false,
+      "description": "Phone number."
+    },
+    {
+      "name": "years_in_business",
+      "type": "number",
+      "required": false,
+      "description": "Years operating."
+    },
+    {
+      "name": "annual_revenue",
+      "type": "number",
+      "required": false,
+      "description": "Annual gross revenue."
+    },
+    {
+      "name": "requested_loan_amount",
+      "type": "number",
+      "required": true,
+      "description": "Requested credit amount."
+    },
+    {
+      "name": "requested_facility_type",
+      "type": "string",
+      "required": false,
+      "description": "Term loan, revolving line, equipment loan, CRE loan, SBA loan, construction loan, or other."
+    },
+    {
+      "name": "loan_purpose",
+      "type": "string",
+      "required": false,
+      "description": "Stated use of proceeds."
+    },
+    {
+      "name": "requested_term_months",
+      "type": "integer",
+      "required": false,
+      "description": "Requested maturity or amortization in months."
+    },
+    {
+      "name": "collateral_description",
+      "type": "string",
+      "required": false,
+      "description": "Summary of proposed collateral."
+    },
+    {
+      "name": "guarantor_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Individual or entity guarantors."
+    },
+    {
+      "name": "existing_bank_relationship",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether applicant states an existing relationship with the lender."
+    },
+    {
+      "name": "relationship_manager_name",
+      "type": "string",
+      "required": false,
+      "description": "Banker or RM name."
+    },
+    {
+      "name": "ownership_summary",
+      "type": "string",
+      "required": false,
+      "description": "Concise ownership description."
+    },
+    {
+      "name": "beneficial_owner_count",
+      "type": "integer",
+      "required": false,
+      "description": "Count of beneficial owners listed."
+    },
+    {
+      "name": "total_assets",
+      "type": "number",
+      "required": false,
+      "description": "Total business assets if stated."
+    },
+    {
+      "name": "total_liabilities",
+      "type": "number",
+      "required": false,
+      "description": "Total business liabilities if stated."
+    },
+    {
+      "name": "net_worth",
+      "type": "number",
+      "required": false,
+      "description": "Net worth if stated."
+    },
+    {
+      "name": "signature_name",
+      "type": "string",
+      "required": false,
+      "description": "Signer name."
+    },
+    {
+      "name": "signature_title",
+      "type": "string",
+      "required": false,
+      "description": "Signer title."
+    }
+  ]
+}

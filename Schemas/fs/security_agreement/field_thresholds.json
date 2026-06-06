@@ -1,0 +1,37 @@
+{
+  "debtor_name": {
+    "min_confidence": 0.94,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": false,
+    "description": "Debtor name anchors the security interest."
+  },
+  "secured_party_name": {
+    "min_confidence": 0.92,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Secured party identifies beneficiary of the collateral grant."
+  },
+  "collateral_description": {
+    "min_confidence": 0.86,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Collateral grant defines the secured party's rights."
+  },
+  "all_assets_clause": {
+    "min_confidence": 0.88,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "All-assets grants affect lien scope and monitoring."
+  },
+  "perfection_requirements": {
+    "min_confidence": 0.82,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": false,
+    "description": "Perfection requirements drive post-closing collateral controls."
+  }
+}

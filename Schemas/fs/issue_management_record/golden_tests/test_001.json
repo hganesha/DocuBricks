@@ -1,0 +1,38 @@
+{
+  "test_case_id": "issue_management_record_001",
+  "document_type": "issue_management_record",
+  "description": "Seed golden test for Issue Management Record",
+  "parsed_text": "ISSUE MANAGEMENT RECORD\nIssue ID: MRA-2026-014\nSource Type: Regulatory exam\nSource: OCC Commercial Credit Exam\nTitle: Weak evidence of covenant monitoring follow-up\nDescription: Examiners found inconsistent tracking of borrower covenant exceptions and delayed escalation of waiver requests.\nRisk Domain: Credit Risk\nSeverity: MRA\nStatus: In Progress\nOwner: Marcus Hale\nBusiness Unit: Commercial Banking Credit Administration\nOpened Date: 2026-01-18\nTarget Completion Date: 2026-09-30\nCorrective Action Plan: implement centralized covenant exception workflow, monthly aging report, and second-line validation.\nMilestones: workflow design by 2026-03-31; production deployment by 2026-06-30; validation package by 2026-09-15\nEvidence Required: policy update; workflow screenshots; sample exception report; validation memo\nValidation Owner: Credit Risk Review\nValidation Status: Not Started\nRegulatory Commitment: Yes\nDays Overdue: 0",
+  "expected_json": {
+    "issue_id": "MRA-2026-014",
+    "source_type": "Regulatory exam",
+    "source_name": "OCC Commercial Credit Exam",
+    "issue_title": "Weak evidence of covenant monitoring follow-up",
+    "issue_description": "Examiners found inconsistent tracking of borrower covenant exceptions and delayed escalation of waiver requests.",
+    "risk_domain": "Credit Risk",
+    "severity": "MRA",
+    "status": "In Progress",
+    "owner_name": "Marcus Hale",
+    "business_unit": "Commercial Banking Credit Administration",
+    "opened_date": "2026-01-18",
+    "target_completion_date": "2026-09-30",
+    "actual_completion_date": null,
+    "corrective_action_plan": "implement centralized covenant exception workflow, monthly aging report, and second-line validation",
+    "milestones": [
+      "workflow design by 2026-03-31",
+      "production deployment by 2026-06-30",
+      "validation package by 2026-09-15"
+    ],
+    "evidence_required": [
+      "policy update",
+      "workflow screenshots",
+      "sample exception report",
+      "validation memo"
+    ],
+    "validation_owner": "Credit Risk Review",
+    "validation_status": "Not Started",
+    "regulatory_commitment": true,
+    "days_overdue": 0
+  },
+  "expected_avg_confidence": 0.92
+}

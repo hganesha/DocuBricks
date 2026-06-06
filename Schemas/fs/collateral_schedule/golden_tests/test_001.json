@@ -1,0 +1,30 @@
+{
+  "test_case_id": "collateral_schedule_001",
+  "document_type": "collateral_schedule",
+  "description": "Equipment collateral schedule with borrowing base values",
+  "parsed_text": "COLLATERAL SCHEDULE\nSchedule Date: March 15, 2026\nBorrower: Prairie Ridge Manufacturing LLC\nSecured Party: Heartland Bank, N.A.\nReference: Security Agreement dated March 15, 2026\nCollateral Category: Equipment\nCollateral Description: CNC machines, tooling, and related manufacturing equipment located at 4100 Foundry Road, Des Moines, Iowa.\nTotal Collateral Value: $5,900,000\nEligible Collateral Value: $5,000,000\nAdvance Rate: 85.0%\nBorrowing Base Amount: $4,250,000\nAppraisal Date: February 20, 2026\nValuation Method: Desktop equipment appraisal\nLien Position: First priority\nPrior Liens: $0\nInsurance Required: Yes\nPerfection Method: UCC filing and title lien where applicable\nItems: EQ-001 Haas VF-6 CNC Mill serial H66210 value $950,000 location Des Moines; EQ-002 Mazak Integrex serial MZ8842 value $1,200,000 location Des Moines",
+  "expected_json": {
+    "schedule_date": "2026-03-15",
+    "borrower_name": "Prairie Ridge Manufacturing LLC",
+    "lender_name": "Heartland Bank, N.A.",
+    "agreement_reference": "Security Agreement dated March 15, 2026",
+    "collateral_category": "Equipment",
+    "collateral_description": "CNC machines, tooling, and related manufacturing equipment located at 4100 Foundry Road, Des Moines, Iowa.",
+    "collateral_location": "4100 Foundry Road, Des Moines, Iowa",
+    "total_collateral_value": 5900000.0,
+    "eligible_collateral_value": 5000000.0,
+    "advance_rate_percent": 85.0,
+    "borrowing_base_amount": 4250000.0,
+    "appraisal_date": "2026-02-20",
+    "valuation_method": "Desktop equipment appraisal",
+    "lien_position": "First priority",
+    "prior_liens_amount": 0.0,
+    "insurance_required": true,
+    "perfection_method": "UCC filing and title lien where applicable",
+    "collateral_items": [
+      {"item_id": "EQ-001", "description": "Haas VF-6 CNC Mill", "value": 950000.0, "location": "Des Moines", "serial_number": "H66210"},
+      {"item_id": "EQ-002", "description": "Mazak Integrex", "value": 1200000.0, "location": "Des Moines", "serial_number": "MZ8842"}
+    ]
+  },
+  "expected_avg_confidence": 0.92
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "borrower_name_present",
+    "expression": "borrower_name IS NOT NULL AND LENGTH(TRIM(borrower_name)) > 0",
+    "severity": "fail",
+    "description": "Certificate must identify the borrower."
+  },
+  {
+    "name": "reporting_period_present",
+    "expression": "reporting_period_end_date IS NOT NULL",
+    "severity": "drop",
+    "description": "Reporting period is required to evaluate covenant compliance."
+  },
+  {
+    "name": "compliance_status_present",
+    "expression": "compliance_status IS NOT NULL AND LENGTH(TRIM(compliance_status)) > 0",
+    "severity": "warn",
+    "description": "Compliance status should be explicitly captured or reviewed."
+  },
+  {
+    "name": "actual_ratios_non_negative",
+    "expression": "(dscr_actual IS NULL OR dscr_actual >= 0) AND (leverage_actual IS NULL OR leverage_actual >= 0)",
+    "severity": "warn",
+    "description": "Actual covenant ratios should not be negative."
+  },
+  {
+    "name": "exceptions_array_valid",
+    "expression": "exceptions_or_waivers IS NULL OR JSON_ARRAY_LENGTH(exceptions_or_waivers) >= 0",
+    "severity": "warn",
+    "description": "Exceptions and waivers should be represented as an array."
+  }
+]

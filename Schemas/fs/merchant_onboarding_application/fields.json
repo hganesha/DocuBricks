@@ -1,0 +1,134 @@
+{
+  "document_type": "merchant_onboarding_application",
+  "vertical": "fs",
+  "family": "payments_fintech",
+  "schema_version": "fs_merchant_onboarding_application_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "application_date",
+      "type": "date",
+      "required": false,
+      "description": "Date the merchant application was submitted."
+    },
+    {
+      "name": "merchant_legal_name",
+      "type": "string",
+      "required": true,
+      "description": "Merchant legal entity name."
+    },
+    {
+      "name": "merchant_dba_name",
+      "type": "string",
+      "required": false,
+      "description": "Doing-business-as name."
+    },
+    {
+      "name": "merchant_tax_id_masked",
+      "type": "string",
+      "required": false,
+      "description": "Masked EIN or tax identifier."
+    },
+    {
+      "name": "merchant_category_code",
+      "type": "string",
+      "required": false,
+      "description": "MCC if stated."
+    },
+    {
+      "name": "business_type",
+      "type": "string",
+      "required": false,
+      "description": "Retail, ecommerce, restaurant, marketplace, services, or other."
+    },
+    {
+      "name": "website_url",
+      "type": "string",
+      "required": false,
+      "description": "Merchant website or app URL."
+    },
+    {
+      "name": "processing_channels",
+      "type": "array<string>",
+      "required": false,
+      "description": "Card-present, ecommerce, mobile, keyed, ACH, or other channels."
+    },
+    {
+      "name": "estimated_monthly_volume",
+      "type": "number",
+      "required": true,
+      "description": "Estimated monthly processing volume."
+    },
+    {
+      "name": "average_ticket_amount",
+      "type": "number",
+      "required": false,
+      "description": "Average transaction amount."
+    },
+    {
+      "name": "high_ticket_amount",
+      "type": "number",
+      "required": false,
+      "description": "Highest expected transaction amount."
+    },
+    {
+      "name": "refund_policy",
+      "type": "string",
+      "required": false,
+      "description": "Refund, cancellation, or return policy summary."
+    },
+    {
+      "name": "chargeback_history",
+      "type": "string",
+      "required": false,
+      "description": "Prior chargeback history or ratio."
+    },
+    {
+      "name": "reserve_required",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether reserve or holdback is required."
+    },
+    {
+      "name": "reserve_terms",
+      "type": "string",
+      "required": false,
+      "description": "Reserve amount, percentage, or duration."
+    },
+    {
+      "name": "beneficial_owner_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Beneficial owners listed in application."
+    },
+    {
+      "name": "principal_signer_name",
+      "type": "string",
+      "required": false,
+      "description": "Principal or authorized signer."
+    },
+    {
+      "name": "risk_rating",
+      "type": "string",
+      "required": false,
+      "description": "Merchant risk rating."
+    },
+    {
+      "name": "underwriting_decision",
+      "type": "string",
+      "required": false,
+      "description": "Approved, declined, conditional, pending, or other."
+    },
+    {
+      "name": "approval_conditions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Underwriting conditions."
+    }
+  ]
+}
