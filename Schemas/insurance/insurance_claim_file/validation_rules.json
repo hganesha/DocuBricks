@@ -1,0 +1,57 @@
+[
+  {
+    "name": "claim_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "claim_number"
+    ],
+    "expression": "claim_number IS NOT NULL AND LENGTH(TRIM(claim_number)) > 0",
+    "severity": "fail",
+    "description": "claim_number is required for Insurance Claim File extraction.",
+    "field_name": "claim_number"
+  },
+  {
+    "name": "policy_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "policy_number"
+    ],
+    "expression": "policy_number IS NOT NULL AND LENGTH(TRIM(policy_number)) > 0",
+    "severity": "fail",
+    "description": "policy_number is required for Insurance Claim File extraction.",
+    "field_name": "policy_number"
+  },
+  {
+    "name": "loss_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "loss_date"
+    ],
+    "expression": "loss_date IS NOT NULL AND LENGTH(TRIM(loss_date)) > 0",
+    "severity": "fail",
+    "description": "loss_date is required for Insurance Claim File extraction.",
+    "field_name": "loss_date"
+  },
+  {
+    "name": "reserve_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "reserve_amount"
+    ],
+    "expression": "reserve_amount IS NULL OR reserve_amount >= 0",
+    "severity": "warn",
+    "description": "reserve_amount should be non-negative when present.",
+    "field_name": "reserve_amount"
+  },
+  {
+    "name": "paid_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "paid_amount"
+    ],
+    "expression": "paid_amount IS NULL OR paid_amount >= 0",
+    "severity": "warn",
+    "description": "paid_amount should be non-negative when present.",
+    "field_name": "paid_amount"
+  }
+]

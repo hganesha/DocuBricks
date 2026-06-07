@@ -1,0 +1,34 @@
+{
+  "test_case_id": "claims_adjuster_report_001",
+  "document_type": "claims_adjuster_report",
+  "description": "Seed golden test for Claims Adjuster Report",
+  "parsed_text": "CLAIMS ADJUSTER REPORT\nReport Date: 2026-09-03\nClaim Number: GL-26-11904\nAdjuster: Leah Chen\nPolicy Number: CPP-7844129-06\nInsured: Northstar Cold Storage LLC\nLoss Date: 2026-08-14\nInspection Date: 2026-08-19\nCause of Loss Assessment: failed compressor relay caused refrigeration outage and temperature excursion\nCoverage Analysis: equipment breakdown coverage appears triggered; liability for third-party inventory remains under reservation of rights\nDamage Scope: spoiled produce inventory in cold room 3; emergency refrigeration service; sanitation and disposal costs\nEstimated Gross Loss: $612,480\nDeductible: $25,000\nRecommended Reserve: $675,000\nRecommended Payment: $0 pending valuation reconciliation\nSalvage/Subrogation Potential: possible subrogation against refrigeration maintenance contractor\nOpen Items: final inventory valuation; contractor service history; customer ownership records; coverage counsel review",
+  "expected_json": {
+    "report_date": "2026-09-03",
+    "claim_number": "GL-26-11904",
+    "adjuster_name": "Leah Chen",
+    "policy_number": "CPP-7844129-06",
+    "insured_name": "Northstar Cold Storage LLC",
+    "loss_date": "2026-08-14",
+    "inspection_date": "2026-08-19",
+    "cause_of_loss_assessment": "failed compressor relay caused refrigeration outage and temperature excursion",
+    "coverage_analysis": "equipment breakdown coverage appears triggered; liability for third-party inventory remains under reservation of rights",
+    "damage_scope": [
+      "spoiled produce inventory in cold room 3",
+      "emergency refrigeration service",
+      "sanitation and disposal costs"
+    ],
+    "estimated_gross_loss": 612480.0,
+    "deductible_amount": 25000.0,
+    "recommended_reserve": 675000.0,
+    "recommended_payment": 0.0,
+    "salvage_or_subrogation_potential": "possible subrogation against refrigeration maintenance contractor",
+    "open_items": [
+      "final inventory valuation",
+      "contractor service history",
+      "customer ownership records",
+      "coverage counsel review"
+    ]
+  },
+  "expected_avg_confidence": 0.92
+}

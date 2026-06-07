@@ -2,7 +2,7 @@
   "document_type": "invoice",
   "vertical": "fs",
   "family": "accounts_payable",
-  "schema_version": "FS_INVOICE_v0",
+  "schema_version": "fs_invoice_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",

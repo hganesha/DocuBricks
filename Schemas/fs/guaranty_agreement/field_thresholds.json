@@ -1,4 +1,5 @@
 {
+  "default_threshold": 0.75,
   "guarantor_name": {
     "min_confidence": 0.94,
     "review_on_breach": true,

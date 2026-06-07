@@ -1,30 +1,51 @@
 [
   {
     "name": "subject_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "subject_name"
+    ],
     "expression": "subject_name IS NOT NULL AND LENGTH(TRIM(subject_name)) > 0",
     "severity": "fail",
     "description": "SAR subject name is required for case investigation and filing."
   },
   {
     "name": "amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "amount_involved"
+    ],
     "expression": "amount_involved IS NULL OR amount_involved >= 0",
     "severity": "drop",
     "description": "Amount involved cannot be negative."
   },
   {
     "name": "transaction_count_positive",
+    "rule_type": "range",
+    "fields": [
+      "transaction_count"
+    ],
     "expression": "transaction_count IS NULL OR transaction_count > 0",
     "severity": "warn",
     "description": "Transaction count should be positive when present."
   },
   {
     "name": "activity_date_order",
+    "rule_type": "cross_field",
+    "fields": [
+      "activity_start_date",
+      "activity_end_date"
+    ],
     "expression": "activity_start_date IS NULL OR activity_end_date IS NULL OR activity_start_date <= activity_end_date",
     "severity": "drop",
     "description": "SAR activity start date cannot be after activity end date."
   },
   {
     "name": "activity_type_present",
+    "rule_type": "presence",
+    "fields": [
+      "suspicious_activity_type"
+    ],
     "expression": "suspicious_activity_type IS NOT NULL",
     "severity": "warn",
     "description": "Suspicious activity category should be captured for AML analytics."

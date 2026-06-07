@@ -1,4 +1,5 @@
 {
+  "default_threshold": 0.75,
   "total_contract_value": {
     "min_confidence": 0.95,
     "review_on_breach": true,
@@ -7,7 +8,7 @@
     "description": "Contract value drives accounts payable/receivable workflows, budget tracking, and financial reporting; errors cascade to P&L impacts and procurement thresholds"
   },
   "sow_number": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": false,
@@ -63,7 +64,7 @@
     "description": "Pricing model determines billing automation logic and financial controls; errors cause incorrect invoice processing"
   },
   "deliverables": {
-    "min_confidence": 0.80,
+    "min_confidence": 0.8,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": false,

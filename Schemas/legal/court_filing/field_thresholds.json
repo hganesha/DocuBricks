@@ -1,4 +1,5 @@
 {
+  "default_threshold": 0.75,
   "case_number": {
     "min_confidence": 0.95,
     "review_on_breach": true,
@@ -14,7 +15,7 @@
     "description": "Filing date is the legal anchor for calculating deadlines, statutes of limitations, and response windows; even a one-day error can constitute a missed deadline with procedural consequences"
   },
   "court_name": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
@@ -42,14 +43,14 @@
     "description": "Case name is used for display and search in matter management systems; must match the official case caption"
   },
   "plaintiff_name": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": false,
     "description": "Plaintiff identity is required for matter management, conflict-of-interest checks, and case strategy routing"
   },
   "defendant_name": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": false,

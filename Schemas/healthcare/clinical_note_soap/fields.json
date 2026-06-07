@@ -2,7 +2,7 @@
   "document_type": "clinical_note_soap",
   "vertical": "healthcare",
   "family": "clinical_documents",
-  "schema_version": "HL7_FHIR_R4_SNOMED_ICD10CM",
+  "schema_version": "healthcare_clinical_note_soap_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",
@@ -38,7 +38,7 @@
       "name": "provider_npi",
       "type": "string",
       "required": false,
-      "description": "National Provider Identifier (NPI) of the authoring provider \u2014 10-digit numeric; null if not embedded in note"
+      "description": "National Provider Identifier (NPI) of the authoring provider — 10-digit numeric; null if not embedded in note"
     },
     {
       "name": "provider_specialty",
@@ -110,7 +110,7 @@
       "name": "temp",
       "type": "string",
       "required": false,
-      "description": "Temperature (e.g., \"98.6\u00b0F\" or \"37.0\u00b0C\")"
+      "description": "Temperature (e.g., \"98.6°F\" or \"37.0°C\")"
     },
     {
       "name": "rr",
@@ -164,13 +164,13 @@
       "name": "medications_mentioned",
       "type": "array<string>",
       "required": false,
-      "description": "Array of medication names referenced anywhere in the note (including current medications list, new prescriptions, discontinued medications). Include drug name only \u2014 no dosing details"
+      "description": "Array of medication names referenced anywhere in the note (including current medications list, new prescriptions, discontinued medications). Include drug name only — no dosing details"
     },
     {
       "name": "follow_up_instructions",
       "type": "string",
       "required": false,
-      "description": "Specific follow-up instruction text (e.g., \"Return to clinic if fever > 101.5\u00b0F or worsening symptoms\")"
+      "description": "Specific follow-up instruction text (e.g., \"Return to clinic if fever > 101.5°F or worsening symptoms\")"
     },
     {
       "name": "follow_up_timeframe",

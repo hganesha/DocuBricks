@@ -1,10 +1,11 @@
 {
+  "default_threshold": 0.75,
   "loan_amount": {
     "min_confidence": 0.95,
     "review_on_breach": true,
     "fail_on_breach": true,
     "regulatory_required": true,
-    "description": "Loan amount drives HMDA LAR reporting, TRID disclosures, and AUS submission — must be highly accurate"
+    "description": "Loan amount drives HMDA LAR reporting, TRID disclosures, and AUS submission \u2014 must be highly accurate"
   },
   "loan_purpose": {
     "min_confidence": 0.92,
@@ -18,21 +19,21 @@
     "review_on_breach": true,
     "fail_on_breach": true,
     "regulatory_required": true,
-    "description": "Borrower identity field — required for OFAC screening, credit pull authorization, legal instrument"
+    "description": "Borrower identity field \u2014 required for OFAC screening, credit pull authorization, legal instrument"
   },
   "borrower_first_name": {
     "min_confidence": 0.92,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
-    "description": "Borrower identity field — required for ECOA adverse action notices and HMDA"
+    "description": "Borrower identity field \u2014 required for ECOA adverse action notices and HMDA"
   },
   "borrower_ssn_masked": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
-    "description": "SSN used for credit pull, IRS verification, CIP — tokenized/masked only; high accuracy required"
+    "description": "SSN used for credit pull, IRS verification, CIP \u2014 tokenized/masked only; high accuracy required"
   },
   "debt_to_income_ratio": {
     "min_confidence": 0.88,
@@ -56,7 +57,7 @@
     "description": "Property state determines HMDA MSA assignment, state compliance rules, and license requirements"
   },
   "property_zip": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
@@ -70,7 +71,7 @@
     "description": "HMDA requires occupancy; affects pricing LLPA, ATR analysis, and secondary market delivery eligibility"
   },
   "interest_rate_percent": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
@@ -91,7 +92,7 @@
     "description": "HMDA reportable; drives FHA/VA/USDA guarantee processing, MIP/funding fee calculation"
   },
   "application_date": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
@@ -112,7 +113,7 @@
     "description": "Primary income component; drives DTI and HMDA income reporting"
   },
   "employer_name": {
-    "min_confidence": 0.80,
+    "min_confidence": 0.8,
     "review_on_breach": false,
     "fail_on_breach": false,
     "regulatory_required": false,
@@ -137,6 +138,6 @@
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
-    "description": "URLA declaration — misrepresentation is fraud; extraction must distinguish checked vs. unchecked boxes"
+    "description": "URLA declaration \u2014 misrepresentation is fraud; extraction must distinguish checked vs. unchecked boxes"
   }
 }

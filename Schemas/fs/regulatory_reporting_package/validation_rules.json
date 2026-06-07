@@ -1,18 +1,30 @@
 [
   {
     "name": "report_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "report_name"
+    ],
     "expression": "report_name IS NOT NULL AND LENGTH(TRIM(report_name)) > 0",
     "severity": "fail",
     "description": "report_name is required for Regulatory Reporting Package extraction."
   },
   {
     "name": "report_type_present",
+    "rule_type": "presence",
+    "fields": [
+      "report_type"
+    ],
     "expression": "report_type IS NOT NULL AND LENGTH(TRIM(report_type)) > 0",
     "severity": "fail",
     "description": "report_type is required for Regulatory Reporting Package extraction."
   },
   {
     "name": "reporting_period_end_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "reporting_period_end_date"
+    ],
     "expression": "reporting_period_end_date IS NOT NULL AND LENGTH(TRIM(reporting_period_end_date)) > 0",
     "severity": "fail",
     "description": "reporting_period_end_date is required for Regulatory Reporting Package extraction."

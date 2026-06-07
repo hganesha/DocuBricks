@@ -2,7 +2,7 @@
   "document_type": "eob_cms1500",
   "vertical": "healthcare",
   "family": "healthcare_claims",
-  "schema_version": "ANSI_X12_835_HIPAA5010_CMS1500",
+  "schema_version": "healthcare_eob_cms1500_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",
@@ -44,7 +44,7 @@
       "name": "provider_npi",
       "type": "string",
       "required": false,
-      "description": "National Provider Identifier (NPI) of billing provider \u2014 10-digit numeric"
+      "description": "National Provider Identifier (NPI) of billing provider — 10-digit numeric"
     },
     {
       "name": "rendering_provider_npi",

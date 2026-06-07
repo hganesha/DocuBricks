@@ -1,42 +1,69 @@
 [
   {
     "name": "document_id_present",
+    "rule_type": "presence",
+    "fields": [
+      "document_id"
+    ],
     "expression": "document_id IS NOT NULL AND LENGTH(TRIM(document_id)) > 0",
     "severity": "fail",
     "description": "Every extracted record must carry a document_id — system invariant required for lineage tracking, audit trail, and deduplication"
   },
   {
     "name": "avg_confidence_acceptable",
+    "rule_type": "range",
+    "fields": [
+      "avg_confidence"
+    ],
     "expression": "avg_confidence >= 0.68",
     "severity": "drop",
     "description": "Overall extraction confidence below 0.68 indicates the filing may be a low-quality scan, handwritten, or in an unsupported format; route to quarantine for human review"
   },
   {
     "name": "filing_type_valid_enum",
+    "rule_type": "presence",
+    "fields": [],
     "expression": "filing_type IN ('Complaint', 'Answer', 'Motion', 'Brief', 'Opposition', 'Reply', 'Order', 'Judgment', 'Stipulation', 'Subpoena', 'Notice', 'Declaration', 'Deposition', 'Petition', 'Other')",
     "severity": "drop",
     "description": "Filing type must be a recognized enumeration; invalid values break routing to litigation management and e-discovery workflows"
   },
   {
     "name": "case_number_not_null",
+    "rule_type": "presence",
+    "fields": [
+      "case_number"
+    ],
     "expression": "case_number IS NOT NULL AND LENGTH(TRIM(case_number)) > 0",
     "severity": "drop",
     "description": "Case number is the primary docket identifier; records without a case number cannot be linked to a matter or tracked in litigation management systems"
   },
   {
     "name": "court_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "court_name"
+    ],
     "expression": "court_name IS NOT NULL AND LENGTH(TRIM(court_name)) > 0",
     "severity": "warn",
     "description": "Court name is required to determine jurisdiction, applicable rules, and routing to the correct legal team; absence triggers review"
   },
   {
     "name": "filing_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "filing_date"
+    ],
     "expression": "filing_date IS NOT NULL",
     "severity": "warn",
     "description": "Filing date is required to calculate deadlines, statutes of limitations, and response windows; absence prevents deadline management"
   },
   {
     "name": "hearing_date_after_filing",
+    "rule_type": "cross_field",
+    "fields": [
+      "hearing_date",
+      "filing_date"
+    ],
     "expression": "hearing_date IS NULL OR filing_date IS NULL OR hearing_date >= filing_date",
     "severity": "warn",
     "description": "Hearing date cannot precede filing date; inversion indicates a date extraction error and flags the record for human review"

@@ -1,7 +1,12 @@
 {
-  "preferred_model": "databricks-claude-sonnet",
-  "fallback_model": "databricks-dbrx-instruct",
+  "primary": "databricks-claude-sonnet",
+  "fallback_chain": [
+    "databricks-dbrx-instruct"
+  ],
   "max_tokens": 4096,
   "temperature": 0.0,
-  "rationale": "Clinical SOAP notes require deep medical terminology comprehension, ICD-10 code inference from narrative descriptions, structured extraction from free-form prose sections, and clinical reasoning to classify diagnosis status (Active/Chronic/Resolved/New/Suspected). Claude Sonnet excels at understanding nuanced clinical language, correctly mapping informal clinical shorthand to structured fields (e.g., 'HTN' to Essential hypertension, 'DM2' to Type 2 diabetes), and producing deterministic zero-temperature extractions essential for clinical data integrity. Temperature is set to 0.0 to eliminate hallucination risk — critical when generating ICD-10 codes that feed billing and quality programs. DBRX Instruct serves as fallback for well-structured EHR-exported notes with discrete labeled sections where medical reasoning depth is less critical."
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "tier_overrides": {},
+  "rationale": "Clinical SOAP notes require deep medical terminology comprehension, ICD-10 code inference from narrative descriptions, structured extraction from free-form prose sections, and clinical reasoning to classify diagnosis status (Active/Chronic/Resolved/New/Suspected). Claude Sonnet excels at understanding nuanced clinical language, correctly mapping informal clinical shorthand to structured fields (e.g., 'HTN' to Essential hypertension, 'DM2' to Type 2 diabetes), and producing deterministic zero-temperature extractions essential for clinical data integrity. Temperature is set to 0.0 to eliminate hallucination risk \u2014 critical when generating ICD-10 codes that feed billing and quality programs. DBRX Instruct serves as fallback for well-structured EHR-exported notes with discrete labeled sections where medical reasoning depth is less critical."
 }

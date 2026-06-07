@@ -1,18 +1,30 @@
 [
   {
     "name": "case_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "case_name"
+    ],
     "expression": "case_name IS NOT NULL AND LENGTH(TRIM(case_name)) > 0",
     "severity": "fail",
     "description": "case_name is required for Litigation Case File extraction."
   },
   {
     "name": "case_status_present",
+    "rule_type": "presence",
+    "fields": [
+      "case_status"
+    ],
     "expression": "case_status IS NOT NULL AND LENGTH(TRIM(case_status)) > 0",
     "severity": "fail",
     "description": "case_status is required for Litigation Case File extraction."
   },
   {
     "name": "exposure_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "exposure_amount"
+    ],
     "expression": "exposure_amount IS NULL OR exposure_amount >= 0",
     "severity": "warn",
     "description": "exposure_amount should be non-negative when present."

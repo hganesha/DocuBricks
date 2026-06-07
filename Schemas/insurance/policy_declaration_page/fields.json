@@ -1,0 +1,104 @@
+{
+  "document_type": "policy_declaration_page",
+  "vertical": "insurance",
+  "family": "insurance_collateral_protection",
+  "schema_version": "insurance_policy_declaration_page_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "policy_number",
+      "type": "string",
+      "required": true,
+      "description": "Insurance policy number."
+    },
+    {
+      "name": "named_insured",
+      "type": "string",
+      "required": true,
+      "description": "Named insured on the declaration page."
+    },
+    {
+      "name": "carrier_name",
+      "type": "string",
+      "required": true,
+      "description": "Insurance carrier or underwriting company."
+    },
+    {
+      "name": "producer_name",
+      "type": "string",
+      "required": false,
+      "description": "Agent, broker, or producer name."
+    },
+    {
+      "name": "policy_period_start",
+      "type": "date",
+      "required": false,
+      "description": "Policy period start date."
+    },
+    {
+      "name": "policy_period_end",
+      "type": "date",
+      "required": false,
+      "description": "Policy period end date."
+    },
+    {
+      "name": "coverage_lines",
+      "type": "array<string>",
+      "required": false,
+      "description": "Coverage lines shown on the declaration page."
+    },
+    {
+      "name": "covered_property_or_risk",
+      "type": "string",
+      "required": false,
+      "description": "Covered property, vehicle, operation, or risk."
+    },
+    {
+      "name": "coverage_limits",
+      "type": "array<object>",
+      "required": false,
+      "description": "Coverage limit items by line or coverage."
+    },
+    {
+      "name": "deductibles",
+      "type": "array<object>",
+      "required": false,
+      "description": "Deductible items by line or coverage."
+    },
+    {
+      "name": "premium_total",
+      "type": "number",
+      "required": false,
+      "description": "Total policy premium."
+    },
+    {
+      "name": "additional_insured_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Additional insureds shown on the declarations."
+    },
+    {
+      "name": "loss_payee_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Loss payees, mortgagees, or lender loss payable parties."
+    },
+    {
+      "name": "forms_and_endorsements",
+      "type": "array<string>",
+      "required": false,
+      "description": "Policy forms and endorsements listed."
+    },
+    {
+      "name": "cancellation_notice_days",
+      "type": "integer",
+      "required": false,
+      "description": "Number of cancellation notice days if stated."
+    }
+  ]
+}

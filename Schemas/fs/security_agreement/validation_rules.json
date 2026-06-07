@@ -1,30 +1,50 @@
 [
   {
     "name": "debtor_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "debtor_name"
+    ],
     "expression": "debtor_name IS NOT NULL AND LENGTH(TRIM(debtor_name)) > 0",
     "severity": "fail",
     "description": "Security agreement must identify the debtor or grantor."
   },
   {
     "name": "secured_party_present",
+    "rule_type": "presence",
+    "fields": [
+      "secured_party_name"
+    ],
     "expression": "secured_party_name IS NOT NULL AND LENGTH(TRIM(secured_party_name)) > 0",
     "severity": "warn",
     "description": "Secured party should be captured for collateral controls."
   },
   {
     "name": "collateral_description_present",
+    "rule_type": "presence",
+    "fields": [
+      "collateral_description"
+    ],
     "expression": "collateral_description IS NOT NULL AND LENGTH(TRIM(collateral_description)) > 0",
     "severity": "drop",
     "description": "Collateral description is required to use a security agreement extraction."
   },
   {
     "name": "collateral_categories_array_valid",
+    "rule_type": "array",
+    "fields": [
+      "collateral_categories"
+    ],
     "expression": "collateral_categories IS NULL OR JSON_ARRAY_LENGTH(collateral_categories) >= 0",
     "severity": "warn",
     "description": "Collateral categories should be represented as an array."
   },
   {
     "name": "perfection_requirements_array_valid",
+    "rule_type": "array",
+    "fields": [
+      "perfection_requirements"
+    ],
     "expression": "perfection_requirements IS NULL OR JSON_ARRAY_LENGTH(perfection_requirements) >= 0",
     "severity": "warn",
     "description": "Perfection requirements should be represented as an array."

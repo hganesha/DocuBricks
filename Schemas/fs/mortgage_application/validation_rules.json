@@ -1,60 +1,98 @@
 [
   {
     "name": "loan_amount_positive",
+    "rule_type": "range",
+    "fields": [
+      "loan_amount"
+    ],
     "expression": "loan_amount IS NOT NULL AND loan_amount > 0",
     "severity": "fail",
     "description": "Loan amount must be present and positive — system invariant; no valid mortgage without a loan amount"
   },
   {
     "name": "loan_purpose_valid_enum",
+    "rule_type": "presence",
+    "fields": [],
     "expression": "loan_purpose IN ('Purchase', 'Refinance', 'CashOutRefinance', 'Construction', 'ConstructionPermanent', 'HomeEquity', 'HELOC', 'Other')",
     "severity": "fail",
     "description": "Loan purpose must be a recognized MISMO/URLA enumeration; invalid values break downstream AUS and HMDA routing"
   },
   {
     "name": "loan_type_valid_enum",
+    "rule_type": "presence",
+    "fields": [],
     "expression": "loan_type IN ('Conventional', 'FHA', 'VA', 'USDA', 'Jumbo', 'Portfolio', 'NonQM', 'Other')",
     "severity": "fail",
     "description": "Loan type must be a recognized enumeration for investor delivery and compliance routing"
   },
   {
     "name": "borrower_last_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "borrower_last_name"
+    ],
     "expression": "borrower_last_name IS NOT NULL AND LENGTH(TRIM(borrower_last_name)) > 0",
     "severity": "fail",
     "description": "Borrower last name is required — cannot process an application without borrower identity"
   },
   {
     "name": "ltv_reasonable_range",
+    "rule_type": "range",
+    "fields": [
+      "ltv_percent"
+    ],
     "expression": "ltv_percent IS NULL OR (ltv_percent > 0 AND ltv_percent <= 105)",
     "severity": "drop",
     "description": "LTV > 105% or <= 0 indicates a data extraction error or impossible transaction; route to quarantine"
   },
   {
     "name": "dti_reasonable_range",
+    "rule_type": "range",
+    "fields": [
+      "debt_to_income_ratio"
+    ],
     "expression": "debt_to_income_ratio IS NULL OR (debt_to_income_ratio > 0 AND debt_to_income_ratio < 100)",
     "severity": "drop",
     "description": "DTI outside 0-100% range is invalid; drop record to quarantine for human review"
   },
   {
     "name": "interest_rate_reasonable",
+    "rule_type": "range",
+    "fields": [
+      "interest_rate_percent"
+    ],
     "expression": "interest_rate_percent IS NULL OR (interest_rate_percent > 0 AND interest_rate_percent < 30)",
     "severity": "drop",
     "description": "Interest rate outside 0-30% range is likely an extraction error; route to quarantine"
   },
   {
     "name": "loan_term_standard_values",
+    "rule_type": "presence",
+    "fields": [
+      "loan_term_months"
+    ],
     "expression": "loan_term_months IS NULL OR loan_term_months IN (60, 84, 120, 180, 240, 300, 360, 480)",
     "severity": "warn",
     "description": "Loan term should be a standard product term (e.g., 360 for 30-year); unusual terms flagged for review"
   },
   {
     "name": "hmda_reportable_fields_present",
+    "rule_type": "presence",
+    "fields": [
+      "property_state",
+      "occupancy_type",
+      "loan_amount"
+    ],
     "expression": "property_state IS NOT NULL AND occupancy_type IS NOT NULL AND loan_amount IS NOT NULL",
     "severity": "warn",
     "description": "HMDA LAR requires state, occupancy type, and loan amount; missing values prevent regulatory reporting"
   },
   {
     "name": "purchase_price_for_purchase",
+    "rule_type": "presence",
+    "fields": [
+      "purchase_price"
+    ],
     "expression": "NOT (loan_purpose = 'Purchase' AND purchase_price IS NULL)",
     "severity": "warn",
     "description": "Purchase transactions should have a purchase price; missing value may indicate extraction failure"

@@ -1,0 +1,104 @@
+{
+  "document_type": "insurance_claim_denial_letter",
+  "vertical": "insurance",
+  "family": "insurance_claims",
+  "schema_version": "insurance_insurance_claim_denial_letter_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "letter_date",
+      "type": "date",
+      "required": true,
+      "description": "Date of denial letter."
+    },
+    {
+      "name": "claim_number",
+      "type": "string",
+      "required": true,
+      "description": "Claim number."
+    },
+    {
+      "name": "policy_number",
+      "type": "string",
+      "required": true,
+      "description": "Policy number."
+    },
+    {
+      "name": "insured_name",
+      "type": "string",
+      "required": false,
+      "description": "Named insured."
+    },
+    {
+      "name": "claimant_name",
+      "type": "string",
+      "required": false,
+      "description": "Claimant if different from insured."
+    },
+    {
+      "name": "loss_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of loss."
+    },
+    {
+      "name": "coverage_denied",
+      "type": "string",
+      "required": false,
+      "description": "Coverage, payment, or claim component denied."
+    },
+    {
+      "name": "denial_reason",
+      "type": "string",
+      "required": true,
+      "description": "Reason for denial."
+    },
+    {
+      "name": "policy_provisions_cited",
+      "type": "array<string>",
+      "required": false,
+      "description": "Policy provisions, exclusions, or conditions cited."
+    },
+    {
+      "name": "facts_relied_on",
+      "type": "array<string>",
+      "required": false,
+      "description": "Facts or investigation findings relied on."
+    },
+    {
+      "name": "appeal_or_reconsideration_rights",
+      "type": "string",
+      "required": false,
+      "description": "Appeal, complaint, or reconsideration rights."
+    },
+    {
+      "name": "regulatory_notice",
+      "type": "string",
+      "required": false,
+      "description": "State or regulatory notice language."
+    },
+    {
+      "name": "reservation_of_rights_continues",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether reservation of rights continues for other issues."
+    },
+    {
+      "name": "sender_name",
+      "type": "string",
+      "required": false,
+      "description": "Sender or claims representative."
+    },
+    {
+      "name": "sender_title",
+      "type": "string",
+      "required": false,
+      "description": "Sender title."
+    }
+  ]
+}

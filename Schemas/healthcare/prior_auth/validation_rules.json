@@ -1,33 +1,50 @@
 [
   {
     "name": "authorization_id_required",
+    "rule_type": "presence",
+    "fields": [
+      "authorization_id"
+    ],
     "expression": "authorization_id IS NOT NULL AND LENGTH(TRIM(authorization_id)) > 0",
     "severity": "fail",
     "description": "Authorization ID is the primary key for payer utilization management tracking."
   },
   {
     "name": "request_status_valid",
+    "rule_type": "presence",
+    "fields": [],
     "expression": "request_status IN ('Requested', 'Approved', 'Denied', 'Pending', 'Partially_Approved', 'Expired')",
     "severity": "drop",
     "description": "Prior authorization workflow routing depends on a recognized request status."
   },
   {
     "name": "member_id_present",
+    "rule_type": "presence",
+    "fields": [
+      "patient_member_id"
+    ],
     "expression": "patient_member_id IS NOT NULL AND LENGTH(TRIM(patient_member_id)) > 0",
     "severity": "fail",
     "description": "Member ID is required to reconcile the authorization with payer eligibility and claims."
   },
   {
     "name": "provider_npi_format",
+    "rule_type": "format",
+    "fields": [
+      "requesting_provider_npi"
+    ],
     "expression": "requesting_provider_npi IS NULL OR requesting_provider_npi REGEXP '^[0-9]{10}$'",
     "severity": "warn",
     "description": "Requesting provider NPI should be a ten digit numeric identifier."
   },
   {
     "name": "denial_reason_required_for_denials",
+    "rule_type": "presence",
+    "fields": [
+      "denial_reason_text"
+    ],
     "expression": "NOT (request_status = 'Denied' AND denial_reason_text IS NULL)",
     "severity": "warn",
     "description": "Denied prior authorizations need denial rationale to support appeals workflow."
   }
 ]
-

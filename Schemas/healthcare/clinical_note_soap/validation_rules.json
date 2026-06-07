@@ -1,42 +1,68 @@
 [
   {
     "name": "document_id_not_null",
+    "rule_type": "presence",
+    "fields": [
+      "document_id"
+    ],
     "expression": "document_id IS NOT NULL AND LENGTH(TRIM(document_id)) > 0",
     "severity": "fail",
     "description": "Document/encounter ID is the EMR primary key for note attribution — without it the record cannot be linked to an encounter, clinician, or patient in downstream systems"
   },
   {
     "name": "avg_confidence_minimum",
+    "rule_type": "range",
+    "fields": [
+      "avg_confidence"
+    ],
     "expression": "avg_confidence >= 0.60",
     "severity": "drop",
     "description": "Overall extraction confidence below 0.60 indicates severe document quality issues (handwriting, fax artifacts, non-SOAP formatting) — route to clinical review queue rather than ingest"
   },
   {
     "name": "note_date_not_null",
+    "rule_type": "presence",
+    "fields": [
+      "note_date"
+    ],
     "expression": "note_date IS NOT NULL",
     "severity": "drop",
     "description": "Note date is required for clinical timeline integrity, regulatory retention schedules, and quality measure date attribution; undated notes cannot be safely processed"
   },
   {
     "name": "provider_name_not_null",
+    "rule_type": "presence",
+    "fields": [
+      "provider_name"
+    ],
     "expression": "provider_name IS NOT NULL AND LENGTH(TRIM(provider_name)) > 0",
     "severity": "drop",
     "description": "Provider name is required for attribution, peer review routing, credentialing verification, and medical-legal documentation; anonymous notes must be quarantined"
   },
   {
     "name": "note_type_valid_enum",
+    "rule_type": "presence",
+    "fields": [],
     "expression": "note_type IN ('Progress', 'Discharge', 'Consultation', 'Admission')",
     "severity": "warn",
     "description": "Note type must be a recognized clinical note category for downstream care management and quality reporting routing; unrecognized types flag for reclassification"
   },
   {
     "name": "chief_complaint_present",
+    "rule_type": "presence",
+    "fields": [
+      "chief_complaint"
+    ],
     "expression": "chief_complaint IS NOT NULL AND LENGTH(TRIM(chief_complaint)) > 0",
     "severity": "warn",
     "description": "Chief complaint is a core clinical documentation element; its absence may indicate extraction failure or a structurally incomplete note requiring clinical review"
   },
   {
     "name": "assessment_diagnoses_present",
+    "rule_type": "array",
+    "fields": [
+      "assessment_diagnoses"
+    ],
     "expression": "assessment_diagnoses IS NOT NULL AND ARRAY_SIZE(assessment_diagnoses) > 0",
     "severity": "warn",
     "description": "At least one diagnosis must be present in the Assessment section for care coordination, billing code mapping, and quality measure attribution; absence flags documentation gap"

@@ -1,30 +1,51 @@
 [
   {
     "name": "borrower_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "borrower_name"
+    ],
     "expression": "borrower_name IS NOT NULL AND LENGTH(TRIM(borrower_name)) > 0",
     "severity": "fail",
     "description": "Loan agreement must identify the borrower."
   },
   {
     "name": "commitment_amount_positive",
+    "rule_type": "range",
+    "fields": [
+      "commitment_amount"
+    ],
     "expression": "commitment_amount IS NULL OR commitment_amount > 0",
     "severity": "drop",
     "description": "Commitment amount must be positive when present."
   },
   {
     "name": "maturity_after_agreement_date",
+    "rule_type": "cross_field",
+    "fields": [
+      "maturity_date",
+      "agreement_date"
+    ],
     "expression": "maturity_date IS NULL OR agreement_date IS NULL OR maturity_date > agreement_date",
     "severity": "warn",
     "description": "Maturity should be after agreement date."
   },
   {
     "name": "financial_covenants_array_valid",
+    "rule_type": "array",
+    "fields": [
+      "financial_covenants"
+    ],
     "expression": "financial_covenants IS NULL OR JSON_ARRAY_LENGTH(financial_covenants) >= 0",
     "severity": "warn",
     "description": "Financial covenants should be represented as an array."
   },
   {
     "name": "governing_law_present",
+    "rule_type": "presence",
+    "fields": [
+      "governing_law"
+    ],
     "expression": "governing_law IS NOT NULL AND LENGTH(TRIM(governing_law)) > 0",
     "severity": "warn",
     "description": "Governing law is important for legal ops and enforceability review."

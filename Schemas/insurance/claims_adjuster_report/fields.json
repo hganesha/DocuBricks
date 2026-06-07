@@ -1,0 +1,110 @@
+{
+  "document_type": "claims_adjuster_report",
+  "vertical": "insurance",
+  "family": "insurance_claims",
+  "schema_version": "insurance_claims_adjuster_report_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "report_date",
+      "type": "date",
+      "required": true,
+      "description": "Date of adjuster report."
+    },
+    {
+      "name": "claim_number",
+      "type": "string",
+      "required": true,
+      "description": "Claim number."
+    },
+    {
+      "name": "adjuster_name",
+      "type": "string",
+      "required": true,
+      "description": "Adjuster name."
+    },
+    {
+      "name": "policy_number",
+      "type": "string",
+      "required": false,
+      "description": "Policy number."
+    },
+    {
+      "name": "insured_name",
+      "type": "string",
+      "required": false,
+      "description": "Named insured."
+    },
+    {
+      "name": "loss_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of loss."
+    },
+    {
+      "name": "inspection_date",
+      "type": "date",
+      "required": false,
+      "description": "Date of inspection."
+    },
+    {
+      "name": "cause_of_loss_assessment",
+      "type": "string",
+      "required": false,
+      "description": "Adjuster's cause of loss assessment."
+    },
+    {
+      "name": "coverage_analysis",
+      "type": "string",
+      "required": true,
+      "description": "Coverage analysis or applicable coverage position."
+    },
+    {
+      "name": "damage_scope",
+      "type": "array<string>",
+      "required": false,
+      "description": "Scope of covered or claimed damage."
+    },
+    {
+      "name": "estimated_gross_loss",
+      "type": "number",
+      "required": false,
+      "description": "Gross loss estimate."
+    },
+    {
+      "name": "deductible_amount",
+      "type": "number",
+      "required": false,
+      "description": "Deductible amount."
+    },
+    {
+      "name": "recommended_reserve",
+      "type": "number",
+      "required": false,
+      "description": "Recommended reserve."
+    },
+    {
+      "name": "recommended_payment",
+      "type": "number",
+      "required": false,
+      "description": "Recommended payment."
+    },
+    {
+      "name": "salvage_or_subrogation_potential",
+      "type": "string",
+      "required": false,
+      "description": "Salvage or subrogation potential."
+    },
+    {
+      "name": "open_items",
+      "type": "array<string>",
+      "required": false,
+      "description": "Open information requests or pending items."
+    }
+  ]
+}

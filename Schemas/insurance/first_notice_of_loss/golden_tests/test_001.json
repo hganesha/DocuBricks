@@ -1,0 +1,29 @@
+{
+  "test_case_id": "first_notice_of_loss_001",
+  "document_type": "first_notice_of_loss",
+  "description": "Seed golden test for First Notice of Loss",
+  "parsed_text": "FIRST NOTICE OF LOSS\nReported Date: 2026-08-15\nReported Time: 9:35 AM CT\nReported By: Marcus Hale, Operations Director\nPhone: 312-555-0198\nPolicy Number: CPP-7844129-06\nInsured: Northstar Cold Storage LLC\nLoss Date: 2026-08-14\nLoss Time: approximately 11:40 PM\nLoss Location: 1440 River Road, Joliet, IL\nCause of Loss: ammonia refrigeration equipment failure\nDescription: temperature excursion caused spoilage of customer produce inventory in cold room 3\nInjuries Reported: No\nAuthority Report: Fire department incident report JFD-2026-4481\nEstimated Loss: $590,000\nMitigation Actions: isolated cold room 3; transferred unaffected inventory; contacted refrigeration contractor; preserved temperature logs",
+  "expected_json": {
+    "reported_date": "2026-08-15",
+    "reported_time": "9:35 AM CT",
+    "reporting_party_name": "Marcus Hale, Operations Director",
+    "reporting_party_phone": "312-555-0198",
+    "policy_number": "CPP-7844129-06",
+    "insured_name": "Northstar Cold Storage LLC",
+    "loss_date": "2026-08-14",
+    "loss_time": "approximately 11:40 PM",
+    "loss_location": "1440 River Road, Joliet, IL",
+    "loss_cause": "ammonia refrigeration equipment failure",
+    "loss_description": "temperature excursion caused spoilage of customer produce inventory in cold room 3",
+    "injury_indicator": false,
+    "police_or_authority_report": "Fire department incident report JFD-2026-4481",
+    "estimated_loss_amount": 590000.0,
+    "emergency_mitigation_actions": [
+      "isolated cold room 3",
+      "transferred unaffected inventory",
+      "contacted refrigeration contractor",
+      "preserved temperature logs"
+    ]
+  },
+  "expected_avg_confidence": 0.92
+}

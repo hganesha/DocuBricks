@@ -1,0 +1,59 @@
+{
+  "test_case_id": "policy_declaration_page_001",
+  "document_type": "policy_declaration_page",
+  "description": "Seed golden test for Policy Declaration Page",
+  "parsed_text": "POLICY DECLARATION PAGE\nPolicy Number: CPP-7844129-06\nNamed Insured: Northstar Cold Storage LLC\nCarrier: Great Plains Indemnity Company\nProducer: Ana Delgado, Summit Risk Advisors\nPolicy Period: 2026-07-01 to 2027-07-01\nCoverage Lines: Building and Personal Property; Commercial General Liability; Equipment Breakdown\nCovered Risk: refrigerated warehouse at 1440 River Road, Joliet, IL\nCoverage Limits: building $8,500,000; business personal property $2,000,000; general liability $1,000,000 per occurrence\nDeductibles: property $25,000; equipment breakdown $10,000\nTotal Premium: $184,250\nAdditional Insureds: Joliet Logistics Park Owner LLC\nLoss Payees: Prairie Bank NA ISAOA ATIMA\nForms and Endorsements: CP 00 10; CG 20 10; Lender Loss Payable Endorsement\nCancellation Notice: 30 days",
+  "expected_json": {
+    "policy_number": "CPP-7844129-06",
+    "named_insured": "Northstar Cold Storage LLC",
+    "carrier_name": "Great Plains Indemnity Company",
+    "producer_name": "Ana Delgado, Summit Risk Advisors",
+    "policy_period_start": "2026-07-01",
+    "policy_period_end": "2027-07-01",
+    "coverage_lines": [
+      "Building and Personal Property",
+      "Commercial General Liability",
+      "Equipment Breakdown"
+    ],
+    "covered_property_or_risk": "refrigerated warehouse at 1440 River Road, Joliet, IL",
+    "coverage_limits": [
+      {
+        "coverage": "building",
+        "limit": 8500000.0
+      },
+      {
+        "coverage": "business personal property",
+        "limit": 2000000.0
+      },
+      {
+        "coverage": "general liability",
+        "limit": 1000000.0,
+        "basis": "per occurrence"
+      }
+    ],
+    "deductibles": [
+      {
+        "coverage": "property",
+        "deductible": 25000.0
+      },
+      {
+        "coverage": "equipment breakdown",
+        "deductible": 10000.0
+      }
+    ],
+    "premium_total": 184250.0,
+    "additional_insured_names": [
+      "Joliet Logistics Park Owner LLC"
+    ],
+    "loss_payee_names": [
+      "Prairie Bank NA ISAOA ATIMA"
+    ],
+    "forms_and_endorsements": [
+      "CP 00 10",
+      "CG 20 10",
+      "Lender Loss Payable Endorsement"
+    ],
+    "cancellation_notice_days": 30
+  },
+  "expected_avg_confidence": 0.92
+}

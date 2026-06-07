@@ -65,6 +65,17 @@ RISK_COMPLIANCE_DOC_TYPES = [
     "regulatory_reporting_package",
 ]
 
+INSURANCE_DOC_TYPES = [
+    "insurance_policy_application",
+    "policy_declaration_page",
+    "certificate_of_insurance",
+    "insurance_claim_file",
+    "first_notice_of_loss",
+    "proof_of_loss",
+    "claims_adjuster_report",
+    "insurance_claim_denial_letter",
+]
+
 TIER_SCHEMA_MAP: dict[str, dict[str, list[str]]] = {
     "community": {
         "fs": ["mortgage_application", "kyc_cdd_form", "aml_sar", "invoice"],
@@ -90,6 +101,7 @@ TIER_SCHEMA_MAP: dict[str, dict[str, list[str]]] = {
         ],
         "healthcare": ["eob_cms1500", "clinical_note_soap", "lab_report", "prior_auth"],
         "legal":      ["nda_msa", "sow", "regulatory_submission", "court_filing", "litigation_case_file"],
+        "insurance":  INSURANCE_DOC_TYPES,
     },
 }
 
@@ -136,6 +148,14 @@ REGULATORY_ALIGNMENT = {
     "issue_management_record": "Regulatory exam management, MRA/MRIA tracking, audit issue remediation",
     "regulatory_reporting_package": "Call Report, HMDA, CRA, SAR/CTR, CECL, CCAR/DFAST and liquidity reporting",
     "litigation_case_file": "Matter management, court deadlines, discovery, motions, exposure and settlement tracking",
+    "insurance_policy_application": "Insurance underwriting intake, risk selection, rating, producer review, and policy issuance controls",
+    "policy_declaration_page": "Policy declarations, coverage evidence, loss payee, additional insured, and lender collateral protection controls",
+    "certificate_of_insurance": "Certificate of insurance review, coverage evidence, additional insured, waiver of subrogation, and expiration monitoring",
+    "insurance_claim_file": "Claim handling, coverage review, reserve monitoring, payment tracking, and claims governance",
+    "first_notice_of_loss": "FNOL intake, claims triage, loss reporting, mitigation, and claims handling timelines",
+    "proof_of_loss": "Sworn proof of loss, claim valuation, deductible, mortgagee/loss payee, and supporting evidence review",
+    "claims_adjuster_report": "Claims adjusting, damage scope, reserve recommendation, coverage analysis, and subrogation review",
+    "insurance_claim_denial_letter": "Claims denial, coverage determination, policy provisions, appeal rights, and regulatory notice controls",
 }
 
 # ---------------------------------------------------------------------------
@@ -384,12 +404,22 @@ def load_field_thresholds(doc_type: str) -> str:
         if "thresholds" in data:
             thresholds = data["thresholds"]
         else:
-            # Flat dict: field_name -> confidence value
-            thresholds = [
-                {"field_name": k, "min_confidence": v}
-                for k, v in data.items()
-                if isinstance(v, (int, float))
-            ]
+            # Primary case: nested objects {field_name: {min_confidence: ..., ...}}
+            # Legacy case: flat float {field_name: float}
+            thresholds = []
+            for field_name, value in data.items():
+                if field_name == "default_threshold":
+                    continue  # catalog-level default, skip
+                if isinstance(value, dict):
+                    thresholds.append({
+                        "field_name":            field_name,
+                        "min_confidence":        value.get("min_confidence", 0.70),
+                        "review_threshold":      value.get("review_threshold", 0.60),
+                        "quarantine_threshold":  value.get("quarantine_threshold", 0.40),
+                    })
+                elif isinstance(value, (int, float)):
+                    # legacy flat float format
+                    thresholds.append({"field_name": field_name, "min_confidence": value})
     else:
         thresholds = data
 
@@ -419,14 +449,34 @@ def load_field_thresholds(doc_type: str) -> str:
     return f"loaded {loaded} thresholds"
 
 
+def _get_model_routing_keys(data: dict) -> tuple[str, str]:
+    """Return (primary_model, fallback_model) handling all key naming variants."""
+    primary = (
+        data.get("primary")            # v2 normalized key
+        or data.get("model_endpoint")  # most FS schemas
+        or data.get("preferred_model") # some FS + all healthcare schemas
+        or data.get("primary_model")   # documented but unused variant
+        or data.get("model", "")
+    )
+    fallback_raw = (
+        data.get("fallback_chain")      # v2 normalized key (list)
+        or data.get("fallback_endpoint") # most FS schemas
+        or data.get("fallback_model")    # some FS + all healthcare
+        or data.get("fallback", "")
+    )
+    fallback = fallback_raw[0] if isinstance(fallback_raw, list) else fallback_raw
+    return str(primary), str(fallback)
+
+
 def load_model_routing(doc_type: str) -> str:
     path = SCHEMAS_ROOT / doc_type / "model_routing.json"
     data = read_json(path)
     if data is None:
         return "skipped"
 
-    model_endpoint  = escape_sql_string(str(data.get("model_endpoint", data.get("model", ""))))
-    fallback        = escape_sql_string(str(data.get("fallback_endpoint", data.get("fallback", ""))))
+    raw_primary, raw_fallback = _get_model_routing_keys(data)
+    model_endpoint  = escape_sql_string(raw_primary)
+    fallback        = escape_sql_string(raw_fallback)
     max_tokens      = int(data.get("max_tokens", 4096))
     temperature     = float(data.get("temperature", 0.0))
     routing_id      = f"{doc_type}__routing"
@@ -467,6 +517,14 @@ DOC_TYPE_DISPLAY = {
     "issue_management_record":          "Issue Management Record",
     "regulatory_reporting_package":     "Regulatory Reporting Package",
     "litigation_case_file":             "Litigation Case File",
+    "insurance_policy_application":     "Insurance Policy Application",
+    "policy_declaration_page":          "Policy Declaration Page",
+    "certificate_of_insurance":         "Certificate of Insurance",
+    "insurance_claim_file":             "Insurance Claim File",
+    "first_notice_of_loss":             "First Notice of Loss",
+    "proof_of_loss":                    "Proof of Loss",
+    "claims_adjuster_report":           "Claims Adjuster Report",
+    "insurance_claim_denial_letter":    "Insurance Claim Denial Letter",
 }
 
 def load_document_type_label(doc_type: str) -> str:

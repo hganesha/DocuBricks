@@ -1,0 +1,35 @@
+[
+  {
+    "name": "insured_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "insured_name"
+    ],
+    "expression": "insured_name IS NOT NULL AND LENGTH(TRIM(insured_name)) > 0",
+    "severity": "fail",
+    "description": "insured_name is required for Certificate of Insurance extraction.",
+    "field_name": "insured_name"
+  },
+  {
+    "name": "certificate_holder_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "certificate_holder_name"
+    ],
+    "expression": "certificate_holder_name IS NOT NULL AND LENGTH(TRIM(certificate_holder_name)) > 0",
+    "severity": "fail",
+    "description": "certificate_holder_name is required for Certificate of Insurance extraction.",
+    "field_name": "certificate_holder_name"
+  },
+  {
+    "name": "coverage_lines_present",
+    "rule_type": "array",
+    "fields": [
+      "coverage_lines"
+    ],
+    "expression": "coverage_lines IS NOT NULL AND JSON_ARRAY_LENGTH(coverage_lines) > 0",
+    "severity": "fail",
+    "description": "coverage_lines is required for Certificate of Insurance extraction.",
+    "field_name": "coverage_lines"
+  }
+]

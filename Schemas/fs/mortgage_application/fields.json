@@ -2,7 +2,8 @@
   "document_type": "mortgage_application",
   "vertical": "fs",
   "family": "mortgage_real_estate_finance",
-  "schema_version": "MISMO_v3.4_URLA",
+  "schema_version": "fs_mortgage_application_v1",
+  "external_standard": "MISMO_v3.4_URLA",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",
@@ -254,7 +255,7 @@
       "name": "self_employed",
       "type": "boolean",
       "required": false,
-      "description": "Boolean \u2014 true if self-employed indicator is checked"
+      "description": "Boolean — true if self-employed indicator is checked"
     },
     {
       "name": "base_monthly_income",
@@ -458,7 +459,7 @@
       "name": "ethnicity_hispanic",
       "type": "string",
       "required": false,
-      "description": "Boolean \u2014 is applicant Hispanic or Latino"
+      "description": "Boolean — is applicant Hispanic or Latino"
     },
     {
       "name": "race_white",
@@ -494,7 +495,7 @@
       "name": "monitoring_info_not_provided",
       "type": "string",
       "required": false,
-      "description": "Boolean \u2014 applicant declined to provide"
+      "description": "Boolean — applicant declined to provide"
     },
     {
       "name": "application_date",

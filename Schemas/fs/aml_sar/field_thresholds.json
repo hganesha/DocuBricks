@@ -1,4 +1,5 @@
 {
+  "default_threshold": 0.75,
   "subject_name": {
     "min_confidence": 0.95,
     "review_on_breach": true,
@@ -7,14 +8,14 @@
     "description": "Primary SAR subject identity field."
   },
   "activity_start_date": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
     "description": "Activity date range is required for suspicious activity reporting."
   },
   "activity_end_date": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,

@@ -2,7 +2,7 @@
   "document_type": "aml_sar",
   "vertical": "fs",
   "family": "kyc_aml_sanctions",
-  "schema_version": "FS_AML_SAR_v0",
+  "schema_version": "fs_aml_sar_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",

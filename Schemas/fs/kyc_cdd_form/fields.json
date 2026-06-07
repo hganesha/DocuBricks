@@ -2,7 +2,7 @@
   "document_type": "kyc_cdd_form",
   "vertical": "fs",
   "family": "kyc_aml_sanctions",
-  "schema_version": "FS_KYC_CDD_v0",
+  "schema_version": "fs_kyc_cdd_form_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",

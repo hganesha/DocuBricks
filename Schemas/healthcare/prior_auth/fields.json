@@ -2,7 +2,7 @@
   "document_type": "prior_auth",
   "vertical": "healthcare",
   "family": "healthcare_authorization",
-  "schema_version": "prior_auth_v1",
+  "schema_version": "healthcare_prior_auth_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",

@@ -2,7 +2,7 @@
   "document_type": "lab_report",
   "vertical": "healthcare",
   "family": "imaging_diagnostics",
-  "schema_version": "HL7_FHIR_R4_LOINC_CLIA",
+  "schema_version": "healthcare_lab_report_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",
@@ -38,7 +38,7 @@
       "name": "ordering_provider_npi",
       "type": "string",
       "required": false,
-      "description": "NPI of the ordering provider \u2014 10-digit numeric; null if not printed on report"
+      "description": "NPI of the ordering provider — 10-digit numeric; null if not printed on report"
     },
     {
       "name": "patient_name",
@@ -134,7 +134,7 @@
       "name": "critical_values_present",
       "type": "boolean",
       "required": false,
-      "description": "Boolean \u2014 true if ANY result in this report has a Critical (C) flag or is labeled \"Critical Value\" or \"Panic Value\" in the report"
+      "description": "Boolean — true if ANY result in this report has a Critical (C) flag or is labeled \"Critical Value\" or \"Panic Value\" in the report"
     },
     {
       "name": "pathologist_name",

@@ -1,7 +1,12 @@
 {
-  "preferred_model": "databricks-dbrx-instruct",
-  "fallback_model": "databricks-claude-sonnet",
+  "primary": "databricks-dbrx-instruct",
+  "fallback_chain": [
+    "databricks-claude-sonnet"
+  ],
   "max_tokens": 4096,
   "temperature": 0.0,
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "tier_overrides": {},
   "rationale": "Mortgage applications are highly structured URLA/Form 1003 documents with standardized field positions, checkboxes, and labeled tables. DBRX Instruct handles structured extraction tasks with high throughput and low latency, making it cost-effective for high-volume mortgage pipeline processing. The field layout is predictable enough that instruction-following models outperform reasoning-heavy models. Claude Sonnet is retained as fallback for complex edge cases such as handwritten applications, multi-borrower arrangements, or construction-to-permanent loans with non-standard layouts."
 }

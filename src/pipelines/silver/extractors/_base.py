@@ -88,6 +88,38 @@ except ImportError:
 
 logger = logging.getLogger("docubricks.extractors._base")
 
+
+# ---------------------------------------------------------------------------
+# Registry helpers
+# ---------------------------------------------------------------------------
+
+def _get_schema_model(catalog_name: str, document_type: str) -> str:
+    """
+    Read the primary extraction model for document_type from schema_model_routing.
+    Falls back to claude-sonnet if the registry is unavailable or returns no row.
+    Safe to call in unit tests — returns the fallback when not in Databricks.
+    """
+    if not _IN_DATABRICKS:
+        return "databricks-claude-sonnet"
+    try:
+        row = (
+            spark.table(f"{catalog_name}.schema_registry.schema_model_routing")  # type: ignore[name-defined]  # noqa: F821
+            .filter(
+                (col("doc_type") == document_type) & (col("is_active") == True)  # noqa: E712
+            )
+            .first()
+        )
+        if row is not None and row["model_endpoint"]:
+            return str(row["model_endpoint"])
+    except Exception as exc:
+        logger.warning(
+            "Could not read schema_model_routing for document_type=%s: %s",
+            document_type,
+            exc,
+        )
+    return "databricks-claude-sonnet"
+
+
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
@@ -502,6 +534,9 @@ def build_extraction_stream(
         fallback_prompt=fallback_prompt,
     )
 
+    # Resolve model name once before building the DataFrame chain
+    schema_model = _get_schema_model(catalog_name, document_type)
+
     route_view = f"silver_route_{document_type}"
 
     df = (
@@ -515,7 +550,7 @@ def build_extraction_stream(
         .withColumn("extracted_json",      col("extraction_result.result"))
         .withColumn("avg_confidence_score", col("extraction_result.avg_confidence").cast("double"))
         .withColumn("field_confidences",    col("extraction_result.field_scores"))
-        .withColumn("extraction_model",     lit("databricks-dbrx-instruct"))
+        .withColumn("extraction_model",     lit(schema_model))
         .withColumn("extracted_at",         current_timestamp())
         .drop("extraction_result", "routed_at", "pipeline_stage")
     )

@@ -2,7 +2,7 @@
   "document_type": "issue_management_record",
   "vertical": "fs",
   "family": "regulatory_exams_audit",
-  "schema_version": "risk_issue_management_record_v1",
+  "schema_version": "fs_issue_management_record_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",

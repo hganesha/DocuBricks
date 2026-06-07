@@ -1,0 +1,110 @@
+{
+  "document_type": "insurance_claim_file",
+  "vertical": "insurance",
+  "family": "insurance_collateral_protection",
+  "schema_version": "insurance_insurance_claim_file_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "claim_number",
+      "type": "string",
+      "required": true,
+      "description": "Claim number or file identifier."
+    },
+    {
+      "name": "policy_number",
+      "type": "string",
+      "required": true,
+      "description": "Related policy number."
+    },
+    {
+      "name": "insured_name",
+      "type": "string",
+      "required": false,
+      "description": "Named insured or claimant."
+    },
+    {
+      "name": "claimant_name",
+      "type": "string",
+      "required": false,
+      "description": "Claimant name if different from insured."
+    },
+    {
+      "name": "loss_date",
+      "type": "date",
+      "required": true,
+      "description": "Date of loss."
+    },
+    {
+      "name": "reported_date",
+      "type": "date",
+      "required": false,
+      "description": "Date loss was reported."
+    },
+    {
+      "name": "loss_location",
+      "type": "string",
+      "required": false,
+      "description": "Location of loss."
+    },
+    {
+      "name": "loss_description",
+      "type": "string",
+      "required": false,
+      "description": "Description of incident or claimed loss."
+    },
+    {
+      "name": "claim_type",
+      "type": "string",
+      "required": false,
+      "description": "Property, casualty, auto, liability, workers compensation, or other type."
+    },
+    {
+      "name": "claim_status",
+      "type": "string",
+      "required": false,
+      "description": "Open, pending, reserved, closed, denied, litigated, or other status."
+    },
+    {
+      "name": "reserve_amount",
+      "type": "number",
+      "required": false,
+      "description": "Current claim reserve amount."
+    },
+    {
+      "name": "paid_amount",
+      "type": "number",
+      "required": false,
+      "description": "Total amount paid to date."
+    },
+    {
+      "name": "adjuster_name",
+      "type": "string",
+      "required": false,
+      "description": "Assigned adjuster."
+    },
+    {
+      "name": "coverage_position",
+      "type": "string",
+      "required": false,
+      "description": "Coverage accepted, reservation of rights, denied, pending, or other position."
+    },
+    {
+      "name": "documents_received",
+      "type": "array<string>",
+      "required": false,
+      "description": "Documents in claim file."
+    },
+    {
+      "name": "next_action_due_date",
+      "type": "date",
+      "required": false,
+      "description": "Next diary, review, or action due date."
+    }
+  ]
+}

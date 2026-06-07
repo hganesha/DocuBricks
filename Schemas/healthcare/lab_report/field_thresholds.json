@@ -1,4 +1,5 @@
 {
+  "default_threshold": 0.75,
   "patient_name": {
     "min_confidence": 0.92,
     "review_on_breach": true,
@@ -14,7 +15,7 @@
     "description": "MRN is the primary chart-matching key for lab result ingestion."
   },
   "report_date": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
@@ -42,4 +43,3 @@
     "description": "Critical value flags drive urgent notification workflow."
   }
 }
-

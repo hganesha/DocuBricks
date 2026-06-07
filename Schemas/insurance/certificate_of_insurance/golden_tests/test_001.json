@@ -1,0 +1,59 @@
+{
+  "test_case_id": "certificate_of_insurance_001",
+  "document_type": "certificate_of_insurance",
+  "description": "Seed golden test for Certificate of Insurance",
+  "parsed_text": "CERTIFICATE OF INSURANCE\nCertificate Date: 2026-06-18\nProducer: Summit Risk Advisors\nInsured: Northstar Cold Storage LLC\nCertificate Holder: Prairie Bank NA, 100 Market Street, Chicago, IL\nInsurers: Great Plains Indemnity Company; Midwest Casualty Exchange\nPolicies: CPP-7844129-06; WC-4401287\nCoverage: Commercial General Liability effective 2026-07-01 expires 2027-07-01; Workers Compensation effective 2026-07-01 expires 2027-07-01\nLimits: CGL each occurrence $1,000,000; general aggregate $2,000,000; workers compensation statutory; employers liability $1,000,000\nAdditional Insured: Yes\nWaiver of Subrogation: Yes\nDescription: refrigerated warehouse operations at 1440 River Road; Prairie Bank named as lender loss payee where required by written contract\nCancellation Notice: should any policy be cancelled before expiration, notice will be delivered in accordance with policy provisions",
+  "expected_json": {
+    "certificate_date": "2026-06-18",
+    "producer_name": "Summit Risk Advisors",
+    "insured_name": "Northstar Cold Storage LLC",
+    "certificate_holder_name": "Prairie Bank NA, 100 Market Street, Chicago, IL",
+    "carrier_names": [
+      "Great Plains Indemnity Company",
+      "Midwest Casualty Exchange"
+    ],
+    "policy_numbers": [
+      "CPP-7844129-06",
+      "WC-4401287"
+    ],
+    "coverage_lines": [
+      "Commercial General Liability",
+      "Workers Compensation"
+    ],
+    "effective_dates": [
+      "2026-07-01",
+      "2026-07-01"
+    ],
+    "expiration_dates": [
+      "2027-07-01",
+      "2027-07-01"
+    ],
+    "limits": [
+      {
+        "coverage": "CGL",
+        "limit_type": "each occurrence",
+        "limit": 1000000.0
+      },
+      {
+        "coverage": "CGL",
+        "limit_type": "general aggregate",
+        "limit": 2000000.0
+      },
+      {
+        "coverage": "workers compensation",
+        "limit_type": "statutory",
+        "limit": null
+      },
+      {
+        "coverage": "employers liability",
+        "limit_type": "limit",
+        "limit": 1000000.0
+      }
+    ],
+    "additional_insured_indicator": true,
+    "waiver_of_subrogation_indicator": true,
+    "description_of_operations": "refrigerated warehouse operations at 1440 River Road; Prairie Bank named as lender loss payee where required by written contract",
+    "cancellation_notice_text": "should any policy be cancelled before expiration, notice will be delivered in accordance with policy provisions"
+  },
+  "expected_avg_confidence": 0.92
+}

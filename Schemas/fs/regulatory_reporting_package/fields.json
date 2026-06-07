@@ -2,7 +2,7 @@
   "document_type": "regulatory_reporting_package",
   "vertical": "fs",
   "family": "regulatory_reporting",
-  "schema_version": "risk_regulatory_reporting_package_v1",
+  "schema_version": "fs_regulatory_reporting_package_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",

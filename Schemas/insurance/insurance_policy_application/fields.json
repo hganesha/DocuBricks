@@ -1,0 +1,110 @@
+{
+  "document_type": "insurance_policy_application",
+  "vertical": "insurance",
+  "family": "insurance_underwriting",
+  "schema_version": "insurance_insurance_policy_application_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "application_date",
+      "type": "date",
+      "required": false,
+      "description": "Date the application was completed or submitted."
+    },
+    {
+      "name": "applicant_name",
+      "type": "string",
+      "required": true,
+      "description": "Named applicant or proposed insured."
+    },
+    {
+      "name": "applicant_entity_type",
+      "type": "string",
+      "required": false,
+      "description": "Individual, corporation, LLC, trust, or other legal form."
+    },
+    {
+      "name": "mailing_address",
+      "type": "string",
+      "required": false,
+      "description": "Applicant mailing address."
+    },
+    {
+      "name": "policy_type_requested",
+      "type": "string",
+      "required": true,
+      "description": "Line of business or coverage type requested."
+    },
+    {
+      "name": "effective_date_requested",
+      "type": "date",
+      "required": true,
+      "description": "Requested policy effective date."
+    },
+    {
+      "name": "coverage_limit_requested",
+      "type": "number",
+      "required": false,
+      "description": "Requested coverage limit or policy amount."
+    },
+    {
+      "name": "deductible_requested",
+      "type": "number",
+      "required": false,
+      "description": "Requested deductible or retention."
+    },
+    {
+      "name": "insured_property_or_risk",
+      "type": "string",
+      "required": false,
+      "description": "Property, operation, person, or risk to be insured."
+    },
+    {
+      "name": "prior_carrier_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Prior insurance carriers when listed."
+    },
+    {
+      "name": "loss_history_summary",
+      "type": "string",
+      "required": false,
+      "description": "Applicant's stated loss or claims history."
+    },
+    {
+      "name": "annual_revenue",
+      "type": "number",
+      "required": false,
+      "description": "Annual revenue when commercial exposure is stated."
+    },
+    {
+      "name": "employee_count",
+      "type": "integer",
+      "required": false,
+      "description": "Employee count when applicable."
+    },
+    {
+      "name": "risk_controls",
+      "type": "array<string>",
+      "required": false,
+      "description": "Safety, security, compliance, or loss control measures."
+    },
+    {
+      "name": "producer_name",
+      "type": "string",
+      "required": false,
+      "description": "Agent, broker, or producer name."
+    },
+    {
+      "name": "underwriting_status",
+      "type": "string",
+      "required": false,
+      "description": "Submitted, quoted, bound, declined, pending, or other status."
+    }
+  ]
+}

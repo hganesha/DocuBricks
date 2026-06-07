@@ -1,30 +1,50 @@
 [
   {
     "name": "borrower_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "borrower_name"
+    ],
     "expression": "borrower_name IS NOT NULL AND LENGTH(TRIM(borrower_name)) > 0",
     "severity": "fail",
     "description": "Collateral schedule must identify the borrower or collateral owner."
   },
   {
     "name": "collateral_description_present",
+    "rule_type": "presence",
+    "fields": [
+      "collateral_description"
+    ],
     "expression": "collateral_description IS NOT NULL AND LENGTH(TRIM(collateral_description)) > 0",
     "severity": "drop",
     "description": "Collateral description is required to use the schedule."
   },
   {
     "name": "collateral_value_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "total_collateral_value"
+    ],
     "expression": "total_collateral_value IS NULL OR total_collateral_value >= 0",
     "severity": "warn",
     "description": "Collateral value cannot be negative."
   },
   {
     "name": "advance_rate_range",
+    "rule_type": "range",
+    "fields": [
+      "advance_rate_percent"
+    ],
     "expression": "advance_rate_percent IS NULL OR (advance_rate_percent >= 0 AND advance_rate_percent <= 100)",
     "severity": "warn",
     "description": "Advance rate should be between 0 and 100 percent."
   },
   {
     "name": "collateral_items_array_valid",
+    "rule_type": "array",
+    "fields": [
+      "collateral_items"
+    ],
     "expression": "collateral_items IS NULL OR JSON_ARRAY_LENGTH(collateral_items) >= 0",
     "severity": "warn",
     "description": "Item-level collateral should be represented as an array."

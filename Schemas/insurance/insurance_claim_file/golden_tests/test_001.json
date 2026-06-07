@@ -1,0 +1,30 @@
+{
+  "test_case_id": "insurance_claim_file_001",
+  "document_type": "insurance_claim_file",
+  "description": "Seed golden test for Insurance Claim File",
+  "parsed_text": "INSURANCE CLAIM FILE\nClaim Number: GL-26-11904\nPolicy Number: CPP-7844129-06\nInsured: Northstar Cold Storage LLC\nClaimant: Metro Produce Distributors Inc.\nLoss Date: 2026-08-14\nReported Date: 2026-08-15\nLoss Location: 1440 River Road, Joliet, IL\nLoss Description: ammonia equipment failure caused spoilage of third-party produce inventory\nClaim Type: Commercial property and liability\nStatus: Open - coverage review\nReserve Amount: $650,000\nPaid Amount: $0\nAdjuster: Leah Chen\nCoverage Position: Reservation of rights pending equipment breakdown review\nDocuments Received: FNOL; refrigeration maintenance logs; inventory spoilage schedule; certificate of insurance\nNext Action Due: 2026-09-01",
+  "expected_json": {
+    "claim_number": "GL-26-11904",
+    "policy_number": "CPP-7844129-06",
+    "insured_name": "Northstar Cold Storage LLC",
+    "claimant_name": "Metro Produce Distributors Inc.",
+    "loss_date": "2026-08-14",
+    "reported_date": "2026-08-15",
+    "loss_location": "1440 River Road, Joliet, IL",
+    "loss_description": "ammonia equipment failure caused spoilage of third-party produce inventory",
+    "claim_type": "Commercial property and liability",
+    "claim_status": "Open - coverage review",
+    "reserve_amount": 650000.0,
+    "paid_amount": 0.0,
+    "adjuster_name": "Leah Chen",
+    "coverage_position": "Reservation of rights pending equipment breakdown review",
+    "documents_received": [
+      "FNOL",
+      "refrigeration maintenance logs",
+      "inventory spoilage schedule",
+      "certificate of insurance"
+    ],
+    "next_action_due_date": "2026-09-01"
+  },
+  "expected_avg_confidence": 0.92
+}

@@ -1,0 +1,33 @@
+{
+  "test_case_id": "insurance_policy_application_001",
+  "document_type": "insurance_policy_application",
+  "description": "Seed golden test for Insurance Policy Application",
+  "parsed_text": "INSURANCE POLICY APPLICATION\nApplication Date: 2026-05-08\nApplicant: Northstar Cold Storage LLC\nEntity Type: LLC\nMailing Address: 1440 River Road, Joliet, IL 60431\nPolicy Type Requested: Commercial property and general liability package\nRequested Effective Date: 2026-07-01\nCoverage Limit Requested: $10,000,000\nDeductible Requested: $25,000\nRisk to be Insured: refrigerated warehouse and distribution operations\nPrior Carriers: Harbor Mutual; Lakeside Specialty\nLoss History: one water damage claim in 2024 for $86,000, closed\nAnnual Revenue: $42,500,000\nEmployees: 118\nRisk Controls: sprinkler system; 24-hour temperature monitoring; visitor log; OSHA safety training\nProducer: Ana Delgado, Summit Risk Advisors\nUnderwriting Status: Submitted",
+  "expected_json": {
+    "application_date": "2026-05-08",
+    "applicant_name": "Northstar Cold Storage LLC",
+    "applicant_entity_type": "LLC",
+    "mailing_address": "1440 River Road, Joliet, IL 60431",
+    "policy_type_requested": "Commercial property and general liability package",
+    "effective_date_requested": "2026-07-01",
+    "coverage_limit_requested": 10000000.0,
+    "deductible_requested": 25000.0,
+    "insured_property_or_risk": "refrigerated warehouse and distribution operations",
+    "prior_carrier_names": [
+      "Harbor Mutual",
+      "Lakeside Specialty"
+    ],
+    "loss_history_summary": "one water damage claim in 2024 for $86,000, closed",
+    "annual_revenue": 42500000.0,
+    "employee_count": 118,
+    "risk_controls": [
+      "sprinkler system",
+      "24-hour temperature monitoring",
+      "visitor log",
+      "OSHA safety training"
+    ],
+    "producer_name": "Ana Delgado, Summit Risk Advisors",
+    "underwriting_status": "Submitted"
+  },
+  "expected_avg_confidence": 0.92
+}

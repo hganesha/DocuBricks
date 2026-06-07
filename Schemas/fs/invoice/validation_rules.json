@@ -1,30 +1,51 @@
 [
   {
     "name": "invoice_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "invoice_number"
+    ],
     "expression": "invoice_number IS NOT NULL AND LENGTH(TRIM(invoice_number)) > 0",
     "severity": "fail",
     "description": "Invoice number is required for accounts payable matching."
   },
   {
     "name": "vendor_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "vendor_name"
+    ],
     "expression": "vendor_name IS NOT NULL AND LENGTH(TRIM(vendor_name)) > 0",
     "severity": "fail",
     "description": "Vendor name is required for payment routing."
   },
   {
     "name": "total_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "total_amount"
+    ],
     "expression": "total_amount IS NOT NULL AND total_amount >= 0",
     "severity": "fail",
     "description": "Invoice total must be present and non-negative."
   },
   {
     "name": "amount_due_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "amount_due"
+    ],
     "expression": "amount_due IS NULL OR amount_due >= 0",
     "severity": "drop",
     "description": "Amount due cannot be negative."
   },
   {
     "name": "due_date_not_before_invoice_date",
+    "rule_type": "cross_field",
+    "fields": [
+      "invoice_date",
+      "due_date"
+    ],
     "expression": "invoice_date IS NULL OR due_date IS NULL OR due_date >= invoice_date",
     "severity": "warn",
     "description": "Due date should not precede invoice date."

@@ -1,18 +1,30 @@
 [
   {
     "name": "trust_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "trust_name"
+    ],
     "expression": "trust_name IS NOT NULL AND LENGTH(TRIM(trust_name)) > 0",
     "severity": "fail",
     "description": "trust_name is required for Trust Account Opening Package extraction."
   },
   {
     "name": "trustee_names_present",
+    "rule_type": "array",
+    "fields": [
+      "trustee_names"
+    ],
     "expression": "trustee_names IS NOT NULL AND JSON_ARRAY_LENGTH(trustee_names) > 0",
     "severity": "fail",
     "description": "trustee_names is required for Trust Account Opening Package extraction."
   },
   {
     "name": "initial_deposit_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "initial_deposit_amount"
+    ],
     "expression": "initial_deposit_amount IS NULL OR initial_deposit_amount >= 0",
     "severity": "warn",
     "description": "initial_deposit_amount should be non-negative when present."

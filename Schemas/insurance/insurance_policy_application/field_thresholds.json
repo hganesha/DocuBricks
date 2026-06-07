@@ -1,0 +1,42 @@
+[
+  {
+    "field_name": "applicant_name",
+    "min_confidence": 0.9,
+    "review_threshold": 0.7,
+    "quarantine_threshold": 0.5,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Insurance Policy Application workflow."
+  },
+  {
+    "field_name": "policy_type_requested",
+    "min_confidence": 0.9,
+    "review_threshold": 0.7,
+    "quarantine_threshold": 0.5,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Insurance Policy Application workflow."
+  },
+  {
+    "field_name": "coverage_limit_requested",
+    "min_confidence": 0.85,
+    "review_threshold": 0.7,
+    "quarantine_threshold": 0.5,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "High-impact field for Insurance Policy Application workflow."
+  },
+  {
+    "field_name": "underwriting_status",
+    "min_confidence": 0.85,
+    "review_threshold": 0.7,
+    "quarantine_threshold": 0.5,
+    "review_on_breach": true,
+    "fail_on_breach": false,
+    "regulatory_required": true,
+    "description": "High-impact field for Insurance Policy Application workflow."
+  }
+]

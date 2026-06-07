@@ -1,0 +1,104 @@
+{
+  "document_type": "first_notice_of_loss",
+  "vertical": "insurance",
+  "family": "insurance_claims",
+  "schema_version": "insurance_first_notice_of_loss_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "reported_date",
+      "type": "date",
+      "required": true,
+      "description": "Date the loss was reported."
+    },
+    {
+      "name": "reported_time",
+      "type": "string",
+      "required": false,
+      "description": "Time the loss was reported if stated."
+    },
+    {
+      "name": "reporting_party_name",
+      "type": "string",
+      "required": false,
+      "description": "Person or entity reporting the loss."
+    },
+    {
+      "name": "reporting_party_phone",
+      "type": "string",
+      "required": false,
+      "description": "Reporter phone number."
+    },
+    {
+      "name": "policy_number",
+      "type": "string",
+      "required": true,
+      "description": "Policy number stated on the notice."
+    },
+    {
+      "name": "insured_name",
+      "type": "string",
+      "required": false,
+      "description": "Named insured."
+    },
+    {
+      "name": "loss_date",
+      "type": "date",
+      "required": true,
+      "description": "Date of loss."
+    },
+    {
+      "name": "loss_time",
+      "type": "string",
+      "required": false,
+      "description": "Time of loss if stated."
+    },
+    {
+      "name": "loss_location",
+      "type": "string",
+      "required": false,
+      "description": "Location where the loss occurred."
+    },
+    {
+      "name": "loss_cause",
+      "type": "string",
+      "required": false,
+      "description": "Stated cause of loss."
+    },
+    {
+      "name": "loss_description",
+      "type": "string",
+      "required": true,
+      "description": "Narrative description of the loss."
+    },
+    {
+      "name": "injury_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether injuries are reported."
+    },
+    {
+      "name": "police_or_authority_report",
+      "type": "string",
+      "required": false,
+      "description": "Police, fire, OSHA, or other authority report details."
+    },
+    {
+      "name": "estimated_loss_amount",
+      "type": "number",
+      "required": false,
+      "description": "Estimated loss amount if stated."
+    },
+    {
+      "name": "emergency_mitigation_actions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Emergency actions taken to mitigate loss."
+    }
+  ]
+}

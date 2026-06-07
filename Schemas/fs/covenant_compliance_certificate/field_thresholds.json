@@ -1,4 +1,5 @@
 {
+  "default_threshold": 0.75,
   "borrower_name": {
     "min_confidence": 0.92,
     "review_on_breach": true,
@@ -14,14 +15,14 @@
     "description": "Reporting period controls covenant timeliness."
   },
   "compliance_status": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": false,
     "description": "Compliance status routes exceptions and defaults."
   },
   "default_declared": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": false,

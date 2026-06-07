@@ -1,4 +1,5 @@
 {
+  "default_threshold": 0.75,
   "report_name": {
     "min_confidence": 0.9,
     "review_on_breach": true,

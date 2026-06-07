@@ -48,6 +48,17 @@ class SchemaAssetCoverageTests(unittest.TestCase):
             "fs/regulatory_reporting_package",
         ):
             self.assertGreaterEqual(result.golden_counts[name], 1)
+        for doc_type in (
+            "insurance_policy_application",
+            "policy_declaration_page",
+            "certificate_of_insurance",
+            "insurance_claim_file",
+            "first_notice_of_loss",
+            "proof_of_loss",
+            "claims_adjuster_report",
+            "insurance_claim_denial_letter",
+        ):
+            self.assertGreaterEqual(result.golden_counts[f"insurance/{doc_type}"], 1)
 
     def test_reports_missing_healthcare_assets(self):
         with TemporaryDirectory() as tmp:
@@ -91,7 +102,6 @@ class SchemaAssetCoverageTests(unittest.TestCase):
             "personal_loan_application",
             "privacy_notice",
             "chapter_13_filing",
-            "proof_of_loss",
             "bank_statement",
         ):
             self.assertEqual(by_doc_type[doc_type]["availability"], "future")
@@ -113,8 +123,6 @@ class SchemaAssetCoverageTests(unittest.TestCase):
         by_doc_type = {entry["doc_type"]: entry for entry in entries}
 
         for doc_type, vertical in {
-            "insurance_policy_application": "insurance",
-            "insurance_claim_file": "insurance",
             "purchase_order": "manufacturing",
             "quality_inspection_report": "manufacturing",
             "lease_agreement": "real_estate",
@@ -123,6 +131,28 @@ class SchemaAssetCoverageTests(unittest.TestCase):
             self.assertIn(doc_type, by_doc_type)
             self.assertEqual(by_doc_type[doc_type]["vertical"], vertical)
             self.assertEqual(by_doc_type[doc_type]["availability"], "future")
+
+    def test_insurance_claims_and_policy_ops_package_is_available(self):
+        catalog_path = Path(__file__).resolve().parents[2] / "Schemas" / "schema_catalog.json"
+        entries = json.loads(catalog_path.read_text(encoding="utf-8"))["document_types"]
+        by_doc_type = {entry["doc_type"]: entry for entry in entries}
+
+        expected = {
+            "insurance_policy_application": "insurance_underwriting",
+            "policy_declaration_page": "insurance_collateral_protection",
+            "certificate_of_insurance": "insurance_collateral_protection",
+            "insurance_claim_file": "insurance_collateral_protection",
+            "first_notice_of_loss": "insurance_claims",
+            "proof_of_loss": "insurance_collateral_protection",
+            "claims_adjuster_report": "insurance_claims",
+            "insurance_claim_denial_letter": "insurance_claims",
+        }
+
+        for doc_type, family in expected.items():
+            self.assertIn(doc_type, by_doc_type)
+            self.assertEqual(by_doc_type[doc_type]["vertical"], "insurance")
+            self.assertEqual(by_doc_type[doc_type]["family"], family)
+            self.assertEqual(by_doc_type[doc_type]["availability"], "available")
 
     def test_schema_catalog_has_broad_healthcare_industry_coverage(self):
         catalog_path = Path(__file__).resolve().parents[2] / "Schemas" / "schema_catalog.json"

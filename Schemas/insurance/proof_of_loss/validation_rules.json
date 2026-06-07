@@ -1,0 +1,90 @@
+[
+  {
+    "name": "claim_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "claim_number"
+    ],
+    "expression": "claim_number IS NOT NULL AND LENGTH(TRIM(claim_number)) > 0",
+    "severity": "fail",
+    "description": "claim_number is required for Proof of Loss extraction.",
+    "field_name": "claim_number"
+  },
+  {
+    "name": "policy_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "policy_number"
+    ],
+    "expression": "policy_number IS NOT NULL AND LENGTH(TRIM(policy_number)) > 0",
+    "severity": "fail",
+    "description": "policy_number is required for Proof of Loss extraction.",
+    "field_name": "policy_number"
+  },
+  {
+    "name": "insured_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "insured_name"
+    ],
+    "expression": "insured_name IS NOT NULL AND LENGTH(TRIM(insured_name)) > 0",
+    "severity": "fail",
+    "description": "insured_name is required for Proof of Loss extraction.",
+    "field_name": "insured_name"
+  },
+  {
+    "name": "claimed_amount_present",
+    "rule_type": "presence",
+    "fields": [
+      "claimed_amount"
+    ],
+    "expression": "claimed_amount IS NOT NULL AND LENGTH(TRIM(claimed_amount)) > 0",
+    "severity": "fail",
+    "description": "claimed_amount is required for Proof of Loss extraction.",
+    "field_name": "claimed_amount"
+  },
+  {
+    "name": "claimed_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "claimed_amount"
+    ],
+    "expression": "claimed_amount IS NULL OR claimed_amount >= 0",
+    "severity": "warn",
+    "description": "claimed_amount should be non-negative when present.",
+    "field_name": "claimed_amount"
+  },
+  {
+    "name": "actual_cash_value_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "actual_cash_value"
+    ],
+    "expression": "actual_cash_value IS NULL OR actual_cash_value >= 0",
+    "severity": "warn",
+    "description": "actual_cash_value should be non-negative when present.",
+    "field_name": "actual_cash_value"
+  },
+  {
+    "name": "replacement_cost_value_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "replacement_cost_value"
+    ],
+    "expression": "replacement_cost_value IS NULL OR replacement_cost_value >= 0",
+    "severity": "warn",
+    "description": "replacement_cost_value should be non-negative when present.",
+    "field_name": "replacement_cost_value"
+  },
+  {
+    "name": "deductible_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "deductible_amount"
+    ],
+    "expression": "deductible_amount IS NULL OR deductible_amount >= 0",
+    "severity": "warn",
+    "description": "deductible_amount should be non-negative when present.",
+    "field_name": "deductible_amount"
+  }
+]

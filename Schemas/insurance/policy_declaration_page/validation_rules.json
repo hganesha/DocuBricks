@@ -1,0 +1,46 @@
+[
+  {
+    "name": "policy_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "policy_number"
+    ],
+    "expression": "policy_number IS NOT NULL AND LENGTH(TRIM(policy_number)) > 0",
+    "severity": "fail",
+    "description": "policy_number is required for Policy Declaration Page extraction.",
+    "field_name": "policy_number"
+  },
+  {
+    "name": "named_insured_present",
+    "rule_type": "presence",
+    "fields": [
+      "named_insured"
+    ],
+    "expression": "named_insured IS NOT NULL AND LENGTH(TRIM(named_insured)) > 0",
+    "severity": "fail",
+    "description": "named_insured is required for Policy Declaration Page extraction.",
+    "field_name": "named_insured"
+  },
+  {
+    "name": "carrier_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "carrier_name"
+    ],
+    "expression": "carrier_name IS NOT NULL AND LENGTH(TRIM(carrier_name)) > 0",
+    "severity": "fail",
+    "description": "carrier_name is required for Policy Declaration Page extraction.",
+    "field_name": "carrier_name"
+  },
+  {
+    "name": "premium_total_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "premium_total"
+    ],
+    "expression": "premium_total IS NULL OR premium_total >= 0",
+    "severity": "warn",
+    "description": "premium_total should be non-negative when present.",
+    "field_name": "premium_total"
+  }
+]

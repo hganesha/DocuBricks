@@ -1,0 +1,98 @@
+{
+  "document_type": "certificate_of_insurance",
+  "vertical": "insurance",
+  "family": "insurance_collateral_protection",
+  "schema_version": "insurance_certificate_of_insurance_v1",
+  "source_prompt": "prompt_v1.txt",
+  "output_contract": {
+    "fields_object": "extracted_fields",
+    "confidence_object": "confidence",
+    "metadata_object": "extraction_metadata"
+  },
+  "fields": [
+    {
+      "name": "certificate_date",
+      "type": "date",
+      "required": false,
+      "description": "Date the certificate was issued."
+    },
+    {
+      "name": "producer_name",
+      "type": "string",
+      "required": false,
+      "description": "Insurance producer or agency."
+    },
+    {
+      "name": "insured_name",
+      "type": "string",
+      "required": true,
+      "description": "Insured party named on the certificate."
+    },
+    {
+      "name": "certificate_holder_name",
+      "type": "string",
+      "required": true,
+      "description": "Certificate holder."
+    },
+    {
+      "name": "carrier_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Insurers affording coverage."
+    },
+    {
+      "name": "policy_numbers",
+      "type": "array<string>",
+      "required": false,
+      "description": "Policy numbers shown on the certificate."
+    },
+    {
+      "name": "coverage_lines",
+      "type": "array<string>",
+      "required": true,
+      "description": "Coverage types listed."
+    },
+    {
+      "name": "effective_dates",
+      "type": "array<string>",
+      "required": false,
+      "description": "Effective dates by coverage line."
+    },
+    {
+      "name": "expiration_dates",
+      "type": "array<string>",
+      "required": false,
+      "description": "Expiration dates by coverage line."
+    },
+    {
+      "name": "limits",
+      "type": "array<object>",
+      "required": false,
+      "description": "Limits by coverage line or limit type."
+    },
+    {
+      "name": "additional_insured_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether additional insured status is indicated."
+    },
+    {
+      "name": "waiver_of_subrogation_indicator",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether waiver of subrogation is indicated."
+    },
+    {
+      "name": "description_of_operations",
+      "type": "string",
+      "required": false,
+      "description": "Operations, locations, vehicles, or remarks."
+    },
+    {
+      "name": "cancellation_notice_text",
+      "type": "string",
+      "required": false,
+      "description": "Cancellation notice language."
+    }
+  ]
+}

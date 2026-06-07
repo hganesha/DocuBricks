@@ -754,16 +754,24 @@ AVAILABLE_OVERRIDES: dict[str, str] = {
 }
 
 AVAILABLE_DOC_TYPES = {
+    "certificate_of_insurance",
     "commercial_loan_application",
     "commercial_credit_memo",
     "loan_agreement",
     "covenant_compliance_certificate",
     "collateral_schedule",
+    "claims_adjuster_report",
+    "first_notice_of_loss",
     "ucc_financing_statement",
     "guaranty_agreement",
+    "insurance_claim_denial_letter",
+    "insurance_claim_file",
+    "insurance_policy_application",
     "issue_management_record",
     "litigation_case_file",
     "merchant_onboarding_application",
+    "policy_declaration_page",
+    "proof_of_loss",
     "regulatory_reporting_package",
     "security_agreement",
     "syndicated_credit_agreement",
@@ -841,6 +849,7 @@ def normalize_doc_type(family: str, display_name: str, used: set[str]) -> str:
         ("commercial_lending", "Guaranty"): "guaranty_agreement",
         ("commercial_lending", "Security agreement"): "security_agreement",
         ("contracts", "Statement of work"): "sow",
+        ("insurance_claims", "Claim denial letter"): "insurance_claim_denial_letter",
     }
     slug = aliases.get((family, display_name), slugify(display_name))
     if slug not in used:

@@ -1,4 +1,5 @@
 {
+  "default_threshold": 0.75,
   "note_date": {
     "min_confidence": 0.95,
     "review_on_breach": true,
@@ -7,7 +8,7 @@
     "description": "Note date is required for clinical timeline integrity, HIPAA minimum necessary documentation, and regulatory retention scheduling; incorrect dates create medical-legal liability"
   },
   "provider_npi": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
@@ -18,21 +19,21 @@
     "review_on_breach": true,
     "fail_on_breach": true,
     "regulatory_required": true,
-    "description": "MRN is the EMR patient master identifier; extraction errors cause wrong-patient note attribution — a patient safety event and HIPAA violation risk"
+    "description": "MRN is the EMR patient master identifier; extraction errors cause wrong-patient note attribution \u2014 a patient safety event and HIPAA violation risk"
   },
   "patient_dob": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
     "description": "Date of birth is a required patient identity verification field and is used for age-based clinical decision support; errors may cause mismatched records"
   },
   "assessment_diagnoses": {
-    "min_confidence": 0.80,
+    "min_confidence": 0.8,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
-    "description": "Diagnoses drive billing code generation, quality measure attribution, and care gap identification; clinical notes often use informal terminology requiring ICD-10 inference — lower threshold reflects this complexity"
+    "description": "Diagnoses drive billing code generation, quality measure attribution, and care gap identification; clinical notes often use informal terminology requiring ICD-10 inference \u2014 lower threshold reflects this complexity"
   },
   "objective_vitals": {
     "min_confidence": 0.85,

@@ -1,7 +1,12 @@
 {
-  "preferred_model": "databricks-dbrx-instruct",
-  "fallback_model": "databricks-claude-sonnet",
+  "primary": "databricks-dbrx-instruct",
+  "fallback_chain": [
+    "databricks-claude-sonnet"
+  ],
   "max_tokens": 2048,
   "temperature": 0.0,
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "tier_overrides": {},
   "rationale": "Invoices are structured documents with common labeled vendor, customer, amount, and payment fields. DBRX Instruct is appropriate for high-volume extraction, while Claude Sonnet is retained for messy layouts and line item ambiguity."
 }

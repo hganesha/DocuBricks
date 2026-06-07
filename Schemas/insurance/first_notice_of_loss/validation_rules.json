@@ -1,0 +1,57 @@
+[
+  {
+    "name": "reported_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "reported_date"
+    ],
+    "expression": "reported_date IS NOT NULL AND LENGTH(TRIM(reported_date)) > 0",
+    "severity": "fail",
+    "description": "reported_date is required for First Notice of Loss extraction.",
+    "field_name": "reported_date"
+  },
+  {
+    "name": "policy_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "policy_number"
+    ],
+    "expression": "policy_number IS NOT NULL AND LENGTH(TRIM(policy_number)) > 0",
+    "severity": "fail",
+    "description": "policy_number is required for First Notice of Loss extraction.",
+    "field_name": "policy_number"
+  },
+  {
+    "name": "loss_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "loss_date"
+    ],
+    "expression": "loss_date IS NOT NULL AND LENGTH(TRIM(loss_date)) > 0",
+    "severity": "fail",
+    "description": "loss_date is required for First Notice of Loss extraction.",
+    "field_name": "loss_date"
+  },
+  {
+    "name": "loss_description_present",
+    "rule_type": "presence",
+    "fields": [
+      "loss_description"
+    ],
+    "expression": "loss_description IS NOT NULL AND LENGTH(TRIM(loss_description)) > 0",
+    "severity": "fail",
+    "description": "loss_description is required for First Notice of Loss extraction.",
+    "field_name": "loss_description"
+  },
+  {
+    "name": "estimated_loss_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "estimated_loss_amount"
+    ],
+    "expression": "estimated_loss_amount IS NULL OR estimated_loss_amount >= 0",
+    "severity": "warn",
+    "description": "estimated_loss_amount should be non-negative when present.",
+    "field_name": "estimated_loss_amount"
+  }
+]

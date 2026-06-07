@@ -1,30 +1,51 @@
 [
   {
     "name": "borrower_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "borrower_name"
+    ],
     "expression": "borrower_name IS NOT NULL AND LENGTH(TRIM(borrower_name)) > 0",
     "severity": "fail",
     "description": "Credit memo must identify the borrower."
   },
   {
     "name": "commitment_amount_positive",
+    "rule_type": "range",
+    "fields": [
+      "proposed_commitment_amount"
+    ],
     "expression": "proposed_commitment_amount IS NULL OR proposed_commitment_amount > 0",
     "severity": "drop",
     "description": "Proposed commitment amount cannot be zero or negative when present."
   },
   {
     "name": "risk_rating_present",
+    "rule_type": "presence",
+    "fields": [
+      "risk_rating_proposed",
+      "risk_rating_current"
+    ],
     "expression": "risk_rating_proposed IS NOT NULL OR risk_rating_current IS NOT NULL",
     "severity": "warn",
     "description": "Credit memos should include current or proposed risk rating."
   },
   {
     "name": "approval_status_present",
+    "rule_type": "presence",
+    "fields": [
+      "approval_status"
+    ],
     "expression": "approval_status IS NOT NULL AND LENGTH(TRIM(approval_status)) > 0",
     "severity": "warn",
     "description": "Approval status is needed to determine memo outcome."
   },
   {
     "name": "policy_exceptions_array_valid",
+    "rule_type": "array",
+    "fields": [
+      "policy_exceptions"
+    ],
     "expression": "policy_exceptions IS NULL OR JSON_ARRAY_LENGTH(policy_exceptions) >= 0",
     "severity": "warn",
     "description": "Policy exceptions should be captured as an array."

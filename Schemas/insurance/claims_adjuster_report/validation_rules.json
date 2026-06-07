@@ -1,0 +1,90 @@
+[
+  {
+    "name": "report_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "report_date"
+    ],
+    "expression": "report_date IS NOT NULL AND LENGTH(TRIM(report_date)) > 0",
+    "severity": "fail",
+    "description": "report_date is required for Claims Adjuster Report extraction.",
+    "field_name": "report_date"
+  },
+  {
+    "name": "claim_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "claim_number"
+    ],
+    "expression": "claim_number IS NOT NULL AND LENGTH(TRIM(claim_number)) > 0",
+    "severity": "fail",
+    "description": "claim_number is required for Claims Adjuster Report extraction.",
+    "field_name": "claim_number"
+  },
+  {
+    "name": "adjuster_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "adjuster_name"
+    ],
+    "expression": "adjuster_name IS NOT NULL AND LENGTH(TRIM(adjuster_name)) > 0",
+    "severity": "fail",
+    "description": "adjuster_name is required for Claims Adjuster Report extraction.",
+    "field_name": "adjuster_name"
+  },
+  {
+    "name": "coverage_analysis_present",
+    "rule_type": "presence",
+    "fields": [
+      "coverage_analysis"
+    ],
+    "expression": "coverage_analysis IS NOT NULL AND LENGTH(TRIM(coverage_analysis)) > 0",
+    "severity": "fail",
+    "description": "coverage_analysis is required for Claims Adjuster Report extraction.",
+    "field_name": "coverage_analysis"
+  },
+  {
+    "name": "estimated_gross_loss_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "estimated_gross_loss"
+    ],
+    "expression": "estimated_gross_loss IS NULL OR estimated_gross_loss >= 0",
+    "severity": "warn",
+    "description": "estimated_gross_loss should be non-negative when present.",
+    "field_name": "estimated_gross_loss"
+  },
+  {
+    "name": "deductible_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "deductible_amount"
+    ],
+    "expression": "deductible_amount IS NULL OR deductible_amount >= 0",
+    "severity": "warn",
+    "description": "deductible_amount should be non-negative when present.",
+    "field_name": "deductible_amount"
+  },
+  {
+    "name": "recommended_reserve_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "recommended_reserve"
+    ],
+    "expression": "recommended_reserve IS NULL OR recommended_reserve >= 0",
+    "severity": "warn",
+    "description": "recommended_reserve should be non-negative when present.",
+    "field_name": "recommended_reserve"
+  },
+  {
+    "name": "recommended_payment_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "recommended_payment"
+    ],
+    "expression": "recommended_payment IS NULL OR recommended_payment >= 0",
+    "severity": "warn",
+    "description": "recommended_payment should be non-negative when present.",
+    "field_name": "recommended_payment"
+  }
+]

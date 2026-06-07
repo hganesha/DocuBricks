@@ -1,0 +1,68 @@
+[
+  {
+    "name": "applicant_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "applicant_name"
+    ],
+    "expression": "applicant_name IS NOT NULL AND LENGTH(TRIM(applicant_name)) > 0",
+    "severity": "fail",
+    "description": "applicant_name is required for Insurance Policy Application extraction.",
+    "field_name": "applicant_name"
+  },
+  {
+    "name": "policy_type_requested_present",
+    "rule_type": "presence",
+    "fields": [
+      "policy_type_requested"
+    ],
+    "expression": "policy_type_requested IS NOT NULL AND LENGTH(TRIM(policy_type_requested)) > 0",
+    "severity": "fail",
+    "description": "policy_type_requested is required for Insurance Policy Application extraction.",
+    "field_name": "policy_type_requested"
+  },
+  {
+    "name": "effective_date_requested_present",
+    "rule_type": "presence",
+    "fields": [
+      "effective_date_requested"
+    ],
+    "expression": "effective_date_requested IS NOT NULL AND LENGTH(TRIM(effective_date_requested)) > 0",
+    "severity": "fail",
+    "description": "effective_date_requested is required for Insurance Policy Application extraction.",
+    "field_name": "effective_date_requested"
+  },
+  {
+    "name": "coverage_limit_requested_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "coverage_limit_requested"
+    ],
+    "expression": "coverage_limit_requested IS NULL OR coverage_limit_requested >= 0",
+    "severity": "warn",
+    "description": "coverage_limit_requested should be non-negative when present.",
+    "field_name": "coverage_limit_requested"
+  },
+  {
+    "name": "deductible_requested_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "deductible_requested"
+    ],
+    "expression": "deductible_requested IS NULL OR deductible_requested >= 0",
+    "severity": "warn",
+    "description": "deductible_requested should be non-negative when present.",
+    "field_name": "deductible_requested"
+  },
+  {
+    "name": "annual_revenue_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "annual_revenue"
+    ],
+    "expression": "annual_revenue IS NULL OR annual_revenue >= 0",
+    "severity": "warn",
+    "description": "annual_revenue should be non-negative when present.",
+    "field_name": "annual_revenue"
+  }
+]

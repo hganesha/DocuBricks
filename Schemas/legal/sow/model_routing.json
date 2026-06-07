@@ -1,7 +1,12 @@
 {
-  "preferred_model": "databricks-claude-sonnet",
-  "fallback_model": "databricks-claude-haiku",
+  "primary": "databricks-claude-sonnet",
+  "fallback_chain": [
+    "databricks-claude-haiku"
+  ],
   "max_tokens": 6144,
   "temperature": 0.0,
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "tier_overrides": {},
   "rationale": "Statements of Work require careful extraction of structured financial data (contract value, payment schedules, pricing model), project deliverables with associated dates, and governance provisions (IP ownership, change order process). SOW documents often include structured tables for deliverable schedules and payment milestones that require table-parsing capabilities. Claude Sonnet is preferred for its strong numerical accuracy, ability to distinguish T&M caps from fixed prices, and reliable extraction of multi-row deliverable tables. The token budget (6144) balances coverage of typical SOW lengths (10-30 pages) with cost efficiency. Temperature 0.0 ensures consistent financial field extraction. Claude Haiku serves as fallback for simple single-deliverable SOWs or time-constrained processing queues."
 }

@@ -1,7 +1,12 @@
 {
-  "preferred_model": "databricks-claude-sonnet",
-  "fallback_model": "databricks-claude-haiku",
+  "primary": "databricks-claude-sonnet",
+  "fallback_chain": [
+    "databricks-claude-haiku"
+  ],
   "max_tokens": 8192,
   "temperature": 0.0,
-  "rationale": "Court filings and legal pleadings require precise extraction of structured case identifiers (case numbers, court names, judge assignments) as well as nuanced classification of filing types, causes of action, and jurisdictional bases. Legal pleadings contain specialized terminology and cross-referential language that benefits from Claude Sonnet's strong legal domain understanding. The higher token budget (8192) accommodates lengthy briefs, complaints with multiple counts, and motions with attached exhibits or declarations. Temperature 0.0 ensures deterministic extraction of case numbers, bar numbers, and filing dates — all of which must match exactly for e-filing system validation and docket management. Claude Haiku serves as fallback for simple, short-form court documents such as notices, stipulations, and one-page orders."
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "tier_overrides": {},
+  "rationale": "Court filings and legal pleadings require precise extraction of structured case identifiers (case numbers, court names, judge assignments) as well as nuanced classification of filing types, causes of action, and jurisdictional bases. Legal pleadings contain specialized terminology and cross-referential language that benefits from Claude Sonnet's strong legal domain understanding. The higher token budget (8192) accommodates lengthy briefs, complaints with multiple counts, and motions with attached exhibits or declarations. Temperature 0.0 ensures deterministic extraction of case numbers, bar numbers, and filing dates \u2014 all of which must match exactly for e-filing system validation and docket management. Claude Haiku serves as fallback for simple, short-form court documents such as notices, stipulations, and one-page orders."
 }

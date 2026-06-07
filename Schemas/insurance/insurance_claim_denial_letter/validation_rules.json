@@ -1,0 +1,46 @@
+[
+  {
+    "name": "letter_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "letter_date"
+    ],
+    "expression": "letter_date IS NOT NULL AND LENGTH(TRIM(letter_date)) > 0",
+    "severity": "fail",
+    "description": "letter_date is required for Insurance Claim Denial Letter extraction.",
+    "field_name": "letter_date"
+  },
+  {
+    "name": "claim_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "claim_number"
+    ],
+    "expression": "claim_number IS NOT NULL AND LENGTH(TRIM(claim_number)) > 0",
+    "severity": "fail",
+    "description": "claim_number is required for Insurance Claim Denial Letter extraction.",
+    "field_name": "claim_number"
+  },
+  {
+    "name": "policy_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "policy_number"
+    ],
+    "expression": "policy_number IS NOT NULL AND LENGTH(TRIM(policy_number)) > 0",
+    "severity": "fail",
+    "description": "policy_number is required for Insurance Claim Denial Letter extraction.",
+    "field_name": "policy_number"
+  },
+  {
+    "name": "denial_reason_present",
+    "rule_type": "presence",
+    "fields": [
+      "denial_reason"
+    ],
+    "expression": "denial_reason IS NOT NULL AND LENGTH(TRIM(denial_reason)) > 0",
+    "severity": "fail",
+    "description": "denial_reason is required for Insurance Claim Denial Letter extraction.",
+    "field_name": "denial_reason"
+  }
+]

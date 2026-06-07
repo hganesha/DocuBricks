@@ -32,11 +32,13 @@ const FILE_TABS: { id: SchemaFile; label: string }[] = [
 const VERTICAL_LABELS: Record<string, string> = {
   fs: 'Financial Services',
   healthcare: 'Healthcare',
+  insurance: 'Insurance',
   legal: 'Legal',
-  risk_compliance: 'Risk & Compliance',
+  manufacturing: 'Manufacturing',
+  real_estate: 'Real Estate',
 }
 
-const VERTICAL_ORDER = ['fs', 'healthcare', 'legal', 'risk_compliance']
+const VERTICAL_ORDER = ['fs', 'healthcare', 'insurance', 'legal', 'manufacturing', 'real_estate']
 
 // ─── JSON Syntax Highlighter ──────────────────────────────────────────────────
 

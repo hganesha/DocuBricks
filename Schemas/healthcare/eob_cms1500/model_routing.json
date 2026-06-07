@@ -1,7 +1,12 @@
 {
-  "preferred_model": "databricks-gemini-flash",
-  "fallback_model": "databricks-dbrx-instruct",
+  "primary": "databricks-gemini-flash",
+  "fallback_chain": [
+    "databricks-dbrx-instruct"
+  ],
   "max_tokens": 4096,
   "temperature": 0.0,
-  "rationale": "EOB and CMS-1500 documents are visually complex — they contain dense multi-column service line tables, payer rubber stamps, checkboxes, hand-annotated remark codes, and mixed printed/handwritten content. Gemini Flash's multimodal capabilities enable direct image-based extraction from scanned EOBs and CMS-1500 paper forms, handling rotated text, stamps, and table structures that pure text models struggle with. The financial accuracy requirements (billed, allowed, paid amounts) and regulatory identifier precision (NPI, member ID) demand a model with strong visual grounding. DBRX Instruct serves as a cost-effective fallback for digitally-native EOB text extracts (e.g., payer portal exports, ERA-to-text conversions) where visual parsing is not needed."
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "tier_overrides": {},
+  "rationale": "EOB and CMS-1500 documents are visually complex \u2014 they contain dense multi-column service line tables, payer rubber stamps, checkboxes, hand-annotated remark codes, and mixed printed/handwritten content. Gemini Flash's multimodal capabilities enable direct image-based extraction from scanned EOBs and CMS-1500 paper forms, handling rotated text, stamps, and table structures that pure text models struggle with. The financial accuracy requirements (billed, allowed, paid amounts) and regulatory identifier precision (NPI, member ID) demand a model with strong visual grounding. DBRX Instruct serves as a cost-effective fallback for digitally-native EOB text extracts (e.g., payer portal exports, ERA-to-text conversions) where visual parsing is not needed."
 }

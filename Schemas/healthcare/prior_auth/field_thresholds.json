@@ -1,4 +1,5 @@
 {
+  "default_threshold": 0.75,
   "authorization_id": {
     "min_confidence": 0.94,
     "review_on_breach": true,
@@ -21,14 +22,14 @@
     "description": "Member ID is required for eligibility, payer lookup, and claims matching."
   },
   "requesting_provider_npi": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
     "description": "Provider NPI identifies the ordering clinician or organization."
   },
   "procedure_codes": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": true,
@@ -42,4 +43,3 @@
     "description": "Denial rationale is required for appeal packet preparation."
   }
 }
-

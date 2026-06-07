@@ -1,7 +1,12 @@
 {
-  "preferred_model": "databricks-dbrx-instruct",
-  "fallback_model": "databricks-claude-sonnet",
+  "primary": "databricks-dbrx-instruct",
+  "fallback_chain": [
+    "databricks-claude-sonnet"
+  ],
   "max_tokens": 2048,
   "temperature": 0.0,
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "tier_overrides": {},
   "rationale": "KYC/CDD forms are moderately structured onboarding documents with labeled identity, risk, and beneficial ownership fields. DBRX Instruct is sufficient for low-latency structured extraction; Claude Sonnet is retained for entity ownership edge cases or degraded scans."
 }

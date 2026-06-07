@@ -1,20 +1,21 @@
 {
+  "default_threshold": 0.75,
   "effective_date": {
     "min_confidence": 0.95,
     "review_on_breach": true,
     "fail_on_breach": true,
     "regulatory_required": true,
-    "description": "Effective date is the anchor for all obligation timelines and renewal monitoring; date accuracy is critical — even a one-day error can affect renewal notice windows"
+    "description": "Effective date is the anchor for all obligation timelines and renewal monitoring; date accuracy is critical \u2014 even a one-day error can affect renewal notice windows"
   },
   "expiration_date": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": false,
     "description": "Expiration date drives renewal monitoring and auto-renewal notifications; must be extracted accurately to prevent inadvertent obligations"
   },
   "governing_law": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": false,
@@ -28,7 +29,7 @@
     "description": "Confidentiality duration is a key obligation metric; inaccurate extraction could cause premature disclosure or over-restriction of information"
   },
   "agreement_type": {
-    "min_confidence": 0.90,
+    "min_confidence": 0.9,
     "review_on_breach": true,
     "fail_on_breach": false,
     "regulatory_required": false,
@@ -77,7 +78,7 @@
     "description": "Non-compete obligations are legally sensitive; accuracy required to inform business development and hiring decisions"
   },
   "return_or_destroy_obligation": {
-    "min_confidence": 0.80,
+    "min_confidence": 0.8,
     "review_on_breach": false,
     "fail_on_breach": false,
     "regulatory_required": false,

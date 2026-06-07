@@ -1,42 +1,69 @@
 [
   {
     "name": "document_id_present",
+    "rule_type": "presence",
+    "fields": [
+      "document_id"
+    ],
     "expression": "document_id IS NOT NULL AND LENGTH(TRIM(document_id)) > 0",
     "severity": "fail",
     "description": "Every extracted record must carry a document_id — system invariant required for lineage tracking, audit trail, and deduplication"
   },
   {
     "name": "avg_confidence_acceptable",
+    "rule_type": "range",
+    "fields": [
+      "avg_confidence"
+    ],
     "expression": "avg_confidence >= 0.70",
     "severity": "drop",
     "description": "Overall extraction confidence below 0.70 indicates the document is likely illegible, heavily redacted, or in an unsupported format; route to quarantine for human review"
   },
   {
     "name": "agreement_type_valid_enum",
+    "rule_type": "presence",
+    "fields": [],
     "expression": "agreement_type IN ('NDA', 'MSA', 'MNDA', 'MOU', 'LOI', 'Other')",
     "severity": "drop",
     "description": "Agreement type must be a recognized enumeration; invalid values break downstream routing to the correct contract management workflow"
   },
   {
     "name": "effective_date_not_null",
+    "rule_type": "presence",
+    "fields": [
+      "effective_date"
+    ],
     "expression": "effective_date IS NOT NULL",
     "severity": "drop",
     "description": "Effective date is essential for contract lifecycle management, renewal monitoring, and obligation tracking; records without it cannot be reliably managed"
   },
   {
     "name": "governing_law_present",
+    "rule_type": "presence",
+    "fields": [
+      "governing_law"
+    ],
     "expression": "governing_law IS NOT NULL AND LENGTH(TRIM(governing_law)) > 0",
     "severity": "warn",
     "description": "Governing law determines which jurisdiction's rules apply to dispute resolution and enforcement; absence triggers legal review"
   },
   {
     "name": "expiration_date_logical",
+    "rule_type": "cross_field",
+    "fields": [
+      "expiration_date",
+      "effective_date"
+    ],
     "expression": "expiration_date IS NULL OR effective_date IS NULL OR expiration_date > effective_date",
     "severity": "warn",
     "description": "Expiration date must be after effective date if both are present; inversion indicates a date extraction error"
   },
   {
     "name": "renewal_notice_days_positive",
+    "rule_type": "range",
+    "fields": [
+      "renewal_notice_days"
+    ],
     "expression": "renewal_notice_days IS NULL OR renewal_notice_days > 0",
     "severity": "warn",
     "description": "Renewal notice period must be a positive integer if present; zero or negative values indicate an extraction or data entry error"

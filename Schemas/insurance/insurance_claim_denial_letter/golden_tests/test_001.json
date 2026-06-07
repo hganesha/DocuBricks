@@ -1,0 +1,32 @@
+{
+  "test_case_id": "insurance_claim_denial_letter_001",
+  "document_type": "insurance_claim_denial_letter",
+  "description": "Seed golden test for Insurance Claim Denial Letter",
+  "parsed_text": "CLAIM DENIAL LETTER\nLetter Date: 2026-10-12\nClaim Number: GL-26-11904\nPolicy Number: CPP-7844129-06\nInsured: Northstar Cold Storage LLC\nClaimant: Metro Produce Distributors Inc.\nLoss Date: 2026-08-14\nCoverage Denied: liability coverage for third-party contractual spoilage claim\nDenial Reason: the claim arises from contractual assumption of liability for customer inventory not otherwise covered by the policy\nPolicy Provisions Cited: Commercial General Liability Coverage Form Section I; Contractual Liability Exclusion; Care Custody or Control Exclusion\nFacts Relied On: warehouse agreement shifts inventory loss risk to Northstar; spoiled goods were in insured's care custody or control; no bodily injury alleged\nAppeal Rights: submit written reconsideration with additional facts within 30 days\nRegulatory Notice: Illinois Department of Insurance complaint rights enclosed\nReservation of Rights Continues: Yes\nSender: Martin Walsh\nTitle: Senior Claims Examiner",
+  "expected_json": {
+    "letter_date": "2026-10-12",
+    "claim_number": "GL-26-11904",
+    "policy_number": "CPP-7844129-06",
+    "insured_name": "Northstar Cold Storage LLC",
+    "claimant_name": "Metro Produce Distributors Inc.",
+    "loss_date": "2026-08-14",
+    "coverage_denied": "liability coverage for third-party contractual spoilage claim",
+    "denial_reason": "the claim arises from contractual assumption of liability for customer inventory not otherwise covered by the policy",
+    "policy_provisions_cited": [
+      "Commercial General Liability Coverage Form Section I",
+      "Contractual Liability Exclusion",
+      "Care Custody or Control Exclusion"
+    ],
+    "facts_relied_on": [
+      "warehouse agreement shifts inventory loss risk to Northstar",
+      "spoiled goods were in insured's care custody or control",
+      "no bodily injury alleged"
+    ],
+    "appeal_or_reconsideration_rights": "submit written reconsideration with additional facts within 30 days",
+    "regulatory_notice": "Illinois Department of Insurance complaint rights enclosed",
+    "reservation_of_rights_continues": true,
+    "sender_name": "Martin Walsh",
+    "sender_title": "Senior Claims Examiner"
+  },
+  "expected_avg_confidence": 0.92
+}

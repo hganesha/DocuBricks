@@ -2,7 +2,7 @@
   "document_type": "third_party_risk_assessment",
   "vertical": "fs",
   "family": "regulatory_exams_audit",
-  "schema_version": "risk_third_party_risk_assessment_v1",
+  "schema_version": "fs_third_party_risk_assessment_v1",
   "source_prompt": "prompt_v1.txt",
   "output_contract": {
     "fields_object": "extracted_fields",

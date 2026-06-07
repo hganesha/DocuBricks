@@ -1,0 +1,30 @@
+{
+  "test_case_id": "proof_of_loss_001",
+  "document_type": "proof_of_loss",
+  "description": "Seed golden test for Proof of Loss",
+  "parsed_text": "SWORN STATEMENT IN PROOF OF LOSS\nClaim Number: GL-26-11904\nPolicy Number: CPP-7844129-06\nInsured: Northstar Cold Storage LLC\nLoss Date: 2026-08-14\nLoss Location: 1440 River Road, Joliet, Illinois\nCause of Loss: ammonia refrigeration equipment failure and temperature excursion\nAmount Claimed: $612,480\nActual Cash Value: $598,900\nReplacement Cost Value: $612,480\nDeductible: $25,000\nMortgagee/Loss Payee: Prairie Bank NA ISAOA ATIMA\nOther Insurance: none known for spoiled inventory\nSupporting Documents: inventory valuation schedule; temperature logs; contractor invoice; photographs; customer claim notice\nSigned Date: 2026-08-28\nNotary: Denise Palmer, Notary Public",
+  "expected_json": {
+    "claim_number": "GL-26-11904",
+    "policy_number": "CPP-7844129-06",
+    "insured_name": "Northstar Cold Storage LLC",
+    "loss_date": "2026-08-14",
+    "loss_location": "1440 River Road, Joliet, Illinois",
+    "cause_of_loss": "ammonia refrigeration equipment failure and temperature excursion",
+    "claimed_amount": 612480.0,
+    "actual_cash_value": 598900.0,
+    "replacement_cost_value": 612480.0,
+    "deductible_amount": 25000.0,
+    "mortgagee_or_loss_payee": "Prairie Bank NA ISAOA ATIMA",
+    "other_insurance": "none known for spoiled inventory",
+    "supporting_documents": [
+      "inventory valuation schedule",
+      "temperature logs",
+      "contractor invoice",
+      "photographs",
+      "customer claim notice"
+    ],
+    "signed_date": "2026-08-28",
+    "notary_name": "Denise Palmer, Notary Public"
+  },
+  "expected_avg_confidence": 0.92
+}

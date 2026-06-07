@@ -1,36 +1,60 @@
 [
   {
     "name": "borrower_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "borrower_name"
+    ],
     "expression": "borrower_name IS NOT NULL AND LENGTH(TRIM(borrower_name)) > 0",
     "severity": "fail",
     "description": "borrower_name is required for Syndicated Credit Agreement extraction."
   },
   {
     "name": "administrative_agent_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "administrative_agent_name"
+    ],
     "expression": "administrative_agent_name IS NOT NULL AND LENGTH(TRIM(administrative_agent_name)) > 0",
     "severity": "fail",
     "description": "administrative_agent_name is required for Syndicated Credit Agreement extraction."
   },
   {
     "name": "total_commitment_amount_present",
+    "rule_type": "presence",
+    "fields": [
+      "total_commitment_amount"
+    ],
     "expression": "total_commitment_amount IS NOT NULL AND LENGTH(TRIM(total_commitment_amount)) > 0",
     "severity": "fail",
     "description": "total_commitment_amount is required for Syndicated Credit Agreement extraction."
   },
   {
     "name": "total_commitment_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "total_commitment_amount"
+    ],
     "expression": "total_commitment_amount IS NULL OR total_commitment_amount >= 0",
     "severity": "warn",
     "description": "total_commitment_amount should be non-negative when present."
   },
   {
     "name": "commitment_fee_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "commitment_fee"
+    ],
     "expression": "commitment_fee IS NULL OR commitment_fee >= 0",
     "severity": "warn",
     "description": "commitment_fee should be non-negative when present."
   },
   {
     "name": "assignment_minimum_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "assignment_minimum_amount"
+    ],
     "expression": "assignment_minimum_amount IS NULL OR assignment_minimum_amount >= 0",
     "severity": "warn",
     "description": "assignment_minimum_amount should be non-negative when present."
