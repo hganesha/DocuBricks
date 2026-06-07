@@ -48,6 +48,7 @@ class SchemaCoverageResult:
     ok: bool
     golden_counts: dict[str, int]
     missing: tuple[str, ...]
+    warnings: tuple[str, ...]
 
 
 def _count_goldens(path: Path) -> int:
@@ -285,6 +286,91 @@ def _available_schema_entries(schema_root: Path) -> list[dict]:
     ]
 
 
+def _check_model_routing_v2(path: Path, missing: list[str]) -> None:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return  # file-existence errors caught elsewhere
+    legacy_keys = {"model_endpoint", "preferred_model", "primary_model",
+                   "fallback_endpoint", "fallback_model"}
+    found = sorted(legacy_keys & set(data))
+    if found:
+        missing.append(
+            f"{path}: legacy model_routing keys {found!r} — migrate to 'primary'/'fallback_chain'"
+        )
+    if "primary" not in data:
+        missing.append(f"{path}: model_routing.json missing required key 'primary'")
+    if "fallback_chain" not in data:
+        missing.append(f"{path}: model_routing.json missing required key 'fallback_chain'")
+    if not isinstance(data.get("fallback_chain"), list):
+        missing.append(f"{path}: model_routing.json 'fallback_chain' must be a JSON array")
+
+
+def _check_schema_version_format(
+    path: Path, vertical: str, doc_type: str, missing: list[str]
+) -> None:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return
+    sv = data.get("schema_version", "")
+    expected_prefix = f"{vertical}_{doc_type}_v"
+    if not sv.startswith(expected_prefix):
+        missing.append(
+            f"{path}: schema_version '{sv}' must start with '{expected_prefix}'"
+        )
+
+
+def _check_required_fields_have_thresholds(
+    fields_path: Path, thresholds_path: Path, missing: list[str]
+) -> None:
+    try:
+        fields_data = json.loads(fields_path.read_text(encoding="utf-8"))
+        threshold_data = json.loads(thresholds_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return
+    required_names = {
+        f["name"]
+        for f in fields_data.get("fields", [])
+        if isinstance(f, dict) and f.get("required") is True and "name" in f
+    }
+    # threshold_data keys are field names; skip the catalog-level "default_threshold"
+    threshold_names = set(threshold_data.keys()) - {"default_threshold"}
+    uncovered = sorted(required_names - threshold_names)
+    for name in uncovered:
+        missing.append(
+            f"{thresholds_path}: required field '{name}' has no threshold entry"
+        )
+
+
+def _check_default_threshold(path: Path, missing: list[str]) -> None:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return
+    if isinstance(data, list):
+        missing.append(
+            f"{path}: field_thresholds.json uses legacy array format — "
+            "migrate to keyed object with 'default_threshold'"
+        )
+        return
+    if isinstance(data, dict) and "default_threshold" not in data:
+        missing.append(f"{path}: field_thresholds.json missing 'default_threshold' key")
+
+
+def _check_golden_test_tags(doc_path: Path, warnings: list[str]) -> None:
+    golden_dir = doc_path / "golden_tests"
+    if not golden_dir.exists():
+        return
+    for test_file in golden_dir.glob("test_*.json"):
+        try:
+            data = json.loads(test_file.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        if not data.get("tags"):
+            warnings.append(f"{test_file}: golden test missing 'tags' field")
+
+
 def validate_schema_assets(
     root: Path,
     *,
@@ -295,6 +381,7 @@ def validate_schema_assets(
 ) -> SchemaCoverageResult:
     schema_root = root / "Schemas"
     missing: list[str] = []
+    warnings: list[str] = []
     golden_counts: dict[str, int] = {}
 
     catalog_path = schema_root / "schema_catalog.json"
@@ -374,11 +461,19 @@ def validate_schema_assets(
                 f"Schemas/{vertical}/{doc_type}/golden_tests has {count} cases; "
                 f"expected at least {min_available_per_type}"
             )
+        _check_model_routing_v2(doc_path / "model_routing.json", missing)
+        _check_schema_version_format(doc_path / "fields.json", vertical, doc_type, missing)
+        _check_required_fields_have_thresholds(
+            doc_path / "fields.json", doc_path / "field_thresholds.json", missing
+        )
+        _check_default_threshold(doc_path / "field_thresholds.json", missing)
+        _check_golden_test_tags(doc_path, warnings)
 
     return SchemaCoverageResult(
         ok=not missing,
         golden_counts=golden_counts,
         missing=tuple(missing),
+        warnings=tuple(warnings),
     )
 
 
@@ -397,6 +492,8 @@ def main() -> int:
         print(f"{name}: {count} golden tests")
     for item in result.missing:
         print(f"  - {item}")
+    for item in result.warnings:
+        print(f"[WARN] {item}")
 
     return 0 if result.ok else 1
 

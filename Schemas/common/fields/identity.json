@@ -1,0 +1,48 @@
+{
+  "$schema": "docubricks/common-fields/v1",
+  "description": "Shared party identity fields reused across schema bundles.",
+  "definitions": {
+    "borrower_name": {
+      "name": "borrower_name",
+      "type": "string",
+      "category": "identity",
+      "required": true,
+      "description": "Legal name of the borrower or obligor as stated in the document."
+    },
+    "lender_name": {
+      "name": "lender_name",
+      "type": "string",
+      "category": "identity",
+      "required": false,
+      "description": "Lender, administrative agent, or bank."
+    },
+    "guarantor_name": {
+      "name": "guarantor_name",
+      "type": "string",
+      "category": "identity",
+      "required": true,
+      "description": "Guarantor legal name."
+    },
+    "governing_law": {
+      "name": "governing_law",
+      "type": "string",
+      "category": "identity",
+      "required": false,
+      "description": "The state or jurisdiction whose laws govern the agreement (e.g., \"CA\", \"NY\", \"DE\", \"England and Wales\")."
+    },
+    "jurisdiction": {
+      "name": "jurisdiction",
+      "type": "string",
+      "category": "identity",
+      "required": false,
+      "description": "Governing state or country."
+    },
+    "tax_id_masked": {
+      "name": "tax_id_masked",
+      "type": "string",
+      "category": "identity",
+      "required": false,
+      "description": "Masked tax identifier (EIN or SSN), showing only the last 4 digits."
+    }
+  }
+}

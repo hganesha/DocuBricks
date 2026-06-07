@@ -1,0 +1,41 @@
+{
+  "$schema": "docubricks/common-fields/v1",
+  "description": "Shared temporal/date fields reused across schema bundles.",
+  "definitions": {
+    "agreement_date": {
+      "name": "agreement_date",
+      "type": "date",
+      "category": "temporal",
+      "required": false,
+      "description": "Date of credit agreement or amendment."
+    },
+    "effective_date": {
+      "name": "effective_date",
+      "type": "date",
+      "category": "temporal",
+      "required": true,
+      "description": "The date the agreement becomes effective, format YYYY-MM-DD."
+    },
+    "expiration_date": {
+      "name": "expiration_date",
+      "type": "date",
+      "category": "temporal",
+      "required": false,
+      "description": "The date the agreement expires or terminates, format YYYY-MM-DD (null if perpetual or not stated)."
+    },
+    "filing_date": {
+      "name": "filing_date",
+      "type": "date",
+      "category": "temporal",
+      "required": false,
+      "description": "Date the document was filed with the court or regulatory body, format YYYY-MM-DD."
+    },
+    "execution_date": {
+      "name": "execution_date",
+      "type": "date",
+      "category": "temporal",
+      "required": false,
+      "description": "Date the document was signed and executed by all parties, format YYYY-MM-DD."
+    }
+  }
+}

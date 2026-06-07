@@ -1,0 +1,41 @@
+{
+  "$schema": "docubricks/common-fields/v1",
+  "description": "Shared financial fields reused across schema bundles.",
+  "definitions": {
+    "commitment_amount": {
+      "name": "commitment_amount",
+      "type": "number",
+      "category": "financial",
+      "required": false,
+      "description": "Principal commitment amount."
+    },
+    "interest_rate": {
+      "name": "interest_rate",
+      "type": "number",
+      "category": "financial",
+      "required": false,
+      "description": "Note rate or interest rate as a decimal percent (e.g., 6.875 for 6.875%)."
+    },
+    "maturity_date": {
+      "name": "maturity_date",
+      "type": "date",
+      "category": "financial",
+      "required": false,
+      "description": "Final maturity date."
+    },
+    "currency": {
+      "name": "currency",
+      "type": "string",
+      "category": "financial",
+      "required": false,
+      "description": "Currency code (e.g., \"USD\", \"EUR\", \"GBP\")."
+    },
+    "principal_amount": {
+      "name": "principal_amount",
+      "type": "number",
+      "category": "financial",
+      "required": false,
+      "description": "Outstanding or original principal amount as a decimal."
+    }
+  }
+}

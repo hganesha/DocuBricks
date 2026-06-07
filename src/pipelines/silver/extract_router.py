@@ -9,10 +9,11 @@
 # Routing pattern
 # ---------------
 #   silver_classified
-#     └─ silver_route_mortgage_application  (DLT view)
-#     └─ silver_route_kyc_cdd_form          (DLT view)
-#     └─ silver_route_aml_sar               (DLT view)
-#     └─ silver_route_invoice               (DLT view)
+#     └─ silver_route_<doc_type>  (DLT view, one per entry in schema_catalog.json)
+#
+# Route views are registered dynamically from schema_catalog.json so that adding
+# a new schema bundle requires no edits to this file.  Falls back to the original
+# Phase 1 hard-coded list if the catalog cannot be read.
 #
 # Each route view is a filtered subset of silver_classified.
 # Extractor tables (Wave 2) call:
@@ -25,21 +26,64 @@
 # Pipeline config keys: catalog_name, secret_scope
 
 # COMMAND ----------
+import json
+import os
+from pathlib import Path
+
 import dlt
 from pyspark.sql.functions import col, current_timestamp
 
 # ---------------------------------------------------------------------------
-# Phase 1 document types — extend this list as new verticals are onboarded
+# Catalog-driven document-type list
 # ---------------------------------------------------------------------------
-PHASE1_DOCUMENT_TYPES = [
+_CATALOG_FALLBACK = [
     "mortgage_application",
     "kyc_cdd_form",
     "aml_sar",
     "invoice",
 ]
 
+
+def _load_supported_doc_types() -> list[str]:
+    """
+    Load doc types to route from schema_catalog.json.
+    Falls back to _CATALOG_FALLBACK if the catalog cannot be read.
+    Reads from DOCUBRICKS_SCHEMAS_PATH env var, then common Databricks workspace paths.
+    """
+    search_paths = []
+    env_path = os.environ.get("DOCUBRICKS_SCHEMAS_PATH")
+    if env_path:
+        search_paths.append(Path(env_path) / "schema_catalog.json")
+    # Common Databricks workspace paths
+    search_paths += [
+        Path("/Workspace/Shared/docubricks/Schemas/schema_catalog.json"),
+        Path("/dbfs/docubricks/Schemas/schema_catalog.json"),
+        # Local dev / CI path relative to this file
+        Path(__file__).resolve().parents[4] / "Schemas" / "schema_catalog.json",
+    ]
+    for catalog_path in search_paths:
+        try:
+            data = json.loads(catalog_path.read_text(encoding="utf-8"))
+            doc_types = [
+                e["doc_type"]
+                for e in data.get("document_types", [])
+                if (
+                    isinstance(e, dict)
+                    and e.get("availability") == "available"
+                    and e.get("rollout_status") == "registry_ready"
+                )
+            ]
+            if doc_types:
+                return doc_types
+        except (FileNotFoundError, json.JSONDecodeError, KeyError):
+            continue
+    return list(_CATALOG_FALLBACK)
+
+
+SUPPORTED_DOC_TYPES: list[str] = _load_supported_doc_types()
+
 # ---------------------------------------------------------------------------
-# Route views — one per document type
+# Route views — one per supported document type (registered dynamically)
 #
 # Using @dlt.view (not @dlt.table) means no Delta table is written — these are
 # logical views that exist only within the DLT graph.  This keeps storage costs
@@ -50,95 +94,27 @@ PHASE1_DOCUMENT_TYPES = [
 # - pipeline_stage  : literal tag consumed by platform_health Gold view
 # ---------------------------------------------------------------------------
 
-@dlt.view(
-    name="silver_route_mortgage_application",
-    comment=(
-        "Filtered view of silver_classified for document_type = 'mortgage_application'. "
-        "Read by silver_extracted_mortgage_application in Wave 2."
-    ),
-)
-def silver_route_mortgage_application():
-    """
-    Route: mortgage application documents.
 
-    Downstream extractor table (Wave 2):
-        silver_extracted_mortgage_application
-    Key fields available:
-        document_id, tenant_id, vertical, parsed_text, page_count,
-        classification_confidence, ingested_date
-    """
-    return (
-        dlt.read_stream("silver_classified")
-        .filter(col("document_type") == "mortgage_application")
-        .withColumn("routed_at",      current_timestamp())
-        .withColumn("pipeline_stage", col("document_type"))
+def _register_route_view(doc_type: str) -> None:
+    """Register one DLT route view for doc_type using a closure."""
+    @dlt.view(
+        name=f"silver_route_{doc_type}",
+        comment=(
+            f"Filtered view of silver_classified for document_type = '{doc_type}'. "
+            f"Read by silver_extracted_{doc_type} in Wave 2."
+        ),
     )
+    def _route():
+        return (
+            dlt.read_stream("silver_classified")
+            .filter(col("document_type") == doc_type)
+            .withColumn("routed_at",      current_timestamp())
+            .withColumn("pipeline_stage", col("document_type"))
+        )
 
 
-@dlt.view(
-    name="silver_route_kyc_cdd_form",
-    comment=(
-        "Filtered view of silver_classified for document_type = 'kyc_cdd_form'. "
-        "Read by silver_extracted_kyc_cdd_form in Wave 2."
-    ),
-)
-def silver_route_kyc_cdd_form():
-    """
-    Route: KYC / CDD form documents.
-
-    Downstream extractor table (Wave 2):
-        silver_extracted_kyc_cdd_form
-    """
-    return (
-        dlt.read_stream("silver_classified")
-        .filter(col("document_type") == "kyc_cdd_form")
-        .withColumn("routed_at",      current_timestamp())
-        .withColumn("pipeline_stage", col("document_type"))
-    )
-
-
-@dlt.view(
-    name="silver_route_aml_sar",
-    comment=(
-        "Filtered view of silver_classified for document_type = 'aml_sar'. "
-        "Read by silver_extracted_aml_sar in Wave 2."
-    ),
-)
-def silver_route_aml_sar():
-    """
-    Route: AML Suspicious Activity Report documents.
-
-    Downstream extractor table (Wave 2):
-        silver_extracted_aml_sar
-    """
-    return (
-        dlt.read_stream("silver_classified")
-        .filter(col("document_type") == "aml_sar")
-        .withColumn("routed_at",      current_timestamp())
-        .withColumn("pipeline_stage", col("document_type"))
-    )
-
-
-@dlt.view(
-    name="silver_route_invoice",
-    comment=(
-        "Filtered view of silver_classified for document_type = 'invoice'. "
-        "Read by silver_extracted_invoice in Wave 2."
-    ),
-)
-def silver_route_invoice():
-    """
-    Route: Invoice / accounts payable documents.
-
-    Downstream extractor table (Wave 2):
-        silver_extracted_invoice
-    """
-    return (
-        dlt.read_stream("silver_classified")
-        .filter(col("document_type") == "invoice")
-        .withColumn("routed_at",      current_timestamp())
-        .withColumn("pipeline_stage", col("document_type"))
-    )
+for _doc_type in SUPPORTED_DOC_TYPES:
+    _register_route_view(_doc_type)
 
 
 # ---------------------------------------------------------------------------
@@ -184,7 +160,7 @@ def silver_routing_audit():
 
     return (
         dlt.read_stream("silver_classified")
-        .filter(col("document_type").isin(PHASE1_DOCUMENT_TYPES))
+        .filter(col("document_type").isin(SUPPORTED_DOC_TYPES))
         .withColumn("routed_at", current_timestamp())
         .withColumn(
             "route_target",
@@ -239,7 +215,7 @@ def silver_unrouted():
     """
     return (
         dlt.read_stream("silver_classified")
-        .filter(~col("document_type").isin(PHASE1_DOCUMENT_TYPES))
+        .filter(~col("document_type").isin(SUPPORTED_DOC_TYPES))
         .withColumn("routed_at", current_timestamp())
         .select(
             "document_id",

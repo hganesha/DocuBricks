@@ -1,0 +1,48 @@
+{
+  "$schema": "docubricks/common-fields/v1",
+  "description": "Shared clinical/healthcare fields reused across schema bundles.",
+  "definitions": {
+    "patient_mrn": {
+      "name": "patient_mrn",
+      "type": "string",
+      "category": "identity",
+      "required": true,
+      "description": "Patient Medical Record Number assigned by the ordering facility."
+    },
+    "patient_name": {
+      "name": "patient_name",
+      "type": "string",
+      "category": "identity",
+      "required": false,
+      "description": "Full name of the patient (Last, First Middle or First Last format)."
+    },
+    "provider_npi": {
+      "name": "provider_npi",
+      "type": "string",
+      "category": "identity",
+      "required": false,
+      "description": "National Provider Identifier (NPI) of the authoring provider — 10-digit numeric; null if not embedded in document."
+    },
+    "date_of_service": {
+      "name": "date_of_service",
+      "type": "date",
+      "category": "temporal",
+      "required": false,
+      "description": "Date of service, format YYYY-MM-DD."
+    },
+    "diagnosis_codes": {
+      "name": "diagnosis_codes",
+      "type": "array<string>",
+      "category": "array",
+      "required": false,
+      "description": "Array of ICD-10-CM diagnosis codes (e.g., [\"I10\", \"E11.9\"]). Extract all listed diagnosis pointers."
+    },
+    "procedure_codes": {
+      "name": "procedure_codes",
+      "type": "array<string>",
+      "category": "array",
+      "required": false,
+      "description": "Array of CPT/HCPCS procedure codes billed (e.g., [\"99213\", \"93000\"]). Each entry is a string. Include modifiers as suffix if present (e.g., \"99213-25\")."
+    }
+  }
+}
