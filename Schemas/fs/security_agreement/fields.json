@@ -14,103 +14,225 @@
       "name": "agreement_date",
       "type": "date",
       "required": false,
-      "description": "Date of security agreement."
+      "description": "Date of security agreement.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "debtor_name",
       "type": "string",
       "required": true,
-      "description": "Grantor or debtor."
+      "description": "Grantor or debtor.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "secured_party_name",
       "type": "string",
       "required": false,
-      "description": "Secured party or lender."
+      "description": "Secured party or lender.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_name",
       "type": "string",
       "required": false,
-      "description": "Borrower if different from debtor."
+      "description": "Borrower if different from debtor.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "underlying_obligation_reference",
       "type": "string",
       "required": false,
-      "description": "Note, loan agreement, or obligations secured."
+      "description": "Note, loan agreement, or obligations secured.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "collateral_description",
       "type": "string",
       "required": true,
-      "description": "Granting clause collateral description."
+      "description": "Granting clause collateral description.",
+      "section": "property_or_asset",
+      "category": "operational"
     },
     {
       "name": "all_assets_clause",
       "type": "boolean",
       "required": false,
-      "description": "Whether agreement grants all assets or substantially all assets."
+      "description": "Whether agreement grants all assets or substantially all assets.",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "collateral_categories",
       "type": "array<string>",
       "required": false,
-      "description": "Accounts, inventory, equipment, general intangibles, deposit accounts, investment property, fixtures, vehicles, real estate-related, or other."
+      "description": "Accounts, inventory, equipment, general intangibles, deposit accounts, investment property, fixtures, vehicles, real estate-related, or other.",
+      "section": "property_or_asset",
+      "category": "array"
     },
     {
       "name": "excluded_collateral",
       "type": "array<string>",
       "required": false,
-      "description": "Collateral excluded from grant."
+      "description": "Collateral excluded from grant.",
+      "section": "property_or_asset",
+      "category": "array"
     },
     {
       "name": "perfection_requirements",
       "type": "array<string>",
       "required": false,
-      "description": "UCC filing, possession, control, title notation, mortgage, account control agreement, or other."
+      "description": "UCC filing, possession, control, title notation, mortgage, account control agreement, or other.",
+      "section": "line_items",
+      "category": "array"
     },
     {
       "name": "debtor_representations",
       "type": "array<string>",
       "required": false,
-      "description": "Key representations about ownership, liens, location, authority, etc."
+      "description": "Key representations about ownership, liens, location, authority, etc.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "covenants",
       "type": "array<string>",
       "required": false,
-      "description": "Collateral maintenance, insurance, records, inspection, transfer restrictions, etc."
+      "description": "Collateral maintenance, insurance, records, inspection, transfer restrictions, etc.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "events_of_default",
       "type": "array<string>",
       "required": false,
-      "description": "Defaults under the agreement."
+      "description": "Defaults under the agreement.",
+      "section": "risk_and_compliance",
+      "category": "array"
     },
     {
       "name": "remedies",
       "type": "array<string>",
       "required": false,
-      "description": "Remedies available to secured party."
+      "description": "Remedies available to secured party.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "governing_law",
       "type": "string",
       "required": false,
-      "description": "Governing law jurisdiction."
+      "description": "Governing law jurisdiction.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "signature_name",
       "type": "string",
       "required": false,
-      "description": "Signer name."
+      "description": "Signer name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "signature_title",
       "type": "string",
       "required": false,
-      "description": "Signer title."
+      "description": "Signer title.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "agreement_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "covenants",
+        "debtor_representations",
+        "governing_law",
+        "remedies",
+        "signature_title",
+        "underlying_obligation_reference"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "perfection_requirements"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "borrower_name",
+        "debtor_name",
+        "secured_party_name",
+        "signature_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "all_assets_clause",
+        "collateral_categories",
+        "collateral_description",
+        "excluded_collateral"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "events_of_default"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "debtor_name",
+        "collateral_description"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "line_items",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

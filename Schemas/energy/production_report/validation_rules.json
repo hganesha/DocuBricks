@@ -1,0 +1,102 @@
+[
+  {
+    "name": "production_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "production_date"
+    ],
+    "expression": "production_date IS NOT NULL AND LENGTH(TRIM(production_date)) > 0",
+    "severity": "fail",
+    "description": "production_date is required for Production Report extraction."
+  },
+  {
+    "name": "lease_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "lease_name"
+    ],
+    "expression": "lease_name IS NOT NULL AND LENGTH(TRIM(lease_name)) > 0",
+    "severity": "fail",
+    "description": "lease_name is required for Production Report extraction."
+  },
+  {
+    "name": "operator_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "operator_name"
+    ],
+    "expression": "operator_name IS NOT NULL AND LENGTH(TRIM(operator_name)) > 0",
+    "severity": "fail",
+    "description": "operator_name is required for Production Report extraction."
+  },
+  {
+    "name": "oil_volume_bbl_present",
+    "rule_type": "presence",
+    "fields": [
+      "oil_volume_bbl"
+    ],
+    "expression": "oil_volume_bbl IS NOT NULL AND LENGTH(TRIM(oil_volume_bbl)) > 0",
+    "severity": "fail",
+    "description": "oil_volume_bbl is required for Production Report extraction."
+  },
+  {
+    "name": "gas_volume_mcf_present",
+    "rule_type": "presence",
+    "fields": [
+      "gas_volume_mcf"
+    ],
+    "expression": "gas_volume_mcf IS NOT NULL AND LENGTH(TRIM(gas_volume_mcf)) > 0",
+    "severity": "fail",
+    "description": "gas_volume_mcf is required for Production Report extraction."
+  },
+  {
+    "name": "well_count_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "well_count"
+    ],
+    "expression": "well_count IS NULL OR well_count >= 0",
+    "severity": "warn",
+    "description": "well_count should be non-negative when present."
+  },
+  {
+    "name": "oil_volume_bbl_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "oil_volume_bbl"
+    ],
+    "expression": "oil_volume_bbl IS NULL OR oil_volume_bbl >= 0",
+    "severity": "warn",
+    "description": "oil_volume_bbl should be non-negative when present."
+  },
+  {
+    "name": "gas_volume_mcf_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "gas_volume_mcf"
+    ],
+    "expression": "gas_volume_mcf IS NULL OR gas_volume_mcf >= 0",
+    "severity": "warn",
+    "description": "gas_volume_mcf should be non-negative when present."
+  },
+  {
+    "name": "water_volume_bbl_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "water_volume_bbl"
+    ],
+    "expression": "water_volume_bbl IS NULL OR water_volume_bbl >= 0",
+    "severity": "warn",
+    "description": "water_volume_bbl should be non-negative when present."
+  },
+  {
+    "name": "ngl_volume_bbl_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "ngl_volume_bbl"
+    ],
+    "expression": "ngl_volume_bbl IS NULL OR ngl_volume_bbl >= 0",
+    "severity": "warn",
+    "description": "ngl_volume_bbl should be non-negative when present."
+  }
+]

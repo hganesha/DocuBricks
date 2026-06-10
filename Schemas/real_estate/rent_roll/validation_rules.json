@@ -1,0 +1,92 @@
+[
+  {
+    "name": "rent_roll_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "rent_roll_date"
+    ],
+    "expression": "rent_roll_date IS NOT NULL AND LENGTH(TRIM(rent_roll_date)) > 0",
+    "severity": "fail",
+    "description": "rent_roll_date is required for Rent Roll extraction."
+  },
+  {
+    "name": "property_address_present",
+    "rule_type": "presence",
+    "fields": [
+      "property_address"
+    ],
+    "expression": "property_address IS NOT NULL AND LENGTH(TRIM(property_address)) > 0",
+    "severity": "fail",
+    "description": "property_address is required for Rent Roll extraction."
+  },
+  {
+    "name": "tenant_entries_present",
+    "rule_type": "array",
+    "fields": [
+      "tenant_entries"
+    ],
+    "expression": "tenant_entries IS NOT NULL AND JSON_ARRAY_LENGTH(tenant_entries) > 0",
+    "severity": "fail",
+    "description": "tenant_entries is required for Rent Roll extraction."
+  },
+  {
+    "name": "monthly_scheduled_rent_present",
+    "rule_type": "presence",
+    "fields": [
+      "monthly_scheduled_rent"
+    ],
+    "expression": "monthly_scheduled_rent IS NOT NULL AND LENGTH(TRIM(monthly_scheduled_rent)) > 0",
+    "severity": "fail",
+    "description": "monthly_scheduled_rent is required for Rent Roll extraction."
+  },
+  {
+    "name": "total_units_or_suites_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "total_units_or_suites"
+    ],
+    "expression": "total_units_or_suites IS NULL OR total_units_or_suites >= 0",
+    "severity": "warn",
+    "description": "total_units_or_suites should be non-negative when present."
+  },
+  {
+    "name": "occupied_units_or_suites_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "occupied_units_or_suites"
+    ],
+    "expression": "occupied_units_or_suites IS NULL OR occupied_units_or_suites >= 0",
+    "severity": "warn",
+    "description": "occupied_units_or_suites should be non-negative when present."
+  },
+  {
+    "name": "occupancy_rate_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "occupancy_rate"
+    ],
+    "expression": "occupancy_rate IS NULL OR occupancy_rate >= 0",
+    "severity": "warn",
+    "description": "occupancy_rate should be non-negative when present."
+  },
+  {
+    "name": "monthly_scheduled_rent_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "monthly_scheduled_rent"
+    ],
+    "expression": "monthly_scheduled_rent IS NULL OR monthly_scheduled_rent >= 0",
+    "severity": "warn",
+    "description": "monthly_scheduled_rent should be non-negative when present."
+  },
+  {
+    "name": "delinquent_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "delinquent_amount"
+    ],
+    "expression": "delinquent_amount IS NULL OR delinquent_amount >= 0",
+    "severity": "warn",
+    "description": "delinquent_amount should be non-negative when present."
+  }
+]

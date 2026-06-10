@@ -1,0 +1,45 @@
+{
+  "default_threshold": 0.75,
+  "certificate_number": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Certificate of Analysis workflow."
+  },
+  "supplier_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Certificate of Analysis workflow."
+  },
+  "lot_number": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Certificate of Analysis workflow."
+  },
+  "test_results": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Certificate of Analysis workflow."
+  },
+  "certificate_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Certificate of analysis extraction."
+  },
+  "material_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Certificate of analysis extraction."
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "test_case_id": "closing_statement_001",
+  "document_type": "closing_statement",
+  "description": "Seed golden test for Closing Statement",
+  "tags": [
+    "happy_path",
+    "real_estate_transactions",
+    "seed"
+  ],
+  "parsed_text": "CLOSING STATEMENT\nStatement Date: 2026-09-30\nProperty: 8200 West Park Avenue, Denver, CO 80221\nBuyer: Harborview Capital Partners LLC\nSeller: Maple Ridge Office Owner LP\nSettlement Agent: Front Range Title Company\nClosing Date: 2026-09-30\nPurchase Price: $18,750,000\nLoan Amount: $12,500,000\nBuyer Cash to Close: $6,925,430.22\nSeller Net Proceeds: $17,904,112.80\nProrations: county taxes credit to buyer $38,450.18; September rent credit to seller $72,000.00; CAM reconciliation debit to seller $14,200.00\nTitle/Settlement Charges: owner's title policy $42,500; escrow fee $8,750; recording fees $1,240; transfer tax $187,500\nPayoffs: First Western Bank loan payoff $612,480.22; mechanic lien release $22,000\nRecording Reference: Reception No. 20260930008912",
+  "expected_json": {
+    "closing_statement_date": "2026-09-30",
+    "property_address": "8200 West Park Avenue, Denver, CO 80221",
+    "buyer_name": "Harborview Capital Partners LLC",
+    "seller_name": "Maple Ridge Office Owner LP",
+    "settlement_agent_name": "Front Range Title Company",
+    "closing_date": "2026-09-30",
+    "purchase_price": 18750000.0,
+    "loan_amount": 12500000.0,
+    "buyer_cash_to_close": 6925430.22,
+    "seller_proceeds": 17904112.8,
+    "prorations": [
+      {
+        "item": "county taxes",
+        "party_credited": "buyer",
+        "amount": 38450.18
+      },
+      {
+        "item": "September rent",
+        "party_credited": "seller",
+        "amount": 72000.0
+      },
+      {
+        "item": "CAM reconciliation",
+        "party_debited": "seller",
+        "amount": 14200.0
+      }
+    ],
+    "title_charges": [
+      {
+        "item": "owner's title policy",
+        "amount": 42500.0
+      },
+      {
+        "item": "escrow fee",
+        "amount": 8750.0
+      },
+      {
+        "item": "recording fees",
+        "amount": 1240.0
+      },
+      {
+        "item": "transfer tax",
+        "amount": 187500.0
+      }
+    ],
+    "payoffs": [
+      {
+        "payee": "First Western Bank",
+        "amount": 612480.22
+      },
+      {
+        "payee": "mechanic lien release",
+        "amount": 22000.0
+      }
+    ],
+    "recording_reference": "Reception No. 20260930008912"
+  },
+  "expected_avg_confidence": 0.92
+}

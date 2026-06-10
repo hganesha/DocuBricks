@@ -14,91 +14,273 @@
       "name": "policy_number",
       "type": "string",
       "required": true,
-      "description": "Insurance policy number."
+      "description": "Insurance policy number.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "named_insured",
       "type": "string",
       "required": true,
-      "description": "Named insured on the declaration page."
+      "description": "Named insured on the declaration page.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "carrier_name",
       "type": "string",
       "required": true,
-      "description": "Insurance carrier or underwriting company."
+      "description": "Insurance carrier or underwriting company.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "producer_name",
       "type": "string",
       "required": false,
-      "description": "Agent, broker, or producer name."
+      "description": "Agent, broker, or producer name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "policy_period_start",
       "type": "date",
       "required": false,
-      "description": "Policy period start date."
+      "description": "Policy period start date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "policy_period_end",
       "type": "date",
       "required": false,
-      "description": "Policy period end date."
+      "description": "Policy period end date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "coverage_lines",
       "type": "array<string>",
       "required": false,
-      "description": "Coverage lines shown on the declaration page."
+      "description": "Coverage lines shown on the declaration page.",
+      "section": "line_items",
+      "category": "array"
     },
     {
       "name": "covered_property_or_risk",
       "type": "string",
       "required": false,
-      "description": "Covered property, vehicle, operation, or risk."
+      "description": "Covered property, vehicle, operation, or risk.",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "coverage_limits",
       "type": "array<object>",
       "required": false,
-      "description": "Coverage limit items by line or coverage."
+      "description": "Coverage limit items by line or coverage.",
+      "section": "risk_and_compliance",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "coverage_limit_type",
+          "type": "string",
+          "description": "Type or class for coverage_limits item."
+        },
+        {
+          "name": "coverage_limit_description",
+          "type": "string",
+          "description": "Description for coverage_limits item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount or value when stated."
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "Relevant item date when stated."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Item status or disposition when stated."
+        }
+      ]
     },
     {
       "name": "deductibles",
       "type": "array<object>",
       "required": false,
-      "description": "Deductible items by line or coverage."
+      "description": "Deductible items by line or coverage.",
+      "section": "document_details",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "deductible_type",
+          "type": "string",
+          "description": "Type or class for deductibles item."
+        },
+        {
+          "name": "deductible_description",
+          "type": "string",
+          "description": "Description for deductibles item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount or value when stated."
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "Relevant item date when stated."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Item status or disposition when stated."
+        }
+      ]
     },
     {
       "name": "premium_total",
       "type": "number",
       "required": false,
-      "description": "Total policy premium."
+      "description": "Total policy premium.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "additional_insured_names",
       "type": "array<string>",
       "required": false,
-      "description": "Additional insureds shown on the declarations."
+      "description": "Additional insureds shown on the declarations.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "loss_payee_names",
       "type": "array<string>",
       "required": false,
-      "description": "Loss payees, mortgagees, or lender loss payable parties."
+      "description": "Loss payees, mortgagees, or lender loss payable parties.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "forms_and_endorsements",
       "type": "array<string>",
       "required": false,
-      "description": "Policy forms and endorsements listed."
+      "description": "Policy forms and endorsements listed.",
+      "section": "dates_and_terms",
+      "category": "array"
     },
     {
       "name": "cancellation_notice_days",
       "type": "integer",
       "required": false,
-      "description": "Number of cancellation notice days if stated."
+      "description": "Number of cancellation notice days if stated.",
+      "section": "dates_and_terms",
+      "category": "regulatory"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "cancellation_notice_days",
+        "forms_and_endorsements",
+        "policy_period_end",
+        "policy_period_start"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "deductibles"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "premium_total"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "coverage_lines"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "additional_insured_names",
+        "carrier_name",
+        "loss_payee_names",
+        "named_insured",
+        "producer_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "covered_property_or_risk"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "coverage_limits",
+        "policy_number"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "policy_number",
+        "named_insured",
+        "carrier_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "coverage_limits",
+        "deductibles"
+      ]
     }
   ]
 }

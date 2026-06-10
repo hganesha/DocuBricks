@@ -1,0 +1,40 @@
+{
+  "test_case_id": "receiving_report_001",
+  "document_type": "receiving_report",
+  "description": "Seed golden test for Receiving Report",
+  "tags": [
+    "happy_path",
+    "procurement_supply_chain",
+    "seed"
+  ],
+  "parsed_text": "RECEIVING REPORT\nReceipt Number: RR-2026-008144\nReceipt Date: 2026-04-24\nPO Number: PO-4500129841\nSupplier: Apex Alloy Supply Inc.\nPacking Slip: PS-778201\nCarrier: Midwest Freight Lines\nReceived By: Jordan Kim\nLines Received: AL-6061-BAR ordered 1200 LB received 1192 LB disposition pending inspection; ST-4140-PLT ordered 80 EA received 80 EA disposition accepted\nShortage/Overage: aluminum bar stock short 8 LB\nInspection Required: Yes\nHold Status: Pending inspection",
+  "expected_json": {
+    "receiving_report_number": "RR-2026-008144",
+    "receipt_date": "2026-04-24",
+    "purchase_order_number": "PO-4500129841",
+    "supplier_name": "Apex Alloy Supply Inc.",
+    "packing_slip_number": "PS-778201",
+    "carrier_name": "Midwest Freight Lines",
+    "received_by": "Jordan Kim",
+    "line_items_received": [
+      {
+        "part_number": "AL-6061-BAR",
+        "quantity_ordered": 1200,
+        "quantity_received": 1192,
+        "unit": "LB",
+        "disposition": "pending inspection"
+      },
+      {
+        "part_number": "ST-4140-PLT",
+        "quantity_ordered": 80,
+        "quantity_received": 80,
+        "unit": "EA",
+        "disposition": "accepted"
+      }
+    ],
+    "shortage_or_overage": "aluminum bar stock short 8 LB",
+    "inspection_required": true,
+    "hold_status": "Pending inspection"
+  },
+  "expected_avg_confidence": 0.92
+}

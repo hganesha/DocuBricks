@@ -1,0 +1,39 @@
+{
+  "test_case_id": "property_management_agreement_001",
+  "document_type": "property_management_agreement",
+  "description": "Seed golden test for Property Management Agreement",
+  "tags": [
+    "happy_path",
+    "property_management",
+    "seed"
+  ],
+  "parsed_text": "PROPERTY MANAGEMENT AGREEMENT\nAgreement Date: 2026-10-01\nOwner: Harborview Capital Partners LLC\nManager: Summit Property Services Inc.\nProperty Name: Maple Ridge Office Center\nProperty Address: 8200 West Park Avenue, Denver, CO 80221\nManagement Start Date: 2026-10-01\nInitial Term End: 2028-09-30\nManagement Fee: 3.0% of gross collected revenue, payable monthly\nLeasing Fee: 4.0% of base rent for new leases and 2.0% for renewals\nAuthority to Collect Rent: Yes\nBank Account Control: manager to maintain separate operating account in owner's name with monthly reconciliations\nTermination Notice: 60 days\nInsurance Requirements: commercial general liability; crime coverage; workers compensation; errors and omissions\nReporting Requirements: monthly operating statement; rent roll; delinquency report; annual budget\nGoverning Law: Colorado",
+  "expected_json": {
+    "agreement_date": "2026-10-01",
+    "owner_name": "Harborview Capital Partners LLC",
+    "manager_name": "Summit Property Services Inc.",
+    "property_name": "Maple Ridge Office Center",
+    "property_address": "8200 West Park Avenue, Denver, CO 80221",
+    "management_start_date": "2026-10-01",
+    "management_end_date": "2028-09-30",
+    "management_fee_terms": "3.0% of gross collected revenue, payable monthly",
+    "leasing_fee_terms": "4.0% of base rent for new leases and 2.0% for renewals",
+    "authority_to_collect_rent": true,
+    "bank_account_control": "manager to maintain separate operating account in owner's name with monthly reconciliations",
+    "termination_notice_days": 60,
+    "insurance_requirements": [
+      "commercial general liability",
+      "crime coverage",
+      "workers compensation",
+      "errors and omissions"
+    ],
+    "reporting_requirements": [
+      "monthly operating statement",
+      "rent roll",
+      "delinquency report",
+      "annual budget"
+    ],
+    "governing_law": "Colorado"
+  },
+  "expected_avg_confidence": 0.92
+}

@@ -14,169 +14,309 @@
       "name": "note_date",
       "type": "date",
       "required": true,
-      "description": "Date the note was authored/signed, format YYYY-MM-DD"
+      "description": "Date the note was authored/signed, format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "note_type",
       "type": "string",
       "required": false,
-      "description": "Type of clinical note. One of: Progress | Discharge | Consultation | Admission"
+      "description": "Type of clinical note. One of: Progress | Discharge | Consultation | Admission",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "document_id",
       "type": "string",
       "required": true,
-      "description": "Electronic Medical Record (EMR) note identifier or encounter number if present"
+      "description": "Electronic Medical Record (EMR) note identifier or encounter number if present",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "provider_name",
       "type": "string",
       "required": true,
-      "description": "Full name of the clinician authoring the note (e.g., \"Dr. Sarah Chen, MD\")"
+      "description": "Full name of the clinician authoring the note (e.g., \"Dr. Sarah Chen, MD\")",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "provider_npi",
       "type": "string",
       "required": false,
-      "description": "National Provider Identifier (NPI) of the authoring provider — 10-digit numeric; null if not embedded in note"
+      "description": "National Provider Identifier (NPI) of the authoring provider \u2014 10-digit numeric; null if not embedded in note",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "provider_specialty",
       "type": "string",
       "required": false,
-      "description": "Clinical specialty or department of the provider (e.g., \"Internal Medicine\", \"Emergency Medicine\", \"Orthopedics\")"
+      "description": "Clinical specialty or department of the provider (e.g., \"Internal Medicine\", \"Emergency Medicine\", \"Orthopedics\")",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "patient_name",
       "type": "string",
       "required": false,
-      "description": "Full name of the patient"
+      "description": "Full name of the patient",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "patient_dob",
       "type": "string",
       "required": false,
-      "description": "Patient date of birth, format YYYY-MM-DD"
+      "description": "Patient date of birth, format YYYY-MM-DD",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "patient_mrn",
       "type": "string",
       "required": false,
-      "description": "Medical Record Number (MRN) assigned by the facility"
+      "description": "Medical Record Number (MRN) assigned by the facility",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "facility_name",
       "type": "string",
       "required": false,
-      "description": "Name of the hospital, clinic, or practice where the note was created"
+      "description": "Name of the hospital, clinic, or practice where the note was created",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "department",
       "type": "string",
       "required": false,
-      "description": "Clinical department or unit (e.g., \"Cardiology Outpatient Clinic\", \"Emergency Department\", \"2-North Med/Surg\")"
+      "description": "Clinical department or unit (e.g., \"Cardiology Outpatient Clinic\", \"Emergency Department\", \"2-North Med/Surg\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "chief_complaint",
       "type": "string",
       "required": false,
-      "description": "Patient's primary stated reason for visit in their own words or as paraphrased by provider. Free text, maximum 200 characters. Extract the most specific complaint from the \"Chief Complaint\" or \"CC:\" label"
+      "description": "Patient's primary stated reason for visit in their own words or as paraphrased by provider. Free text, maximum 200 characters. Extract the most specific complaint from the \"Chief Complaint\" or \"CC:\" label",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "subjective_summary",
       "type": "string",
       "required": false,
-      "description": "Summary of the full Subjective section including history of present illness (HPI), review of systems, and relevant history. Free text, maximum 300 characters. Truncate with ellipsis if longer"
+      "description": "Summary of the full Subjective section including history of present illness (HPI), review of systems, and relevant history. Free text, maximum 300 characters. Truncate with ellipsis if longer",
+      "section": "document_details",
+      "category": "operational"
     },
     {
       "name": "objective_vitals",
       "type": "string",
       "required": false,
-      "description": "Structured object containing vital signs. Extract each of the following sub-fields as a string value (include units). Set to null if not documented:"
+      "description": "Structured object containing vital signs. Extract each of the following sub-fields as a string value (include units). Set to null if not documented:",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "bp",
       "type": "string",
       "required": false,
-      "description": "Blood pressure (e.g., \"138/88 mmHg\")"
+      "description": "Blood pressure (e.g., \"138/88 mmHg\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "hr",
       "type": "string",
       "required": false,
-      "description": "Heart rate (e.g., \"76 bpm\")"
+      "description": "Heart rate (e.g., \"76 bpm\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "temp",
       "type": "string",
       "required": false,
-      "description": "Temperature (e.g., \"98.6°F\" or \"37.0°C\")"
+      "description": "Temperature (e.g., \"98.6\u00b0F\" or \"37.0\u00b0C\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "rr",
       "type": "string",
       "required": false,
-      "description": "Respiratory rate (e.g., \"16 breaths/min\")"
+      "description": "Respiratory rate (e.g., \"16 breaths/min\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "spo2",
       "type": "string",
       "required": false,
-      "description": "Oxygen saturation (e.g., \"97% on room air\")"
+      "description": "Oxygen saturation (e.g., \"97% on room air\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "weight",
       "type": "string",
       "required": false,
-      "description": "Body weight (e.g., \"185 lbs\" or \"83.9 kg\")"
+      "description": "Body weight (e.g., \"185 lbs\" or \"83.9 kg\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "assessment_diagnoses",
       "type": "array<string>",
       "required": false,
-      "description": "Array of diagnosis objects. For each diagnosis found in the Assessment section, extract:"
+      "description": "Array of diagnosis objects. For each diagnosis found in the Assessment section, extract:",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "icd10_code",
       "type": "string",
       "required": false,
-      "description": "ICD-10-CM code (e.g., \"I10\", \"E11.9\"). Null if only described without a code"
+      "description": "ICD-10-CM code (e.g., \"I10\", \"E11.9\"). Null if only described without a code",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "description",
       "type": "string",
       "required": false,
-      "description": "Diagnosis description or name as written in the note"
+      "description": "Diagnosis description or name as written in the note",
+      "section": "document_details",
+      "category": "operational"
     },
     {
       "name": "status",
       "type": "string",
       "required": false,
-      "description": "One of: Active | Chronic | Resolved | New | Suspected (infer from context if not explicit)"
+      "description": "One of: Active | Chronic | Resolved | New | Suspected (infer from context if not explicit)",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "plan_summary",
       "type": "string",
       "required": false,
-      "description": "Summary of the Plan section including medications prescribed/adjusted, orders placed, referrals, and instructions. Free text, maximum 300 characters. Truncate with ellipsis if longer"
+      "description": "Summary of the Plan section including medications prescribed/adjusted, orders placed, referrals, and instructions. Free text, maximum 300 characters. Truncate with ellipsis if longer",
+      "section": "document_details",
+      "category": "operational"
     },
     {
       "name": "medications_mentioned",
       "type": "array<string>",
       "required": false,
-      "description": "Array of medication names referenced anywhere in the note (including current medications list, new prescriptions, discontinued medications). Include drug name only — no dosing details"
+      "description": "Array of medication names referenced anywhere in the note (including current medications list, new prescriptions, discontinued medications). Include drug name only \u2014 no dosing details",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "follow_up_instructions",
       "type": "string",
       "required": false,
-      "description": "Specific follow-up instruction text (e.g., \"Return to clinic if fever > 101.5°F or worsening symptoms\")"
+      "description": "Specific follow-up instruction text (e.g., \"Return to clinic if fever > 101.5\u00b0F or worsening symptoms\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "follow_up_timeframe",
       "type": "string",
       "required": false,
-      "description": "Time interval for scheduled follow-up (e.g., \"2 weeks\", \"3 months\", \"as needed\")"
+      "description": "Time interval for scheduled follow-up (e.g., \"2 weeks\", \"3 months\", \"as needed\")",
+      "section": "document_details",
+      "category": "temporal"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "note_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "assessment_diagnoses",
+        "bp",
+        "chief_complaint",
+        "department",
+        "description",
+        "document_id",
+        "follow_up_instructions",
+        "follow_up_timeframe",
+        "hr",
+        "icd10_code",
+        "medications_mentioned",
+        "note_type",
+        "objective_vitals",
+        "patient_dob",
+        "patient_mrn",
+        "plan_summary",
+        "provider_npi",
+        "provider_specialty",
+        "rr",
+        "spo2",
+        "subjective_summary",
+        "temp",
+        "weight"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "facility_name",
+        "patient_name",
+        "provider_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "note_date",
+        "document_id",
+        "provider_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

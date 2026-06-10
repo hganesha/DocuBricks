@@ -14,115 +14,228 @@
       "name": "filing_type",
       "type": "string",
       "required": false,
-      "description": "Initial financing statement, amendment, continuation, assignment, termination, fixture filing, or other."
+      "description": "Initial financing statement, amendment, continuation, assignment, termination, fixture filing, or other.",
+      "section": "document_details",
+      "category": "regulatory"
     },
     {
       "name": "filing_number",
       "type": "string",
       "required": true,
-      "description": "State filing or document number."
+      "description": "State filing or document number.",
+      "section": "document_details",
+      "category": "regulatory"
     },
     {
       "name": "filing_date",
       "type": "date",
       "required": true,
-      "description": "Filing date."
+      "description": "Filing date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "lapse_date",
       "type": "date",
       "required": false,
-      "description": "Lapse or continuation deadline if present."
+      "description": "Lapse or continuation deadline if present.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "filing_office",
       "type": "string",
       "required": false,
-      "description": "Secretary of State, county, or filing office."
+      "description": "Secretary of State, county, or filing office.",
+      "section": "document_details",
+      "category": "regulatory"
     },
     {
       "name": "filing_jurisdiction",
       "type": "string",
       "required": false,
-      "description": "State or jurisdiction."
+      "description": "State or jurisdiction.",
+      "section": "document_details",
+      "category": "regulatory"
     },
     {
       "name": "debtor_names",
       "type": "array<string>",
       "required": true,
-      "description": "Debtor legal names."
+      "description": "Debtor legal names.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "debtor_addresses",
       "type": "array<string>",
       "required": false,
-      "description": "Debtor addresses."
+      "description": "Debtor addresses.",
+      "section": "property_or_asset",
+      "category": "array"
     },
     {
       "name": "secured_party_names",
       "type": "array<string>",
       "required": false,
-      "description": "Secured party names."
+      "description": "Secured party names.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "secured_party_addresses",
       "type": "array<string>",
       "required": false,
-      "description": "Secured party addresses."
+      "description": "Secured party addresses.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "collateral_description",
       "type": "string",
       "required": false,
-      "description": "UCC collateral text."
+      "description": "UCC collateral text.",
+      "section": "property_or_asset",
+      "category": "operational"
     },
     {
       "name": "fixture_filing_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Whether fixture filing is indicated."
+      "description": "Whether fixture filing is indicated.",
+      "section": "document_details",
+      "category": "regulatory"
     },
     {
       "name": "transmitting_utility_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Whether debtor is transmitting utility."
+      "description": "Whether debtor is transmitting utility.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "public_finance_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Public finance transaction indicator."
+      "description": "Public finance transaction indicator.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "manufactured_home_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Manufactured home transaction indicator."
+      "description": "Manufactured home transaction indicator.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "related_filing_number",
       "type": "string",
       "required": false,
-      "description": "Original filing number for amendment, continuation, termination, or assignment."
+      "description": "Original filing number for amendment, continuation, termination, or assignment.",
+      "section": "document_details",
+      "category": "regulatory"
     },
     {
       "name": "assignee_name",
       "type": "string",
       "required": false,
-      "description": "Assignee if assignment is present."
+      "description": "Assignee if assignment is present.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "termination_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Whether filing terminates a record."
+      "description": "Whether filing terminates a record.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "continuation_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Whether filing continues a record."
+      "description": "Whether filing continues a record.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "filing_date",
+        "lapse_date",
+        "termination_indicator"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "continuation_indicator",
+        "filing_jurisdiction",
+        "filing_number",
+        "filing_office",
+        "filing_type",
+        "fixture_filing_indicator",
+        "manufactured_home_indicator",
+        "public_finance_indicator",
+        "related_filing_number",
+        "transmitting_utility_indicator"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "assignee_name",
+        "debtor_names",
+        "secured_party_addresses",
+        "secured_party_names"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "collateral_description",
+        "debtor_addresses"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "filing_number",
+        "filing_date",
+        "debtor_names"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

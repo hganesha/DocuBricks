@@ -1,0 +1,30 @@
+{
+  "test_case_id": "production_report_001",
+  "document_type": "production_report",
+  "description": "Seed golden test for Production Report",
+  "tags": [
+    "happy_path",
+    "energy_production_operations",
+    "seed"
+  ],
+  "parsed_text": "PRODUCTION REPORT\nProduction Date: 2026-05-31\nLease/Unit: Wolf Creek Unit\nOperator: Prairie Basin Energy LLC\nWell Count: 14\nOil Produced: 18420 bbl\nGas Produced: 28650 mcf\nWater Produced: 12110 bbl\nNGL Produced: 0 bbl\nBeginning Inventory: 5120 bbl\nEnding Inventory: 4875 bbl\nSales Volume: 18665 bbl\nFlared Gas: 42 mcf\nDowntime Hours: 9.0\nDowntime Reason: compressor maintenance on central facility\nPurchaser: Red River Crude Marketing\nPrepared By: Luis Ortega",
+  "expected_json": {
+    "production_date": "2026-05-31",
+    "lease_name": "Wolf Creek Unit",
+    "operator_name": "Prairie Basin Energy LLC",
+    "well_count": 14,
+    "oil_volume_bbl": 18420.0,
+    "gas_volume_mcf": 28650.0,
+    "water_volume_bbl": 12110.0,
+    "ngl_volume_bbl": 0.0,
+    "beginning_inventory_bbl": 5120.0,
+    "ending_inventory_bbl": 4875.0,
+    "sales_volume_bbl": 18665.0,
+    "flared_gas_mcf": 42.0,
+    "downtime_hours": 9.0,
+    "downtime_reason": "compressor maintenance on central facility",
+    "purchaser_name": "Red River Crude Marketing",
+    "report_preparer": "Luis Ortega"
+  },
+  "expected_avg_confidence": 0.92
+}

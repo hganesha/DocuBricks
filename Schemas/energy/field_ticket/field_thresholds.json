@@ -1,0 +1,45 @@
+{
+  "default_threshold": 0.75,
+  "ticket_number": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Field Ticket workflow."
+  },
+  "service_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Field Ticket workflow."
+  },
+  "operator_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Field Ticket workflow."
+  },
+  "service_company_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Field Ticket workflow."
+  },
+  "job_type": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Field Ticket workflow."
+  },
+  "total_amount": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Field Ticket workflow."
+  }
+}

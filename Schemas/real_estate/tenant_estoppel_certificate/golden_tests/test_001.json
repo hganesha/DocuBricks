@@ -1,0 +1,31 @@
+{
+  "test_case_id": "tenant_estoppel_certificate_001",
+  "document_type": "tenant_estoppel_certificate",
+  "description": "Seed golden test for Tenant Estoppel Certificate",
+  "tags": [
+    "happy_path",
+    "property_management",
+    "seed"
+  ],
+  "parsed_text": "TENANT ESTOPPEL CERTIFICATE\nCertificate Date: 2026-09-10\nTenant: Peak Analytics Inc.\nLandlord: Maple Ridge Office Owner LP\nProperty: 8200 West Park Avenue, Denver, CO 80221\nPremises: Suite 210, approximately 12,200 rentable square feet\nLease Date: 2025-05-12\nCommencement Date: 2025-06-01\nExpiration Date: 2028-05-31\nCurrent Monthly Rent: $27,450\nSecurity Deposit: $27,450\nDefaults Claimed: No\nOffsets/Claims: none\nRenewal Options: one 3-year renewal at 95% of fair market rent\nSigned By: Rachel Lin\nTitle: Chief Operating Officer",
+  "expected_json": {
+    "certificate_date": "2026-09-10",
+    "tenant_name": "Peak Analytics Inc.",
+    "landlord_name": "Maple Ridge Office Owner LP",
+    "property_address": "8200 West Park Avenue, Denver, CO 80221",
+    "premises_description": "Suite 210, approximately 12,200 rentable square feet",
+    "lease_date": "2025-05-12",
+    "lease_start_date": "2025-06-01",
+    "lease_end_date": "2028-05-31",
+    "current_monthly_rent": 27450.0,
+    "security_deposit_amount": 27450.0,
+    "defaults_claimed": false,
+    "offsets_or_claims": "none",
+    "renewal_options": [
+      "one 3-year renewal at 95% of fair market rent"
+    ],
+    "tenant_signer_name": "Rachel Lin",
+    "tenant_signer_title": "Chief Operating Officer"
+  },
+  "expected_avg_confidence": 0.92
+}

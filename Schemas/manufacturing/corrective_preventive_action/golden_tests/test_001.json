@@ -1,0 +1,37 @@
+{
+  "test_case_id": "corrective_preventive_action_001",
+  "document_type": "corrective_preventive_action",
+  "description": "Seed golden test for Corrective Preventive Action",
+  "tags": [
+    "happy_path",
+    "manufacturing_quality",
+    "seed"
+  ],
+  "parsed_text": "CORRECTIVE PREVENTIVE ACTION\nCAPA Number: CAPA-2026-019\nOpened Date: 2026-05-07\nSource Type: Nonconformance trend\nSource Reference: NCR-2026-0338; NCR-2026-0341\nProblem Statement: repeated oversize mounting holes on BRKT-2207 bracket family\nRisk Level: Medium\nRoot Cause: punch tooling preventive maintenance interval not aligned with actual wear rate\nCorrective Actions: replace punch tooling; rework affected lots; update inspection sampling for next 5 lots\nPreventive Actions: reduce PM interval from 20,000 to 12,000 cycles; add tooling wear check to setup checklist; train press operators\nOwner: Mateo Singh\nTarget Completion Date: 2026-06-15\nEffectiveness Check Plan: verify zero repeat NCRs for three consecutive production lots\nEffectiveness Due Date: 2026-08-15\nStatus: Pending effectiveness\nClosure Date:",
+  "expected_json": {
+    "capa_number": "CAPA-2026-019",
+    "opened_date": "2026-05-07",
+    "source_type": "Nonconformance trend",
+    "source_reference": "NCR-2026-0338; NCR-2026-0341",
+    "problem_statement": "repeated oversize mounting holes on BRKT-2207 bracket family",
+    "risk_level": "Medium",
+    "root_cause": "punch tooling preventive maintenance interval not aligned with actual wear rate",
+    "corrective_actions": [
+      "replace punch tooling",
+      "rework affected lots",
+      "update inspection sampling for next 5 lots"
+    ],
+    "preventive_actions": [
+      "reduce PM interval from 20,000 to 12,000 cycles",
+      "add tooling wear check to setup checklist",
+      "train press operators"
+    ],
+    "owner_name": "Mateo Singh",
+    "target_completion_date": "2026-06-15",
+    "effectiveness_check_plan": "verify zero repeat NCRs for three consecutive production lots",
+    "effectiveness_due_date": "2026-08-15",
+    "capa_status": "Pending effectiveness",
+    "closure_date": null
+  },
+  "expected_avg_confidence": 0.92
+}

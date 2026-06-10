@@ -1,0 +1,92 @@
+[
+  {
+    "name": "lease_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "lease_date"
+    ],
+    "expression": "lease_date IS NOT NULL AND LENGTH(TRIM(lease_date)) > 0",
+    "severity": "fail",
+    "description": "lease_date is required for Lease Agreement extraction."
+  },
+  {
+    "name": "landlord_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "landlord_name"
+    ],
+    "expression": "landlord_name IS NOT NULL AND LENGTH(TRIM(landlord_name)) > 0",
+    "severity": "fail",
+    "description": "landlord_name is required for Lease Agreement extraction."
+  },
+  {
+    "name": "tenant_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "tenant_name"
+    ],
+    "expression": "tenant_name IS NOT NULL AND LENGTH(TRIM(tenant_name)) > 0",
+    "severity": "fail",
+    "description": "tenant_name is required for Lease Agreement extraction."
+  },
+  {
+    "name": "property_address_present",
+    "rule_type": "presence",
+    "fields": [
+      "property_address"
+    ],
+    "expression": "property_address IS NOT NULL AND LENGTH(TRIM(property_address)) > 0",
+    "severity": "fail",
+    "description": "property_address is required for Lease Agreement extraction."
+  },
+  {
+    "name": "lease_start_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "lease_start_date"
+    ],
+    "expression": "lease_start_date IS NOT NULL AND LENGTH(TRIM(lease_start_date)) > 0",
+    "severity": "fail",
+    "description": "lease_start_date is required for Lease Agreement extraction."
+  },
+  {
+    "name": "lease_end_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "lease_end_date"
+    ],
+    "expression": "lease_end_date IS NOT NULL AND LENGTH(TRIM(lease_end_date)) > 0",
+    "severity": "fail",
+    "description": "lease_end_date is required for Lease Agreement extraction."
+  },
+  {
+    "name": "base_rent_amount_present",
+    "rule_type": "presence",
+    "fields": [
+      "base_rent_amount"
+    ],
+    "expression": "base_rent_amount IS NOT NULL AND LENGTH(TRIM(base_rent_amount)) > 0",
+    "severity": "fail",
+    "description": "base_rent_amount is required for Lease Agreement extraction."
+  },
+  {
+    "name": "base_rent_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "base_rent_amount"
+    ],
+    "expression": "base_rent_amount IS NULL OR base_rent_amount >= 0",
+    "severity": "warn",
+    "description": "base_rent_amount should be non-negative when present."
+  },
+  {
+    "name": "security_deposit_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "security_deposit_amount"
+    ],
+    "expression": "security_deposit_amount IS NULL OR security_deposit_amount >= 0",
+    "severity": "warn",
+    "description": "security_deposit_amount should be non-negative when present."
+  }
+]

@@ -14,139 +14,270 @@
       "name": "report_date",
       "type": "date",
       "required": false,
-      "description": "Date the laboratory report was finalized/issued, format YYYY-MM-DD"
+      "description": "Date the laboratory report was finalized/issued, format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "collection_date",
       "type": "date",
       "required": false,
-      "description": "Date the specimen was collected from the patient, format YYYY-MM-DD"
+      "description": "Date the specimen was collected from the patient, format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "received_date",
       "type": "date",
       "required": false,
-      "description": "Date the specimen was received by the laboratory, format YYYY-MM-DD"
+      "description": "Date the specimen was received by the laboratory, format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "ordering_provider_name",
       "type": "string",
       "required": false,
-      "description": "Full name of the clinician who ordered the tests"
+      "description": "Full name of the clinician who ordered the tests",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "ordering_provider_npi",
       "type": "string",
       "required": false,
-      "description": "NPI of the ordering provider — 10-digit numeric; null if not printed on report"
+      "description": "NPI of the ordering provider \u2014 10-digit numeric; null if not printed on report",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "patient_name",
       "type": "string",
       "required": false,
-      "description": "Full name of the patient"
+      "description": "Full name of the patient",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "patient_dob",
       "type": "string",
       "required": false,
-      "description": "Patient date of birth, format YYYY-MM-DD"
+      "description": "Patient date of birth, format YYYY-MM-DD",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "patient_mrn",
       "type": "string",
       "required": true,
-      "description": "Patient Medical Record Number assigned by the ordering facility"
+      "description": "Patient Medical Record Number assigned by the ordering facility",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "lab_name",
       "type": "string",
       "required": false,
-      "description": "Name of the laboratory that performed the testing"
+      "description": "Name of the laboratory that performed the testing",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "lab_clia_number",
       "type": "string",
       "required": false,
-      "description": "CLIA certificate number of the performing laboratory (format: two-digit state code + 7 digits, e.g., \"45D0123456\")"
+      "description": "CLIA certificate number of the performing laboratory (format: two-digit state code + 7 digits, e.g., \"45D0123456\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "specimen_type",
       "type": "string",
       "required": false,
-      "description": "Type of biological specimen tested. One of: Blood | Urine | Swab | CSF | Stool | Sputum | Tissue | Pleural_Fluid | Serum | Plasma | Other"
+      "description": "Type of biological specimen tested. One of: Blood | Urine | Swab | CSF | Stool | Sputum | Tissue | Pleural_Fluid | Serum | Plasma | Other",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "test_results",
       "type": "array<string>",
       "required": false,
-      "description": "Array of individual test result objects. For each test result line, extract:"
+      "description": "Array of individual test result objects. For each test result line, extract:",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "test_name",
       "type": "string",
       "required": false,
-      "description": "Name of the test as printed on the report (e.g., \"Hemoglobin\", \"Glucose\", \"Creatinine\")"
+      "description": "Name of the test as printed on the report (e.g., \"Hemoglobin\", \"Glucose\", \"Creatinine\")",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "loinc_code",
       "type": "string",
       "required": false,
-      "description": "LOINC code if printed on report (e.g., \"718-7\"); null if not present"
+      "description": "LOINC code if printed on report (e.g., \"718-7\"); null if not present",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "result_value",
       "type": "number",
       "required": false,
-      "description": "The result value as a string (e.g., \"14.2\", \">1000\", \"POSITIVE\", \"RESISTANT\")"
+      "description": "The result value as a string (e.g., \"14.2\", \">1000\", \"POSITIVE\", \"RESISTANT\")",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "unit",
       "type": "string",
       "required": false,
-      "description": "Unit of measure (e.g., \"g/dL\", \"mg/dL\", \"K/uL\"). Null for qualitative results"
+      "description": "Unit of measure (e.g., \"g/dL\", \"mg/dL\", \"K/uL\"). Null for qualitative results",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "reference_range",
       "type": "string",
       "required": false,
-      "description": "Normal reference range as a string (e.g., \"13.5-17.5\", \"<100\", \"Negative\"). Null if not provided"
+      "description": "Normal reference range as a string (e.g., \"13.5-17.5\", \"<100\", \"Negative\"). Null if not provided",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "flag",
       "type": "string",
       "required": false,
-      "description": "Abnormality flag. One of: H (High) | L (Low) | C (Critical) | null (Normal/Not flagged)"
+      "description": "Abnormality flag. One of: H (High) | L (Low) | C (Critical) | null (Normal/Not flagged)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "status",
       "type": "string",
       "required": false,
-      "description": "Result status. One of: Final | Preliminary | Corrected | Cancelled"
+      "description": "Result status. One of: Final | Preliminary | Corrected | Cancelled",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "overall_status",
       "type": "string",
       "required": false,
-      "description": "Overall status of the lab report. One of: Final | Preliminary | Corrected | Cancelled"
+      "description": "Overall status of the lab report. One of: Final | Preliminary | Corrected | Cancelled",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "critical_values_present",
       "type": "boolean",
       "required": false,
-      "description": "Boolean — true if ANY result in this report has a Critical (C) flag or is labeled \"Critical Value\" or \"Panic Value\" in the report"
+      "description": "Boolean \u2014 true if ANY result in this report has a Critical (C) flag or is labeled \"Critical Value\" or \"Panic Value\" in the report",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "pathologist_name",
       "type": "string",
       "required": false,
-      "description": "Name of the reviewing/verifying pathologist or laboratory director if signed on report. Null if not present"
+      "description": "Name of the reviewing/verifying pathologist or laboratory director if signed on report. Null if not present",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "clinical_notes",
       "type": "string",
       "required": false,
-      "description": "Free-text comments, interpretation notes, or footnotes appended to the report by the laboratory. Maximum 400 characters. Null if none"
+      "description": "Free-text comments, interpretation notes, or footnotes appended to the report by the laboratory. Maximum 400 characters. Null if none",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "collection_date",
+        "received_date",
+        "report_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "clinical_notes",
+        "flag",
+        "lab_clia_number",
+        "loinc_code",
+        "ordering_provider_npi",
+        "patient_dob",
+        "patient_mrn",
+        "reference_range",
+        "specimen_type",
+        "test_results",
+        "unit"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "critical_values_present",
+        "result_value"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "lab_name",
+        "ordering_provider_name",
+        "pathologist_name",
+        "patient_name",
+        "test_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "overall_status",
+        "status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "patient_mrn"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

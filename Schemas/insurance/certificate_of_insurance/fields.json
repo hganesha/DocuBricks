@@ -14,85 +14,220 @@
       "name": "certificate_date",
       "type": "date",
       "required": false,
-      "description": "Date the certificate was issued."
+      "description": "Date the certificate was issued.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "producer_name",
       "type": "string",
       "required": false,
-      "description": "Insurance producer or agency."
+      "description": "Insurance producer or agency.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "insured_name",
       "type": "string",
       "required": true,
-      "description": "Insured party named on the certificate."
+      "description": "Insured party named on the certificate.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "certificate_holder_name",
       "type": "string",
       "required": true,
-      "description": "Certificate holder."
+      "description": "Certificate holder.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "carrier_names",
       "type": "array<string>",
       "required": false,
-      "description": "Insurers affording coverage."
+      "description": "Insurers affording coverage.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "policy_numbers",
       "type": "array<string>",
       "required": false,
-      "description": "Policy numbers shown on the certificate."
+      "description": "Policy numbers shown on the certificate.",
+      "section": "risk_and_compliance",
+      "category": "array"
     },
     {
       "name": "coverage_lines",
       "type": "array<string>",
       "required": true,
-      "description": "Coverage types listed."
+      "description": "Coverage types listed.",
+      "section": "line_items",
+      "category": "array"
     },
     {
       "name": "effective_dates",
       "type": "array<string>",
       "required": false,
-      "description": "Effective dates by coverage line."
+      "description": "Effective dates by coverage line.",
+      "section": "dates_and_terms",
+      "category": "array"
     },
     {
       "name": "expiration_dates",
       "type": "array<string>",
       "required": false,
-      "description": "Expiration dates by coverage line."
+      "description": "Expiration dates by coverage line.",
+      "section": "dates_and_terms",
+      "category": "array"
     },
     {
       "name": "limits",
       "type": "array<object>",
       "required": false,
-      "description": "Limits by coverage line or limit type."
+      "description": "Limits by coverage line or limit type.",
+      "section": "document_details",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "limit_type",
+          "type": "string",
+          "description": "Type or class for limits item."
+        },
+        {
+          "name": "limit_description",
+          "type": "string",
+          "description": "Description for limits item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount or value when stated."
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "Relevant item date when stated."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Item status or disposition when stated."
+        }
+      ]
     },
     {
       "name": "additional_insured_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Whether additional insured status is indicated."
+      "description": "Whether additional insured status is indicated.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "waiver_of_subrogation_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Whether waiver of subrogation is indicated."
+      "description": "Whether waiver of subrogation is indicated.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "description_of_operations",
       "type": "string",
       "required": false,
-      "description": "Operations, locations, vehicles, or remarks."
+      "description": "Operations, locations, vehicles, or remarks.",
+      "section": "document_details",
+      "category": "operational"
     },
     {
       "name": "cancellation_notice_text",
       "type": "string",
       "required": false,
-      "description": "Cancellation notice language."
+      "description": "Cancellation notice language.",
+      "section": "document_details",
+      "category": "regulatory"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "certificate_date",
+        "effective_dates",
+        "expiration_dates"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "cancellation_notice_text",
+        "description_of_operations",
+        "limits",
+        "waiver_of_subrogation_indicator"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "coverage_lines"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "additional_insured_indicator",
+        "carrier_names",
+        "certificate_holder_name",
+        "insured_name",
+        "producer_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "policy_numbers"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "insured_name",
+        "certificate_holder_name",
+        "coverage_lines"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "line_items",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "limits"
+      ]
     }
   ]
 }

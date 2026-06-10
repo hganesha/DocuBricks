@@ -14,109 +14,288 @@
       "name": "schedule_date",
       "type": "date",
       "required": false,
-      "description": "Date of schedule."
+      "description": "Date of schedule.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "borrower_name",
       "type": "string",
       "required": true,
-      "description": "Borrower or owner of collateral."
+      "description": "Borrower or owner of collateral.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "lender_name",
       "type": "string",
       "required": false,
-      "description": "Secured party or lender."
+      "description": "Secured party or lender.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "agreement_reference",
       "type": "string",
       "required": false,
-      "description": "Loan/security agreement referenced."
+      "description": "Loan/security agreement referenced.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "collateral_category",
       "type": "string",
       "required": false,
-      "description": "Accounts receivable, inventory, equipment, real estate, deposit accounts, securities, vehicles, mixed, or other."
+      "description": "Accounts receivable, inventory, equipment, real estate, deposit accounts, securities, vehicles, mixed, or other.",
+      "section": "property_or_asset",
+      "category": "operational"
     },
     {
       "name": "collateral_description",
       "type": "string",
       "required": true,
-      "description": "General description of collateral."
+      "description": "General description of collateral.",
+      "section": "property_or_asset",
+      "category": "operational"
     },
     {
       "name": "collateral_location",
       "type": "string",
       "required": false,
-      "description": "Location of collateral if stated."
+      "description": "Location of collateral if stated.",
+      "section": "property_or_asset",
+      "category": "operational"
     },
     {
       "name": "total_collateral_value",
       "type": "number",
       "required": false,
-      "description": "Total stated value."
+      "description": "Total stated value.",
+      "section": "property_or_asset",
+      "category": "financial"
     },
     {
       "name": "eligible_collateral_value",
       "type": "number",
       "required": false,
-      "description": "Eligible value after exclusions/reserves."
+      "description": "Eligible value after exclusions/reserves.",
+      "section": "property_or_asset",
+      "category": "financial"
     },
     {
       "name": "advance_rate_percent",
       "type": "number",
       "required": false,
-      "description": "Advance rate percentage."
+      "description": "Advance rate percentage.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "borrowing_base_amount",
       "type": "number",
       "required": false,
-      "description": "Borrowing base amount."
+      "description": "Borrowing base amount.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "appraisal_date",
       "type": "date",
       "required": false,
-      "description": "Appraisal or valuation date."
+      "description": "Appraisal or valuation date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "valuation_method",
       "type": "string",
       "required": false,
-      "description": "Appraisal, book value, market value, invoice value, NADA, or other."
+      "description": "Appraisal, book value, market value, invoice value, NADA, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "lien_position",
       "type": "string",
       "required": false,
-      "description": "First priority, second priority, subordinated, unknown, or other."
+      "description": "First priority, second priority, subordinated, unknown, or other.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "prior_liens_amount",
       "type": "number",
       "required": false,
-      "description": "Amount of prior liens if stated."
+      "description": "Amount of prior liens if stated.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "insurance_required",
       "type": "boolean",
       "required": false,
-      "description": "Whether insurance is required or referenced."
+      "description": "Whether insurance is required or referenced.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "perfection_method",
       "type": "string",
       "required": false,
-      "description": "UCC filing, possession, control agreement, title lien, mortgage, or other."
+      "description": "UCC filing, possession, control agreement, title lien, mortgage, or other.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "collateral_items",
       "type": "array<object>",
       "required": false,
-      "description": "Item-level collateral entries with item_id, description, value, location, serial_number, vin, or account_number_masked when present."
+      "description": "Item-level collateral entries with item_id, description, value, location, serial_number, vin, or account_number_masked when present.",
+      "section": "property_or_asset",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "asset_id",
+          "type": "string",
+          "description": "Unique asset, collateral, VIN, serial, parcel, or internal identifier."
+        },
+        {
+          "name": "asset_type",
+          "type": "string",
+          "description": "Collateral type such as equipment, inventory, receivable, vehicle, real estate, cash, or securities."
+        },
+        {
+          "name": "asset_description",
+          "type": "string",
+          "description": "Specific asset or collateral description."
+        },
+        {
+          "name": "owner_name",
+          "type": "string",
+          "description": "Owner or pledgor of the asset."
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "description": "Physical or custodial location of the asset."
+        },
+        {
+          "name": "value_amount",
+          "type": "number",
+          "description": "Stated value for the asset."
+        },
+        {
+          "name": "valuation_date",
+          "type": "date",
+          "description": "Date of valuation or appraisal."
+        },
+        {
+          "name": "lien_position",
+          "type": "string",
+          "description": "Lien priority for the asset."
+        },
+        {
+          "name": "perfection_status",
+          "type": "string",
+          "description": "Perfected, unperfected, pending, expired, or unknown perfection status."
+        },
+        {
+          "name": "insurance_status",
+          "type": "string",
+          "description": "Insurance coverage status if stated."
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "appraisal_date",
+        "schedule_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "agreement_reference",
+        "insurance_required",
+        "valuation_method"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "advance_rate_percent",
+        "borrowing_base_amount",
+        "prior_liens_amount"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "borrower_name",
+        "lender_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "collateral_category",
+        "collateral_description",
+        "collateral_items",
+        "collateral_location",
+        "eligible_collateral_value",
+        "total_collateral_value"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "lien_position",
+        "perfection_method"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "borrower_name",
+        "collateral_description"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "collateral_items"
+      ]
     }
   ]
 }

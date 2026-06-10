@@ -36,7 +36,7 @@ HEALTHCARE_DOC_TYPES = (
 )
 
 REQUIRED_SCHEMA_FILES = (
-    "prompt_v1.txt",
+    "fields.json",
     "validation_rules.json",
     "field_thresholds.json",
     "model_routing.json",
@@ -131,6 +131,28 @@ def _validate_field_schema(
         missing.append(f"{path}: fields must be a non-empty list")
         return
 
+    sections = data.get("sections")
+    if not isinstance(sections, list) or not sections:
+        missing.append(f"{path}: sections must be a non-empty list")
+        section_ids: set[str] = set()
+    else:
+        section_ids = set()
+        for index, section in enumerate(sections):
+            if not isinstance(section, dict):
+                missing.append(f"{path}: sections[{index}] must be an object")
+                continue
+            section_id = section.get("id")
+            if not isinstance(section_id, str) or not section_id:
+                missing.append(f"{path}: sections[{index}].id must be a non-empty string")
+            else:
+                section_ids.add(section_id)
+            if not isinstance(section.get("title"), str) or not section.get("title"):
+                missing.append(f"{path}: sections[{index}].title must be a non-empty string")
+
+    checklist = data.get("completeness_checklist")
+    if not isinstance(checklist, list) or not checklist:
+        missing.append(f"{path}: completeness_checklist must be a non-empty list")
+
     seen: set[str] = set()
     required_field_keys = {"name", "type", "required", "description"}
     for index, field in enumerate(fields):
@@ -155,6 +177,38 @@ def _validate_field_schema(
             missing.append(f"{path}: fields[{index}].required must be a boolean")
         if not isinstance(field.get("description"), str):
             missing.append(f"{path}: fields[{index}].description must be a string")
+        section = field.get("section")
+        if not isinstance(section, str) or not section:
+            missing.append(f"{path}: fields[{index}].section must be a non-empty string")
+        elif section_ids and section not in section_ids:
+            missing.append(f"{path}: fields[{index}].section '{section}' is not declared in sections")
+        if not isinstance(field.get("category"), str) or not field.get("category"):
+            missing.append(f"{path}: fields[{index}].category must be a non-empty string")
+        if field.get("type") == "array<object>":
+            item_schema = field.get("item_schema")
+            if not isinstance(item_schema, list) or not item_schema:
+                missing.append(f"{path}: fields[{index}].item_schema must be a non-empty list")
+            else:
+                seen_item_names: set[str] = set()
+                for item_index, item_field in enumerate(item_schema):
+                    if not isinstance(item_field, dict):
+                        missing.append(
+                            f"{path}: fields[{index}].item_schema[{item_index}] must be an object"
+                        )
+                        continue
+                    for key in ("name", "type", "description"):
+                        if not isinstance(item_field.get(key), str) or not item_field.get(key):
+                            missing.append(
+                                f"{path}: fields[{index}].item_schema[{item_index}].{key} "
+                                "must be a non-empty string"
+                            )
+                    item_name = item_field.get("name")
+                    if isinstance(item_name, str) and item_name:
+                        if item_name in seen_item_names:
+                            missing.append(
+                                f"{path}: fields[{index}].item_schema duplicate field '{item_name}'"
+                            )
+                        seen_item_names.add(item_name)
 
 
 def _validate_available_field_schemas(schema_root: Path, missing: list[str]) -> None:
@@ -334,6 +388,15 @@ def _check_required_fields_have_thresholds(
         for f in fields_data.get("fields", [])
         if isinstance(f, dict) and f.get("required") is True and "name" in f
     }
+    if isinstance(threshold_data, list):
+        missing.append(
+            f"{thresholds_path}: field_thresholds.json uses legacy array format; "
+            "required field coverage cannot be evaluated"
+        )
+        return
+    if not isinstance(threshold_data, dict):
+        missing.append(f"{thresholds_path}: field_thresholds.json must be an object")
+        return
     # threshold_data keys are field names; skip the catalog-level "default_threshold"
     threshold_names = set(threshold_data.keys()) - {"default_threshold"}
     uncovered = sorted(required_names - threshold_names)
@@ -369,6 +432,16 @@ def _check_golden_test_tags(doc_path: Path, warnings: list[str]) -> None:
             continue
         if not data.get("tags"):
             warnings.append(f"{test_file}: golden test missing 'tags' field")
+
+
+def _check_no_bundle_local_prompt(doc_path: Path, warnings: list[str]) -> None:
+    """Hard-fail when a bundle still has a local prompt copy (prompt_v1.txt must not exist)."""
+    legacy = doc_path / "prompt_v1.txt"
+    if legacy.exists():
+        warnings.append(
+            f"{legacy}: bundle-local prompt_v1.txt should be removed "
+            "(prompts are now sourced exclusively from prompt_catalog.json)"
+        )
 
 
 def validate_schema_assets(
@@ -468,6 +541,7 @@ def validate_schema_assets(
         )
         _check_default_threshold(doc_path / "field_thresholds.json", missing)
         _check_golden_test_tags(doc_path, warnings)
+        _check_no_bundle_local_prompt(doc_path, missing)
 
     return SchemaCoverageResult(
         ok=not missing,

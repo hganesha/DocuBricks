@@ -1,0 +1,32 @@
+{
+  "test_case_id": "nonconformance_report_001",
+  "document_type": "nonconformance_report",
+  "description": "Seed golden test for Nonconformance Report",
+  "tags": [
+    "happy_path",
+    "manufacturing_quality",
+    "seed"
+  ],
+  "parsed_text": "NONCONFORMANCE REPORT\nNCR Number: NCR-2026-0338\nOpened Date: 2026-05-02\nPart Number: BRKT-2207-L\nLot Number: LOT-PRM-050126-2\nSupplier/Work Center: Press Cell 2\nDescription: mounting hole diameter measured 0.018 inch oversize on sampled brackets\nDetected By: final inspection station QI-4\nQuantity Affected: 46\nContainment Actions: quarantined lot; stopped press cell; notified production supervisor\nRoot Cause: worn punch tooling exceeded preventive maintenance interval\nDisposition: Rework\nMRB Owner: Carlos Rivera\nClosure Date: 2026-05-06\nStatus: Closed",
+  "expected_json": {
+    "ncr_number": "NCR-2026-0338",
+    "ncr_date": "2026-05-02",
+    "part_number": "BRKT-2207-L",
+    "lot_number": "LOT-PRM-050126-2",
+    "supplier_or_work_center": "Press Cell 2",
+    "nonconformance_description": "mounting hole diameter measured 0.018 inch oversize on sampled brackets",
+    "detected_by": "final inspection station QI-4",
+    "quantity_affected": 46,
+    "containment_actions": [
+      "quarantined lot",
+      "stopped press cell",
+      "notified production supervisor"
+    ],
+    "root_cause_summary": "worn punch tooling exceeded preventive maintenance interval",
+    "disposition": "Rework",
+    "mrb_owner": "Carlos Rivera",
+    "closure_date": "2026-05-06",
+    "status": "Closed"
+  },
+  "expected_avg_confidence": 0.92
+}

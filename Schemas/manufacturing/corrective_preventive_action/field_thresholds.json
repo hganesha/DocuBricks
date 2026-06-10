@@ -1,0 +1,45 @@
+{
+  "default_threshold": 0.75,
+  "capa_number": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Corrective Preventive Action workflow."
+  },
+  "problem_statement": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Corrective Preventive Action workflow."
+  },
+  "root_cause": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Corrective Preventive Action workflow."
+  },
+  "owner_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Corrective Preventive Action workflow."
+  },
+  "target_completion_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Corrective Preventive Action workflow."
+  },
+  "opened_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Corrective preventive action extraction."
+  }
+}

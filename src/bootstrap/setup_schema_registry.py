@@ -76,6 +76,35 @@ INSURANCE_DOC_TYPES = [
     "insurance_claim_denial_letter",
 ]
 
+MANUFACTURING_DOC_TYPES = [
+    "purchase_order",
+    "bill_of_materials",
+    "receiving_report",
+    "supplier_scorecard",
+    "quality_inspection_report",
+    "certificate_of_analysis",
+    "nonconformance_report",
+    "corrective_preventive_action",
+]
+
+REAL_ESTATE_DOC_TYPES = [
+    "lease_agreement",
+    "purchase_agreement",
+    "closing_statement",
+    "deed",
+    "real_estate_transactions_title_commitment",
+    "property_management_agreement",
+    "rent_roll",
+    "tenant_estoppel_certificate",
+]
+
+ENERGY_DOC_TYPES = [
+    "daily_drilling_report",
+    "well_completion_report",
+    "production_report",
+    "field_ticket",
+]
+
 TIER_SCHEMA_MAP: dict[str, dict[str, list[str]]] = {
     "community": {
         "fs": ["mortgage_application", "kyc_cdd_form", "aml_sar", "invoice"],
@@ -102,6 +131,9 @@ TIER_SCHEMA_MAP: dict[str, dict[str, list[str]]] = {
         "healthcare": ["eob_cms1500", "clinical_note_soap", "lab_report", "prior_auth"],
         "legal":      ["nda_msa", "sow", "regulatory_submission", "court_filing", "litigation_case_file"],
         "insurance":  INSURANCE_DOC_TYPES,
+        "manufacturing": MANUFACTURING_DOC_TYPES,
+        "real_estate": REAL_ESTATE_DOC_TYPES,
+        "energy": ENERGY_DOC_TYPES,
     },
 }
 
@@ -156,6 +188,26 @@ REGULATORY_ALIGNMENT = {
     "proof_of_loss": "Sworn proof of loss, claim valuation, deductible, mortgagee/loss payee, and supporting evidence review",
     "claims_adjuster_report": "Claims adjusting, damage scope, reserve recommendation, coverage analysis, and subrogation review",
     "insurance_claim_denial_letter": "Claims denial, coverage determination, policy provisions, appeal rights, and regulatory notice controls",
+    "purchase_order": "Procurement controls, supplier commitments, receiving match, inventory planning, and AP three-way match",
+    "bill_of_materials": "Product structure, engineering change control, material planning, and manufacturing revision governance",
+    "receiving_report": "Goods receipt, inventory controls, PO match, supplier quality hold, and receiving disposition",
+    "supplier_scorecard": "Supplier performance, quality PPM, delivery metrics, corrective actions, and supplier tier governance",
+    "quality_inspection_report": "Manufacturing inspection, sampling, dimensional checks, lot release, and quality disposition",
+    "certificate_of_analysis": "Material certification, lot traceability, test methods, specification conformance, and release evidence",
+    "nonconformance_report": "Nonconforming material control, containment, MRB disposition, root cause, and closure tracking",
+    "corrective_preventive_action": "CAPA remediation, root cause, corrective actions, preventive actions, and effectiveness checks",
+    "lease_agreement": "Lease abstraction, parties, premises, rent, term, options, CAM, assignment, and guaranty obligations",
+    "purchase_agreement": "Real estate acquisition, purchase price, contingencies, escrow, closing, title, and due diligence controls",
+    "closing_statement": "Settlement statement, title charges, prorations, payoffs, closing funds, and recording evidence",
+    "deed": "Real estate conveyance, grantor/grantee, legal description, recording, consideration, and transfer tax review",
+    "real_estate_transactions_title_commitment": "Title commitment, vesting, requirements, exceptions, title insurance, and parcel diligence",
+    "property_management_agreement": "Property manager authority, fee terms, rent collection, reporting, termination, and operating controls",
+    "rent_roll": "Rent roll, tenant occupancy, lease economics, arrears, vacancies, and property revenue diligence",
+    "tenant_estoppel_certificate": "Tenant estoppel, lease status, rent, deposits, defaults, claims, options, and diligence certification",
+    "daily_drilling_report": "Daily drilling operations, depth, rig activity, mud properties, NPT, safety, and next-day planning",
+    "well_completion_report": "Well completion, stages, proppant, fluid, perforations, service company, and initial production evidence",
+    "production_report": "Oil and gas production accounting, volumes, downtime, meter readings, tank inventory, and operations comments",
+    "field_ticket": "Energy field service ticketing, customer approval, equipment, labor, materials, and field cost capture",
 }
 
 # ---------------------------------------------------------------------------
@@ -525,6 +577,26 @@ DOC_TYPE_DISPLAY = {
     "proof_of_loss":                    "Proof of Loss",
     "claims_adjuster_report":           "Claims Adjuster Report",
     "insurance_claim_denial_letter":    "Insurance Claim Denial Letter",
+    "purchase_order":                   "Purchase Order",
+    "bill_of_materials":                "Bill of Materials",
+    "receiving_report":                 "Receiving Report",
+    "supplier_scorecard":               "Supplier Scorecard",
+    "quality_inspection_report":        "Quality Inspection Report",
+    "certificate_of_analysis":          "Certificate of Analysis",
+    "nonconformance_report":            "Nonconformance Report",
+    "corrective_preventive_action":     "Corrective Preventive Action",
+    "lease_agreement":                  "Lease Agreement",
+    "purchase_agreement":               "Purchase Agreement",
+    "closing_statement":                "Closing Statement",
+    "deed":                             "Deed",
+    "real_estate_transactions_title_commitment": "Title Commitment",
+    "property_management_agreement":    "Property Management Agreement",
+    "rent_roll":                        "Rent Roll",
+    "tenant_estoppel_certificate":      "Tenant Estoppel Certificate",
+    "daily_drilling_report":            "Daily Drilling Report",
+    "well_completion_report":           "Well Completion Report",
+    "production_report":                "Production Report",
+    "field_ticket":                     "Field Ticket",
 }
 
 def load_document_type_label(doc_type: str) -> str:

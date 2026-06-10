@@ -14,121 +14,244 @@
       "name": "application_date",
       "type": "date",
       "required": false,
-      "description": "Date the merchant application was submitted."
+      "description": "Date the merchant application was submitted.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "merchant_legal_name",
       "type": "string",
       "required": true,
-      "description": "Merchant legal entity name."
+      "description": "Merchant legal entity name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "merchant_dba_name",
       "type": "string",
       "required": false,
-      "description": "Doing-business-as name."
+      "description": "Doing-business-as name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "merchant_tax_id_masked",
       "type": "string",
       "required": false,
-      "description": "Masked EIN or tax identifier."
+      "description": "Masked EIN or tax identifier.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "merchant_category_code",
       "type": "string",
       "required": false,
-      "description": "MCC if stated."
+      "description": "MCC if stated.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "business_type",
       "type": "string",
       "required": false,
-      "description": "Retail, ecommerce, restaurant, marketplace, services, or other."
+      "description": "Retail, ecommerce, restaurant, marketplace, services, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "website_url",
       "type": "string",
       "required": false,
-      "description": "Merchant website or app URL."
+      "description": "Merchant website or app URL.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "processing_channels",
       "type": "array<string>",
       "required": false,
-      "description": "Card-present, ecommerce, mobile, keyed, ACH, or other channels."
+      "description": "Card-present, ecommerce, mobile, keyed, ACH, or other channels.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "estimated_monthly_volume",
       "type": "number",
       "required": true,
-      "description": "Estimated monthly processing volume."
+      "description": "Estimated monthly processing volume.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "average_ticket_amount",
       "type": "number",
       "required": false,
-      "description": "Average transaction amount."
+      "description": "Average transaction amount.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "high_ticket_amount",
       "type": "number",
       "required": false,
-      "description": "Highest expected transaction amount."
+      "description": "Highest expected transaction amount.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "refund_policy",
       "type": "string",
       "required": false,
-      "description": "Refund, cancellation, or return policy summary."
+      "description": "Refund, cancellation, or return policy summary.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "chargeback_history",
       "type": "string",
       "required": false,
-      "description": "Prior chargeback history or ratio."
+      "description": "Prior chargeback history or ratio.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "reserve_required",
       "type": "boolean",
       "required": false,
-      "description": "Whether reserve or holdback is required."
+      "description": "Whether reserve or holdback is required.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "reserve_terms",
       "type": "string",
       "required": false,
-      "description": "Reserve amount, percentage, or duration."
+      "description": "Reserve amount, percentage, or duration.",
+      "section": "dates_and_terms",
+      "category": "financial"
     },
     {
       "name": "beneficial_owner_names",
       "type": "array<string>",
       "required": false,
-      "description": "Beneficial owners listed in application."
+      "description": "Beneficial owners listed in application.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "principal_signer_name",
       "type": "string",
       "required": false,
-      "description": "Principal or authorized signer."
+      "description": "Principal or authorized signer.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "risk_rating",
       "type": "string",
       "required": false,
-      "description": "Merchant risk rating."
+      "description": "Merchant risk rating.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
     },
     {
       "name": "underwriting_decision",
       "type": "string",
       "required": false,
-      "description": "Approved, declined, conditional, pending, or other."
+      "description": "Approved, declined, conditional, pending, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "approval_conditions",
       "type": "array<string>",
       "required": false,
-      "description": "Underwriting conditions."
+      "description": "Underwriting conditions.",
+      "section": "risk_and_compliance",
+      "category": "array"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "application_date",
+        "reserve_terms"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "business_type",
+        "chargeback_history",
+        "estimated_monthly_volume",
+        "merchant_category_code",
+        "processing_channels",
+        "underwriting_decision",
+        "website_url"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "average_ticket_amount",
+        "high_ticket_amount",
+        "merchant_tax_id_masked",
+        "reserve_required"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "beneficial_owner_names",
+        "merchant_dba_name",
+        "merchant_legal_name",
+        "principal_signer_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "approval_conditions",
+        "refund_policy",
+        "risk_rating"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "merchant_legal_name",
+        "estimated_monthly_volume"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

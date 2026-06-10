@@ -1,0 +1,72 @@
+[
+  {
+    "name": "agreement_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "agreement_date"
+    ],
+    "expression": "agreement_date IS NOT NULL AND LENGTH(TRIM(agreement_date)) > 0",
+    "severity": "fail",
+    "description": "agreement_date is required for Property Management Agreement extraction."
+  },
+  {
+    "name": "owner_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "owner_name"
+    ],
+    "expression": "owner_name IS NOT NULL AND LENGTH(TRIM(owner_name)) > 0",
+    "severity": "fail",
+    "description": "owner_name is required for Property Management Agreement extraction."
+  },
+  {
+    "name": "manager_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "manager_name"
+    ],
+    "expression": "manager_name IS NOT NULL AND LENGTH(TRIM(manager_name)) > 0",
+    "severity": "fail",
+    "description": "manager_name is required for Property Management Agreement extraction."
+  },
+  {
+    "name": "property_address_present",
+    "rule_type": "presence",
+    "fields": [
+      "property_address"
+    ],
+    "expression": "property_address IS NOT NULL AND LENGTH(TRIM(property_address)) > 0",
+    "severity": "fail",
+    "description": "property_address is required for Property Management Agreement extraction."
+  },
+  {
+    "name": "management_start_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "management_start_date"
+    ],
+    "expression": "management_start_date IS NOT NULL AND LENGTH(TRIM(management_start_date)) > 0",
+    "severity": "fail",
+    "description": "management_start_date is required for Property Management Agreement extraction."
+  },
+  {
+    "name": "management_fee_terms_present",
+    "rule_type": "presence",
+    "fields": [
+      "management_fee_terms"
+    ],
+    "expression": "management_fee_terms IS NOT NULL AND LENGTH(TRIM(management_fee_terms)) > 0",
+    "severity": "fail",
+    "description": "management_fee_terms is required for Property Management Agreement extraction."
+  },
+  {
+    "name": "termination_notice_days_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "termination_notice_days"
+    ],
+    "expression": "termination_notice_days IS NULL OR termination_notice_days >= 0",
+    "severity": "warn",
+    "description": "termination_notice_days should be non-negative when present."
+  }
+]

@@ -1,0 +1,214 @@
+{
+  "document_type": "bill_of_materials",
+  "vertical": "manufacturing",
+  "family": "procurement_supply_chain",
+  "schema_version": "manufacturing_bill_of_materials_v1",
+  "fields": [
+    {
+      "name": "bom_number",
+      "type": "string",
+      "required": true,
+      "description": "BOM number or identifier.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "bom_revision",
+      "type": "string",
+      "required": true,
+      "description": "BOM revision level.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "parent_part_number",
+      "type": "string",
+      "required": true,
+      "description": "Parent assembly or finished good part number.",
+      "section": "property_or_asset",
+      "category": "financial"
+    },
+    {
+      "name": "parent_part_description",
+      "type": "string",
+      "required": false,
+      "description": "Parent part description.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "effective_date",
+      "type": "date",
+      "required": false,
+      "description": "BOM effective date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "plant_or_site",
+      "type": "string",
+      "required": false,
+      "description": "Plant, site, or manufacturing location.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "engineering_change_order",
+      "type": "string",
+      "required": false,
+      "description": "Related engineering change order.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "component_items",
+      "type": "array<object>",
+      "required": true,
+      "description": "Component list with part number, quantity, unit, revision, and scrap factor.",
+      "section": "line_items",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "line_number",
+          "type": "string",
+          "description": "BOM line number."
+        },
+        {
+          "name": "part_number",
+          "type": "string",
+          "description": "Component part number."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Component description."
+        },
+        {
+          "name": "revision",
+          "type": "string",
+          "description": "Component revision."
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "description": "Component quantity."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "Unit of measure."
+        }
+      ]
+    },
+    {
+      "name": "approved_by",
+      "type": "string",
+      "required": false,
+      "description": "Approver name or function.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "approval_date",
+      "type": "date",
+      "required": false,
+      "description": "Approval date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "bom_status",
+      "type": "string",
+      "required": false,
+      "description": "Released, draft, obsolete, pending, or other status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "approval_date",
+        "effective_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "approved_by",
+        "bom_number",
+        "bom_revision",
+        "engineering_change_order",
+        "plant_or_site"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "parent_part_description"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "component_items"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "parent_part_number"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "bom_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "bom_number",
+        "bom_revision",
+        "parent_part_number",
+        "component_items"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "component_items"
+      ]
+    }
+  ]
+}

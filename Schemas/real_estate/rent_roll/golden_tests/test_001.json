@@ -1,0 +1,57 @@
+{
+  "test_case_id": "rent_roll_001",
+  "document_type": "rent_roll",
+  "description": "Seed golden test for Rent Roll",
+  "tags": [
+    "happy_path",
+    "property_management",
+    "seed"
+  ],
+  "parsed_text": "RENT ROLL\nRent Roll Date: 2026-10-31\nProperty: Maple Ridge Office Center\nAddress: 8200 West Park Avenue, Denver, CO 80221\nOwner: Harborview Capital Partners LLC\nTotal Suites: 12\nOccupied Suites: 10\nOccupancy: 83.3%\nTenants: Suite 100 Alpine Dental lease 2024-01-01 to 2029-12-31 area 8,500 SF monthly rent $18,700 arrears $0; Suite 210 Peak Analytics lease 2025-06-01 to 2028-05-31 area 12,200 SF monthly rent $27,450 arrears $4,200; Suite 300 Front Range Design lease 2023-09-01 to 2026-08-31 area 6,000 SF monthly rent $13,500 arrears $0\nMonthly Scheduled Rent: $214,850\nTotal Delinquent: $4,200\nVacant Suites: 410; 520\nPrepared By: Summit Property Services Inc.",
+  "expected_json": {
+    "rent_roll_date": "2026-10-31",
+    "property_name": "Maple Ridge Office Center",
+    "property_address": "8200 West Park Avenue, Denver, CO 80221",
+    "owner_name": "Harborview Capital Partners LLC",
+    "total_units_or_suites": 12,
+    "occupied_units_or_suites": 10,
+    "occupancy_rate": 83.3,
+    "tenant_entries": [
+      {
+        "suite": "100",
+        "tenant_name": "Alpine Dental",
+        "lease_start_date": "2024-01-01",
+        "lease_end_date": "2029-12-31",
+        "area_sq_ft": 8500,
+        "monthly_rent": 18700.0,
+        "arrears": 0.0
+      },
+      {
+        "suite": "210",
+        "tenant_name": "Peak Analytics",
+        "lease_start_date": "2025-06-01",
+        "lease_end_date": "2028-05-31",
+        "area_sq_ft": 12200,
+        "monthly_rent": 27450.0,
+        "arrears": 4200.0
+      },
+      {
+        "suite": "300",
+        "tenant_name": "Front Range Design",
+        "lease_start_date": "2023-09-01",
+        "lease_end_date": "2026-08-31",
+        "area_sq_ft": 6000,
+        "monthly_rent": 13500.0,
+        "arrears": 0.0
+      }
+    ],
+    "monthly_scheduled_rent": 214850.0,
+    "delinquent_amount": 4200.0,
+    "vacant_units": [
+      "410",
+      "520"
+    ],
+    "report_preparer": "Summit Property Services Inc."
+  },
+  "expected_avg_confidence": 0.92
+}

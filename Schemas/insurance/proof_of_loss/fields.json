@@ -14,91 +14,217 @@
       "name": "claim_number",
       "type": "string",
       "required": true,
-      "description": "Claim number."
+      "description": "Claim number.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "policy_number",
       "type": "string",
       "required": true,
-      "description": "Policy number."
+      "description": "Policy number.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "insured_name",
       "type": "string",
       "required": true,
-      "description": "Insured submitting proof of loss."
+      "description": "Insured submitting proof of loss.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "loss_date",
       "type": "date",
       "required": false,
-      "description": "Date of loss."
+      "description": "Date of loss.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "loss_location",
       "type": "string",
       "required": false,
-      "description": "Location of loss."
+      "description": "Location of loss.",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "cause_of_loss",
       "type": "string",
       "required": false,
-      "description": "Cause or origin of loss."
+      "description": "Cause or origin of loss.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "claimed_amount",
       "type": "number",
       "required": true,
-      "description": "Total amount claimed."
+      "description": "Total amount claimed.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "actual_cash_value",
       "type": "number",
       "required": false,
-      "description": "Actual cash value stated."
+      "description": "Actual cash value stated.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "replacement_cost_value",
       "type": "number",
       "required": false,
-      "description": "Replacement cost value stated."
+      "description": "Replacement cost value stated.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "deductible_amount",
       "type": "number",
       "required": false,
-      "description": "Applicable deductible."
+      "description": "Applicable deductible.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "mortgagee_or_loss_payee",
       "type": "string",
       "required": false,
-      "description": "Mortgagee, lienholder, or loss payee."
+      "description": "Mortgagee, lienholder, or loss payee.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "other_insurance",
       "type": "string",
       "required": false,
-      "description": "Other insurance disclosed."
+      "description": "Other insurance disclosed.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "supporting_documents",
       "type": "array<string>",
       "required": false,
-      "description": "Documents supporting the proof of loss."
+      "description": "Documents supporting the proof of loss.",
+      "section": "line_items",
+      "category": "array"
     },
     {
       "name": "signed_date",
       "type": "date",
       "required": false,
-      "description": "Date signed."
+      "description": "Date signed.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "notary_name",
       "type": "string",
       "required": false,
-      "description": "Notary name if notarized."
+      "description": "Notary name if notarized.",
+      "section": "parties",
+      "category": "identity"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "loss_date",
+        "signed_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "cause_of_loss",
+        "claim_number",
+        "mortgagee_or_loss_payee",
+        "other_insurance"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "actual_cash_value",
+        "claimed_amount",
+        "deductible_amount",
+        "replacement_cost_value"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "supporting_documents"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "insured_name",
+        "notary_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "loss_location"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "policy_number"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "claim_number",
+        "policy_number",
+        "insured_name",
+        "claimed_amount"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

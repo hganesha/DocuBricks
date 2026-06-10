@@ -1,0 +1,92 @@
+[
+  {
+    "name": "ticket_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "ticket_number"
+    ],
+    "expression": "ticket_number IS NOT NULL AND LENGTH(TRIM(ticket_number)) > 0",
+    "severity": "fail",
+    "description": "ticket_number is required for Field Ticket extraction."
+  },
+  {
+    "name": "service_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "service_date"
+    ],
+    "expression": "service_date IS NOT NULL AND LENGTH(TRIM(service_date)) > 0",
+    "severity": "fail",
+    "description": "service_date is required for Field Ticket extraction."
+  },
+  {
+    "name": "operator_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "operator_name"
+    ],
+    "expression": "operator_name IS NOT NULL AND LENGTH(TRIM(operator_name)) > 0",
+    "severity": "fail",
+    "description": "operator_name is required for Field Ticket extraction."
+  },
+  {
+    "name": "service_company_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "service_company_name"
+    ],
+    "expression": "service_company_name IS NOT NULL AND LENGTH(TRIM(service_company_name)) > 0",
+    "severity": "fail",
+    "description": "service_company_name is required for Field Ticket extraction."
+  },
+  {
+    "name": "job_type_present",
+    "rule_type": "presence",
+    "fields": [
+      "job_type"
+    ],
+    "expression": "job_type IS NOT NULL AND LENGTH(TRIM(job_type)) > 0",
+    "severity": "fail",
+    "description": "job_type is required for Field Ticket extraction."
+  },
+  {
+    "name": "total_amount_present",
+    "rule_type": "presence",
+    "fields": [
+      "total_amount"
+    ],
+    "expression": "total_amount IS NOT NULL AND LENGTH(TRIM(total_amount)) > 0",
+    "severity": "fail",
+    "description": "total_amount is required for Field Ticket extraction."
+  },
+  {
+    "name": "subtotal_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "subtotal_amount"
+    ],
+    "expression": "subtotal_amount IS NULL OR subtotal_amount >= 0",
+    "severity": "warn",
+    "description": "subtotal_amount should be non-negative when present."
+  },
+  {
+    "name": "tax_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "tax_amount"
+    ],
+    "expression": "tax_amount IS NULL OR tax_amount >= 0",
+    "severity": "warn",
+    "description": "tax_amount should be non-negative when present."
+  },
+  {
+    "name": "total_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "total_amount"
+    ],
+    "expression": "total_amount IS NULL OR total_amount >= 0",
+    "severity": "warn",
+    "description": "total_amount should be non-negative when present."
+  }
+]

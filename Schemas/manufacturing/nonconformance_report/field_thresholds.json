@@ -1,0 +1,38 @@
+{
+  "default_threshold": 0.75,
+  "ncr_number": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Nonconformance Report workflow."
+  },
+  "part_number": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Nonconformance Report workflow."
+  },
+  "nonconformance_description": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Nonconformance Report workflow."
+  },
+  "disposition": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Nonconformance Report workflow."
+  },
+  "ncr_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Nonconformance report extraction."
+  }
+}

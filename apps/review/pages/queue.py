@@ -26,6 +26,7 @@ from lib.sql_warehouse import wh_query
 from lib.components.field_editor import field_editor
 from lib.components.document_viewer import document_viewer
 from lib.components.confidence_badge import confidence_badge
+from lib.schema_sections import get_schema_meta
 
 # ── Constants ──────────────────────────────────────────────────────────────────
 _SILVER_TABLE: dict[str, str] = {
@@ -223,8 +224,26 @@ def render(session: dict) -> None:
     source_path = item["source_path"]
     conf_score  = item["extraction_conf"]
 
-    # ── Two-column layout ──────────────────────────────────────────────────────
-    left_col, right_col = st.columns([1, 1], gap="large")
+    # ── CSS: sticky document pane + clean tab styling ─────────────────────────
+    st.markdown(
+        """
+        <style>
+        [data-testid="column"]:nth-child(1) > div:first-child {
+            position: sticky;
+            top: 3.5rem;
+        }
+        [data-testid="stTabs"] [data-baseweb="tab"] {
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # ── Two-column layout: doc 55% | fields 45% ───────────────────────────────
+    left_col, right_col = st.columns([55, 45], gap="large")
 
     with left_col:
         st.subheader("Document")
@@ -251,7 +270,7 @@ def render(session: dict) -> None:
         st.markdown(f"**Document ID:** `{document_id}`")
         st.markdown("---")
 
-        # ── Load Silver fields ─────────────────────────────────────────────────
+        # ── Load Silver fields + schema metadata ───────────────────────────────
         fields, conf_scores = _load_silver_fields(document_id, doc_type)
 
         if not fields:
@@ -262,13 +281,29 @@ def render(session: dict) -> None:
             fields = {}
             conf_scores = {}
 
-        st.markdown("**Extracted Fields**")
-        with st.form(key=f"review_form_{review_id}"):
-            corrected = field_editor(
-                fields=fields,
-                confidence_scores=conf_scores,
-                editable=True,
+        schema_meta = get_schema_meta(doc_type)
+
+        # Low-conf summary: count fields needing attention
+        low_count = sum(1 for v in conf_scores.values() if v < 0.65)
+        if low_count:
+            st.markdown(
+                f'<div style="background:#FCE8E6;border-radius:6px;'
+                f'padding:6px 12px;margin-bottom:8px;">'
+                f'<span style="color:#A32D2D;font-size:12px;font-weight:600">'
+                f'⚠ {low_count} field{"s" if low_count != 1 else ""} need attention '
+                f'— check the ⚠ Needs Review tab first</span></div>',
+                unsafe_allow_html=True,
             )
+
+        # ── Scrollable field panel ──────────────────────────────────────────────
+        with st.form(key=f"review_form_{review_id}"):
+            with st.container(height=620, border=False):
+                corrected = field_editor(
+                    fields=fields,
+                    confidence_scores=conf_scores,
+                    editable=True,
+                    schema_meta=schema_meta,
+                )
 
             st.markdown("---")
             btn_col1, btn_col2, btn_col3 = st.columns(3)

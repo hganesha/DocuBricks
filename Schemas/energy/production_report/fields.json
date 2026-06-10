@@ -1,0 +1,210 @@
+{
+  "document_type": "production_report",
+  "vertical": "energy",
+  "family": "energy_production_operations",
+  "schema_version": "energy_production_report_v1",
+  "fields": [
+    {
+      "name": "production_date",
+      "type": "date",
+      "required": true,
+      "description": "Production date or reporting period end date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "lease_name",
+      "type": "string",
+      "required": true,
+      "description": "Lease, unit, or facility name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "operator_name",
+      "type": "string",
+      "required": true,
+      "description": "Operating company.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "well_count",
+      "type": "integer",
+      "required": false,
+      "description": "Number of wells included in the report.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "oil_volume_bbl",
+      "type": "number",
+      "required": true,
+      "description": "Oil production volume in barrels.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "gas_volume_mcf",
+      "type": "number",
+      "required": true,
+      "description": "Gas production volume in thousand cubic feet.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "water_volume_bbl",
+      "type": "number",
+      "required": false,
+      "description": "Produced water volume in barrels.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "ngl_volume_bbl",
+      "type": "number",
+      "required": false,
+      "description": "Natural gas liquids volume in barrels.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "beginning_inventory_bbl",
+      "type": "number",
+      "required": false,
+      "description": "Beginning tank or lease oil inventory.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "ending_inventory_bbl",
+      "type": "number",
+      "required": false,
+      "description": "Ending tank or lease oil inventory.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "sales_volume_bbl",
+      "type": "number",
+      "required": false,
+      "description": "Oil or liquids sales volume.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "flared_gas_mcf",
+      "type": "number",
+      "required": false,
+      "description": "Gas flared volume.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "downtime_hours",
+      "type": "number",
+      "required": false,
+      "description": "Production downtime hours.",
+      "section": "document_details",
+      "category": "temporal"
+    },
+    {
+      "name": "downtime_reason",
+      "type": "string",
+      "required": false,
+      "description": "Reason for downtime or shut-in status.",
+      "section": "document_details",
+      "category": "temporal"
+    },
+    {
+      "name": "purchaser_name",
+      "type": "string",
+      "required": false,
+      "description": "Purchaser, gatherer, or transporter.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "report_preparer",
+      "type": "string",
+      "required": false,
+      "description": "Person or role preparing the report.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "ending_inventory_bbl",
+        "production_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "beginning_inventory_bbl",
+        "downtime_hours",
+        "downtime_reason",
+        "flared_gas_mcf",
+        "gas_volume_mcf",
+        "ngl_volume_bbl",
+        "oil_volume_bbl",
+        "report_preparer",
+        "sales_volume_bbl",
+        "water_volume_bbl"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "lease_name",
+        "operator_name",
+        "purchaser_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "well_count"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "production_date",
+        "lease_name",
+        "operator_name",
+        "oil_volume_bbl",
+        "gas_volume_mcf"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "ncr_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "ncr_number"
+    ],
+    "expression": "ncr_number IS NOT NULL AND LENGTH(TRIM(ncr_number)) > 0",
+    "severity": "fail",
+    "description": "ncr_number is required for Nonconformance Report extraction."
+  },
+  {
+    "name": "ncr_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "ncr_date"
+    ],
+    "expression": "ncr_date IS NOT NULL AND LENGTH(TRIM(ncr_date)) > 0",
+    "severity": "fail",
+    "description": "ncr_date is required for Nonconformance Report extraction."
+  },
+  {
+    "name": "part_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "part_number"
+    ],
+    "expression": "part_number IS NOT NULL AND LENGTH(TRIM(part_number)) > 0",
+    "severity": "fail",
+    "description": "part_number is required for Nonconformance Report extraction."
+  },
+  {
+    "name": "nonconformance_description_present",
+    "rule_type": "presence",
+    "fields": [
+      "nonconformance_description"
+    ],
+    "expression": "nonconformance_description IS NOT NULL AND LENGTH(TRIM(nonconformance_description)) > 0",
+    "severity": "fail",
+    "description": "nonconformance_description is required for Nonconformance Report extraction."
+  },
+  {
+    "name": "disposition_present",
+    "rule_type": "presence",
+    "fields": [
+      "disposition"
+    ],
+    "expression": "disposition IS NOT NULL AND LENGTH(TRIM(disposition)) > 0",
+    "severity": "fail",
+    "description": "disposition is required for Nonconformance Report extraction."
+  },
+  {
+    "name": "quantity_affected_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "quantity_affected"
+    ],
+    "expression": "quantity_affected IS NULL OR quantity_affected >= 0",
+    "severity": "warn",
+    "description": "quantity_affected should be non-negative when present."
+  }
+]

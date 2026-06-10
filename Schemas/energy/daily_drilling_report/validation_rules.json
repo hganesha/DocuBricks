@@ -1,0 +1,102 @@
+[
+  {
+    "name": "report_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "report_date"
+    ],
+    "expression": "report_date IS NOT NULL AND LENGTH(TRIM(report_date)) > 0",
+    "severity": "fail",
+    "description": "report_date is required for Daily Drilling Report extraction."
+  },
+  {
+    "name": "well_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "well_name"
+    ],
+    "expression": "well_name IS NOT NULL AND LENGTH(TRIM(well_name)) > 0",
+    "severity": "fail",
+    "description": "well_name is required for Daily Drilling Report extraction."
+  },
+  {
+    "name": "operator_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "operator_name"
+    ],
+    "expression": "operator_name IS NOT NULL AND LENGTH(TRIM(operator_name)) > 0",
+    "severity": "fail",
+    "description": "operator_name is required for Daily Drilling Report extraction."
+  },
+  {
+    "name": "rig_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "rig_name"
+    ],
+    "expression": "rig_name IS NOT NULL AND LENGTH(TRIM(rig_name)) > 0",
+    "severity": "fail",
+    "description": "rig_name is required for Daily Drilling Report extraction."
+  },
+  {
+    "name": "measured_depth_present",
+    "rule_type": "presence",
+    "fields": [
+      "measured_depth"
+    ],
+    "expression": "measured_depth IS NOT NULL AND LENGTH(TRIM(measured_depth)) > 0",
+    "severity": "fail",
+    "description": "measured_depth is required for Daily Drilling Report extraction."
+  },
+  {
+    "name": "operations_summary_present",
+    "rule_type": "presence",
+    "fields": [
+      "operations_summary"
+    ],
+    "expression": "operations_summary IS NOT NULL AND LENGTH(TRIM(operations_summary)) > 0",
+    "severity": "fail",
+    "description": "operations_summary is required for Daily Drilling Report extraction."
+  },
+  {
+    "name": "measured_depth_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "measured_depth"
+    ],
+    "expression": "measured_depth IS NULL OR measured_depth >= 0",
+    "severity": "warn",
+    "description": "measured_depth should be non-negative when present."
+  },
+  {
+    "name": "true_vertical_depth_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "true_vertical_depth"
+    ],
+    "expression": "true_vertical_depth IS NULL OR true_vertical_depth >= 0",
+    "severity": "warn",
+    "description": "true_vertical_depth should be non-negative when present."
+  },
+  {
+    "name": "daily_footage_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "daily_footage"
+    ],
+    "expression": "daily_footage IS NULL OR daily_footage >= 0",
+    "severity": "warn",
+    "description": "daily_footage should be non-negative when present."
+  },
+  {
+    "name": "mud_weight_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "mud_weight"
+    ],
+    "expression": "mud_weight IS NULL OR mud_weight >= 0",
+    "severity": "warn",
+    "description": "mud_weight should be non-negative when present."
+  }
+]

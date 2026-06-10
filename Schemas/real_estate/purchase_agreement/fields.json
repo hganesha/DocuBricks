@@ -1,0 +1,209 @@
+{
+  "document_type": "purchase_agreement",
+  "vertical": "real_estate",
+  "family": "real_estate_transactions",
+  "schema_version": "real_estate_purchase_agreement_v1",
+  "fields": [
+    {
+      "name": "agreement_date",
+      "type": "date",
+      "required": true,
+      "description": "Date of purchase agreement.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "buyer_name",
+      "type": "string",
+      "required": true,
+      "description": "Buyer or purchaser legal name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "seller_name",
+      "type": "string",
+      "required": true,
+      "description": "Seller legal name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": true,
+      "description": "Property address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "legal_description",
+      "type": "string",
+      "required": false,
+      "description": "Legal description or parcel description.",
+      "section": "property_or_asset",
+      "category": "operational"
+    },
+    {
+      "name": "purchase_price",
+      "type": "number",
+      "required": true,
+      "description": "Purchase price.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "earnest_money_deposit",
+      "type": "number",
+      "required": false,
+      "description": "Earnest money deposit amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "closing_date",
+      "type": "date",
+      "required": false,
+      "description": "Scheduled closing date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "due_diligence_deadline",
+      "type": "date",
+      "required": false,
+      "description": "Inspection or due diligence deadline.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "financing_contingency",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether financing contingency is stated.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "inspection_contingency",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether inspection contingency is stated.",
+      "section": "document_details",
+      "category": "operational"
+    },
+    {
+      "name": "title_company_name",
+      "type": "string",
+      "required": false,
+      "description": "Escrow agent or title company.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "included_personal_property",
+      "type": "array<string>",
+      "required": false,
+      "description": "Personal property included in sale.",
+      "section": "property_or_asset",
+      "category": "array"
+    },
+    {
+      "name": "special_conditions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Special conditions or seller obligations.",
+      "section": "document_details",
+      "category": "array"
+    },
+    {
+      "name": "governing_law",
+      "type": "string",
+      "required": false,
+      "description": "Governing state or jurisdiction.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "agreement_date",
+        "closing_date",
+        "due_diligence_deadline"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "financing_contingency",
+        "governing_law",
+        "inspection_contingency",
+        "special_conditions"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "earnest_money_deposit",
+        "purchase_price"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "buyer_name",
+        "seller_name",
+        "title_company_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "included_personal_property",
+        "legal_description",
+        "property_address"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "agreement_date",
+        "buyer_name",
+        "seller_name",
+        "property_address",
+        "purchase_price"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

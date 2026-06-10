@@ -1,0 +1,36 @@
+{
+  "test_case_id": "purchase_agreement_001",
+  "document_type": "purchase_agreement",
+  "description": "Seed golden test for Purchase Agreement",
+  "tags": [
+    "happy_path",
+    "real_estate_transactions",
+    "seed"
+  ],
+  "parsed_text": "REAL ESTATE PURCHASE AGREEMENT\nAgreement Date: 2026-06-15\nBuyer: Harborview Capital Partners LLC\nSeller: Maple Ridge Office Owner LP\nProperty: 8200 West Park Avenue, Denver, CO 80221\nLegal Description: Lot 4, Block 2, Maple Ridge Business Park, Adams County, Colorado\nPurchase Price: $18,750,000\nEarnest Money Deposit: $500,000\nScheduled Closing Date: 2026-09-30\nDue Diligence Deadline: 2026-07-31\nFinancing Contingency: Yes\nInspection Contingency: Yes\nTitle Company/Escrow Agent: Front Range Title Company\nIncluded Personal Property: lobby furniture; building maintenance equipment; security cameras\nSpecial Conditions: seller to deliver tenant estoppels for 80% of leased area; seller to cure open roof permit before closing\nGoverning Law: Colorado",
+  "expected_json": {
+    "agreement_date": "2026-06-15",
+    "buyer_name": "Harborview Capital Partners LLC",
+    "seller_name": "Maple Ridge Office Owner LP",
+    "property_address": "8200 West Park Avenue, Denver, CO 80221",
+    "legal_description": "Lot 4, Block 2, Maple Ridge Business Park, Adams County, Colorado",
+    "purchase_price": 18750000.0,
+    "earnest_money_deposit": 500000.0,
+    "closing_date": "2026-09-30",
+    "due_diligence_deadline": "2026-07-31",
+    "financing_contingency": true,
+    "inspection_contingency": true,
+    "title_company_name": "Front Range Title Company",
+    "included_personal_property": [
+      "lobby furniture",
+      "building maintenance equipment",
+      "security cameras"
+    ],
+    "special_conditions": [
+      "seller to deliver tenant estoppels for 80% of leased area",
+      "seller to cure open roof permit before closing"
+    ],
+    "governing_law": "Colorado"
+  },
+  "expected_avg_confidence": 0.92
+}

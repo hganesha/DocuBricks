@@ -1,0 +1,34 @@
+{
+  "test_case_id": "lease_agreement_001",
+  "document_type": "lease_agreement",
+  "description": "Seed golden test for Lease Agreement",
+  "tags": [
+    "happy_path",
+    "real_estate_transactions",
+    "seed"
+  ],
+  "parsed_text": "LEASE AGREEMENT\nLease Date: 2026-07-01\nLandlord: Lakeshore Industrial Owner LLC\nTenant: Northstar Cold Storage LLC\nProperty: 1440 River Road, Joliet, IL 60431\nPremises: Suite 200, approximately 85,000 rentable square feet of refrigerated warehouse space\nCommencement Date: 2026-08-01\nExpiration Date: 2031-07-31\nBase Rent: $74,375.00 per month\nSecurity Deposit: $148,750.00\nRenewal Options: one 5-year renewal at fair market rent\nPermitted Use: refrigerated warehousing, distribution, and ancillary office use\nCAM/Operating Expenses: tenant pays pro rata share of taxes, insurance, utilities, and common area maintenance\nGuarantors: Northstar Holdings Inc.\nAssignment/Subletting: landlord consent required, not to be unreasonably withheld\nGoverning Law: Illinois",
+  "expected_json": {
+    "lease_date": "2026-07-01",
+    "landlord_name": "Lakeshore Industrial Owner LLC",
+    "tenant_name": "Northstar Cold Storage LLC",
+    "property_address": "1440 River Road, Joliet, IL 60431",
+    "premises_description": "Suite 200, approximately 85,000 rentable square feet of refrigerated warehouse space",
+    "lease_start_date": "2026-08-01",
+    "lease_end_date": "2031-07-31",
+    "base_rent_amount": 74375.0,
+    "rent_frequency": "monthly",
+    "security_deposit_amount": 148750.0,
+    "renewal_options": [
+      "one 5-year renewal at fair market rent"
+    ],
+    "use_clause": "refrigerated warehousing, distribution, and ancillary office use",
+    "cam_or_operating_expense_terms": "tenant pays pro rata share of taxes, insurance, utilities, and common area maintenance",
+    "guarantor_names": [
+      "Northstar Holdings Inc."
+    ],
+    "assignment_subletting_terms": "landlord consent required, not to be unreasonably withheld",
+    "governing_law": "Illinois"
+  },
+  "expected_avg_confidence": 0.92
+}

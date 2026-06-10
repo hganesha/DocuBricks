@@ -1,0 +1,102 @@
+[
+  {
+    "name": "closing_statement_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "closing_statement_date"
+    ],
+    "expression": "closing_statement_date IS NOT NULL AND LENGTH(TRIM(closing_statement_date)) > 0",
+    "severity": "fail",
+    "description": "closing_statement_date is required for Closing Statement extraction."
+  },
+  {
+    "name": "property_address_present",
+    "rule_type": "presence",
+    "fields": [
+      "property_address"
+    ],
+    "expression": "property_address IS NOT NULL AND LENGTH(TRIM(property_address)) > 0",
+    "severity": "fail",
+    "description": "property_address is required for Closing Statement extraction."
+  },
+  {
+    "name": "buyer_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "buyer_name"
+    ],
+    "expression": "buyer_name IS NOT NULL AND LENGTH(TRIM(buyer_name)) > 0",
+    "severity": "fail",
+    "description": "buyer_name is required for Closing Statement extraction."
+  },
+  {
+    "name": "seller_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "seller_name"
+    ],
+    "expression": "seller_name IS NOT NULL AND LENGTH(TRIM(seller_name)) > 0",
+    "severity": "fail",
+    "description": "seller_name is required for Closing Statement extraction."
+  },
+  {
+    "name": "closing_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "closing_date"
+    ],
+    "expression": "closing_date IS NOT NULL AND LENGTH(TRIM(closing_date)) > 0",
+    "severity": "fail",
+    "description": "closing_date is required for Closing Statement extraction."
+  },
+  {
+    "name": "purchase_price_present",
+    "rule_type": "presence",
+    "fields": [
+      "purchase_price"
+    ],
+    "expression": "purchase_price IS NOT NULL AND LENGTH(TRIM(purchase_price)) > 0",
+    "severity": "fail",
+    "description": "purchase_price is required for Closing Statement extraction."
+  },
+  {
+    "name": "purchase_price_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "purchase_price"
+    ],
+    "expression": "purchase_price IS NULL OR purchase_price >= 0",
+    "severity": "warn",
+    "description": "purchase_price should be non-negative when present."
+  },
+  {
+    "name": "loan_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "loan_amount"
+    ],
+    "expression": "loan_amount IS NULL OR loan_amount >= 0",
+    "severity": "warn",
+    "description": "loan_amount should be non-negative when present."
+  },
+  {
+    "name": "buyer_cash_to_close_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "buyer_cash_to_close"
+    ],
+    "expression": "buyer_cash_to_close IS NULL OR buyer_cash_to_close >= 0",
+    "severity": "warn",
+    "description": "buyer_cash_to_close should be non-negative when present."
+  },
+  {
+    "name": "seller_proceeds_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "seller_proceeds"
+    ],
+    "expression": "seller_proceeds IS NULL OR seller_proceeds >= 0",
+    "severity": "warn",
+    "description": "seller_proceeds should be non-negative when present."
+  }
+]

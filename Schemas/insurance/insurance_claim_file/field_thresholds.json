@@ -1,6 +1,6 @@
-[
-  {
-    "field_name": "claim_number",
+{
+  "default_threshold": 0.75,
+  "claim_number": {
     "min_confidence": 0.9,
     "review_threshold": 0.7,
     "quarantine_threshold": 0.5,
@@ -9,8 +9,7 @@
     "regulatory_required": true,
     "description": "High-impact field for Insurance Claim File workflow."
   },
-  {
-    "field_name": "policy_number",
+  "policy_number": {
     "min_confidence": 0.9,
     "review_threshold": 0.7,
     "quarantine_threshold": 0.5,
@@ -19,8 +18,7 @@
     "regulatory_required": true,
     "description": "High-impact field for Insurance Claim File workflow."
   },
-  {
-    "field_name": "claim_status",
+  "claim_status": {
     "min_confidence": 0.85,
     "review_threshold": 0.7,
     "quarantine_threshold": 0.5,
@@ -29,8 +27,7 @@
     "regulatory_required": true,
     "description": "High-impact field for Insurance Claim File workflow."
   },
-  {
-    "field_name": "reserve_amount",
+  "reserve_amount": {
     "min_confidence": 0.85,
     "review_threshold": 0.7,
     "quarantine_threshold": 0.5,
@@ -38,5 +35,12 @@
     "fail_on_breach": false,
     "regulatory_required": true,
     "description": "High-impact field for Insurance Claim File workflow."
+  },
+  "loss_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Insurance claim file extraction."
   }
-]
+}

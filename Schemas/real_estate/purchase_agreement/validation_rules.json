@@ -1,0 +1,72 @@
+[
+  {
+    "name": "agreement_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "agreement_date"
+    ],
+    "expression": "agreement_date IS NOT NULL AND LENGTH(TRIM(agreement_date)) > 0",
+    "severity": "fail",
+    "description": "agreement_date is required for Purchase Agreement extraction."
+  },
+  {
+    "name": "buyer_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "buyer_name"
+    ],
+    "expression": "buyer_name IS NOT NULL AND LENGTH(TRIM(buyer_name)) > 0",
+    "severity": "fail",
+    "description": "buyer_name is required for Purchase Agreement extraction."
+  },
+  {
+    "name": "seller_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "seller_name"
+    ],
+    "expression": "seller_name IS NOT NULL AND LENGTH(TRIM(seller_name)) > 0",
+    "severity": "fail",
+    "description": "seller_name is required for Purchase Agreement extraction."
+  },
+  {
+    "name": "property_address_present",
+    "rule_type": "presence",
+    "fields": [
+      "property_address"
+    ],
+    "expression": "property_address IS NOT NULL AND LENGTH(TRIM(property_address)) > 0",
+    "severity": "fail",
+    "description": "property_address is required for Purchase Agreement extraction."
+  },
+  {
+    "name": "purchase_price_present",
+    "rule_type": "presence",
+    "fields": [
+      "purchase_price"
+    ],
+    "expression": "purchase_price IS NOT NULL AND LENGTH(TRIM(purchase_price)) > 0",
+    "severity": "fail",
+    "description": "purchase_price is required for Purchase Agreement extraction."
+  },
+  {
+    "name": "purchase_price_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "purchase_price"
+    ],
+    "expression": "purchase_price IS NULL OR purchase_price >= 0",
+    "severity": "warn",
+    "description": "purchase_price should be non-negative when present."
+  },
+  {
+    "name": "earnest_money_deposit_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "earnest_money_deposit"
+    ],
+    "expression": "earnest_money_deposit IS NULL OR earnest_money_deposit >= 0",
+    "severity": "warn",
+    "description": "earnest_money_deposit should be non-negative when present."
+  }
+]

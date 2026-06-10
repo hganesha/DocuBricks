@@ -14,91 +14,193 @@
       "name": "letter_date",
       "type": "date",
       "required": true,
-      "description": "Date of denial letter."
+      "description": "Date of denial letter.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "claim_number",
       "type": "string",
       "required": true,
-      "description": "Claim number."
+      "description": "Claim number.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "policy_number",
       "type": "string",
       "required": true,
-      "description": "Policy number."
+      "description": "Policy number.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "insured_name",
       "type": "string",
       "required": false,
-      "description": "Named insured."
+      "description": "Named insured.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "claimant_name",
       "type": "string",
       "required": false,
-      "description": "Claimant if different from insured."
+      "description": "Claimant if different from insured.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "loss_date",
       "type": "date",
       "required": false,
-      "description": "Date of loss."
+      "description": "Date of loss.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "coverage_denied",
       "type": "string",
       "required": false,
-      "description": "Coverage, payment, or claim component denied."
+      "description": "Coverage, payment, or claim component denied.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "denial_reason",
       "type": "string",
       "required": true,
-      "description": "Reason for denial."
+      "description": "Reason for denial.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "policy_provisions_cited",
       "type": "array<string>",
       "required": false,
-      "description": "Policy provisions, exclusions, or conditions cited."
+      "description": "Policy provisions, exclusions, or conditions cited.",
+      "section": "risk_and_compliance",
+      "category": "array"
     },
     {
       "name": "facts_relied_on",
       "type": "array<string>",
       "required": false,
-      "description": "Facts or investigation findings relied on."
+      "description": "Facts or investigation findings relied on.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "appeal_or_reconsideration_rights",
       "type": "string",
       "required": false,
-      "description": "Appeal, complaint, or reconsideration rights."
+      "description": "Appeal, complaint, or reconsideration rights.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "regulatory_notice",
       "type": "string",
       "required": false,
-      "description": "State or regulatory notice language."
+      "description": "State or regulatory notice language.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "reservation_of_rights_continues",
       "type": "boolean",
       "required": false,
-      "description": "Whether reservation of rights continues for other issues."
+      "description": "Whether reservation of rights continues for other issues.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "sender_name",
       "type": "string",
       "required": false,
-      "description": "Sender or claims representative."
+      "description": "Sender or claims representative.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "sender_title",
       "type": "string",
       "required": false,
-      "description": "Sender title."
+      "description": "Sender title.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "letter_date",
+        "loss_date",
+        "sender_title"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "appeal_or_reconsideration_rights",
+        "claim_number",
+        "denial_reason",
+        "facts_relied_on",
+        "reservation_of_rights_continues"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "claimant_name",
+        "insured_name",
+        "sender_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "coverage_denied",
+        "policy_number",
+        "policy_provisions_cited",
+        "regulatory_notice"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "letter_date",
+        "claim_number",
+        "policy_number",
+        "denial_reason"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

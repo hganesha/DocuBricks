@@ -1,0 +1,219 @@
+{
+  "document_type": "tenant_estoppel_certificate",
+  "vertical": "real_estate",
+  "family": "property_management",
+  "schema_version": "real_estate_tenant_estoppel_certificate_v1",
+  "fields": [
+    {
+      "name": "certificate_date",
+      "type": "date",
+      "required": true,
+      "description": "Tenant estoppel certificate date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "tenant_name",
+      "type": "string",
+      "required": true,
+      "description": "Tenant name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "landlord_name",
+      "type": "string",
+      "required": false,
+      "description": "Landlord name stated by tenant.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": true,
+      "description": "Property address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "premises_description",
+      "type": "string",
+      "required": false,
+      "description": "Suite, unit, floor, or premises description.",
+      "section": "property_or_asset",
+      "category": "operational"
+    },
+    {
+      "name": "lease_date",
+      "type": "date",
+      "required": false,
+      "description": "Lease date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "lease_start_date",
+      "type": "date",
+      "required": false,
+      "description": "Lease commencement date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "lease_end_date",
+      "type": "date",
+      "required": true,
+      "description": "Lease expiration date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "current_monthly_rent",
+      "type": "number",
+      "required": true,
+      "description": "Current monthly rent.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "security_deposit_amount",
+      "type": "number",
+      "required": false,
+      "description": "Security deposit amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "defaults_claimed",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether tenant claims landlord or tenant defaults.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
+    },
+    {
+      "name": "offsets_or_claims",
+      "type": "string",
+      "required": false,
+      "description": "Offsets, defenses, claims, or concessions asserted.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "renewal_options",
+      "type": "array<string>",
+      "required": false,
+      "description": "Renewal or expansion options stated.",
+      "section": "dates_and_terms",
+      "category": "array"
+    },
+    {
+      "name": "tenant_signer_name",
+      "type": "string",
+      "required": true,
+      "description": "Tenant signer name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "tenant_signer_title",
+      "type": "string",
+      "required": false,
+      "description": "Tenant signer title.",
+      "section": "parties",
+      "category": "identity"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "certificate_date",
+        "lease_date",
+        "lease_end_date",
+        "lease_start_date",
+        "renewal_options"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "offsets_or_claims"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "current_monthly_rent",
+        "security_deposit_amount"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "landlord_name",
+        "tenant_name",
+        "tenant_signer_name",
+        "tenant_signer_title"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "premises_description",
+        "property_address"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "defaults_claimed"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "certificate_date",
+        "tenant_name",
+        "property_address",
+        "lease_end_date",
+        "current_monthly_rent",
+        "defaults_claimed",
+        "tenant_signer_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

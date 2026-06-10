@@ -1,0 +1,225 @@
+{
+  "document_type": "rent_roll",
+  "vertical": "real_estate",
+  "family": "property_management",
+  "schema_version": "real_estate_rent_roll_v1",
+  "fields": [
+    {
+      "name": "rent_roll_date",
+      "type": "date",
+      "required": true,
+      "description": "Date of rent roll.",
+      "section": "dates_and_terms",
+      "category": "financial"
+    },
+    {
+      "name": "property_name",
+      "type": "string",
+      "required": false,
+      "description": "Property name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": true,
+      "description": "Property address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "owner_name",
+      "type": "string",
+      "required": false,
+      "description": "Owner name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "total_units_or_suites",
+      "type": "integer",
+      "required": false,
+      "description": "Total units or suites.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "occupied_units_or_suites",
+      "type": "integer",
+      "required": false,
+      "description": "Occupied units or suites.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "occupancy_rate",
+      "type": "number",
+      "required": false,
+      "description": "Occupancy rate percentage.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "tenant_entries",
+      "type": "array<object>",
+      "required": true,
+      "description": "Tenant rows with unit, tenant, lease dates, area, rent, and arrears.",
+      "section": "parties",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "unit_or_suite",
+          "type": "string",
+          "description": "Unit, suite, space, or apartment identifier."
+        },
+        {
+          "name": "tenant_name",
+          "type": "string",
+          "description": "Tenant name."
+        },
+        {
+          "name": "lease_start_date",
+          "type": "date",
+          "description": "Lease start date."
+        },
+        {
+          "name": "lease_end_date",
+          "type": "date",
+          "description": "Lease end date."
+        },
+        {
+          "name": "area_sq_ft",
+          "type": "number",
+          "description": "Leased area in square feet."
+        },
+        {
+          "name": "monthly_rent_amount",
+          "type": "number",
+          "description": "Monthly rent amount."
+        },
+        {
+          "name": "arrears_amount",
+          "type": "number",
+          "description": "Past-due or delinquent amount."
+        },
+        {
+          "name": "security_deposit_amount",
+          "type": "number",
+          "description": "Security deposit amount if stated."
+        }
+      ]
+    },
+    {
+      "name": "monthly_scheduled_rent",
+      "type": "number",
+      "required": true,
+      "description": "Total monthly scheduled rent.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "delinquent_amount",
+      "type": "number",
+      "required": false,
+      "description": "Total delinquent or past due amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "vacant_units",
+      "type": "array<string>",
+      "required": false,
+      "description": "Vacant units or suites.",
+      "section": "document_details",
+      "category": "array"
+    },
+    {
+      "name": "report_preparer",
+      "type": "string",
+      "required": false,
+      "description": "Preparer or property manager.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "rent_roll_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "occupied_units_or_suites",
+        "report_preparer",
+        "vacant_units"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "delinquent_amount",
+        "monthly_scheduled_rent",
+        "occupancy_rate",
+        "total_units_or_suites"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "owner_name",
+        "property_name",
+        "tenant_entries"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "property_address"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "rent_roll_date",
+        "property_address",
+        "tenant_entries",
+        "monthly_scheduled_rent"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "tenant_entries"
+      ]
+    }
+  ]
+}

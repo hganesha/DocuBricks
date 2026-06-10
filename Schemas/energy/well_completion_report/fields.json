@@ -1,0 +1,273 @@
+{
+  "document_type": "well_completion_report",
+  "vertical": "energy",
+  "family": "energy_upstream_operations",
+  "schema_version": "energy_well_completion_report_v1",
+  "fields": [
+    {
+      "name": "completion_date",
+      "type": "date",
+      "required": true,
+      "description": "Date completion operations finished or report was signed.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "well_name",
+      "type": "string",
+      "required": true,
+      "description": "Well name and number.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "api_well_number",
+      "type": "string",
+      "required": true,
+      "description": "API well number or regulatory well identifier.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "operator_name",
+      "type": "string",
+      "required": true,
+      "description": "Operating company.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "field_name",
+      "type": "string",
+      "required": false,
+      "description": "Field, pool, or reservoir name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "formation",
+      "type": "string",
+      "required": false,
+      "description": "Producing formation or target zone.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "completion_type",
+      "type": "string",
+      "required": true,
+      "description": "Completion type such as hydraulic fracture, open hole, perforated casing, or recompletion.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "total_depth",
+      "type": "number",
+      "required": false,
+      "description": "Total measured depth.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "perforated_intervals",
+      "type": "array<object>",
+      "required": false,
+      "description": "Perforation intervals with top, bottom, stage, and date when available.",
+      "section": "financials",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "perforated_interval_type",
+          "type": "string",
+          "description": "Type or class for perforated_intervals item."
+        },
+        {
+          "name": "perforated_interval_description",
+          "type": "string",
+          "description": "Description for perforated_intervals item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount or value when stated."
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "Relevant item date when stated."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Item status or disposition when stated."
+        }
+      ]
+    },
+    {
+      "name": "stimulation_summary",
+      "type": "string",
+      "required": false,
+      "description": "Fracturing, acidizing, stimulation, or treatment summary.",
+      "section": "document_details",
+      "category": "operational"
+    },
+    {
+      "name": "proppant_volume",
+      "type": "number",
+      "required": false,
+      "description": "Total proppant volume.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "fluid_volume",
+      "type": "number",
+      "required": false,
+      "description": "Total stimulation fluid volume.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "initial_oil_rate_bpd",
+      "type": "number",
+      "required": false,
+      "description": "Initial oil production rate in barrels per day.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "initial_gas_rate_mcfpd",
+      "type": "number",
+      "required": false,
+      "description": "Initial gas production rate in thousand cubic feet per day.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "initial_water_rate_bpd",
+      "type": "number",
+      "required": false,
+      "description": "Initial water production rate in barrels per day.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "choke_size",
+      "type": "string",
+      "required": false,
+      "description": "Initial production test choke size.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "contractors",
+      "type": "array<string>",
+      "required": false,
+      "description": "Completion, cementing, logging, or stimulation contractors.",
+      "section": "document_details",
+      "category": "array"
+    },
+    {
+      "name": "regulatory_filing_status",
+      "type": "string",
+      "required": false,
+      "description": "Filed, pending, rejected, amended, or other filing status.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "completion_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "choke_size",
+        "completion_type",
+        "contractors",
+        "fluid_volume",
+        "formation",
+        "proppant_volume",
+        "stimulation_summary"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "initial_gas_rate_mcfpd",
+        "initial_oil_rate_bpd",
+        "initial_water_rate_bpd",
+        "perforated_intervals",
+        "total_depth"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "field_name",
+        "operator_name",
+        "well_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "api_well_number"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "regulatory_filing_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "completion_date",
+        "well_name",
+        "api_well_number",
+        "operator_name",
+        "completion_type"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "perforated_intervals"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "capa_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "capa_number"
+    ],
+    "expression": "capa_number IS NOT NULL AND LENGTH(TRIM(capa_number)) > 0",
+    "severity": "fail",
+    "description": "capa_number is required for Corrective Preventive Action extraction."
+  },
+  {
+    "name": "opened_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "opened_date"
+    ],
+    "expression": "opened_date IS NOT NULL AND LENGTH(TRIM(opened_date)) > 0",
+    "severity": "fail",
+    "description": "opened_date is required for Corrective Preventive Action extraction."
+  },
+  {
+    "name": "problem_statement_present",
+    "rule_type": "presence",
+    "fields": [
+      "problem_statement"
+    ],
+    "expression": "problem_statement IS NOT NULL AND LENGTH(TRIM(problem_statement)) > 0",
+    "severity": "fail",
+    "description": "problem_statement is required for Corrective Preventive Action extraction."
+  },
+  {
+    "name": "root_cause_present",
+    "rule_type": "presence",
+    "fields": [
+      "root_cause"
+    ],
+    "expression": "root_cause IS NOT NULL AND LENGTH(TRIM(root_cause)) > 0",
+    "severity": "fail",
+    "description": "root_cause is required for Corrective Preventive Action extraction."
+  },
+  {
+    "name": "owner_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "owner_name"
+    ],
+    "expression": "owner_name IS NOT NULL AND LENGTH(TRIM(owner_name)) > 0",
+    "severity": "fail",
+    "description": "owner_name is required for Corrective Preventive Action extraction."
+  },
+  {
+    "name": "target_completion_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "target_completion_date"
+    ],
+    "expression": "target_completion_date IS NOT NULL AND LENGTH(TRIM(target_completion_date)) > 0",
+    "severity": "fail",
+    "description": "target_completion_date is required for Corrective Preventive Action extraction."
+  }
+]

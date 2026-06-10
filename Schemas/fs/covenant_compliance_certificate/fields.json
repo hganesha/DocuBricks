@@ -14,127 +14,253 @@
       "name": "certificate_date",
       "type": "date",
       "required": false,
-      "description": "Date signed or delivered."
+      "description": "Date signed or delivered.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "reporting_period_end_date",
       "type": "date",
       "required": true,
-      "description": "Financial reporting period end."
+      "description": "Financial reporting period end.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "borrower_name",
       "type": "string",
       "required": true,
-      "description": "Borrower or obligor."
+      "description": "Borrower or obligor.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "lender_name",
       "type": "string",
       "required": false,
-      "description": "Lender, bank, or administrative agent."
+      "description": "Lender, bank, or administrative agent.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "agreement_reference",
       "type": "string",
       "required": false,
-      "description": "Loan agreement name/date referenced."
+      "description": "Loan agreement name/date referenced.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "signer_name",
       "type": "string",
       "required": false,
-      "description": "Authorized signer."
+      "description": "Authorized signer.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "signer_title",
       "type": "string",
       "required": false,
-      "description": "Signer title."
+      "description": "Signer title.",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "compliance_status",
       "type": "string",
       "required": false,
-      "description": "In compliance, not in compliance, default, waiver requested, or other."
+      "description": "In compliance, not in compliance, default, waiver requested, or other.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "default_declared",
       "type": "boolean",
       "required": false,
-      "description": "Whether a default or event of default is disclosed."
+      "description": "Whether a default or event of default is disclosed.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
     },
     {
       "name": "dscr_required",
       "type": "number",
       "required": false,
-      "description": "Required debt service coverage ratio."
+      "description": "Required debt service coverage ratio.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "dscr_actual",
       "type": "number",
       "required": false,
-      "description": "Actual DSCR."
+      "description": "Actual DSCR.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "leverage_required",
       "type": "number",
       "required": false,
-      "description": "Required maximum leverage ratio."
+      "description": "Required maximum leverage ratio.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "leverage_actual",
       "type": "number",
       "required": false,
-      "description": "Actual leverage ratio."
+      "description": "Actual leverage ratio.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "liquidity_required",
       "type": "number",
       "required": false,
-      "description": "Required minimum liquidity."
+      "description": "Required minimum liquidity.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "liquidity_actual",
       "type": "number",
       "required": false,
-      "description": "Actual liquidity."
+      "description": "Actual liquidity.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "net_worth_required",
       "type": "number",
       "required": false,
-      "description": "Required minimum net worth."
+      "description": "Required minimum net worth.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "net_worth_actual",
       "type": "number",
       "required": false,
-      "description": "Actual net worth."
+      "description": "Actual net worth.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "borrowing_base_required",
       "type": "number",
       "required": false,
-      "description": "Required borrowing base or availability."
+      "description": "Required borrowing base or availability.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "borrowing_base_actual",
       "type": "number",
       "required": false,
-      "description": "Actual borrowing base or availability."
+      "description": "Actual borrowing base or availability.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "exceptions_or_waivers",
       "type": "array<string>",
       "required": false,
-      "description": "Exceptions, waivers, cure periods, or explanations."
+      "description": "Exceptions, waivers, cure periods, or explanations.",
+      "section": "line_items",
+      "category": "array"
     },
     {
       "name": "financial_statements_attached",
       "type": "boolean",
       "required": false,
-      "description": "Whether financial statements are attached or certified."
+      "description": "Whether financial statements are attached or certified.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "certificate_date",
+        "reporting_period_end_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "agreement_reference",
+        "borrowing_base_actual",
+        "borrowing_base_required",
+        "dscr_actual",
+        "dscr_required",
+        "financial_statements_attached",
+        "leverage_actual",
+        "leverage_required",
+        "liquidity_actual",
+        "liquidity_required",
+        "net_worth_actual",
+        "net_worth_required",
+        "signer_title"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "exceptions_or_waivers"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "borrower_name",
+        "lender_name",
+        "signer_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "compliance_status",
+        "default_declared"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "reporting_period_end_date",
+        "borrower_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "line_items",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

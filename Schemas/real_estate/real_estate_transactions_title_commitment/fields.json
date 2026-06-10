@@ -1,0 +1,199 @@
+{
+  "document_type": "real_estate_transactions_title_commitment",
+  "vertical": "real_estate",
+  "family": "real_estate_transactions",
+  "schema_version": "real_estate_real_estate_transactions_title_commitment_v1",
+  "fields": [
+    {
+      "name": "commitment_number",
+      "type": "string",
+      "required": true,
+      "description": "Title commitment number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "commitment_date",
+      "type": "date",
+      "required": true,
+      "description": "Title commitment date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "title_company_name",
+      "type": "string",
+      "required": true,
+      "description": "Title insurer, agent, or issuing office.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "proposed_insured",
+      "type": "string",
+      "required": false,
+      "description": "Proposed insured owner, lender, or policyholder.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": true,
+      "description": "Property address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "legal_description",
+      "type": "string",
+      "required": true,
+      "description": "Legal description.",
+      "section": "property_or_asset",
+      "category": "operational"
+    },
+    {
+      "name": "vesting_owner",
+      "type": "string",
+      "required": false,
+      "description": "Current vested owner.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "estate_or_interest",
+      "type": "string",
+      "required": false,
+      "description": "Estate or interest in land.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "policy_amount",
+      "type": "number",
+      "required": false,
+      "description": "Proposed title policy amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "requirements",
+      "type": "array<string>",
+      "required": false,
+      "description": "Schedule B-I requirements.",
+      "section": "line_items",
+      "category": "array"
+    },
+    {
+      "name": "exceptions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Schedule B-II exceptions.",
+      "section": "line_items",
+      "category": "array"
+    },
+    {
+      "name": "tax_parcel_number",
+      "type": "string",
+      "required": false,
+      "description": "Tax parcel or assessor number.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "effective_time",
+      "type": "string",
+      "required": false,
+      "description": "Effective date and time of title search.",
+      "section": "document_details",
+      "category": "temporal"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "commitment_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "commitment_number",
+        "effective_time",
+        "estate_or_interest"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "policy_amount",
+        "tax_parcel_number"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "exceptions",
+        "requirements"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "proposed_insured",
+        "title_company_name",
+        "vesting_owner"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "legal_description",
+        "property_address"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "commitment_number",
+        "commitment_date",
+        "title_company_name",
+        "property_address",
+        "legal_description"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

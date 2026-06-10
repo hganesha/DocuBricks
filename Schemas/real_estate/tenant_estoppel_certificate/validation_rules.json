@@ -1,0 +1,92 @@
+[
+  {
+    "name": "certificate_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "certificate_date"
+    ],
+    "expression": "certificate_date IS NOT NULL AND LENGTH(TRIM(certificate_date)) > 0",
+    "severity": "fail",
+    "description": "certificate_date is required for Tenant Estoppel Certificate extraction."
+  },
+  {
+    "name": "tenant_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "tenant_name"
+    ],
+    "expression": "tenant_name IS NOT NULL AND LENGTH(TRIM(tenant_name)) > 0",
+    "severity": "fail",
+    "description": "tenant_name is required for Tenant Estoppel Certificate extraction."
+  },
+  {
+    "name": "property_address_present",
+    "rule_type": "presence",
+    "fields": [
+      "property_address"
+    ],
+    "expression": "property_address IS NOT NULL AND LENGTH(TRIM(property_address)) > 0",
+    "severity": "fail",
+    "description": "property_address is required for Tenant Estoppel Certificate extraction."
+  },
+  {
+    "name": "lease_end_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "lease_end_date"
+    ],
+    "expression": "lease_end_date IS NOT NULL AND LENGTH(TRIM(lease_end_date)) > 0",
+    "severity": "fail",
+    "description": "lease_end_date is required for Tenant Estoppel Certificate extraction."
+  },
+  {
+    "name": "current_monthly_rent_present",
+    "rule_type": "presence",
+    "fields": [
+      "current_monthly_rent"
+    ],
+    "expression": "current_monthly_rent IS NOT NULL AND LENGTH(TRIM(current_monthly_rent)) > 0",
+    "severity": "fail",
+    "description": "current_monthly_rent is required for Tenant Estoppel Certificate extraction."
+  },
+  {
+    "name": "defaults_claimed_present",
+    "rule_type": "presence",
+    "fields": [
+      "defaults_claimed"
+    ],
+    "expression": "defaults_claimed IS NOT NULL AND LENGTH(TRIM(defaults_claimed)) > 0",
+    "severity": "fail",
+    "description": "defaults_claimed is required for Tenant Estoppel Certificate extraction."
+  },
+  {
+    "name": "tenant_signer_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "tenant_signer_name"
+    ],
+    "expression": "tenant_signer_name IS NOT NULL AND LENGTH(TRIM(tenant_signer_name)) > 0",
+    "severity": "fail",
+    "description": "tenant_signer_name is required for Tenant Estoppel Certificate extraction."
+  },
+  {
+    "name": "current_monthly_rent_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "current_monthly_rent"
+    ],
+    "expression": "current_monthly_rent IS NULL OR current_monthly_rent >= 0",
+    "severity": "warn",
+    "description": "current_monthly_rent should be non-negative when present."
+  },
+  {
+    "name": "security_deposit_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "security_deposit_amount"
+    ],
+    "expression": "security_deposit_amount IS NULL OR security_deposit_amount >= 0",
+    "severity": "warn",
+    "description": "security_deposit_amount should be non-negative when present."
+  }
+]

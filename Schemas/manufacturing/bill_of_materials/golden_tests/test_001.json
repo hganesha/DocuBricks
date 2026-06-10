@@ -1,0 +1,62 @@
+{
+  "test_case_id": "bill_of_materials_001",
+  "document_type": "bill_of_materials",
+  "description": "Seed golden test for Bill of Materials",
+  "tags": [
+    "happy_path",
+    "procurement_supply_chain",
+    "seed"
+  ],
+  "parsed_text": "BILL OF MATERIALS\nBOM Number: BOM-FG-2207\nRevision: C\nParent Part: FG-2207 Hydraulic Lift Assembly\nEffective Date: 2026-05-01\nPlant: Des Moines Assembly Cell 4\nEngineering Change Order: ECO-2026-117\nComponents: 10 HYD-CYL-45 cylinder rev B qty 1 EA scrap 0%; 20 BRKT-2207-L bracket left rev C qty 1 EA scrap 1%; 30 BRKT-2207-R bracket right rev C qty 1 EA scrap 1%; 40 BOLT-M12-35 zinc bolt rev A qty 8 EA scrap 2%\nApproved By: Mateo Singh, Manufacturing Engineering\nApproval Date: 2026-04-22\nStatus: Released",
+  "expected_json": {
+    "bom_number": "BOM-FG-2207",
+    "bom_revision": "C",
+    "parent_part_number": "FG-2207",
+    "parent_part_description": "Hydraulic Lift Assembly",
+    "effective_date": "2026-05-01",
+    "plant_or_site": "Des Moines Assembly Cell 4",
+    "engineering_change_order": "ECO-2026-117",
+    "component_items": [
+      {
+        "line": "10",
+        "part_number": "HYD-CYL-45",
+        "description": "cylinder",
+        "revision": "B",
+        "quantity": 1,
+        "unit": "EA",
+        "scrap_factor_percent": 0
+      },
+      {
+        "line": "20",
+        "part_number": "BRKT-2207-L",
+        "description": "bracket left",
+        "revision": "C",
+        "quantity": 1,
+        "unit": "EA",
+        "scrap_factor_percent": 1
+      },
+      {
+        "line": "30",
+        "part_number": "BRKT-2207-R",
+        "description": "bracket right",
+        "revision": "C",
+        "quantity": 1,
+        "unit": "EA",
+        "scrap_factor_percent": 1
+      },
+      {
+        "line": "40",
+        "part_number": "BOLT-M12-35",
+        "description": "zinc bolt",
+        "revision": "A",
+        "quantity": 8,
+        "unit": "EA",
+        "scrap_factor_percent": 2
+      }
+    ],
+    "approved_by": "Mateo Singh, Manufacturing Engineering",
+    "approval_date": "2026-04-22",
+    "bom_status": "Released"
+  },
+  "expected_avg_confidence": 0.92
+}

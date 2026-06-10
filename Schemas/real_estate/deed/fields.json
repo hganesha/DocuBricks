@@ -1,0 +1,191 @@
+{
+  "document_type": "deed",
+  "vertical": "real_estate",
+  "family": "real_estate_transactions",
+  "schema_version": "real_estate_deed_v1",
+  "fields": [
+    {
+      "name": "deed_date",
+      "type": "date",
+      "required": true,
+      "description": "Date of deed.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "deed_type",
+      "type": "string",
+      "required": true,
+      "description": "Warranty deed, special warranty deed, quitclaim deed, grant deed, or other type.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "grantor_names",
+      "type": "array<string>",
+      "required": true,
+      "description": "Grantor names.",
+      "section": "parties",
+      "category": "array"
+    },
+    {
+      "name": "grantee_names",
+      "type": "array<string>",
+      "required": true,
+      "description": "Grantee names.",
+      "section": "parties",
+      "category": "array"
+    },
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": false,
+      "description": "Property address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "legal_description",
+      "type": "string",
+      "required": true,
+      "description": "Legal description of conveyed property.",
+      "section": "property_or_asset",
+      "category": "operational"
+    },
+    {
+      "name": "consideration_amount",
+      "type": "number",
+      "required": false,
+      "description": "Stated consideration amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "county",
+      "type": "string",
+      "required": false,
+      "description": "County of property or recording.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "required": false,
+      "description": "State of property or recording.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "recording_date",
+      "type": "date",
+      "required": false,
+      "description": "Recording date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "recording_number",
+      "type": "string",
+      "required": false,
+      "description": "Instrument, book/page, reception, or recording number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "notary_name",
+      "type": "string",
+      "required": false,
+      "description": "Notary name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "transfer_tax_amount",
+      "type": "number",
+      "required": false,
+      "description": "Transfer tax or documentary stamp amount.",
+      "section": "financials",
+      "category": "financial"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "deed_date",
+        "recording_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "county",
+        "deed_type",
+        "recording_number",
+        "state"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "consideration_amount",
+        "transfer_tax_amount"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "grantee_names",
+        "grantor_names",
+        "notary_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "legal_description",
+        "property_address"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "deed_date",
+        "deed_type",
+        "grantor_names",
+        "grantee_names",
+        "legal_description"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

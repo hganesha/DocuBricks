@@ -1,0 +1,62 @@
+[
+  {
+    "name": "certificate_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "certificate_number"
+    ],
+    "expression": "certificate_number IS NOT NULL AND LENGTH(TRIM(certificate_number)) > 0",
+    "severity": "fail",
+    "description": "certificate_number is required for Certificate of Analysis extraction."
+  },
+  {
+    "name": "certificate_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "certificate_date"
+    ],
+    "expression": "certificate_date IS NOT NULL AND LENGTH(TRIM(certificate_date)) > 0",
+    "severity": "fail",
+    "description": "certificate_date is required for Certificate of Analysis extraction."
+  },
+  {
+    "name": "supplier_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "supplier_name"
+    ],
+    "expression": "supplier_name IS NOT NULL AND LENGTH(TRIM(supplier_name)) > 0",
+    "severity": "fail",
+    "description": "supplier_name is required for Certificate of Analysis extraction."
+  },
+  {
+    "name": "material_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "material_name"
+    ],
+    "expression": "material_name IS NOT NULL AND LENGTH(TRIM(material_name)) > 0",
+    "severity": "fail",
+    "description": "material_name is required for Certificate of Analysis extraction."
+  },
+  {
+    "name": "lot_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "lot_number"
+    ],
+    "expression": "lot_number IS NOT NULL AND LENGTH(TRIM(lot_number)) > 0",
+    "severity": "fail",
+    "description": "lot_number is required for Certificate of Analysis extraction."
+  },
+  {
+    "name": "test_results_present",
+    "rule_type": "array",
+    "fields": [
+      "test_results"
+    ],
+    "expression": "test_results IS NOT NULL AND JSON_ARRAY_LENGTH(test_results) > 0",
+    "severity": "fail",
+    "description": "test_results is required for Certificate of Analysis extraction."
+  }
+]

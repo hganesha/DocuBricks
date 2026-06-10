@@ -1,0 +1,210 @@
+{
+  "document_type": "corrective_preventive_action",
+  "vertical": "manufacturing",
+  "family": "manufacturing_quality",
+  "schema_version": "manufacturing_corrective_preventive_action_v1",
+  "fields": [
+    {
+      "name": "capa_number",
+      "type": "string",
+      "required": true,
+      "description": "CAPA number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "opened_date",
+      "type": "date",
+      "required": true,
+      "description": "Date CAPA was opened.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "source_type",
+      "type": "string",
+      "required": false,
+      "description": "Audit, NCR, customer complaint, supplier issue, trend, or other source.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "source_reference",
+      "type": "string",
+      "required": false,
+      "description": "Source record identifier.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "problem_statement",
+      "type": "string",
+      "required": true,
+      "description": "Problem statement.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "risk_level",
+      "type": "string",
+      "required": false,
+      "description": "Risk level or severity.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
+    },
+    {
+      "name": "root_cause",
+      "type": "string",
+      "required": true,
+      "description": "Root cause.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "corrective_actions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Corrective actions.",
+      "section": "line_items",
+      "category": "array"
+    },
+    {
+      "name": "preventive_actions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Preventive actions.",
+      "section": "line_items",
+      "category": "array"
+    },
+    {
+      "name": "owner_name",
+      "type": "string",
+      "required": true,
+      "description": "CAPA owner.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "target_completion_date",
+      "type": "date",
+      "required": true,
+      "description": "Target completion date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "effectiveness_check_plan",
+      "type": "string",
+      "required": false,
+      "description": "Effectiveness check plan.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "effectiveness_due_date",
+      "type": "date",
+      "required": false,
+      "description": "Effectiveness check due date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "capa_status",
+      "type": "string",
+      "required": false,
+      "description": "Open, implemented, pending effectiveness, closed, overdue, or other status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
+    },
+    {
+      "name": "closure_date",
+      "type": "date",
+      "required": false,
+      "description": "Closure date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "closure_date",
+        "effectiveness_due_date",
+        "opened_date",
+        "target_completion_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "capa_number",
+        "effectiveness_check_plan",
+        "problem_statement",
+        "root_cause",
+        "source_reference",
+        "source_type"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "corrective_actions",
+        "preventive_actions"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "owner_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "capa_status",
+        "risk_level"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "capa_number",
+        "opened_date",
+        "problem_statement",
+        "root_cause",
+        "owner_name",
+        "target_completion_date"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "line_items",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

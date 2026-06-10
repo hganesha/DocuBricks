@@ -1,0 +1,42 @@
+{
+  "test_case_id": "quality_inspection_report_001",
+  "document_type": "quality_inspection_report",
+  "description": "Seed golden test for Quality Inspection Report",
+  "tags": [
+    "happy_path",
+    "manufacturing_quality",
+    "seed"
+  ],
+  "parsed_text": "QUALITY INSPECTION REPORT\nReport Number: QIR-2026-5510\nInspection Date: 2026-04-25\nPart Number: AL-6061-BAR\nRevision: A\nLot Number: LOT-AAS-042426-7\nSupplier/Work Center: Apex Alloy Supply Inc.\nSample Size: 32\nCharacteristics: outside diameter spec 1.250 +/- 0.005 in result pass; surface finish spec 63 Ra result pass; material cert match spec required result pass\nDefect Count: 0\nOverall Disposition: Accepted\nInspector: Priya Menon\nQuality Approval: Carlos Rivera",
+  "expected_json": {
+    "inspection_report_number": "QIR-2026-5510",
+    "inspection_date": "2026-04-25",
+    "part_number": "AL-6061-BAR",
+    "part_revision": "A",
+    "lot_number": "LOT-AAS-042426-7",
+    "supplier_or_work_center": "Apex Alloy Supply Inc.",
+    "sample_size": 32,
+    "inspection_characteristics": [
+      {
+        "characteristic": "outside diameter",
+        "specification": "1.250 +/- 0.005 in",
+        "result": "pass"
+      },
+      {
+        "characteristic": "surface finish",
+        "specification": "63 Ra",
+        "result": "pass"
+      },
+      {
+        "characteristic": "material cert match",
+        "specification": "required",
+        "result": "pass"
+      }
+    ],
+    "defect_count": 0,
+    "overall_disposition": "Accepted",
+    "inspector_name": "Priya Menon",
+    "approval_name": "Carlos Rivera"
+  },
+  "expected_avg_confidence": 0.92
+}

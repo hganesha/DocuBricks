@@ -1,0 +1,37 @@
+{
+  "test_case_id": "real_estate_transactions_title_commitment_001",
+  "document_type": "real_estate_transactions_title_commitment",
+  "description": "Seed golden test for Title Commitment",
+  "tags": [
+    "happy_path",
+    "real_estate_transactions",
+    "seed"
+  ],
+  "parsed_text": "TITLE COMMITMENT\nCommitment Number: FRT-26-883104\nCommitment Date: 2026-08-20\nTitle Company: Front Range Title Company as agent for Mountain States Title Insurance Company\nProposed Insured: Harborview Capital Partners LLC and Prairie Bank NA\nProperty: 8200 West Park Avenue, Denver, CO 80221\nLegal Description: Lot 4, Block 2, Maple Ridge Business Park, Adams County, Colorado\nVesting Owner: Maple Ridge Office Owner LP\nEstate or Interest: Fee simple\nPolicy Amount: $18,750,000\nSchedule B-I Requirements: record special warranty deed; payoff First Western Bank deed of trust; obtain owner affidavit; release mechanic lien\nSchedule B-II Exceptions: easement recorded at Reception No. 1998123401; mineral reservation in Book 221 Page 14; current year property taxes not yet due; tenant rights under unrecorded leases\nTax Parcel: 0182511204004\nEffective Time: 2026-08-18 at 8:00 AM",
+  "expected_json": {
+    "commitment_number": "FRT-26-883104",
+    "commitment_date": "2026-08-20",
+    "title_company_name": "Front Range Title Company as agent for Mountain States Title Insurance Company",
+    "proposed_insured": "Harborview Capital Partners LLC and Prairie Bank NA",
+    "property_address": "8200 West Park Avenue, Denver, CO 80221",
+    "legal_description": "Lot 4, Block 2, Maple Ridge Business Park, Adams County, Colorado",
+    "vesting_owner": "Maple Ridge Office Owner LP",
+    "estate_or_interest": "Fee simple",
+    "policy_amount": 18750000.0,
+    "requirements": [
+      "record special warranty deed",
+      "payoff First Western Bank deed of trust",
+      "obtain owner affidavit",
+      "release mechanic lien"
+    ],
+    "exceptions": [
+      "easement recorded at Reception No. 1998123401",
+      "mineral reservation in Book 221 Page 14",
+      "current year property taxes not yet due",
+      "tenant rights under unrecorded leases"
+    ],
+    "tax_parcel_number": "0182511204004",
+    "effective_time": "2026-08-18 at 8:00 AM"
+  },
+  "expected_avg_confidence": 0.92
+}

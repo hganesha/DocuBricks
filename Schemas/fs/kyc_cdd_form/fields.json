@@ -14,139 +14,278 @@
       "name": "customer_name",
       "type": "string",
       "required": true,
-      "description": "Customer name"
+      "description": "Customer name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "customer_type",
       "type": "string",
       "required": false,
-      "description": "Individual | Business | Trust | Other"
+      "description": "Individual | Business | Trust | Other",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "date_of_birth",
       "type": "string",
       "required": false,
-      "description": "Date of birth"
+      "description": "Date of birth",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "tax_id_masked",
       "type": "string",
       "required": false,
-      "description": "Tax id masked"
+      "description": "Tax id masked",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "address_line1",
       "type": "string",
       "required": false,
-      "description": "Address line1"
+      "description": "Address line1",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "city",
       "type": "string",
       "required": false,
-      "description": "City"
+      "description": "City",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "state",
       "type": "string",
       "required": false,
-      "description": "State"
+      "description": "State",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "postal_code",
       "type": "string",
       "required": false,
-      "description": "Postal code"
+      "description": "Postal code",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "country",
       "type": "string",
       "required": false,
-      "description": "Country"
+      "description": "Country",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "phone",
       "type": "string",
       "required": false,
-      "description": "Phone"
+      "description": "Phone",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "email",
       "type": "string",
       "required": false,
-      "description": "Email"
+      "description": "Email",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "occupation_or_business",
       "type": "string",
       "required": false,
-      "description": "Occupation or business"
+      "description": "Occupation or business",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "source_of_funds",
       "type": "string",
       "required": false,
-      "description": "Source of funds"
+      "description": "Source of funds",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "expected_monthly_activity",
       "type": "string",
       "required": false,
-      "description": "Expected monthly activity"
+      "description": "Expected monthly activity",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "risk_rating",
       "type": "string",
       "required": false,
-      "description": "Low | Medium | High"
+      "description": "Low | Medium | High",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
     },
     {
       "name": "pep_status",
       "type": "string",
       "required": false,
-      "description": "Pep status"
+      "description": "Pep status",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "beneficial_owner_name",
       "type": "string",
       "required": false,
-      "description": "Beneficial owner name"
+      "description": "Beneficial owner name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "beneficial_owner_ownership_percent",
       "type": "number",
       "required": false,
-      "description": "Beneficial owner ownership percent"
+      "description": "Beneficial owner ownership percent",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "id_document_type",
       "type": "string",
       "required": false,
-      "description": "Id document type"
+      "description": "Id document type",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "id_document_number_masked",
       "type": "string",
       "required": false,
-      "description": "Id document number masked"
+      "description": "Id document number masked",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "id_expiration_date",
       "type": "date",
       "required": false,
-      "description": "Id expiration date"
+      "description": "Id expiration date",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "review_date",
       "type": "date",
       "required": false,
-      "description": "Review date"
+      "description": "Review date",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "reviewer_name",
       "type": "string",
       "required": false,
-      "description": "Reviewer name"
+      "description": "Reviewer name",
+      "section": "parties",
+      "category": "identity"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "date_of_birth",
+        "id_expiration_date",
+        "review_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "city",
+        "country",
+        "email",
+        "expected_monthly_activity",
+        "id_document_number_masked",
+        "id_document_type",
+        "occupation_or_business",
+        "phone",
+        "postal_code",
+        "source_of_funds",
+        "state"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "tax_id_masked"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "beneficial_owner_name",
+        "beneficial_owner_ownership_percent",
+        "customer_name",
+        "customer_type",
+        "reviewer_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "address_line1"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "pep_status",
+        "risk_rating"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "customer_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

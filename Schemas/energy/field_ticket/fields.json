@@ -1,0 +1,334 @@
+{
+  "document_type": "field_ticket",
+  "vertical": "energy",
+  "family": "energy_field_services",
+  "schema_version": "energy_field_ticket_v1",
+  "fields": [
+    {
+      "name": "ticket_number",
+      "type": "string",
+      "required": true,
+      "description": "Field ticket number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "service_date",
+      "type": "date",
+      "required": true,
+      "description": "Date service was performed.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "operator_name",
+      "type": "string",
+      "required": true,
+      "description": "Customer or operating company.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "service_company_name",
+      "type": "string",
+      "required": true,
+      "description": "Service provider issuing the ticket.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "well_name",
+      "type": "string",
+      "required": false,
+      "description": "Well, pad, lease, or facility serviced.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "required": false,
+      "description": "Service location.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "job_type",
+      "type": "string",
+      "required": true,
+      "description": "Type of service performed.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "job_description",
+      "type": "string",
+      "required": false,
+      "description": "Narrative description of the work performed.",
+      "section": "document_details",
+      "category": "operational"
+    },
+    {
+      "name": "labor_lines",
+      "type": "array<object>",
+      "required": false,
+      "description": "Labor charges with role, hours, rate, and amount.",
+      "section": "line_items",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "labor_line_type",
+          "type": "string",
+          "description": "Type or class for labor_lines item."
+        },
+        {
+          "name": "labor_line_description",
+          "type": "string",
+          "description": "Description for labor_lines item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount or value when stated."
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "Relevant item date when stated."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Item status or disposition when stated."
+        }
+      ]
+    },
+    {
+      "name": "equipment_lines",
+      "type": "array<object>",
+      "required": false,
+      "description": "Equipment charges with unit, hours, rate, and amount.",
+      "section": "line_items",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "equipment_id",
+          "type": "string",
+          "description": "Equipment unit, serial, or asset identifier."
+        },
+        {
+          "name": "equipment_type",
+          "type": "string",
+          "description": "Equipment type."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Equipment or service line description."
+        },
+        {
+          "name": "hours",
+          "type": "number",
+          "description": "Billable equipment hours."
+        },
+        {
+          "name": "rate",
+          "type": "number",
+          "description": "Billing rate."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Line amount."
+        }
+      ]
+    },
+    {
+      "name": "material_lines",
+      "type": "array<object>",
+      "required": false,
+      "description": "Material charges with item, quantity, unit price, and amount.",
+      "section": "property_or_asset",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "material_line_type",
+          "type": "string",
+          "description": "Type or class for material_lines item."
+        },
+        {
+          "name": "material_line_description",
+          "type": "string",
+          "description": "Description for material_lines item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount or value when stated."
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "Relevant item date when stated."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Item status or disposition when stated."
+        }
+      ]
+    },
+    {
+      "name": "subtotal_amount",
+      "type": "number",
+      "required": false,
+      "description": "Subtotal before tax or fees.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "tax_amount",
+      "type": "number",
+      "required": false,
+      "description": "Tax amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "total_amount",
+      "type": "number",
+      "required": true,
+      "description": "Total field ticket amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "customer_representative",
+      "type": "string",
+      "required": false,
+      "description": "Customer approver or company representative.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "service_supervisor",
+      "type": "string",
+      "required": false,
+      "description": "Service company supervisor.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "approval_status",
+      "type": "string",
+      "required": false,
+      "description": "Signed, pending, disputed, rejected, or other approval status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "service_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "job_description",
+        "job_type",
+        "service_supervisor",
+        "ticket_number"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "subtotal_amount",
+        "tax_amount",
+        "total_amount"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "equipment_lines",
+        "labor_lines"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "customer_representative",
+        "operator_name",
+        "service_company_name",
+        "well_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "location",
+        "material_lines"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "approval_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "ticket_number",
+        "service_date",
+        "operator_name",
+        "service_company_name",
+        "job_type",
+        "total_amount"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "labor_lines",
+        "equipment_lines",
+        "material_lines"
+      ]
+    }
+  ]
+}

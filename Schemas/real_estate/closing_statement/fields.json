@@ -1,0 +1,269 @@
+{
+  "document_type": "closing_statement",
+  "vertical": "real_estate",
+  "family": "real_estate_transactions",
+  "schema_version": "real_estate_closing_statement_v1",
+  "fields": [
+    {
+      "name": "closing_statement_date",
+      "type": "date",
+      "required": true,
+      "description": "Closing statement date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": true,
+      "description": "Property address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "buyer_name",
+      "type": "string",
+      "required": true,
+      "description": "Buyer name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "seller_name",
+      "type": "string",
+      "required": true,
+      "description": "Seller name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "settlement_agent_name",
+      "type": "string",
+      "required": false,
+      "description": "Settlement agent, title company, or escrow officer.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "closing_date",
+      "type": "date",
+      "required": true,
+      "description": "Closing date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "purchase_price",
+      "type": "number",
+      "required": true,
+      "description": "Purchase price.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "loan_amount",
+      "type": "number",
+      "required": false,
+      "description": "Loan proceeds or loan amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "buyer_cash_to_close",
+      "type": "number",
+      "required": false,
+      "description": "Buyer cash to close.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "seller_proceeds",
+      "type": "number",
+      "required": false,
+      "description": "Seller net proceeds.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "prorations",
+      "type": "array<object>",
+      "required": false,
+      "description": "Tax, rent, utility, CAM, or other prorations.",
+      "section": "line_items",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "item",
+          "type": "string",
+          "description": "Proration item."
+        },
+        {
+          "name": "party_credited",
+          "type": "string",
+          "description": "Credited party."
+        },
+        {
+          "name": "party_debited",
+          "type": "string",
+          "description": "Debited party."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Proration amount."
+        }
+      ]
+    },
+    {
+      "name": "title_charges",
+      "type": "array<object>",
+      "required": false,
+      "description": "Title, escrow, recording, transfer tax, or settlement charges.",
+      "section": "line_items",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "item",
+          "type": "string",
+          "description": "Title or settlement charge item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Charge amount."
+        },
+        {
+          "name": "paid_by",
+          "type": "string",
+          "description": "Party responsible for charge."
+        }
+      ]
+    },
+    {
+      "name": "payoffs",
+      "type": "array<object>",
+      "required": false,
+      "description": "Mortgage, lien, or other payoff items.",
+      "section": "line_items",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "payee",
+          "type": "string",
+          "description": "Payoff recipient."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Payoff amount."
+        },
+        {
+          "name": "reference",
+          "type": "string",
+          "description": "Loan, lien, or account reference."
+        }
+      ]
+    },
+    {
+      "name": "recording_reference",
+      "type": "string",
+      "required": false,
+      "description": "Recording information if stated.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "closing_date",
+        "closing_statement_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "recording_reference"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "loan_amount",
+        "purchase_price"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "payoffs",
+        "prorations",
+        "title_charges"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "buyer_cash_to_close",
+        "buyer_name",
+        "seller_name",
+        "seller_proceeds",
+        "settlement_agent_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "property_address"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "closing_statement_date",
+        "property_address",
+        "buyer_name",
+        "seller_name",
+        "closing_date",
+        "purchase_price"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "prorations",
+        "title_charges",
+        "payoffs"
+      ]
+    }
+  ]
+}

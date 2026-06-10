@@ -221,7 +221,10 @@ def build_field_schema(entry: dict[str, Any]) -> dict[str, Any]:
     doc_type = str(entry["doc_type"])
     vertical = str(entry["vertical"])
     bundle_path = SCHEMAS_ROOT / vertical / doc_type
-    prompt_text = (bundle_path / "prompt_v1.txt").read_text(encoding="utf-8")
+    prompt_path = SCHEMAS_ROOT / "prompts" / vertical / doc_type / "prompt_v1.txt"
+    if not prompt_path.exists():
+        prompt_path = bundle_path / "prompt_v1.txt"
+    prompt_text = prompt_path.read_text(encoding="utf-8")
 
     fields = _parse_prompt_fields(prompt_text)
     required = _required_fields_from_rules(bundle_path / "validation_rules.json")

@@ -27,14 +27,18 @@ def _read_schema_catalog() -> dict[str, Any]:
 def _prompt_entry(entry: dict[str, Any]) -> dict[str, Any]:
     vertical = str(entry["vertical"])
     doc_type = str(entry["doc_type"])
-    source_prompt_path = SCHEMAS_ROOT / vertical / doc_type / "prompt_v1.txt"
-    prompt_text = source_prompt_path.read_text(encoding="utf-8")
-
     centralized_prompt_path = PROMPT_ROOT / vertical / doc_type / "prompt_v1.txt"
-    centralized_prompt_path.parent.mkdir(parents=True, exist_ok=True)
-    centralized_prompt_path.write_text(prompt_text, encoding="utf-8")
+    source_prompt_path = SCHEMAS_ROOT / vertical / doc_type / "prompt_v1.txt"
+    if centralized_prompt_path.exists():
+        prompt_text = centralized_prompt_path.read_text(encoding="utf-8")
+        source_bundle_prompt_path = None
+    else:
+        prompt_text = source_prompt_path.read_text(encoding="utf-8")
+        centralized_prompt_path.parent.mkdir(parents=True, exist_ok=True)
+        centralized_prompt_path.write_text(prompt_text, encoding="utf-8")
+        source_bundle_prompt_path = _relative(source_prompt_path)
 
-    return {
+    prompt_entry = {
         "prompt_id": f"{vertical}.{doc_type}.v1",
         "doc_type": doc_type,
         "schema_catalog_doc_type": doc_type,
@@ -43,13 +47,15 @@ def _prompt_entry(entry: dict[str, Any]) -> dict[str, Any]:
         "availability": entry.get("availability"),
         "prompt_version": "v1",
         "prompt_path": _relative(centralized_prompt_path),
-        "source_bundle_prompt_path": _relative(source_prompt_path),
         "field_schema_path": _relative(SCHEMAS_ROOT / vertical / doc_type / "fields.json"),
         "validation_rules_path": _relative(SCHEMAS_ROOT / vertical / doc_type / "validation_rules.json"),
         "field_thresholds_path": _relative(SCHEMAS_ROOT / vertical / doc_type / "field_thresholds.json"),
         "model_routing_path": _relative(SCHEMAS_ROOT / vertical / doc_type / "model_routing.json"),
         "sha256": hashlib.sha256(prompt_text.encode("utf-8")).hexdigest(),
     }
+    if source_bundle_prompt_path is not None:
+        prompt_entry["source_bundle_prompt_path"] = source_bundle_prompt_path
+    return prompt_entry
 
 
 def build_prompt_catalog() -> dict[str, Any]:

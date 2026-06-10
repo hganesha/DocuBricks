@@ -14,91 +14,217 @@
       "name": "reported_date",
       "type": "date",
       "required": true,
-      "description": "Date the loss was reported."
+      "description": "Date the loss was reported.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "reported_time",
       "type": "string",
       "required": false,
-      "description": "Time the loss was reported if stated."
+      "description": "Time the loss was reported if stated.",
+      "section": "document_details",
+      "category": "temporal"
     },
     {
       "name": "reporting_party_name",
       "type": "string",
       "required": false,
-      "description": "Person or entity reporting the loss."
+      "description": "Person or entity reporting the loss.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "reporting_party_phone",
       "type": "string",
       "required": false,
-      "description": "Reporter phone number."
+      "description": "Reporter phone number.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "policy_number",
       "type": "string",
       "required": true,
-      "description": "Policy number stated on the notice."
+      "description": "Policy number stated on the notice.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "insured_name",
       "type": "string",
       "required": false,
-      "description": "Named insured."
+      "description": "Named insured.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "loss_date",
       "type": "date",
       "required": true,
-      "description": "Date of loss."
+      "description": "Date of loss.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "loss_time",
       "type": "string",
       "required": false,
-      "description": "Time of loss if stated."
+      "description": "Time of loss if stated.",
+      "section": "document_details",
+      "category": "temporal"
     },
     {
       "name": "loss_location",
       "type": "string",
       "required": false,
-      "description": "Location where the loss occurred."
+      "description": "Location where the loss occurred.",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "loss_cause",
       "type": "string",
       "required": false,
-      "description": "Stated cause of loss."
+      "description": "Stated cause of loss.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "loss_description",
       "type": "string",
       "required": true,
-      "description": "Narrative description of the loss."
+      "description": "Narrative description of the loss.",
+      "section": "document_details",
+      "category": "operational"
     },
     {
       "name": "injury_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Whether injuries are reported."
+      "description": "Whether injuries are reported.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "police_or_authority_report",
       "type": "string",
       "required": false,
-      "description": "Police, fire, OSHA, or other authority report details."
+      "description": "Police, fire, OSHA, or other authority report details.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "estimated_loss_amount",
       "type": "number",
       "required": false,
-      "description": "Estimated loss amount if stated."
+      "description": "Estimated loss amount if stated.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "emergency_mitigation_actions",
       "type": "array<string>",
       "required": false,
-      "description": "Emergency actions taken to mitigate loss."
+      "description": "Emergency actions taken to mitigate loss.",
+      "section": "line_items",
+      "category": "array"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "loss_date",
+        "reported_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "injury_indicator",
+        "loss_cause",
+        "loss_description",
+        "loss_time",
+        "police_or_authority_report",
+        "reported_time"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "estimated_loss_amount"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "emergency_mitigation_actions"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "insured_name",
+        "reporting_party_name",
+        "reporting_party_phone"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "loss_location"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "policy_number"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "reported_date",
+        "policy_number",
+        "loss_date",
+        "loss_description"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

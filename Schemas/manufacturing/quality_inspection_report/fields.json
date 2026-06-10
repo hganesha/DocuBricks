@@ -1,0 +1,207 @@
+{
+  "document_type": "quality_inspection_report",
+  "vertical": "manufacturing",
+  "family": "manufacturing_quality",
+  "schema_version": "manufacturing_quality_inspection_report_v1",
+  "fields": [
+    {
+      "name": "inspection_report_number",
+      "type": "string",
+      "required": true,
+      "description": "Inspection report number.",
+      "section": "document_details",
+      "category": "operational"
+    },
+    {
+      "name": "inspection_date",
+      "type": "date",
+      "required": true,
+      "description": "Inspection date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "part_number",
+      "type": "string",
+      "required": true,
+      "description": "Part number inspected.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "part_revision",
+      "type": "string",
+      "required": false,
+      "description": "Part revision.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "lot_number",
+      "type": "string",
+      "required": true,
+      "description": "Lot, batch, or serial group inspected.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "supplier_or_work_center",
+      "type": "string",
+      "required": false,
+      "description": "Supplier, work center, or production cell.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "sample_size",
+      "type": "integer",
+      "required": false,
+      "description": "Sample size inspected.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "inspection_characteristics",
+      "type": "array<object>",
+      "required": true,
+      "description": "Measured characteristics with specification, result, and disposition.",
+      "section": "document_details",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "characteristic",
+          "type": "string",
+          "description": "Inspected characteristic."
+        },
+        {
+          "name": "specification",
+          "type": "string",
+          "description": "Specification or tolerance."
+        },
+        {
+          "name": "measured_value",
+          "type": "string",
+          "description": "Measured value."
+        },
+        {
+          "name": "result",
+          "type": "string",
+          "description": "Pass, fail, accepted, rejected, or other result."
+        }
+      ]
+    },
+    {
+      "name": "defect_count",
+      "type": "integer",
+      "required": false,
+      "description": "Count of defects found.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "overall_disposition",
+      "type": "string",
+      "required": true,
+      "description": "Accepted, rejected, rework, use-as-is, or other disposition.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
+    },
+    {
+      "name": "inspector_name",
+      "type": "string",
+      "required": false,
+      "description": "Inspector name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "approval_name",
+      "type": "string",
+      "required": false,
+      "description": "Quality approver name.",
+      "section": "parties",
+      "category": "identity"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "inspection_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "defect_count",
+        "inspection_characteristics",
+        "inspection_report_number",
+        "part_revision",
+        "sample_size"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "approval_name",
+        "inspector_name",
+        "supplier_or_work_center"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "lot_number",
+        "part_number"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "overall_disposition"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "inspection_report_number",
+        "inspection_date",
+        "part_number",
+        "lot_number",
+        "inspection_characteristics",
+        "overall_disposition"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "inspection_characteristics"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "test_case_id": "well_completion_report_001",
+  "document_type": "well_completion_report",
+  "description": "Seed golden test for Well Completion Report",
+  "tags": [
+    "happy_path",
+    "energy_upstream_operations",
+    "seed"
+  ],
+  "parsed_text": "WELL COMPLETION REPORT\nCompletion Date: 2026-06-02\nWell: Wolf Creek 12-7H\nAPI Number: 42-301-44881\nOperator: Prairie Basin Energy LLC\nField: Wolf Creek\nFormation: Wolfcamp B\nCompletion Type: perforated casing hydraulic fracture\nTotal Depth: 20140 ft\nPerforated Intervals: stage 1 top 10210 ft bottom 10480 ft date 2026-05-24; stage 2 top 10490 ft bottom 10765 ft date 2026-05-25\nStimulation Summary: 42-stage slickwater fracture treatment completed without screenout\nProppant Volume: 12800000 lb\nFluid Volume: 315000 bbl\nInitial Oil Rate: 842 BPD\nInitial Gas Rate: 1190 MCFD\nInitial Water Rate: 620 BPD\nChoke Size: 24/64 in\nContractors: HighMesa Pressure Pumping; Basin Wireline; SureCem Cementing\nRegulatory Filing Status: Pending",
+  "expected_json": {
+    "completion_date": "2026-06-02",
+    "well_name": "Wolf Creek 12-7H",
+    "api_well_number": "42-301-44881",
+    "operator_name": "Prairie Basin Energy LLC",
+    "field_name": "Wolf Creek",
+    "formation": "Wolfcamp B",
+    "completion_type": "perforated casing hydraulic fracture",
+    "total_depth": 20140.0,
+    "perforated_intervals": [
+      {
+        "stage": "1",
+        "top_depth": 10210,
+        "bottom_depth": 10480,
+        "date": "2026-05-24"
+      },
+      {
+        "stage": "2",
+        "top_depth": 10490,
+        "bottom_depth": 10765,
+        "date": "2026-05-25"
+      }
+    ],
+    "stimulation_summary": "42-stage slickwater fracture treatment completed without screenout",
+    "proppant_volume": 12800000.0,
+    "fluid_volume": 315000.0,
+    "initial_oil_rate_bpd": 842.0,
+    "initial_gas_rate_mcfpd": 1190.0,
+    "initial_water_rate_bpd": 620.0,
+    "choke_size": "24/64 in",
+    "contractors": [
+      "HighMesa Pressure Pumping",
+      "Basin Wireline",
+      "SureCem Cementing"
+    ],
+    "regulatory_filing_status": "Pending"
+  },
+  "expected_avg_confidence": 0.92
+}

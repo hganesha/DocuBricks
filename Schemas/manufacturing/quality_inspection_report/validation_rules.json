@@ -1,0 +1,82 @@
+[
+  {
+    "name": "inspection_report_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "inspection_report_number"
+    ],
+    "expression": "inspection_report_number IS NOT NULL AND LENGTH(TRIM(inspection_report_number)) > 0",
+    "severity": "fail",
+    "description": "inspection_report_number is required for Quality Inspection Report extraction."
+  },
+  {
+    "name": "inspection_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "inspection_date"
+    ],
+    "expression": "inspection_date IS NOT NULL AND LENGTH(TRIM(inspection_date)) > 0",
+    "severity": "fail",
+    "description": "inspection_date is required for Quality Inspection Report extraction."
+  },
+  {
+    "name": "part_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "part_number"
+    ],
+    "expression": "part_number IS NOT NULL AND LENGTH(TRIM(part_number)) > 0",
+    "severity": "fail",
+    "description": "part_number is required for Quality Inspection Report extraction."
+  },
+  {
+    "name": "lot_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "lot_number"
+    ],
+    "expression": "lot_number IS NOT NULL AND LENGTH(TRIM(lot_number)) > 0",
+    "severity": "fail",
+    "description": "lot_number is required for Quality Inspection Report extraction."
+  },
+  {
+    "name": "inspection_characteristics_present",
+    "rule_type": "array",
+    "fields": [
+      "inspection_characteristics"
+    ],
+    "expression": "inspection_characteristics IS NOT NULL AND JSON_ARRAY_LENGTH(inspection_characteristics) > 0",
+    "severity": "fail",
+    "description": "inspection_characteristics is required for Quality Inspection Report extraction."
+  },
+  {
+    "name": "overall_disposition_present",
+    "rule_type": "presence",
+    "fields": [
+      "overall_disposition"
+    ],
+    "expression": "overall_disposition IS NOT NULL AND LENGTH(TRIM(overall_disposition)) > 0",
+    "severity": "fail",
+    "description": "overall_disposition is required for Quality Inspection Report extraction."
+  },
+  {
+    "name": "sample_size_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "sample_size"
+    ],
+    "expression": "sample_size IS NULL OR sample_size >= 0",
+    "severity": "warn",
+    "description": "sample_size should be non-negative when present."
+  },
+  {
+    "name": "defect_count_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "defect_count"
+    ],
+    "expression": "defect_count IS NULL OR defect_count >= 0",
+    "severity": "warn",
+    "description": "defect_count should be non-negative when present."
+  }
+]

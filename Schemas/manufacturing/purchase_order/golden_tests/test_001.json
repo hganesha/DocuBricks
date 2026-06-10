@@ -1,0 +1,46 @@
+{
+  "test_case_id": "purchase_order_001",
+  "document_type": "purchase_order",
+  "description": "Seed golden test for Purchase Order",
+  "tags": [
+    "happy_path",
+    "procurement_supply_chain",
+    "seed"
+  ],
+  "parsed_text": "PURCHASE ORDER\nPO Number: PO-4500129841\nPO Date: 2026-04-03\nBuyer: Prairie Ridge Manufacturing LLC - Des Moines Plant\nSupplier: Apex Alloy Supply Inc.\nShip To: 4100 Foundry Road, Des Moines, IA 50309\nRequested Delivery: 2026-04-24\nCurrency: USD\nPayment Terms: Net 45\nIncoterms: FOB Origin\nLine Items: 1) Part AL-6061-BAR, Aluminum bar stock, qty 1200 LB, unit price $4.25, due 2026-04-24; 2) Part ST-4140-PLT, Steel plate, qty 80 EA, unit price $185.00, due 2026-04-28\nSubtotal: $19,900.00\nTax: $0.00\nTotal: $19,900.00\nBuyer Contact: Lena Ortiz\nApproval Status: Approved",
+  "expected_json": {
+    "purchase_order_number": "PO-4500129841",
+    "po_date": "2026-04-03",
+    "buyer_name": "Prairie Ridge Manufacturing LLC - Des Moines Plant",
+    "supplier_name": "Apex Alloy Supply Inc.",
+    "ship_to_location": "4100 Foundry Road, Des Moines, IA 50309",
+    "requested_delivery_date": "2026-04-24",
+    "currency": "USD",
+    "payment_terms": "Net 45",
+    "incoterms": "FOB Origin",
+    "line_items": [
+      {
+        "part_number": "AL-6061-BAR",
+        "description": "Aluminum bar stock",
+        "quantity": 1200,
+        "unit": "LB",
+        "unit_price": 4.25,
+        "due_date": "2026-04-24"
+      },
+      {
+        "part_number": "ST-4140-PLT",
+        "description": "Steel plate",
+        "quantity": 80,
+        "unit": "EA",
+        "unit_price": 185.0,
+        "due_date": "2026-04-28"
+      }
+    ],
+    "subtotal_amount": 19900.0,
+    "tax_amount": 0.0,
+    "total_amount": 19900.0,
+    "buyer_contact_name": "Lena Ortiz",
+    "approval_status": "Approved"
+  },
+  "expected_avg_confidence": 0.92
+}

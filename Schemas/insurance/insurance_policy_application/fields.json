@@ -14,97 +14,209 @@
       "name": "application_date",
       "type": "date",
       "required": false,
-      "description": "Date the application was completed or submitted."
+      "description": "Date the application was completed or submitted.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "applicant_name",
       "type": "string",
       "required": true,
-      "description": "Named applicant or proposed insured."
+      "description": "Named applicant or proposed insured.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "applicant_entity_type",
       "type": "string",
       "required": false,
-      "description": "Individual, corporation, LLC, trust, or other legal form."
+      "description": "Individual, corporation, LLC, trust, or other legal form.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "mailing_address",
       "type": "string",
       "required": false,
-      "description": "Applicant mailing address."
+      "description": "Applicant mailing address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "policy_type_requested",
       "type": "string",
       "required": true,
-      "description": "Line of business or coverage type requested."
+      "description": "Line of business or coverage type requested.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "effective_date_requested",
       "type": "date",
       "required": true,
-      "description": "Requested policy effective date."
+      "description": "Requested policy effective date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "coverage_limit_requested",
       "type": "number",
       "required": false,
-      "description": "Requested coverage limit or policy amount."
+      "description": "Requested coverage limit or policy amount.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "deductible_requested",
       "type": "number",
       "required": false,
-      "description": "Requested deductible or retention."
+      "description": "Requested deductible or retention.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "insured_property_or_risk",
       "type": "string",
       "required": false,
-      "description": "Property, operation, person, or risk to be insured."
+      "description": "Property, operation, person, or risk to be insured.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "prior_carrier_names",
       "type": "array<string>",
       "required": false,
-      "description": "Prior insurance carriers when listed."
+      "description": "Prior insurance carriers when listed.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "loss_history_summary",
       "type": "string",
       "required": false,
-      "description": "Applicant's stated loss or claims history."
+      "description": "Applicant's stated loss or claims history.",
+      "section": "document_details",
+      "category": "operational"
     },
     {
       "name": "annual_revenue",
       "type": "number",
       "required": false,
-      "description": "Annual revenue when commercial exposure is stated."
+      "description": "Annual revenue when commercial exposure is stated.",
+      "section": "document_details",
+      "category": "financial"
     },
     {
       "name": "employee_count",
       "type": "integer",
       "required": false,
-      "description": "Employee count when applicable."
+      "description": "Employee count when applicable.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "risk_controls",
       "type": "array<string>",
       "required": false,
-      "description": "Safety, security, compliance, or loss control measures."
+      "description": "Safety, security, compliance, or loss control measures.",
+      "section": "risk_and_compliance",
+      "category": "array"
     },
     {
       "name": "producer_name",
       "type": "string",
       "required": false,
-      "description": "Agent, broker, or producer name."
+      "description": "Agent, broker, or producer name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "underwriting_status",
       "type": "string",
       "required": false,
-      "description": "Submitted, quoted, bound, declined, pending, or other status."
+      "description": "Submitted, quoted, bound, declined, pending, or other status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "application_date",
+        "effective_date_requested"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "annual_revenue",
+        "applicant_entity_type",
+        "deductible_requested",
+        "employee_count",
+        "loss_history_summary"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "applicant_name",
+        "insured_property_or_risk",
+        "prior_carrier_names",
+        "producer_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "mailing_address"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "coverage_limit_requested",
+        "policy_type_requested",
+        "risk_controls",
+        "underwriting_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "applicant_name",
+        "policy_type_requested",
+        "effective_date_requested"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

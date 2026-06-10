@@ -1,0 +1,220 @@
+{
+  "document_type": "lease_agreement",
+  "vertical": "real_estate",
+  "family": "real_estate_transactions",
+  "schema_version": "real_estate_lease_agreement_v1",
+  "fields": [
+    {
+      "name": "lease_date",
+      "type": "date",
+      "required": true,
+      "description": "Date the lease was executed or made effective.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "landlord_name",
+      "type": "string",
+      "required": true,
+      "description": "Landlord or lessor legal name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "tenant_name",
+      "type": "string",
+      "required": true,
+      "description": "Tenant or lessee legal name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": true,
+      "description": "Leased property address or premises.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "premises_description",
+      "type": "string",
+      "required": false,
+      "description": "Description of leased premises, suite, floor, or rentable area.",
+      "section": "property_or_asset",
+      "category": "operational"
+    },
+    {
+      "name": "lease_start_date",
+      "type": "date",
+      "required": true,
+      "description": "Lease commencement date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "lease_end_date",
+      "type": "date",
+      "required": true,
+      "description": "Lease expiration date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "base_rent_amount",
+      "type": "number",
+      "required": true,
+      "description": "Base rent amount for the stated period.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "rent_frequency",
+      "type": "string",
+      "required": false,
+      "description": "Monthly, annual, weekly, or other rent frequency.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "security_deposit_amount",
+      "type": "number",
+      "required": false,
+      "description": "Security deposit amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "renewal_options",
+      "type": "array<string>",
+      "required": false,
+      "description": "Renewal options, extension rights, or option terms.",
+      "section": "dates_and_terms",
+      "category": "array"
+    },
+    {
+      "name": "use_clause",
+      "type": "string",
+      "required": false,
+      "description": "Permitted use clause.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "cam_or_operating_expense_terms",
+      "type": "string",
+      "required": false,
+      "description": "CAM, operating expense, tax, or insurance reimbursement terms.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "guarantor_names",
+      "type": "array<string>",
+      "required": false,
+      "description": "Lease guarantors.",
+      "section": "parties",
+      "category": "array"
+    },
+    {
+      "name": "assignment_subletting_terms",
+      "type": "string",
+      "required": false,
+      "description": "Assignment or subletting restrictions.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "governing_law",
+      "type": "string",
+      "required": false,
+      "description": "Governing state or jurisdiction.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "assignment_subletting_terms",
+        "cam_or_operating_expense_terms",
+        "lease_date",
+        "lease_end_date",
+        "lease_start_date",
+        "renewal_options"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "governing_law",
+        "use_clause"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "base_rent_amount",
+        "rent_frequency",
+        "security_deposit_amount"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "guarantor_names",
+        "landlord_name",
+        "tenant_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "premises_description",
+        "property_address"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "lease_date",
+        "landlord_name",
+        "tenant_name",
+        "property_address",
+        "lease_start_date",
+        "lease_end_date",
+        "base_rent_amount"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

@@ -14,133 +14,262 @@
       "name": "assessment_date",
       "type": "date",
       "required": true,
-      "description": "Date the assessment was completed."
+      "description": "Date the assessment was completed.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "vendor_name",
       "type": "string",
       "required": true,
-      "description": "Legal or operating name of the vendor."
+      "description": "Legal or operating name of the vendor.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "vendor_service_description",
       "type": "string",
       "required": false,
-      "description": "Description of products or services provided."
+      "description": "Description of products or services provided.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "business_owner",
       "type": "string",
       "required": false,
-      "description": "Internal owner or relationship manager."
+      "description": "Internal owner or relationship manager.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "criticality_tier",
       "type": "string",
       "required": false,
-      "description": "Critical, high, medium, low, or other tier."
+      "description": "Critical, high, medium, low, or other tier.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "inherent_risk_rating",
       "type": "string",
       "required": false,
-      "description": "Inherent risk before controls."
+      "description": "Inherent risk before controls.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "residual_risk_rating",
       "type": "string",
       "required": false,
-      "description": "Residual risk after controls."
+      "description": "Residual risk after controls.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
     },
     {
       "name": "data_access_level",
       "type": "string",
       "required": false,
-      "description": "Customer data, confidential data, payment data, PHI, none, or other."
+      "description": "Customer data, confidential data, payment data, PHI, none, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "customer_impact",
       "type": "boolean",
       "required": false,
-      "description": "Whether vendor failure could materially affect customers."
+      "description": "Whether vendor failure could materially affect customers.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "outsourcing_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Whether this is an outsourcing or material service provider."
+      "description": "Whether this is an outsourcing or material service provider.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "subcontractors",
       "type": "array<string>",
       "required": false,
-      "description": "Named material subcontractors or fourth parties."
+      "description": "Named material subcontractors or fourth parties.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "soc_report_type",
       "type": "string",
       "required": false,
-      "description": "SOC 1, SOC 2, bridge letter, none, or other."
+      "description": "SOC 1, SOC 2, bridge letter, none, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "soc_report_date",
       "type": "date",
       "required": false,
-      "description": "Date or period end of SOC report."
+      "description": "Date or period end of SOC report.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "information_security_rating",
       "type": "string",
       "required": false,
-      "description": "Information security control rating."
+      "description": "Information security control rating.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
     },
     {
       "name": "business_continuity_rating",
       "type": "string",
       "required": false,
-      "description": "BCP/DR control rating."
+      "description": "BCP/DR control rating.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
     },
     {
       "name": "financial_condition_rating",
       "type": "string",
       "required": false,
-      "description": "Financial strength or viability rating."
+      "description": "Financial strength or viability rating.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
     },
     {
       "name": "regulatory_compliance_rating",
       "type": "string",
       "required": false,
-      "description": "Compliance control rating."
+      "description": "Compliance control rating.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "open_issues",
       "type": "array<string>",
       "required": false,
-      "description": "Open issues, findings, or remediation items."
+      "description": "Open issues, findings, or remediation items.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "remediation_due_date",
       "type": "date",
       "required": false,
-      "description": "Due date for remediation if stated."
+      "description": "Due date for remediation if stated.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "approval_status",
       "type": "string",
       "required": false,
-      "description": "Approved, conditionally approved, rejected, pending, or other."
+      "description": "Approved, conditionally approved, rejected, pending, or other.",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "approver_name",
       "type": "string",
       "required": false,
-      "description": "Approver, committee, or risk officer."
+      "description": "Approver, committee, or risk officer.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "next_review_date",
       "type": "date",
       "required": false,
-      "description": "Next periodic review date."
+      "description": "Next periodic review date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "assessment_date",
+        "next_review_date",
+        "remediation_due_date",
+        "soc_report_date",
+        "vendor_service_description"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "criticality_tier",
+        "data_access_level",
+        "open_issues",
+        "outsourcing_indicator",
+        "soc_report_type",
+        "subcontractors"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "inherent_risk_rating"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "approver_name",
+        "business_owner",
+        "customer_impact",
+        "vendor_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "approval_status",
+        "business_continuity_rating",
+        "financial_condition_rating",
+        "information_security_rating",
+        "regulatory_compliance_rating",
+        "residual_risk_rating"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "assessment_date",
+        "vendor_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

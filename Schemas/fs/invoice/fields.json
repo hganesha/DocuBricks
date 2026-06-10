@@ -14,109 +14,273 @@
       "name": "invoice_number",
       "type": "string",
       "required": true,
-      "description": "Invoice number"
+      "description": "Invoice number",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "invoice_date",
       "type": "date",
       "required": false,
-      "description": "Invoice date"
+      "description": "Invoice date",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "due_date",
       "type": "date",
       "required": false,
-      "description": "Due date"
+      "description": "Due date",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "vendor_name",
       "type": "string",
       "required": true,
-      "description": "Vendor name"
+      "description": "Vendor name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "vendor_tax_id_masked",
       "type": "string",
       "required": false,
-      "description": "Vendor tax id masked"
+      "description": "Vendor tax id masked",
+      "section": "dates_and_terms",
+      "category": "financial"
     },
     {
       "name": "vendor_address",
       "type": "string",
       "required": false,
-      "description": "Vendor address"
+      "description": "Vendor address",
+      "section": "property_or_asset",
+      "category": "temporal"
     },
     {
       "name": "customer_name",
       "type": "string",
       "required": false,
-      "description": "Customer name"
+      "description": "Customer name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "customer_address",
       "type": "string",
       "required": false,
-      "description": "Customer address"
+      "description": "Customer address",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "purchase_order_number",
       "type": "string",
       "required": false,
-      "description": "Purchase order number"
+      "description": "Purchase order number",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "currency",
       "type": "string",
       "required": false,
-      "description": "Currency"
+      "description": "Currency",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "subtotal",
       "type": "number",
       "required": false,
-      "description": "Subtotal"
+      "description": "Subtotal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "tax_amount",
       "type": "number",
       "required": false,
-      "description": "Tax amount"
+      "description": "Tax amount",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "shipping_amount",
       "type": "number",
       "required": false,
-      "description": "Shipping amount"
+      "description": "Shipping amount",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "discount_amount",
       "type": "number",
       "required": false,
-      "description": "Discount amount"
+      "description": "Discount amount",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "total_amount",
       "type": "number",
       "required": true,
-      "description": "Total amount"
+      "description": "Total amount",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "amount_due",
       "type": "number",
       "required": false,
-      "description": "Amount due"
+      "description": "Amount due",
+      "section": "dates_and_terms",
+      "category": "financial"
     },
     {
       "name": "payment_terms",
       "type": "number",
       "required": false,
-      "description": "Payment terms"
+      "description": "Payment terms",
+      "section": "dates_and_terms",
+      "category": "financial"
     },
     {
       "name": "line_item_count",
       "type": "integer",
       "required": false,
-      "description": "Line item count"
+      "description": "Line item count",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "line_items",
+      "type": "array<object>",
+      "required": false,
+      "description": "Individual line items extracted from the invoice",
+      "section": "line_items",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "line_number",
+          "type": "string",
+          "description": "Line number."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Line description."
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "description": "Quantity."
+        },
+        {
+          "name": "unit_amount",
+          "type": "number",
+          "description": "Unit amount or price."
+        },
+        {
+          "name": "total_amount",
+          "type": "number",
+          "description": "Line total amount."
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "amount_due",
+        "due_date",
+        "invoice_date",
+        "payment_terms",
+        "vendor_tax_id_masked"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "currency",
+        "invoice_number",
+        "line_item_count",
+        "purchase_order_number"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "discount_amount",
+        "shipping_amount",
+        "subtotal",
+        "tax_amount",
+        "total_amount"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "line_items"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "customer_address",
+        "customer_name",
+        "vendor_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "vendor_address"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "invoice_number",
+        "vendor_name",
+        "total_amount"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "line_items"
+      ]
     }
   ]
 }

@@ -14,139 +14,286 @@
       "name": "agreement_date",
       "type": "date",
       "required": false,
-      "description": "Date of the agreement."
+      "description": "Date of the agreement.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "borrower_name",
       "type": "string",
       "required": true,
-      "description": "Borrower legal name."
+      "description": "Borrower legal name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "lender_name",
       "type": "string",
       "required": false,
-      "description": "Lender, administrative agent, or bank."
+      "description": "Lender, administrative agent, or bank.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "facility_type",
       "type": "string",
       "required": false,
-      "description": "Term loan, revolving credit facility, delayed draw, line of credit, or other."
+      "description": "Term loan, revolving credit facility, delayed draw, line of credit, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "commitment_amount",
       "type": "number",
       "required": false,
-      "description": "Principal commitment amount."
+      "description": "Principal commitment amount.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "maturity_date",
       "type": "date",
       "required": false,
-      "description": "Final maturity date."
+      "description": "Final maturity date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "interest_rate_type",
       "type": "string",
       "required": false,
-      "description": "Fixed, floating, SOFR, prime, base rate, or other."
+      "description": "Fixed, floating, SOFR, prime, base rate, or other.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "interest_rate_margin",
       "type": "number",
       "required": false,
-      "description": "Margin/spread as percent if stated."
+      "description": "Margin/spread as percent if stated.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "benchmark_rate",
       "type": "string",
       "required": false,
-      "description": "SOFR, Term SOFR, Prime, Base Rate, or other."
+      "description": "SOFR, Term SOFR, Prime, Base Rate, or other.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "default_rate_margin",
       "type": "number",
       "required": false,
-      "description": "Additional default interest margin."
+      "description": "Additional default interest margin.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "amortization_terms",
       "type": "string",
       "required": false,
-      "description": "Payment/amortization description."
+      "description": "Payment/amortization description.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "payment_frequency",
       "type": "string",
       "required": false,
-      "description": "Monthly, quarterly, semiannual, annual, on demand, or other."
+      "description": "Monthly, quarterly, semiannual, annual, on demand, or other.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "collateral_description",
       "type": "string",
       "required": false,
-      "description": "Collateral securing the facility."
+      "description": "Collateral securing the facility.",
+      "section": "property_or_asset",
+      "category": "operational"
     },
     {
       "name": "guarantor_names",
       "type": "array<string>",
       "required": false,
-      "description": "Guarantors."
+      "description": "Guarantors.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "affirmative_covenants",
       "type": "array<string>",
       "required": false,
-      "description": "Affirmative covenants."
+      "description": "Affirmative covenants.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "negative_covenants",
       "type": "array<string>",
       "required": false,
-      "description": "Negative covenants."
+      "description": "Negative covenants.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "financial_covenants",
       "type": "array<string>",
       "required": false,
-      "description": "DSCR, leverage, liquidity, net worth, borrowing base, or other covenants."
+      "description": "DSCR, leverage, liquidity, net worth, borrowing base, or other covenants.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "reporting_requirements",
       "type": "array<string>",
       "required": false,
-      "description": "Financial statements, certificates, borrowing base reports, or other reporting."
+      "description": "Financial statements, certificates, borrowing base reports, or other reporting.",
+      "section": "line_items",
+      "category": "array"
     },
     {
       "name": "events_of_default",
       "type": "array<string>",
       "required": false,
-      "description": "Events of default."
+      "description": "Events of default.",
+      "section": "risk_and_compliance",
+      "category": "array"
     },
     {
       "name": "governing_law",
       "type": "string",
       "required": false,
-      "description": "Governing law jurisdiction."
+      "description": "Governing law jurisdiction.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "jurisdiction_venue",
       "type": "string",
       "required": false,
-      "description": "Court or venue clause."
+      "description": "Court or venue clause.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "jury_trial_waiver",
       "type": "boolean",
       "required": false,
-      "description": "Whether a jury trial waiver appears."
+      "description": "Whether a jury trial waiver appears.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "assignment_clause_present",
       "type": "boolean",
       "required": false,
-      "description": "Whether assignments/transfers are addressed."
+      "description": "Whether assignments/transfers are addressed.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "agreement_date",
+        "amortization_terms",
+        "maturity_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "affirmative_covenants",
+        "assignment_clause_present",
+        "facility_type",
+        "financial_covenants",
+        "governing_law",
+        "jurisdiction_venue",
+        "jury_trial_waiver",
+        "negative_covenants"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "benchmark_rate",
+        "commitment_amount",
+        "default_rate_margin",
+        "interest_rate_margin",
+        "interest_rate_type",
+        "payment_frequency"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "reporting_requirements"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "borrower_name",
+        "guarantor_names",
+        "lender_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "collateral_description"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "events_of_default"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "borrower_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

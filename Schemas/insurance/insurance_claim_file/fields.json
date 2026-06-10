@@ -14,97 +14,225 @@
       "name": "claim_number",
       "type": "string",
       "required": true,
-      "description": "Claim number or file identifier."
+      "description": "Claim number or file identifier.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "policy_number",
       "type": "string",
       "required": true,
-      "description": "Related policy number."
+      "description": "Related policy number.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "insured_name",
       "type": "string",
       "required": false,
-      "description": "Named insured or claimant."
+      "description": "Named insured or claimant.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "claimant_name",
       "type": "string",
       "required": false,
-      "description": "Claimant name if different from insured."
+      "description": "Claimant name if different from insured.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "loss_date",
       "type": "date",
       "required": true,
-      "description": "Date of loss."
+      "description": "Date of loss.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "reported_date",
       "type": "date",
       "required": false,
-      "description": "Date loss was reported."
+      "description": "Date loss was reported.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "loss_location",
       "type": "string",
       "required": false,
-      "description": "Location of loss."
+      "description": "Location of loss.",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "loss_description",
       "type": "string",
       "required": false,
-      "description": "Description of incident or claimed loss."
+      "description": "Description of incident or claimed loss.",
+      "section": "document_details",
+      "category": "operational"
     },
     {
       "name": "claim_type",
       "type": "string",
       "required": false,
-      "description": "Property, casualty, auto, liability, workers compensation, or other type."
+      "description": "Property, casualty, auto, liability, workers compensation, or other type.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "claim_status",
       "type": "string",
       "required": false,
-      "description": "Open, pending, reserved, closed, denied, litigated, or other status."
+      "description": "Open, pending, reserved, closed, denied, litigated, or other status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "reserve_amount",
       "type": "number",
       "required": false,
-      "description": "Current claim reserve amount."
+      "description": "Current claim reserve amount.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "paid_amount",
       "type": "number",
       "required": false,
-      "description": "Total amount paid to date."
+      "description": "Total amount paid to date.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "adjuster_name",
       "type": "string",
       "required": false,
-      "description": "Assigned adjuster."
+      "description": "Assigned adjuster.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "coverage_position",
       "type": "string",
       "required": false,
-      "description": "Coverage accepted, reservation of rights, denied, pending, or other position."
+      "description": "Coverage accepted, reservation of rights, denied, pending, or other position.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "documents_received",
       "type": "array<string>",
       "required": false,
-      "description": "Documents in claim file."
+      "description": "Documents in claim file.",
+      "section": "line_items",
+      "category": "array"
     },
     {
       "name": "next_action_due_date",
       "type": "date",
       "required": false,
-      "description": "Next diary, review, or action due date."
+      "description": "Next diary, review, or action due date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "loss_date",
+        "next_action_due_date",
+        "reported_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "claim_number",
+        "claim_type",
+        "loss_description"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "paid_amount",
+        "reserve_amount"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "documents_received"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "adjuster_name",
+        "claimant_name",
+        "insured_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "loss_location"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "claim_status",
+        "coverage_position",
+        "policy_number"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "claim_number",
+        "policy_number",
+        "loss_date"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

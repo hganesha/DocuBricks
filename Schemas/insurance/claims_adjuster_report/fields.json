@@ -14,97 +14,218 @@
       "name": "report_date",
       "type": "date",
       "required": true,
-      "description": "Date of adjuster report."
+      "description": "Date of adjuster report.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "claim_number",
       "type": "string",
       "required": true,
-      "description": "Claim number."
+      "description": "Claim number.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "adjuster_name",
       "type": "string",
       "required": true,
-      "description": "Adjuster name."
+      "description": "Adjuster name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "policy_number",
       "type": "string",
       "required": false,
-      "description": "Policy number."
+      "description": "Policy number.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "insured_name",
       "type": "string",
       "required": false,
-      "description": "Named insured."
+      "description": "Named insured.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "loss_date",
       "type": "date",
       "required": false,
-      "description": "Date of loss."
+      "description": "Date of loss.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "inspection_date",
       "type": "date",
       "required": false,
-      "description": "Date of inspection."
+      "description": "Date of inspection.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "cause_of_loss_assessment",
       "type": "string",
       "required": false,
-      "description": "Adjuster's cause of loss assessment."
+      "description": "Adjuster's cause of loss assessment.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "coverage_analysis",
       "type": "string",
       "required": true,
-      "description": "Coverage analysis or applicable coverage position."
+      "description": "Coverage analysis or applicable coverage position.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "damage_scope",
       "type": "array<string>",
       "required": false,
-      "description": "Scope of covered or claimed damage."
+      "description": "Scope of covered or claimed damage.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "estimated_gross_loss",
       "type": "number",
       "required": false,
-      "description": "Gross loss estimate."
+      "description": "Gross loss estimate.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "deductible_amount",
       "type": "number",
       "required": false,
-      "description": "Deductible amount."
+      "description": "Deductible amount.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "recommended_reserve",
       "type": "number",
       "required": false,
-      "description": "Recommended reserve."
+      "description": "Recommended reserve.",
+      "section": "dates_and_terms",
+      "category": "financial"
     },
     {
       "name": "recommended_payment",
       "type": "number",
       "required": false,
-      "description": "Recommended payment."
+      "description": "Recommended payment.",
+      "section": "dates_and_terms",
+      "category": "financial"
     },
     {
       "name": "salvage_or_subrogation_potential",
       "type": "string",
       "required": false,
-      "description": "Salvage or subrogation potential."
+      "description": "Salvage or subrogation potential.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "open_items",
       "type": "array<string>",
       "required": false,
-      "description": "Open information requests or pending items."
+      "description": "Open information requests or pending items.",
+      "section": "line_items",
+      "category": "array"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "inspection_date",
+        "loss_date",
+        "recommended_payment",
+        "recommended_reserve",
+        "report_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "cause_of_loss_assessment",
+        "claim_number",
+        "damage_scope",
+        "estimated_gross_loss",
+        "salvage_or_subrogation_potential"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "deductible_amount"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "open_items"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "adjuster_name",
+        "insured_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "coverage_analysis",
+        "policy_number"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "report_date",
+        "claim_number",
+        "adjuster_name",
+        "coverage_analysis"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

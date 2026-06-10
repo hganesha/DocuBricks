@@ -4,7 +4,10 @@ import hashlib
 import json
 import unittest
 
-from scripts.validate_schema_assets import validate_schema_assets
+from scripts.validate_schema_assets import (
+    _check_required_fields_have_thresholds,
+    validate_schema_assets,
+)
 
 
 class SchemaAssetCoverageTests(unittest.TestCase):
@@ -59,6 +62,35 @@ class SchemaAssetCoverageTests(unittest.TestCase):
             "insurance_claim_denial_letter",
         ):
             self.assertGreaterEqual(result.golden_counts[f"insurance/{doc_type}"], 1)
+        for doc_type in (
+            "purchase_order",
+            "bill_of_materials",
+            "receiving_report",
+            "supplier_scorecard",
+            "quality_inspection_report",
+            "certificate_of_analysis",
+            "nonconformance_report",
+            "corrective_preventive_action",
+        ):
+            self.assertGreaterEqual(result.golden_counts[f"manufacturing/{doc_type}"], 1)
+        for doc_type in (
+            "lease_agreement",
+            "purchase_agreement",
+            "closing_statement",
+            "deed",
+            "real_estate_transactions_title_commitment",
+            "property_management_agreement",
+            "rent_roll",
+            "tenant_estoppel_certificate",
+        ):
+            self.assertGreaterEqual(result.golden_counts[f"real_estate/{doc_type}"], 1)
+        for doc_type in (
+            "daily_drilling_report",
+            "well_completion_report",
+            "production_report",
+            "field_ticket",
+        ):
+            self.assertGreaterEqual(result.golden_counts[f"energy/{doc_type}"], 1)
 
     def test_reports_missing_healthcare_assets(self):
         with TemporaryDirectory() as tmp:
@@ -82,7 +114,15 @@ class SchemaAssetCoverageTests(unittest.TestCase):
         self.assertGreaterEqual(len(entries), 150)
         self.assertEqual(
             verticals,
-            {"fs", "healthcare", "legal", "insurance", "manufacturing", "real_estate"},
+            {
+                "fs",
+                "healthcare",
+                "legal",
+                "insurance",
+                "manufacturing",
+                "real_estate",
+                "energy",
+            },
         )
         for entry in entries:
             self.assertIn(entry["availability"], {"available", "future"})
@@ -123,10 +163,9 @@ class SchemaAssetCoverageTests(unittest.TestCase):
         by_doc_type = {entry["doc_type"]: entry for entry in entries}
 
         for doc_type, vertical in {
-            "purchase_order": "manufacturing",
-            "quality_inspection_report": "manufacturing",
-            "lease_agreement": "real_estate",
-            "property_management_agreement": "real_estate",
+            "work_order": "manufacturing",
+            "commercial_real_estate_loan_application": "real_estate",
+            "authorization_for_expenditure": "energy",
         }.items():
             self.assertIn(doc_type, by_doc_type)
             self.assertEqual(by_doc_type[doc_type]["vertical"], vertical)
@@ -153,6 +192,101 @@ class SchemaAssetCoverageTests(unittest.TestCase):
             self.assertEqual(by_doc_type[doc_type]["vertical"], "insurance")
             self.assertEqual(by_doc_type[doc_type]["family"], family)
             self.assertEqual(by_doc_type[doc_type]["availability"], "available")
+
+    def test_manufacturing_quality_and_supply_chain_package_is_available(self):
+        catalog_path = Path(__file__).resolve().parents[2] / "Schemas" / "schema_catalog.json"
+        entries = json.loads(catalog_path.read_text(encoding="utf-8"))["document_types"]
+        by_doc_type = {entry["doc_type"]: entry for entry in entries}
+
+        expected = {
+            "purchase_order": "procurement_supply_chain",
+            "bill_of_materials": "procurement_supply_chain",
+            "receiving_report": "procurement_supply_chain",
+            "supplier_scorecard": "procurement_supply_chain",
+            "quality_inspection_report": "manufacturing_quality",
+            "certificate_of_analysis": "manufacturing_quality",
+            "nonconformance_report": "manufacturing_quality",
+            "corrective_preventive_action": "manufacturing_quality",
+        }
+
+        for doc_type, family in expected.items():
+            self.assertIn(doc_type, by_doc_type)
+            self.assertEqual(by_doc_type[doc_type]["vertical"], "manufacturing")
+            self.assertEqual(by_doc_type[doc_type]["family"], family)
+            self.assertEqual(by_doc_type[doc_type]["availability"], "available")
+
+    def test_real_estate_transactions_and_property_management_package_is_available(self):
+        catalog_path = Path(__file__).resolve().parents[2] / "Schemas" / "schema_catalog.json"
+        entries = json.loads(catalog_path.read_text(encoding="utf-8"))["document_types"]
+        by_doc_type = {entry["doc_type"]: entry for entry in entries}
+
+        expected = {
+            "lease_agreement": "real_estate_transactions",
+            "purchase_agreement": "real_estate_transactions",
+            "closing_statement": "real_estate_transactions",
+            "deed": "real_estate_transactions",
+            "real_estate_transactions_title_commitment": "real_estate_transactions",
+            "property_management_agreement": "property_management",
+            "rent_roll": "property_management",
+            "tenant_estoppel_certificate": "property_management",
+        }
+
+        for doc_type, family in expected.items():
+            self.assertIn(doc_type, by_doc_type)
+            self.assertEqual(by_doc_type[doc_type]["vertical"], "real_estate")
+            self.assertEqual(by_doc_type[doc_type]["family"], family)
+            self.assertEqual(by_doc_type[doc_type]["availability"], "available")
+
+    def test_energy_upstream_operations_package_is_available(self):
+        catalog_path = Path(__file__).resolve().parents[2] / "Schemas" / "schema_catalog.json"
+        entries = json.loads(catalog_path.read_text(encoding="utf-8"))["document_types"]
+        by_doc_type = {entry["doc_type"]: entry for entry in entries}
+
+        expected = {
+            "daily_drilling_report": "energy_upstream_operations",
+            "well_completion_report": "energy_upstream_operations",
+            "production_report": "energy_production_operations",
+            "field_ticket": "energy_field_services",
+        }
+
+        for doc_type, family in expected.items():
+            self.assertIn(doc_type, by_doc_type)
+            self.assertEqual(by_doc_type[doc_type]["vertical"], "energy")
+            self.assertEqual(by_doc_type[doc_type]["family"], family)
+            self.assertEqual(by_doc_type[doc_type]["availability"], "available")
+
+    def test_required_threshold_check_reports_legacy_array_format(self):
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fields_path = root / "fields.json"
+            thresholds_path = root / "field_thresholds.json"
+            fields_path.write_text(
+                json.dumps(
+                    {
+                        "fields": [
+                            {
+                                "name": "purchase_order_number",
+                                "type": "string",
+                                "required": True,
+                                "description": "PO number.",
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            thresholds_path.write_text("[]", encoding="utf-8")
+
+            missing: list[str] = []
+            _check_required_fields_have_thresholds(fields_path, thresholds_path, missing)
+
+        self.assertEqual(
+            missing,
+            [
+                f"{thresholds_path}: field_thresholds.json uses legacy array format; "
+                "required field coverage cannot be evaluated"
+            ],
+        )
 
     def test_schema_catalog_has_broad_healthcare_industry_coverage(self):
         catalog_path = Path(__file__).resolve().parents[2] / "Schemas" / "schema_catalog.json"
@@ -223,6 +357,87 @@ class SchemaAssetCoverageTests(unittest.TestCase):
                 self.assertIsInstance(field["required"], bool)
                 self.assertNotIn(field["name"], seen_names)
                 seen_names.add(field["name"])
+
+    def test_available_schema_bundles_have_sections_and_nested_array_contracts(self):
+        root = Path(__file__).resolve().parents[2]
+        catalog = json.loads((root / "Schemas" / "schema_catalog.json").read_text(encoding="utf-8"))
+
+        for entry in catalog["document_types"]:
+            if entry["availability"] != "available":
+                continue
+            path = root / "Schemas" / entry["vertical"] / entry["doc_type"] / "fields.json"
+            data = json.loads(path.read_text(encoding="utf-8"))
+
+            sections = data.get("sections")
+            self.assertIsInstance(sections, list, f"Missing sections in {path}")
+            self.assertGreater(len(sections), 0, f"Empty sections in {path}")
+            section_ids = {section.get("id") for section in sections}
+            self.assertNotIn(None, section_ids, f"Section missing id in {path}")
+
+            checklist = data.get("completeness_checklist")
+            self.assertIsInstance(checklist, list, f"Missing completeness_checklist in {path}")
+            self.assertGreater(len(checklist), 0, f"Empty completeness_checklist in {path}")
+
+            for field in data["fields"]:
+                self.assertIn("section", field, f"{path}: {field['name']} missing section")
+                self.assertIn(field["section"], section_ids)
+                self.assertIn("category", field, f"{path}: {field['name']} missing category")
+                if field["type"] == "array<object>":
+                    item_schema = field.get("item_schema")
+                    self.assertIsInstance(item_schema, list, f"{path}: {field['name']} missing item_schema")
+                    self.assertGreater(len(item_schema), 0, f"{path}: {field['name']} empty item_schema")
+                    for item_field in item_schema:
+                        self.assertIn("name", item_field)
+                        self.assertIn("type", item_field)
+                        self.assertIn("description", item_field)
+
+    def test_high_value_list_fields_have_domain_item_details(self):
+        root = Path(__file__).resolve().parents[2]
+
+        expectations = {
+            ("fs", "collateral_schedule", "collateral_items"): {
+                "asset_id",
+                "asset_type",
+                "asset_description",
+                "value_amount",
+                "lien_position",
+                "perfection_status",
+            },
+            ("real_estate", "rent_roll", "tenant_entries"): {
+                "unit_or_suite",
+                "tenant_name",
+                "lease_start_date",
+                "lease_end_date",
+                "monthly_rent_amount",
+                "arrears_amount",
+            },
+            ("manufacturing", "purchase_order", "line_items"): {
+                "line_number",
+                "part_number",
+                "description",
+                "quantity",
+                "unit_price",
+                "due_date",
+            },
+            ("energy", "field_ticket", "equipment_lines"): {
+                "equipment_id",
+                "equipment_type",
+                "description",
+                "hours",
+                "rate",
+                "amount",
+            },
+        }
+
+        for (vertical, doc_type, field_name), expected_names in expectations.items():
+            path = root / "Schemas" / vertical / doc_type / "fields.json"
+            data = json.loads(path.read_text(encoding="utf-8"))
+            field = next(item for item in data["fields"] if item["name"] == field_name)
+            item_names = {item["name"] for item in field["item_schema"]}
+            self.assertTrue(
+                expected_names <= item_names,
+                f"{path}: {field_name} missing item details {sorted(expected_names - item_names)}",
+            )
 
     def test_prompt_catalog_tracks_centralized_prompts_for_available_schemas(self):
         root = Path(__file__).resolve().parents[2]

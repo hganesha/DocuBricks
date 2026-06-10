@@ -1,0 +1,33 @@
+{
+  "test_case_id": "daily_drilling_report_001",
+  "document_type": "daily_drilling_report",
+  "description": "Seed golden test for Daily Drilling Report",
+  "tags": [
+    "happy_path",
+    "energy_upstream_operations",
+    "seed"
+  ],
+  "parsed_text": "DAILY DRILLING REPORT\nReport Date: 2026-05-18\nWell: Wolf Creek 12-7H\nAPI Number: 42-301-44881\nOperator: Prairie Basin Energy LLC\nRig: Frontier Rig 24\nContractor: Frontier Drilling Services\nLocation: Reeves County, Texas\nMeasured Depth: 12480 ft\nTrue Vertical Depth: 9140 ft\nDaily Footage: 610 ft\nHole Size: 8.5 in\nMud Weight: 12.4 ppg\nCasing Status: drilling lateral section, 9-5/8 casing cemented at 9120 ft\nOperations Summary: drilled from 11870 ft to 12480 ft, surveyed, circulated bottoms up, and performed BOP function test\nDowntime Hours: 1.5\nSafety Incidents: 0\nHSE Summary: pre-tour safety meeting completed; no spills or injuries\nDaily Cost: $187500\nCompany Representative: Dana Mills",
+  "expected_json": {
+    "report_date": "2026-05-18",
+    "well_name": "Wolf Creek 12-7H",
+    "api_well_number": "42-301-44881",
+    "operator_name": "Prairie Basin Energy LLC",
+    "rig_name": "Frontier Rig 24",
+    "contractor_name": "Frontier Drilling Services",
+    "location": "Reeves County, Texas",
+    "measured_depth": 12480.0,
+    "true_vertical_depth": 9140.0,
+    "daily_footage": 610.0,
+    "hole_size": "8.5 in",
+    "mud_weight": 12.4,
+    "casing_status": "drilling lateral section, 9-5/8 casing cemented at 9120 ft",
+    "operations_summary": "drilled from 11870 ft to 12480 ft, surveyed, circulated bottoms up, and performed BOP function test",
+    "downtime_hours": 1.5,
+    "safety_incidents": 0,
+    "hse_summary": "pre-tour safety meeting completed; no spills or injuries",
+    "daily_cost": 187500.0,
+    "company_representative": "Dana Mills"
+  },
+  "expected_avg_confidence": 0.92
+}

@@ -14,127 +14,236 @@
       "name": "filing_type",
       "type": "string",
       "required": false,
-      "description": "The type of court document. One of: Complaint | Answer | Motion | Brief | Opposition | Reply | Order | Judgment | Stipulation | Subpoena | Notice | Declaration | Deposition | Petition | Other"
+      "description": "The type of court document. One of: Complaint | Answer | Motion | Brief | Opposition | Reply | Order | Judgment | Stipulation | Subpoena | Notice | Declaration | Deposition | Petition | Other",
+      "section": "document_details",
+      "category": "regulatory"
     },
     {
       "name": "court_level",
       "type": "string",
       "required": false,
-      "description": "The level of the court. One of: Federal | State | Appellate | Administrative | Tribal | Other"
+      "description": "The level of the court. One of: Federal | State | Appellate | Administrative | Tribal | Other",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "court_name",
       "type": "string",
       "required": false,
-      "description": "Full official name of the court (e.g., \"United States District Court for the Southern District of New York\", \"Superior Court of the State of California, County of Los Angeles\")"
+      "description": "Full official name of the court (e.g., \"United States District Court for the Southern District of New York\", \"Superior Court of the State of California, County of Los Angeles\")",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "district_or_division",
       "type": "string",
       "required": false,
-      "description": "The specific district, division, or department of the court (e.g., \"Southern District of New York\", \"Civil Division, Dept. 45\")"
+      "description": "The specific district, division, or department of the court (e.g., \"Southern District of New York\", \"Civil Division, Dept. 45\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "judge_name",
       "type": "string",
       "required": false,
-      "description": "Name of the presiding judge or magistrate (null if not yet assigned or not stated)"
+      "description": "Name of the presiding judge or magistrate (null if not yet assigned or not stated)",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "case_number",
       "type": "string",
       "required": true,
-      "description": "The official docket or case number assigned by the court (e.g., \"1:25-cv-04812-LTS\", \"Case No. BC712345\")"
+      "description": "The official docket or case number assigned by the court (e.g., \"1:25-cv-04812-LTS\", \"Case No. BC712345\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "case_name",
       "type": "string",
       "required": false,
-      "description": "The case caption name (e.g., \"Apex Corp. v. Meridian Technologies, Inc.\")"
+      "description": "The case caption name (e.g., \"Apex Corp. v. Meridian Technologies, Inc.\")",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "filing_date",
       "type": "date",
       "required": false,
-      "description": "Date the document was filed with the court, format YYYY-MM-DD"
+      "description": "Date the document was filed with the court, format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "hearing_date",
       "type": "date",
       "required": false,
-      "description": "Date of any associated hearing, trial, or oral argument, format YYYY-MM-DD (null if not scheduled or not stated)"
+      "description": "Date of any associated hearing, trial, or oral argument, format YYYY-MM-DD (null if not scheduled or not stated)",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "plaintiff_name",
       "type": "string",
       "required": false,
-      "description": "Full name of the plaintiff(s); if multiple, concatenate with \"; \" separator"
+      "description": "Full name of the plaintiff(s); if multiple, concatenate with \"; \" separator",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "defendant_name",
       "type": "string",
       "required": false,
-      "description": "Full name of the defendant(s); if multiple, concatenate with \"; \" separator"
+      "description": "Full name of the defendant(s); if multiple, concatenate with \"; \" separator",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "filing_party",
       "type": "string",
       "required": false,
-      "description": "Which party filed this document. One of: Plaintiff | Defendant | Third_Party | Court | Other"
+      "description": "Which party filed this document. One of: Plaintiff | Defendant | Third_Party | Court | Other",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "attorney_name",
       "type": "string",
       "required": false,
-      "description": "Full name of the attorney signing or filing the document"
+      "description": "Full name of the attorney signing or filing the document",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "bar_number",
       "type": "string",
       "required": false,
-      "description": "State bar number of the filing attorney"
+      "description": "State bar number of the filing attorney",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "law_firm",
       "type": "string",
       "required": false,
-      "description": "Name of the law firm representing the filing party (null if in-house or pro se)"
+      "description": "Name of the law firm representing the filing party (null if in-house or pro se)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "attorney_email",
       "type": "string",
       "required": false,
-      "description": "Email address of the filing attorney (null if not provided)"
+      "description": "Email address of the filing attorney (null if not provided)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "relief_requested",
       "type": "string",
       "required": false,
-      "description": "Summary of the relief sought in this filing (up to 300 chars)"
+      "description": "Summary of the relief sought in this filing (up to 300 chars)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "causes_of_action",
       "type": "array<string>",
       "required": false,
-      "description": "Array of strings naming each cause of action or claim (e.g., [\"Breach of Contract\", \"Fraudulent Misrepresentation\", \"Unjust Enrichment\"])"
+      "description": "Array of strings naming each cause of action or claim (e.g., [\"Breach of Contract\", \"Fraudulent Misrepresentation\", \"Unjust Enrichment\"])",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "jurisdictional_basis",
       "type": "string",
       "required": false,
-      "description": "The basis for the court's jurisdiction. One of: Federal_Question | Diversity | Supplemental | State | Bankruptcy | Admiralty | Other"
+      "description": "The basis for the court's jurisdiction. One of: Federal_Question | Diversity | Supplemental | State | Bankruptcy | Admiralty | Other",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "jury_demand",
       "type": "boolean",
       "required": false,
-      "description": "Boolean \u2014 true if the filing includes a demand for trial by jury"
+      "description": "Boolean \u2014 true if the filing includes a demand for trial by jury",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "pages",
       "type": "integer",
       "required": false,
-      "description": "Total number of pages in the filed document as integer (null if not stated)"
+      "description": "Total number of pages in the filed document as integer (null if not stated)",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "filing_date",
+        "hearing_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "attorney_email",
+        "bar_number",
+        "case_number",
+        "causes_of_action",
+        "court_level",
+        "district_or_division",
+        "filing_type",
+        "jurisdictional_basis",
+        "jury_demand",
+        "law_firm",
+        "pages",
+        "relief_requested"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "attorney_name",
+        "case_name",
+        "court_name",
+        "defendant_name",
+        "filing_party",
+        "judge_name",
+        "plaintiff_name"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "case_number"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

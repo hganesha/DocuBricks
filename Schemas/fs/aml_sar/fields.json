@@ -14,103 +14,216 @@
       "name": "sar_id",
       "type": "string",
       "required": false,
-      "description": "Sar id"
+      "description": "Sar id",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "filing_institution_name",
       "type": "string",
       "required": false,
-      "description": "Filing institution name"
+      "description": "Filing institution name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "filing_date",
       "type": "date",
       "required": false,
-      "description": "Filing date"
+      "description": "Filing date",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "subject_name",
       "type": "string",
       "required": true,
-      "description": "Subject name"
+      "description": "Subject name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "subject_tax_id_masked",
       "type": "string",
       "required": false,
-      "description": "Subject tax id masked"
+      "description": "Subject tax id masked",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "subject_address",
       "type": "string",
       "required": false,
-      "description": "Subject address"
+      "description": "Subject address",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "subject_account_number_masked",
       "type": "string",
       "required": false,
-      "description": "Subject account number masked"
+      "description": "Subject account number masked",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "activity_start_date",
       "type": "date",
       "required": false,
-      "description": "Activity start date"
+      "description": "Activity start date",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "activity_end_date",
       "type": "date",
       "required": false,
-      "description": "Activity end date"
+      "description": "Activity end date",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "suspicious_activity_type",
       "type": "string",
       "required": false,
-      "description": "Suspicious activity type"
+      "description": "Suspicious activity type",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "amount_involved",
       "type": "number",
       "required": false,
-      "description": "Amount involved"
+      "description": "Amount involved",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "transaction_count",
       "type": "integer",
       "required": false,
-      "description": "Transaction count"
+      "description": "Transaction count",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "currency",
       "type": "string",
       "required": false,
-      "description": "Currency"
+      "description": "Currency",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "law_enforcement_contacted",
       "type": "string",
       "required": false,
-      "description": "Law enforcement contacted"
+      "description": "Law enforcement contacted",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "narrative_summary",
       "type": "string",
       "required": false,
-      "description": "Narrative summary"
+      "description": "Narrative summary",
+      "section": "document_details",
+      "category": "operational"
     },
     {
       "name": "branch_location",
       "type": "string",
       "required": false,
-      "description": "Branch location"
+      "description": "Branch location",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "investigator_name",
       "type": "string",
       "required": false,
-      "description": "Investigator name"
+      "description": "Investigator name",
+      "section": "parties",
+      "category": "identity"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "activity_end_date",
+        "activity_start_date",
+        "filing_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "currency",
+        "law_enforcement_contacted",
+        "narrative_summary",
+        "sar_id",
+        "subject_account_number_masked",
+        "suspicious_activity_type",
+        "transaction_count"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "amount_involved",
+        "subject_tax_id_masked"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "filing_institution_name",
+        "investigator_name",
+        "subject_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "branch_location",
+        "subject_address"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "subject_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

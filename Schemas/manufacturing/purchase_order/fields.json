@@ -1,0 +1,270 @@
+{
+  "document_type": "purchase_order",
+  "vertical": "manufacturing",
+  "family": "procurement_supply_chain",
+  "schema_version": "manufacturing_purchase_order_v1",
+  "fields": [
+    {
+      "name": "purchase_order_number",
+      "type": "string",
+      "required": true,
+      "description": "Purchase order number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "po_date",
+      "type": "date",
+      "required": true,
+      "description": "Date the purchase order was issued.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "buyer_name",
+      "type": "string",
+      "required": true,
+      "description": "Buying legal entity or plant.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "supplier_name",
+      "type": "string",
+      "required": true,
+      "description": "Supplier or vendor name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "ship_to_location",
+      "type": "string",
+      "required": false,
+      "description": "Ship-to plant, warehouse, or address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "requested_delivery_date",
+      "type": "date",
+      "required": false,
+      "description": "Requested delivery date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "description": "Currency code.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "payment_terms",
+      "type": "string",
+      "required": false,
+      "description": "Payment terms.",
+      "section": "dates_and_terms",
+      "category": "financial"
+    },
+    {
+      "name": "incoterms",
+      "type": "string",
+      "required": false,
+      "description": "Incoterms or freight terms.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "line_items",
+      "type": "array<object>",
+      "required": true,
+      "description": "PO line items with part, description, quantity, unit price, and due date.",
+      "section": "line_items",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "line_number",
+          "type": "string",
+          "description": "Purchase order line number."
+        },
+        {
+          "name": "part_number",
+          "type": "string",
+          "description": "Part, SKU, item, or material number."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Line item description."
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "description": "Ordered quantity."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "Unit of measure."
+        },
+        {
+          "name": "unit_price",
+          "type": "number",
+          "description": "Unit price."
+        },
+        {
+          "name": "extended_amount",
+          "type": "number",
+          "description": "Line extended amount."
+        },
+        {
+          "name": "due_date",
+          "type": "date",
+          "description": "Line requested or promised due date."
+        }
+      ]
+    },
+    {
+      "name": "subtotal_amount",
+      "type": "number",
+      "required": false,
+      "description": "Subtotal amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "tax_amount",
+      "type": "number",
+      "required": false,
+      "description": "Tax amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "total_amount",
+      "type": "number",
+      "required": true,
+      "description": "Total purchase order amount.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "buyer_contact_name",
+      "type": "string",
+      "required": false,
+      "description": "Buyer contact or purchasing agent.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "approval_status",
+      "type": "string",
+      "required": false,
+      "description": "Approved, pending, revised, closed, cancelled, or other status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "incoterms",
+        "payment_terms",
+        "po_date",
+        "requested_delivery_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "currency",
+        "purchase_order_number"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "subtotal_amount",
+        "tax_amount",
+        "total_amount"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "line_items"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "buyer_contact_name",
+        "buyer_name",
+        "supplier_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "ship_to_location"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "approval_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "purchase_order_number",
+        "po_date",
+        "buyer_name",
+        "supplier_name",
+        "line_items",
+        "total_amount"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "line_items"
+      ]
+    }
+  ]
+}

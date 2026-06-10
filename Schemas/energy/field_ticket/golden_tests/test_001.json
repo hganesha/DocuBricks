@@ -1,0 +1,65 @@
+{
+  "test_case_id": "field_ticket_001",
+  "document_type": "field_ticket",
+  "description": "Seed golden test for Field Ticket",
+  "tags": [
+    "happy_path",
+    "energy_field_services",
+    "seed"
+  ],
+  "parsed_text": "FIELD TICKET\nTicket Number: FT-778244\nService Date: 2026-05-19\nCustomer: Prairie Basin Energy LLC\nService Company: HighMesa Pressure Pumping\nWell: Wolf Creek 12-7H\nLocation: Reeves County, Texas\nJob Type: pump down support\nJob Description: provided pump down pumps, operators, and chemical additive for wireline perforating stages\nLabor: pump operator 12 hr rate 95 amount 1140; field supervisor 12 hr rate 125 amount 1500\nEquipment: pump unit PU-19 12 hr rate 450 amount 5400; blender BL-4 12 hr rate 375 amount 4500\nMaterials: friction reducer 180 gal unit price 18.50 amount 3330\nSubtotal: $15870.00\nTax: $0.00\nTotal: $15870.00\nCustomer Representative: Dana Mills\nService Supervisor: Caleb Nguyen\nApproval Status: Signed",
+  "expected_json": {
+    "ticket_number": "FT-778244",
+    "service_date": "2026-05-19",
+    "operator_name": "Prairie Basin Energy LLC",
+    "service_company_name": "HighMesa Pressure Pumping",
+    "well_name": "Wolf Creek 12-7H",
+    "location": "Reeves County, Texas",
+    "job_type": "pump down support",
+    "job_description": "provided pump down pumps, operators, and chemical additive for wireline perforating stages",
+    "labor_lines": [
+      {
+        "role": "pump operator",
+        "hours": 12,
+        "rate": 95,
+        "amount": 1140
+      },
+      {
+        "role": "field supervisor",
+        "hours": 12,
+        "rate": 125,
+        "amount": 1500
+      }
+    ],
+    "equipment_lines": [
+      {
+        "unit": "pump unit PU-19",
+        "hours": 12,
+        "rate": 450,
+        "amount": 5400
+      },
+      {
+        "unit": "blender BL-4",
+        "hours": 12,
+        "rate": 375,
+        "amount": 4500
+      }
+    ],
+    "material_lines": [
+      {
+        "item": "friction reducer",
+        "quantity": 180,
+        "unit": "gal",
+        "unit_price": 18.5,
+        "amount": 3330
+      }
+    ],
+    "subtotal_amount": 15870.0,
+    "tax_amount": 0.0,
+    "total_amount": 15870.0,
+    "customer_representative": "Dana Mills",
+    "service_supervisor": "Caleb Nguyen",
+    "approval_status": "Signed"
+  },
+  "expected_avg_confidence": 0.92
+}

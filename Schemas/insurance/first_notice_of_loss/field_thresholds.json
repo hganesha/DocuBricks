@@ -1,6 +1,6 @@
-[
-  {
-    "field_name": "policy_number",
+{
+  "default_threshold": 0.75,
+  "policy_number": {
     "min_confidence": 0.9,
     "review_threshold": 0.7,
     "quarantine_threshold": 0.5,
@@ -9,8 +9,7 @@
     "regulatory_required": true,
     "description": "High-impact field for First Notice of Loss workflow."
   },
-  {
-    "field_name": "insured_name",
+  "insured_name": {
     "min_confidence": 0.85,
     "review_threshold": 0.7,
     "quarantine_threshold": 0.5,
@@ -19,8 +18,7 @@
     "regulatory_required": true,
     "description": "High-impact field for First Notice of Loss workflow."
   },
-  {
-    "field_name": "loss_date",
+  "loss_date": {
     "min_confidence": 0.9,
     "review_threshold": 0.7,
     "quarantine_threshold": 0.5,
@@ -29,8 +27,7 @@
     "regulatory_required": true,
     "description": "High-impact field for First Notice of Loss workflow."
   },
-  {
-    "field_name": "estimated_loss_amount",
+  "estimated_loss_amount": {
     "min_confidence": 0.85,
     "review_threshold": 0.7,
     "quarantine_threshold": 0.5,
@@ -38,5 +35,19 @@
     "fail_on_breach": false,
     "regulatory_required": true,
     "description": "High-impact field for First Notice of Loss workflow."
+  },
+  "reported_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for First notice of loss extraction."
+  },
+  "loss_description": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for First notice of loss extraction."
   }
-]
+}

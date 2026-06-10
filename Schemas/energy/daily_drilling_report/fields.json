@@ -1,0 +1,254 @@
+{
+  "document_type": "daily_drilling_report",
+  "vertical": "energy",
+  "family": "energy_upstream_operations",
+  "schema_version": "energy_daily_drilling_report_v1",
+  "fields": [
+    {
+      "name": "report_date",
+      "type": "date",
+      "required": true,
+      "description": "Date covered by the daily drilling report.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "well_name",
+      "type": "string",
+      "required": true,
+      "description": "Well name and number.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "api_well_number",
+      "type": "string",
+      "required": false,
+      "description": "API well number or other regulatory well identifier.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "operator_name",
+      "type": "string",
+      "required": true,
+      "description": "Operating company.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "rig_name",
+      "type": "string",
+      "required": true,
+      "description": "Rig name or rig number.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "contractor_name",
+      "type": "string",
+      "required": false,
+      "description": "Drilling contractor or rig contractor.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "required": false,
+      "description": "County, state, block, lease, or offshore location.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "measured_depth",
+      "type": "number",
+      "required": true,
+      "description": "Measured depth at report cutoff.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "true_vertical_depth",
+      "type": "number",
+      "required": false,
+      "description": "True vertical depth at report cutoff.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "daily_footage",
+      "type": "number",
+      "required": false,
+      "description": "Footage drilled during the reporting period.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "hole_size",
+      "type": "string",
+      "required": false,
+      "description": "Hole size for current interval.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "mud_weight",
+      "type": "number",
+      "required": false,
+      "description": "Mud weight in pounds per gallon when stated.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "casing_status",
+      "type": "string",
+      "required": false,
+      "description": "Casing, cementing, or liner status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
+    },
+    {
+      "name": "operations_summary",
+      "type": "string",
+      "required": true,
+      "description": "Narrative summary of rig operations for the reporting day.",
+      "section": "document_details",
+      "category": "operational"
+    },
+    {
+      "name": "downtime_hours",
+      "type": "number",
+      "required": false,
+      "description": "Non-productive time or downtime hours.",
+      "section": "document_details",
+      "category": "temporal"
+    },
+    {
+      "name": "safety_incidents",
+      "type": "integer",
+      "required": false,
+      "description": "Count of safety incidents for the day.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "hse_summary",
+      "type": "string",
+      "required": false,
+      "description": "HSE notes or safety summary.",
+      "section": "document_details",
+      "category": "operational"
+    },
+    {
+      "name": "daily_cost",
+      "type": "number",
+      "required": false,
+      "description": "Estimated or reported daily drilling cost.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "company_representative",
+      "type": "string",
+      "required": false,
+      "description": "Company man, drilling supervisor, or report approver.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "report_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "company_representative",
+        "daily_footage",
+        "downtime_hours",
+        "hole_size",
+        "hse_summary",
+        "measured_depth",
+        "mud_weight",
+        "operations_summary",
+        "safety_incidents",
+        "true_vertical_depth"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "daily_cost"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "contractor_name",
+        "operator_name",
+        "rig_name",
+        "well_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "api_well_number",
+        "location"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "casing_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "report_date",
+        "well_name",
+        "operator_name",
+        "rig_name",
+        "measured_depth",
+        "operations_summary"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

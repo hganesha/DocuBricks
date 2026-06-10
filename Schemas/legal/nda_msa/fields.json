@@ -14,139 +14,254 @@
       "name": "agreement_type",
       "type": "string",
       "required": false,
-      "description": "Classification of the agreement. One of: NDA | MSA | MNDA | MOU | LOI | Other"
+      "description": "Classification of the agreement. One of: NDA | MSA | MNDA | MOU | LOI | Other",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "effective_date",
       "type": "date",
       "required": true,
-      "description": "The date the agreement becomes effective, format YYYY-MM-DD"
+      "description": "The date the agreement becomes effective, format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "expiration_date",
       "type": "date",
       "required": false,
-      "description": "The date the agreement expires or terminates, format YYYY-MM-DD (null if perpetual or not stated)"
+      "description": "The date the agreement expires or terminates, format YYYY-MM-DD (null if perpetual or not stated)",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "auto_renew",
       "type": "boolean",
       "required": false,
-      "description": "Boolean \u2014 true if the agreement contains an automatic renewal clause"
+      "description": "Boolean \u2014 true if the agreement contains an automatic renewal clause",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "renewal_notice_days",
       "type": "string",
       "required": false,
-      "description": "Number of days' advance notice required to prevent auto-renewal, as integer (null if not applicable)"
+      "description": "Number of days' advance notice required to prevent auto-renewal, as integer (null if not applicable)",
+      "section": "dates_and_terms",
+      "category": "regulatory"
     },
     {
       "name": "amendment_number",
       "type": "string",
       "required": false,
-      "description": "If this document is an amendment or addendum, the amendment number as integer (e.g., 1 for \"Amendment No. 1\"; null if original agreement)"
+      "description": "If this document is an amendment or addendum, the amendment number as integer (e.g., 1 for \"Amendment No. 1\"; null if original agreement)",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "party_1_name",
       "type": "string",
       "required": false,
-      "description": "Full legal name of the first party"
+      "description": "Full legal name of the first party",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "party_1_role",
       "type": "string",
       "required": false,
-      "description": "Role of the first party. One of: Disclosing | Receiving | Both (for mutual agreements)"
+      "description": "Role of the first party. One of: Disclosing | Receiving | Both (for mutual agreements)",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "party_1_state",
       "type": "string",
       "required": false,
-      "description": "State or jurisdiction of incorporation/organization for party 1 (two-letter state code or country if non-US)"
+      "description": "State or jurisdiction of incorporation/organization for party 1 (two-letter state code or country if non-US)",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "party_2_name",
       "type": "string",
       "required": false,
-      "description": "Full legal name of the second party"
+      "description": "Full legal name of the second party",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "party_2_role",
       "type": "string",
       "required": false,
-      "description": "Role of the second party. One of: Disclosing | Receiving | Both"
+      "description": "Role of the second party. One of: Disclosing | Receiving | Both",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "party_2_state",
       "type": "string",
       "required": false,
-      "description": "State or jurisdiction of incorporation/organization for party 2"
+      "description": "State or jurisdiction of incorporation/organization for party 2",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "governing_law",
       "type": "string",
       "required": false,
-      "description": "The state or jurisdiction whose laws govern the agreement (e.g., \"CA\", \"NY\", \"DE\", \"England and Wales\")"
+      "description": "The state or jurisdiction whose laws govern the agreement (e.g., \"CA\", \"NY\", \"DE\", \"England and Wales\")",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "confidentiality_period_years",
       "type": "string",
       "required": false,
-      "description": "Duration of the confidentiality obligation in years as decimal (null if perpetual or not explicitly stated in years)"
+      "description": "Duration of the confidentiality obligation in years as decimal (null if perpetual or not explicitly stated in years)",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "confidentiality_scope",
       "type": "string",
       "required": false,
-      "description": "Brief description of what information is deemed confidential (up to 200 chars)"
+      "description": "Brief description of what information is deemed confidential (up to 200 chars)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "permitted_uses",
       "type": "array<string>",
       "required": false,
-      "description": "Array of strings describing the permitted uses of confidential information (e.g., [\"Evaluating potential business relationship\", \"Performing services under the MSA\"])"
+      "description": "Array of strings describing the permitted uses of confidential information (e.g., [\"Evaluating potential business relationship\", \"Performing services under the MSA\"])",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "excluded_information",
       "type": "array<string>",
       "required": false,
-      "description": "Array of strings listing categories of information excluded from confidentiality obligations (e.g., [\"Publicly available information\", \"Independently developed information\", \"Information received from third parties without restriction\"])"
+      "description": "Array of strings listing categories of information excluded from confidentiality obligations (e.g., [\"Publicly available information\", \"Independently developed information\", \"Information received from third parties without restriction\"])",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "return_or_destroy_obligation",
       "type": "string",
       "required": false,
-      "description": "Boolean \u2014 true if the agreement requires return or destruction of confidential materials upon termination or request"
+      "description": "Boolean \u2014 true if the agreement requires return or destruction of confidential materials upon termination or request",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "non_solicitation_clause",
       "type": "boolean",
       "required": false,
-      "description": "Boolean \u2014 true if the agreement contains a non-solicitation clause restricting hiring of the other party's employees"
+      "description": "Boolean \u2014 true if the agreement contains a non-solicitation clause restricting hiring of the other party's employees",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "non_compete_clause",
       "type": "boolean",
       "required": false,
-      "description": "Boolean \u2014 true if the agreement contains a non-compete or non-competition clause"
+      "description": "Boolean \u2014 true if the agreement contains a non-compete or non-competition clause",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "liquidated_damages_amount",
       "type": "number",
       "required": false,
-      "description": "The liquidated damages amount stated in the agreement as decimal (null if not specified)"
+      "description": "The liquidated damages amount stated in the agreement as decimal (null if not specified)",
+      "section": "dates_and_terms",
+      "category": "financial"
     },
     {
       "name": "arbitration_clause",
       "type": "boolean",
       "required": false,
-      "description": "Boolean \u2014 true if the agreement requires disputes to be resolved by arbitration"
+      "description": "Boolean \u2014 true if the agreement requires disputes to be resolved by arbitration",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "arbitration_venue",
       "type": "number",
       "required": false,
-      "description": "City and/or state where arbitration proceedings would be held (null if no arbitration clause)"
+      "description": "City and/or state where arbitration proceedings would be held (null if no arbitration clause)",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "amendment_number",
+        "confidentiality_period_years",
+        "effective_date",
+        "expiration_date",
+        "liquidated_damages_amount",
+        "renewal_notice_days"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "agreement_type",
+        "arbitration_clause",
+        "arbitration_venue",
+        "auto_renew",
+        "confidentiality_scope",
+        "excluded_information",
+        "governing_law",
+        "non_compete_clause",
+        "non_solicitation_clause",
+        "permitted_uses",
+        "return_or_destroy_obligation"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "party_1_name",
+        "party_1_role",
+        "party_1_state",
+        "party_2_name",
+        "party_2_role",
+        "party_2_state"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "effective_date"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

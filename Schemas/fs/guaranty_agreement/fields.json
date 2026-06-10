@@ -14,103 +14,208 @@
       "name": "agreement_date",
       "type": "date",
       "required": false,
-      "description": "Date of guaranty."
+      "description": "Date of guaranty.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "guarantor_name",
       "type": "string",
       "required": true,
-      "description": "Guarantor legal name."
+      "description": "Guarantor legal name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "guarantor_type",
       "type": "string",
       "required": false,
-      "description": "Individual, entity, trust, spouse, affiliate, or other."
+      "description": "Individual, entity, trust, spouse, affiliate, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "borrower_name",
       "type": "string",
       "required": false,
-      "description": "Borrower whose obligations are guaranteed."
+      "description": "Borrower whose obligations are guaranteed.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "lender_name",
       "type": "string",
       "required": false,
-      "description": "Lender or beneficiary."
+      "description": "Lender or beneficiary.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "underlying_agreement_reference",
       "type": "string",
       "required": false,
-      "description": "Loan agreement or note referenced."
+      "description": "Loan agreement or note referenced.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "guaranty_type",
       "type": "string",
       "required": false,
-      "description": "Unlimited, limited, payment, collection, completion, carve-out, springing, or other."
+      "description": "Unlimited, limited, payment, collection, completion, carve-out, springing, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "guaranteed_obligations",
       "type": "string",
       "required": false,
-      "description": "Description of obligations guaranteed."
+      "description": "Description of obligations guaranteed.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "maximum_liability_amount",
       "type": "number",
       "required": false,
-      "description": "Cap or maximum amount if stated."
+      "description": "Cap or maximum amount if stated.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "continuing_guaranty",
       "type": "boolean",
       "required": false,
-      "description": "Whether guaranty is continuing."
+      "description": "Whether guaranty is continuing.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "joint_and_several",
       "type": "boolean",
       "required": false,
-      "description": "Whether liability is joint and several."
+      "description": "Whether liability is joint and several.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "payment_on_demand",
       "type": "boolean",
       "required": false,
-      "description": "Whether payment is due on demand."
+      "description": "Whether payment is due on demand.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "waivers",
       "type": "array<string>",
       "required": false,
-      "description": "Waivers of notice, presentment, defenses, subrogation, jury trial, etc."
+      "description": "Waivers of notice, presentment, defenses, subrogation, jury trial, etc.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "termination_rights",
       "type": "string",
       "required": false,
-      "description": "Termination or revocation language."
+      "description": "Termination or revocation language.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "governing_law",
       "type": "string",
       "required": false,
-      "description": "Governing law jurisdiction."
+      "description": "Governing law jurisdiction.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "signature_name",
       "type": "string",
       "required": false,
-      "description": "Signer name."
+      "description": "Signer name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "signature_title",
       "type": "string",
       "required": false,
-      "description": "Signer title if entity guarantor."
+      "description": "Signer title if entity guarantor.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "agreement_date",
+        "termination_rights"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "continuing_guaranty",
+        "governing_law",
+        "guaranteed_obligations",
+        "guarantor_type",
+        "guaranty_type",
+        "joint_and_several",
+        "signature_title",
+        "underlying_agreement_reference",
+        "waivers"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "maximum_liability_amount",
+        "payment_on_demand"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "borrower_name",
+        "guarantor_name",
+        "lender_name",
+        "signature_name"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "guarantor_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

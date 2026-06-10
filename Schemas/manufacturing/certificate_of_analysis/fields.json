@@ -1,0 +1,212 @@
+{
+  "document_type": "certificate_of_analysis",
+  "vertical": "manufacturing",
+  "family": "manufacturing_quality",
+  "schema_version": "manufacturing_certificate_of_analysis_v1",
+  "fields": [
+    {
+      "name": "certificate_number",
+      "type": "string",
+      "required": true,
+      "description": "Certificate of analysis number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "certificate_date",
+      "type": "date",
+      "required": true,
+      "description": "Certificate date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "supplier_name",
+      "type": "string",
+      "required": true,
+      "description": "Supplier or manufacturer.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "material_name",
+      "type": "string",
+      "required": true,
+      "description": "Material or product name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "part_or_material_number",
+      "type": "string",
+      "required": false,
+      "description": "Part, material, or item number.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "lot_number",
+      "type": "string",
+      "required": true,
+      "description": "Lot, batch, heat, or serial number.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "specification_standard",
+      "type": "string",
+      "required": false,
+      "description": "Specification or standard referenced.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "test_results",
+      "type": "array<object>",
+      "required": true,
+      "description": "Test results with analyte or characteristic, method, result, unit, and limit.",
+      "section": "document_details",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "characteristic",
+          "type": "string",
+          "description": "Tested analyte or characteristic."
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "description": "Test method."
+        },
+        {
+          "name": "result",
+          "type": "string",
+          "description": "Reported result."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "Result unit."
+        },
+        {
+          "name": "limit",
+          "type": "string",
+          "description": "Specification limit."
+        }
+      ]
+    },
+    {
+      "name": "manufacture_date",
+      "type": "date",
+      "required": false,
+      "description": "Manufacture date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "expiration_date",
+      "type": "date",
+      "required": false,
+      "description": "Expiration or retest date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "authorized_signer",
+      "type": "string",
+      "required": false,
+      "description": "Authorized signer.",
+      "section": "document_details",
+      "category": "identity"
+    },
+    {
+      "name": "coa_disposition",
+      "type": "string",
+      "required": false,
+      "description": "Conforms, accepted, rejected, or other disposition.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "certificate_date",
+        "expiration_date",
+        "manufacture_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "authorized_signer",
+        "certificate_number",
+        "specification_standard",
+        "test_results"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "material_name",
+        "supplier_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "lot_number",
+        "part_or_material_number"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "coa_disposition"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "certificate_number",
+        "certificate_date",
+        "supplier_name",
+        "material_name",
+        "lot_number",
+        "test_results"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "test_results"
+      ]
+    }
+  ]
+}

@@ -14,97 +14,208 @@
       "name": "submission_type",
       "type": "string",
       "required": true,
-      "description": "The specific type of regulatory submission. Examples:"
+      "description": "The specific type of regulatory submission. Examples:",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "regulator",
       "type": "string",
       "required": false,
-      "description": "The regulatory body receiving the submission. One of: FDA | SEC | FinCEN | CFTC | FINRA | FTC | CFPB | State | Other"
+      "description": "The regulatory body receiving the submission. One of: FDA | SEC | FinCEN | CFTC | FINRA | FTC | CFPB | State | Other",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "submission_date",
       "type": "date",
       "required": false,
-      "description": "Date the submission was filed or submitted, format YYYY-MM-DD"
+      "description": "Date the submission was filed or submitted, format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "acceptance_date",
       "type": "date",
       "required": false,
-      "description": "Date the regulator formally accepted the submission for review, format YYYY-MM-DD (null if not stated)"
+      "description": "Date the regulator formally accepted the submission for review, format YYYY-MM-DD (null if not stated)",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "decision_date",
       "type": "date",
       "required": false,
-      "description": "Date the regulator issued a final decision, format YYYY-MM-DD (null if pending or not stated)"
+      "description": "Date the regulator issued a final decision, format YYYY-MM-DD (null if pending or not stated)",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "submission_status",
       "type": "string",
       "required": false,
-      "description": "Current status of the submission. One of: Accepted | Under_Review | Approved | Refused | Withdrawn | Pending | Deficient | null"
+      "description": "Current status of the submission. One of: Accepted | Under_Review | Approved | Refused | Withdrawn | Pending | Deficient | null",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "submission_id",
       "type": "string",
       "required": false,
-      "description": "The unique identifier assigned to the submission. This may be a docket number (FDA), accession number (SEC EDGAR), CTR/SAR reference number (FinCEN), or other regulatory reference ID"
+      "description": "The unique identifier assigned to the submission. This may be a docket number (FDA), accession number (SEC EDGAR), CTR/SAR reference number (FinCEN), or other regulatory reference ID",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "cover_letter_date",
       "type": "date",
       "required": false,
-      "description": "Date of the cover letter accompanying the submission, format YYYY-MM-DD (null if no cover letter)"
+      "description": "Date of the cover letter accompanying the submission, format YYYY-MM-DD (null if no cover letter)",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "filing_period_from",
       "type": "string",
       "required": false,
-      "description": "Start date of the filing period (e.g., fiscal year start for 10-K, quarter start for 10-Q), format YYYY-MM-DD"
+      "description": "Start date of the filing period (e.g., fiscal year start for 10-K, quarter start for 10-Q), format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "filing_period_to",
       "type": "string",
       "required": false,
-      "description": "End date of the filing period (e.g., fiscal year end for 10-K), format YYYY-MM-DD"
+      "description": "End date of the filing period (e.g., fiscal year end for 10-K), format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "submitting_entity_name",
       "type": "string",
       "required": true,
-      "description": "Full legal name of the entity filing the submission"
+      "description": "Full legal name of the entity filing the submission",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "submitting_entity_id",
       "type": "string",
       "required": false,
-      "description": "The primary regulatory identifier for the submitting entity. This may be a CIK (SEC), LEI, EIN, FDA Establishment Identifier, or other ID"
+      "description": "The primary regulatory identifier for the submitting entity. This may be a CIK (SEC), LEI, EIN, FDA Establishment Identifier, or other ID",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "review_division",
       "type": "string",
       "required": false,
-      "description": "The specific division, branch, or office within the regulator that reviews this submission (null if not applicable or not stated)"
+      "description": "The specific division, branch, or office within the regulator that reviews this submission (null if not applicable or not stated)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "subject_of_submission",
       "type": "string",
       "required": false,
-      "description": "Brief description of the subject matter of the filing (up to 300 chars)"
+      "description": "Brief description of the subject matter of the filing (up to 300 chars)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "material_change_described",
       "type": "string",
       "required": false,
-      "description": "Boolean \u2014 true if the submission discloses or describes a material change, event, or condition"
+      "description": "Boolean \u2014 true if the submission discloses or describes a material change, event, or condition",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "confidentiality_request",
       "type": "string",
       "required": false,
-      "description": "Boolean \u2014 true if the submitting entity has requested confidential treatment of all or part of the submission"
+      "description": "Boolean \u2014 true if the submitting entity has requested confidential treatment of all or part of the submission",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "acceptance_date",
+        "cover_letter_date",
+        "decision_date",
+        "filing_period_from",
+        "filing_period_to",
+        "submission_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "confidentiality_request",
+        "regulator",
+        "review_division",
+        "subject_of_submission",
+        "submission_id",
+        "submission_type",
+        "submitting_entity_id"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "submitting_entity_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "material_change_described"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "submission_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "submission_type",
+        "submitting_entity_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

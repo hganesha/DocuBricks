@@ -1,0 +1,202 @@
+{
+  "document_type": "receiving_report",
+  "vertical": "manufacturing",
+  "family": "procurement_supply_chain",
+  "schema_version": "manufacturing_receiving_report_v1",
+  "fields": [
+    {
+      "name": "receiving_report_number",
+      "type": "string",
+      "required": true,
+      "description": "Receiving report or goods receipt number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "receipt_date",
+      "type": "date",
+      "required": true,
+      "description": "Date goods were received.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "purchase_order_number",
+      "type": "string",
+      "required": true,
+      "description": "Related purchase order number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "supplier_name",
+      "type": "string",
+      "required": true,
+      "description": "Supplier name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "packing_slip_number",
+      "type": "string",
+      "required": false,
+      "description": "Supplier packing slip number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "carrier_name",
+      "type": "string",
+      "required": false,
+      "description": "Carrier or freight provider.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "received_by",
+      "type": "string",
+      "required": false,
+      "description": "Receiving employee or function.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "line_items_received",
+      "type": "array<object>",
+      "required": true,
+      "description": "Received line items with part, quantity ordered, quantity received, and disposition.",
+      "section": "line_items",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "line_items_received_type",
+          "type": "string",
+          "description": "Type or class for line_items_received item."
+        },
+        {
+          "name": "line_items_received_description",
+          "type": "string",
+          "description": "Description for line_items_received item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount or value when stated."
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "Relevant item date when stated."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Item status or disposition when stated."
+        }
+      ]
+    },
+    {
+      "name": "shortage_or_overage",
+      "type": "string",
+      "required": false,
+      "description": "Shortage, overage, or mismatch summary.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "inspection_required",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether quality inspection is required.",
+      "section": "document_details",
+      "category": "operational"
+    },
+    {
+      "name": "hold_status",
+      "type": "string",
+      "required": false,
+      "description": "Released, on hold, rejected, pending inspection, or other status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "receipt_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "inspection_required",
+        "packing_slip_number",
+        "purchase_order_number",
+        "received_by",
+        "receiving_report_number",
+        "shortage_or_overage"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "line_items_received"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "carrier_name",
+        "supplier_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "hold_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "receiving_report_number",
+        "receipt_date",
+        "purchase_order_number",
+        "supplier_name",
+        "line_items_received"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "line_items",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "line_items_received"
+      ]
+    }
+  ]
+}

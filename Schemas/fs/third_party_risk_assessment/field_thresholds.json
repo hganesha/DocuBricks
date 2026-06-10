@@ -27,5 +27,12 @@
     "fail_on_breach": false,
     "regulatory_required": false,
     "description": "High-impact field for Third-party Risk Assessment workflow."
+  },
+  "assessment_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Third-party risk assessment extraction."
   }
 }

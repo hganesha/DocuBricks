@@ -76,5 +76,12 @@
     "fail_on_breach": false,
     "regulatory_required": false,
     "description": "Follow-up timeframe supports care gap and no-show tracking; acceptable at lower confidence as it is often embedded in narrative Plan text rather than a discrete field"
+  },
+  "document_id": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Clinical Note SOAP extraction."
   }
 }

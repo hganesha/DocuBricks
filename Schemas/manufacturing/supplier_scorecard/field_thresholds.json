@@ -1,0 +1,38 @@
+{
+  "default_threshold": 0.75,
+  "supplier_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Supplier Scorecard workflow."
+  },
+  "on_time_delivery_rate": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Supplier Scorecard workflow."
+  },
+  "quality_ppm": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Supplier Scorecard workflow."
+  },
+  "overall_score": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Supplier Scorecard workflow."
+  },
+  "scorecard_period": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Supplier scorecard extraction."
+  }
+}

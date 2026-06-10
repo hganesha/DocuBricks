@@ -1,0 +1,72 @@
+[
+  {
+    "name": "deed_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "deed_date"
+    ],
+    "expression": "deed_date IS NOT NULL AND LENGTH(TRIM(deed_date)) > 0",
+    "severity": "fail",
+    "description": "deed_date is required for Deed extraction."
+  },
+  {
+    "name": "deed_type_present",
+    "rule_type": "presence",
+    "fields": [
+      "deed_type"
+    ],
+    "expression": "deed_type IS NOT NULL AND LENGTH(TRIM(deed_type)) > 0",
+    "severity": "fail",
+    "description": "deed_type is required for Deed extraction."
+  },
+  {
+    "name": "grantor_names_present",
+    "rule_type": "array",
+    "fields": [
+      "grantor_names"
+    ],
+    "expression": "grantor_names IS NOT NULL AND JSON_ARRAY_LENGTH(grantor_names) > 0",
+    "severity": "fail",
+    "description": "grantor_names is required for Deed extraction."
+  },
+  {
+    "name": "grantee_names_present",
+    "rule_type": "array",
+    "fields": [
+      "grantee_names"
+    ],
+    "expression": "grantee_names IS NOT NULL AND JSON_ARRAY_LENGTH(grantee_names) > 0",
+    "severity": "fail",
+    "description": "grantee_names is required for Deed extraction."
+  },
+  {
+    "name": "legal_description_present",
+    "rule_type": "presence",
+    "fields": [
+      "legal_description"
+    ],
+    "expression": "legal_description IS NOT NULL AND LENGTH(TRIM(legal_description)) > 0",
+    "severity": "fail",
+    "description": "legal_description is required for Deed extraction."
+  },
+  {
+    "name": "consideration_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "consideration_amount"
+    ],
+    "expression": "consideration_amount IS NULL OR consideration_amount >= 0",
+    "severity": "warn",
+    "description": "consideration_amount should be non-negative when present."
+  },
+  {
+    "name": "transfer_tax_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "transfer_tax_amount"
+    ],
+    "expression": "transfer_tax_amount IS NULL OR transfer_tax_amount >= 0",
+    "severity": "warn",
+    "description": "transfer_tax_amount should be non-negative when present."
+  }
+]

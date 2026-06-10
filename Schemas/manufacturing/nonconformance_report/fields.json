@@ -1,0 +1,208 @@
+{
+  "document_type": "nonconformance_report",
+  "vertical": "manufacturing",
+  "family": "manufacturing_quality",
+  "schema_version": "manufacturing_nonconformance_report_v1",
+  "fields": [
+    {
+      "name": "ncr_number",
+      "type": "string",
+      "required": true,
+      "description": "Nonconformance report number.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "ncr_date",
+      "type": "date",
+      "required": true,
+      "description": "Date the nonconformance was opened.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "part_number",
+      "type": "string",
+      "required": true,
+      "description": "Affected part number.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "lot_number",
+      "type": "string",
+      "required": false,
+      "description": "Affected lot, batch, serial, or work order.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "supplier_or_work_center",
+      "type": "string",
+      "required": false,
+      "description": "Supplier or internal work center.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "nonconformance_description",
+      "type": "string",
+      "required": true,
+      "description": "Description of nonconformance.",
+      "section": "document_details",
+      "category": "operational"
+    },
+    {
+      "name": "detected_by",
+      "type": "string",
+      "required": false,
+      "description": "Person, station, inspection, or process that detected the issue.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "quantity_affected",
+      "type": "number",
+      "required": false,
+      "description": "Quantity affected.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "containment_actions",
+      "type": "array<string>",
+      "required": false,
+      "description": "Containment actions taken.",
+      "section": "line_items",
+      "category": "array"
+    },
+    {
+      "name": "root_cause_summary",
+      "type": "string",
+      "required": false,
+      "description": "Root cause summary if known.",
+      "section": "document_details",
+      "category": "operational"
+    },
+    {
+      "name": "disposition",
+      "type": "string",
+      "required": true,
+      "description": "Scrap, rework, repair, use-as-is, return to supplier, or other disposition.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
+    },
+    {
+      "name": "mrb_owner",
+      "type": "string",
+      "required": false,
+      "description": "Material review board owner or approver.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "closure_date",
+      "type": "date",
+      "required": false,
+      "description": "Closure date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": "Open, in review, closed, overdue, or other status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "closure_date",
+        "ncr_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "detected_by",
+        "ncr_number",
+        "nonconformance_description",
+        "quantity_affected",
+        "root_cause_summary"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "containment_actions"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "mrb_owner",
+        "supplier_or_work_center"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "lot_number",
+        "part_number"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "disposition",
+        "status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "ncr_number",
+        "ncr_date",
+        "part_number",
+        "nonconformance_description",
+        "disposition"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "line_items",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

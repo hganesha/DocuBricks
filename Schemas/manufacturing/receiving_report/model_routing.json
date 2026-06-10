@@ -1,0 +1,12 @@
+{
+  "primary": "databricks-claude-sonnet",
+  "fallback_chain": [
+    "databricks-meta-llama-3-70b-instruct"
+  ],
+  "max_tokens": 6144,
+  "temperature": 0.0,
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "tier_overrides": {},
+  "rationale": "Receiving Report documents combine manufacturing, quality, supplier, material, and operational control context."
+}

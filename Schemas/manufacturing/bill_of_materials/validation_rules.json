@@ -1,0 +1,42 @@
+[
+  {
+    "name": "bom_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "bom_number"
+    ],
+    "expression": "bom_number IS NOT NULL AND LENGTH(TRIM(bom_number)) > 0",
+    "severity": "fail",
+    "description": "bom_number is required for Bill of Materials extraction."
+  },
+  {
+    "name": "bom_revision_present",
+    "rule_type": "presence",
+    "fields": [
+      "bom_revision"
+    ],
+    "expression": "bom_revision IS NOT NULL AND LENGTH(TRIM(bom_revision)) > 0",
+    "severity": "fail",
+    "description": "bom_revision is required for Bill of Materials extraction."
+  },
+  {
+    "name": "parent_part_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "parent_part_number"
+    ],
+    "expression": "parent_part_number IS NOT NULL AND LENGTH(TRIM(parent_part_number)) > 0",
+    "severity": "fail",
+    "description": "parent_part_number is required for Bill of Materials extraction."
+  },
+  {
+    "name": "component_items_present",
+    "rule_type": "array",
+    "fields": [
+      "component_items"
+    ],
+    "expression": "component_items IS NOT NULL AND JSON_ARRAY_LENGTH(component_items) > 0",
+    "severity": "fail",
+    "description": "component_items is required for Bill of Materials extraction."
+  }
+]

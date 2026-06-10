@@ -14,121 +14,274 @@
       "name": "agreement_date",
       "type": "date",
       "required": false,
-      "description": "Date of credit agreement or amendment."
+      "description": "Date of credit agreement or amendment.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "borrower_name",
       "type": "string",
       "required": true,
-      "description": "Borrower legal name."
+      "description": "Borrower legal name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "administrative_agent_name",
       "type": "string",
       "required": true,
-      "description": "Administrative agent or collateral agent."
+      "description": "Administrative agent or collateral agent.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "lead_arranger_names",
       "type": "array<string>",
       "required": false,
-      "description": "Lead arrangers, bookrunners, or private credit sponsors."
+      "description": "Lead arrangers, bookrunners, or private credit sponsors.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "lender_names",
       "type": "array<string>",
       "required": false,
-      "description": "Named lenders or lender groups."
+      "description": "Named lenders or lender groups.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "facility_type",
       "type": "string",
       "required": false,
-      "description": "Revolver, term loan A, term loan B, delayed draw, unitranche, or other."
+      "description": "Revolver, term loan A, term loan B, delayed draw, unitranche, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "total_commitment_amount",
       "type": "number",
       "required": true,
-      "description": "Total commitments across all tranches."
+      "description": "Total commitments across all tranches.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "tranches",
       "type": "array<object>",
       "required": false,
-      "description": "Tranche entries with name, amount, maturity, pricing, and currency when present."
+      "description": "Tranche entries with name, amount, maturity, pricing, and currency when present.",
+      "section": "document_details",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "tranche_type",
+          "type": "string",
+          "description": "Type or class for tranches item."
+        },
+        {
+          "name": "tranche_description",
+          "type": "string",
+          "description": "Description for tranches item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount or value when stated."
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "Relevant item date when stated."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Item status or disposition when stated."
+        }
+      ]
     },
     {
       "name": "maturity_date",
       "type": "date",
       "required": false,
-      "description": "Final maturity date."
+      "description": "Final maturity date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "pricing_grid",
       "type": "string",
       "required": false,
-      "description": "Pricing grid or spread mechanics."
+      "description": "Pricing grid or spread mechanics.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "benchmark_rate",
       "type": "string",
       "required": false,
-      "description": "SOFR, base rate, prime, EURIBOR, or other benchmark."
+      "description": "SOFR, base rate, prime, EURIBOR, or other benchmark.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "commitment_fee",
       "type": "number",
       "required": false,
-      "description": "Unused commitment fee percentage if stated."
+      "description": "Unused commitment fee percentage if stated.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "collateral_summary",
       "type": "string",
       "required": false,
-      "description": "Collateral or security package summary."
+      "description": "Collateral or security package summary.",
+      "section": "property_or_asset",
+      "category": "operational"
     },
     {
       "name": "guarantor_names",
       "type": "array<string>",
       "required": false,
-      "description": "Guarantors or loan parties."
+      "description": "Guarantors or loan parties.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "financial_covenants",
       "type": "array<string>",
       "required": false,
-      "description": "Financial covenants."
+      "description": "Financial covenants.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "negative_covenants",
       "type": "array<string>",
       "required": false,
-      "description": "Negative covenants."
+      "description": "Negative covenants.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "mandatory_prepayment_events",
       "type": "array<string>",
       "required": false,
-      "description": "Asset sale, debt issuance, excess cash flow, or other prepayment triggers."
+      "description": "Asset sale, debt issuance, excess cash flow, or other prepayment triggers.",
+      "section": "financials",
+      "category": "array"
     },
     {
       "name": "assignment_minimum_amount",
       "type": "number",
       "required": false,
-      "description": "Minimum assignment amount if stated."
+      "description": "Minimum assignment amount if stated.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "required_lender_threshold",
       "type": "string",
       "required": false,
-      "description": "Required lender voting threshold."
+      "description": "Required lender voting threshold.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "governing_law",
       "type": "string",
       "required": false,
-      "description": "Governing law jurisdiction."
+      "description": "Governing law jurisdiction.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "agreement_date",
+        "maturity_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "facility_type",
+        "financial_covenants",
+        "governing_law",
+        "negative_covenants",
+        "pricing_grid",
+        "tranches"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "assignment_minimum_amount",
+        "benchmark_rate",
+        "commitment_fee",
+        "mandatory_prepayment_events",
+        "total_commitment_amount"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "administrative_agent_name",
+        "borrower_name",
+        "guarantor_names",
+        "lead_arranger_names",
+        "lender_names",
+        "required_lender_threshold"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "collateral_summary"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "borrower_name",
+        "administrative_agent_name",
+        "total_commitment_amount"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "tranches"
+      ]
     }
   ]
 }

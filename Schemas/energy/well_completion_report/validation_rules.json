@@ -1,0 +1,102 @@
+[
+  {
+    "name": "completion_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "completion_date"
+    ],
+    "expression": "completion_date IS NOT NULL AND LENGTH(TRIM(completion_date)) > 0",
+    "severity": "fail",
+    "description": "completion_date is required for Well Completion Report extraction."
+  },
+  {
+    "name": "well_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "well_name"
+    ],
+    "expression": "well_name IS NOT NULL AND LENGTH(TRIM(well_name)) > 0",
+    "severity": "fail",
+    "description": "well_name is required for Well Completion Report extraction."
+  },
+  {
+    "name": "api_well_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "api_well_number"
+    ],
+    "expression": "api_well_number IS NOT NULL AND LENGTH(TRIM(api_well_number)) > 0",
+    "severity": "fail",
+    "description": "api_well_number is required for Well Completion Report extraction."
+  },
+  {
+    "name": "operator_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "operator_name"
+    ],
+    "expression": "operator_name IS NOT NULL AND LENGTH(TRIM(operator_name)) > 0",
+    "severity": "fail",
+    "description": "operator_name is required for Well Completion Report extraction."
+  },
+  {
+    "name": "completion_type_present",
+    "rule_type": "presence",
+    "fields": [
+      "completion_type"
+    ],
+    "expression": "completion_type IS NOT NULL AND LENGTH(TRIM(completion_type)) > 0",
+    "severity": "fail",
+    "description": "completion_type is required for Well Completion Report extraction."
+  },
+  {
+    "name": "total_depth_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "total_depth"
+    ],
+    "expression": "total_depth IS NULL OR total_depth >= 0",
+    "severity": "warn",
+    "description": "total_depth should be non-negative when present."
+  },
+  {
+    "name": "proppant_volume_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "proppant_volume"
+    ],
+    "expression": "proppant_volume IS NULL OR proppant_volume >= 0",
+    "severity": "warn",
+    "description": "proppant_volume should be non-negative when present."
+  },
+  {
+    "name": "fluid_volume_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "fluid_volume"
+    ],
+    "expression": "fluid_volume IS NULL OR fluid_volume >= 0",
+    "severity": "warn",
+    "description": "fluid_volume should be non-negative when present."
+  },
+  {
+    "name": "initial_oil_rate_bpd_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "initial_oil_rate_bpd"
+    ],
+    "expression": "initial_oil_rate_bpd IS NULL OR initial_oil_rate_bpd >= 0",
+    "severity": "warn",
+    "description": "initial_oil_rate_bpd should be non-negative when present."
+  },
+  {
+    "name": "initial_gas_rate_mcfpd_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "initial_gas_rate_mcfpd"
+    ],
+    "expression": "initial_gas_rate_mcfpd IS NULL OR initial_gas_rate_mcfpd >= 0",
+    "severity": "warn",
+    "description": "initial_gas_rate_mcfpd should be non-negative when present."
+  }
+]

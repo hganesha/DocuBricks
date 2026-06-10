@@ -14,121 +14,244 @@
       "name": "application_date",
       "type": "date",
       "required": false,
-      "description": "Date the account package was completed."
+      "description": "Date the account package was completed.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "trust_name",
       "type": "string",
       "required": true,
-      "description": "Legal name of trust or estate."
+      "description": "Legal name of trust or estate.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "trust_type",
       "type": "string",
       "required": false,
-      "description": "Revocable, irrevocable, testamentary, estate, charitable, special needs, or other."
+      "description": "Revocable, irrevocable, testamentary, estate, charitable, special needs, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "trust_tax_id_masked",
       "type": "string",
       "required": false,
-      "description": "Masked trust EIN or tax identifier."
+      "description": "Masked trust EIN or tax identifier.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "jurisdiction",
       "type": "string",
       "required": false,
-      "description": "Governing state or country."
+      "description": "Governing state or country.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "grantor_names",
       "type": "array<string>",
       "required": false,
-      "description": "Grantors, settlors, or decedent names."
+      "description": "Grantors, settlors, or decedent names.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "trustee_names",
       "type": "array<string>",
       "required": true,
-      "description": "Trustees or personal representatives."
+      "description": "Trustees or personal representatives.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "authorized_signer_names",
       "type": "array<string>",
       "required": false,
-      "description": "Authorized account signers."
+      "description": "Authorized account signers.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "beneficiary_names",
       "type": "array<string>",
       "required": false,
-      "description": "Named beneficiaries when present."
+      "description": "Named beneficiaries when present.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "fiduciary_powers",
       "type": "array<string>",
       "required": false,
-      "description": "Investment, distribution, borrowing, pledge, or other powers."
+      "description": "Investment, distribution, borrowing, pledge, or other powers.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "investment_objective",
       "type": "string",
       "required": false,
-      "description": "Investment objective or account purpose."
+      "description": "Investment objective or account purpose.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "risk_tolerance",
       "type": "string",
       "required": false,
-      "description": "Conservative, moderate, aggressive, or stated risk profile."
+      "description": "Conservative, moderate, aggressive, or stated risk profile.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
     },
     {
       "name": "source_of_funds",
       "type": "string",
       "required": false,
-      "description": "Source of initial funding."
+      "description": "Source of initial funding.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "initial_deposit_amount",
       "type": "number",
       "required": false,
-      "description": "Initial deposit or transfer amount."
+      "description": "Initial deposit or transfer amount.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "account_type_requested",
       "type": "string",
       "required": false,
-      "description": "Trust brokerage, fiduciary checking, estate account, managed account, or other."
+      "description": "Trust brokerage, fiduciary checking, estate account, managed account, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "tax_certification_status",
       "type": "string",
       "required": false,
-      "description": "W-9, W-8, exempt, missing, or other tax certification status."
+      "description": "W-9, W-8, exempt, missing, or other tax certification status.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "beneficial_ownership_required",
       "type": "boolean",
       "required": false,
-      "description": "Whether beneficial ownership certification is required or referenced."
+      "description": "Whether beneficial ownership certification is required or referenced.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "document_checklist",
       "type": "array<string>",
       "required": false,
-      "description": "Documents received or required."
+      "description": "Documents received or required.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "approval_status",
       "type": "string",
       "required": false,
-      "description": "Approved, pending, rejected, conditional, or other."
+      "description": "Approved, pending, rejected, conditional, or other.",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "relationship_manager_name",
       "type": "string",
       "required": false,
-      "description": "Advisor, banker, or relationship manager."
+      "description": "Advisor, banker, or relationship manager.",
+      "section": "parties",
+      "category": "identity"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "application_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "account_type_requested",
+        "document_checklist",
+        "fiduciary_powers",
+        "investment_objective",
+        "jurisdiction",
+        "source_of_funds",
+        "trust_type"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "initial_deposit_amount",
+        "tax_certification_status",
+        "trust_tax_id_masked"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "authorized_signer_names",
+        "beneficial_ownership_required",
+        "beneficiary_names",
+        "grantor_names",
+        "relationship_manager_name",
+        "trust_name",
+        "trustee_names"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "approval_status",
+        "risk_tolerance"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "trust_name",
+        "trustee_names"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

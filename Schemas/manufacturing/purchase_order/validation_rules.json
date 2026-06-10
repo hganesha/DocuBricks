@@ -1,0 +1,92 @@
+[
+  {
+    "name": "purchase_order_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "purchase_order_number"
+    ],
+    "expression": "purchase_order_number IS NOT NULL AND LENGTH(TRIM(purchase_order_number)) > 0",
+    "severity": "fail",
+    "description": "purchase_order_number is required for Purchase Order extraction."
+  },
+  {
+    "name": "po_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "po_date"
+    ],
+    "expression": "po_date IS NOT NULL AND LENGTH(TRIM(po_date)) > 0",
+    "severity": "fail",
+    "description": "po_date is required for Purchase Order extraction."
+  },
+  {
+    "name": "buyer_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "buyer_name"
+    ],
+    "expression": "buyer_name IS NOT NULL AND LENGTH(TRIM(buyer_name)) > 0",
+    "severity": "fail",
+    "description": "buyer_name is required for Purchase Order extraction."
+  },
+  {
+    "name": "supplier_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "supplier_name"
+    ],
+    "expression": "supplier_name IS NOT NULL AND LENGTH(TRIM(supplier_name)) > 0",
+    "severity": "fail",
+    "description": "supplier_name is required for Purchase Order extraction."
+  },
+  {
+    "name": "line_items_present",
+    "rule_type": "array",
+    "fields": [
+      "line_items"
+    ],
+    "expression": "line_items IS NOT NULL AND JSON_ARRAY_LENGTH(line_items) > 0",
+    "severity": "fail",
+    "description": "line_items is required for Purchase Order extraction."
+  },
+  {
+    "name": "total_amount_present",
+    "rule_type": "presence",
+    "fields": [
+      "total_amount"
+    ],
+    "expression": "total_amount IS NOT NULL AND LENGTH(TRIM(total_amount)) > 0",
+    "severity": "fail",
+    "description": "total_amount is required for Purchase Order extraction."
+  },
+  {
+    "name": "subtotal_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "subtotal_amount"
+    ],
+    "expression": "subtotal_amount IS NULL OR subtotal_amount >= 0",
+    "severity": "warn",
+    "description": "subtotal_amount should be non-negative when present."
+  },
+  {
+    "name": "tax_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "tax_amount"
+    ],
+    "expression": "tax_amount IS NULL OR tax_amount >= 0",
+    "severity": "warn",
+    "description": "tax_amount should be non-negative when present."
+  },
+  {
+    "name": "total_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "total_amount"
+    ],
+    "expression": "total_amount IS NULL OR total_amount >= 0",
+    "severity": "warn",
+    "description": "total_amount should be non-negative when present."
+  }
+]

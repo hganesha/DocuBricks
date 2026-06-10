@@ -1,0 +1,102 @@
+[
+  {
+    "name": "scorecard_period_present",
+    "rule_type": "presence",
+    "fields": [
+      "scorecard_period"
+    ],
+    "expression": "scorecard_period IS NOT NULL AND LENGTH(TRIM(scorecard_period)) > 0",
+    "severity": "fail",
+    "description": "scorecard_period is required for Supplier Scorecard extraction."
+  },
+  {
+    "name": "supplier_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "supplier_name"
+    ],
+    "expression": "supplier_name IS NOT NULL AND LENGTH(TRIM(supplier_name)) > 0",
+    "severity": "fail",
+    "description": "supplier_name is required for Supplier Scorecard extraction."
+  },
+  {
+    "name": "on_time_delivery_rate_present",
+    "rule_type": "presence",
+    "fields": [
+      "on_time_delivery_rate"
+    ],
+    "expression": "on_time_delivery_rate IS NOT NULL AND LENGTH(TRIM(on_time_delivery_rate)) > 0",
+    "severity": "fail",
+    "description": "on_time_delivery_rate is required for Supplier Scorecard extraction."
+  },
+  {
+    "name": "quality_ppm_present",
+    "rule_type": "presence",
+    "fields": [
+      "quality_ppm"
+    ],
+    "expression": "quality_ppm IS NOT NULL AND LENGTH(TRIM(quality_ppm)) > 0",
+    "severity": "fail",
+    "description": "quality_ppm is required for Supplier Scorecard extraction."
+  },
+  {
+    "name": "overall_score_present",
+    "rule_type": "presence",
+    "fields": [
+      "overall_score"
+    ],
+    "expression": "overall_score IS NOT NULL AND LENGTH(TRIM(overall_score)) > 0",
+    "severity": "fail",
+    "description": "overall_score is required for Supplier Scorecard extraction."
+  },
+  {
+    "name": "on_time_delivery_rate_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "on_time_delivery_rate"
+    ],
+    "expression": "on_time_delivery_rate IS NULL OR on_time_delivery_rate >= 0",
+    "severity": "warn",
+    "description": "on_time_delivery_rate should be non-negative when present."
+  },
+  {
+    "name": "quality_ppm_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "quality_ppm"
+    ],
+    "expression": "quality_ppm IS NULL OR quality_ppm >= 0",
+    "severity": "warn",
+    "description": "quality_ppm should be non-negative when present."
+  },
+  {
+    "name": "nonconformance_count_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "nonconformance_count"
+    ],
+    "expression": "nonconformance_count IS NULL OR nonconformance_count >= 0",
+    "severity": "warn",
+    "description": "nonconformance_count should be non-negative when present."
+  },
+  {
+    "name": "cost_variance_percent_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "cost_variance_percent"
+    ],
+    "expression": "cost_variance_percent IS NULL OR cost_variance_percent >= 0",
+    "severity": "warn",
+    "description": "cost_variance_percent should be non-negative when present."
+  },
+  {
+    "name": "overall_score_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "overall_score"
+    ],
+    "expression": "overall_score IS NULL OR overall_score >= 0",
+    "severity": "warn",
+    "description": "overall_score should be non-negative when present."
+  }
+]

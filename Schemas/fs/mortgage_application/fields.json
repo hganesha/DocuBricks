@@ -15,511 +15,837 @@
       "name": "loan_purpose",
       "type": "string",
       "required": false,
-      "description": "The stated purpose. One of: Purchase | Refinance | CashOutRefinance | Construction | ConstructionPermanent | HomeEquity | HELOC | Other"
+      "description": "The stated purpose. One of: Purchase | Refinance | CashOutRefinance | Construction | ConstructionPermanent | HomeEquity | HELOC | Other",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "loan_type",
       "type": "string",
       "required": false,
-      "description": "One of: Conventional | FHA | VA | USDA | Jumbo | Portfolio | NonQM | Other"
+      "description": "One of: Conventional | FHA | VA | USDA | Jumbo | Portfolio | NonQM | Other",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "lien_priority",
       "type": "string",
       "required": false,
-      "description": "One of: FirstLien | SecondLien | Other"
+      "description": "One of: FirstLien | SecondLien | Other",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "mortgage_type",
       "type": "string",
       "required": false,
-      "description": "One of: FixedRate | AdjustableRate | Balloon | InterestOnly | Other"
+      "description": "One of: FixedRate | AdjustableRate | Balloon | InterestOnly | Other",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "loan_amount",
       "type": "number",
       "required": true,
-      "description": "Requested loan amount as decimal (e.g., 450000.00)"
+      "description": "Requested loan amount as decimal (e.g., 450000.00)",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "loan_term_months",
       "type": "integer",
       "required": false,
-      "description": "Loan term in months as integer (e.g., 360 for 30-year)"
+      "description": "Loan term in months as integer (e.g., 360 for 30-year)",
+      "section": "dates_and_terms",
+      "category": "financial"
     },
     {
       "name": "interest_rate_percent",
       "type": "number",
       "required": false,
-      "description": "Note rate as decimal percent (e.g., 6.875)"
+      "description": "Note rate as decimal percent (e.g., 6.875)",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "amortization_type",
       "type": "string",
       "required": false,
-      "description": "One of: Fixed | ARM | Balloon | InterestOnly | Other"
+      "description": "One of: Fixed | ARM | Balloon | InterestOnly | Other",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "occupancy_type",
       "type": "string",
       "required": false,
-      "description": "One of: PrimaryResidence | SecondHome | InvestmentProperty"
+      "description": "One of: PrimaryResidence | SecondHome | InvestmentProperty",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "property_street",
       "type": "string",
       "required": false,
-      "description": "Street address of subject property"
+      "description": "Street address of subject property",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "property_city",
       "type": "string",
       "required": false,
-      "description": "City"
+      "description": "City",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "property_state",
       "type": "string",
       "required": false,
-      "description": "Two-letter state code"
+      "description": "Two-letter state code",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "property_zip",
       "type": "string",
       "required": false,
-      "description": "ZIP code"
+      "description": "ZIP code",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "property_county",
       "type": "string",
       "required": false,
-      "description": "County name if present"
+      "description": "County name if present",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "property_type",
       "type": "string",
       "required": false,
-      "description": "One of: SingleFamily | Condo | Cooperative | TwoToFourUnit | ManufacturedHome | PlannedUnitDevelopment | MixedUse | Multifamily | Other"
+      "description": "One of: SingleFamily | Condo | Cooperative | TwoToFourUnit | ManufacturedHome | PlannedUnitDevelopment | MixedUse | Multifamily | Other",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "number_of_units",
       "type": "string",
       "required": false,
-      "description": "Number of units as integer"
+      "description": "Number of units as integer",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "year_built",
       "type": "string",
       "required": false,
-      "description": "Four-digit year if present"
+      "description": "Four-digit year if present",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "purchase_price",
       "type": "number",
       "required": false,
-      "description": "Purchase price as decimal (for purchase transactions)"
+      "description": "Purchase price as decimal (for purchase transactions)",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "estimated_value",
       "type": "number",
       "required": false,
-      "description": "Estimated/appraised property value as decimal"
+      "description": "Estimated/appraised property value as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "borrower_first_name",
       "type": "string",
       "required": false,
-      "description": "Primary borrower first name"
+      "description": "Primary borrower first name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_middle_name",
       "type": "string",
       "required": false,
-      "description": "Middle name or initial"
+      "description": "Middle name or initial",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_last_name",
       "type": "string",
       "required": true,
-      "description": "Primary borrower last name"
+      "description": "Primary borrower last name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_suffix",
       "type": "string",
       "required": false,
-      "description": "Name suffix (Jr., Sr., III, etc.)"
+      "description": "Name suffix (Jr., Sr., III, etc.)",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_ssn_masked",
       "type": "string",
       "required": false,
-      "description": "Last 4 digits only, format XXX-XX-NNNN"
+      "description": "Last 4 digits only, format XXX-XX-NNNN",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_dob",
       "type": "string",
       "required": false,
-      "description": "Date of birth, format YYYY-MM-DD"
+      "description": "Date of birth, format YYYY-MM-DD",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_marital_status",
       "type": "string",
       "required": false,
-      "description": "One of: Married | Separated | Unmarried | Unknown"
+      "description": "One of: Married | Separated | Unmarried | Unknown",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_dependents_count",
       "type": "integer",
       "required": false,
-      "description": "Number of dependents as integer"
+      "description": "Number of dependents as integer",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_citizenship",
       "type": "string",
       "required": false,
-      "description": "One of: USCitizen | PermanentResidentAlien | NonPermanentResidentAlien | ForeignNational | Other"
+      "description": "One of: USCitizen | PermanentResidentAlien | NonPermanentResidentAlien | ForeignNational | Other",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_phone",
       "type": "string",
       "required": false,
-      "description": "Primary phone number"
+      "description": "Primary phone number",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "borrower_email",
       "type": "string",
       "required": false,
-      "description": "Email address if present"
+      "description": "Email address if present",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "coborrower_first_name",
       "type": "string",
       "required": false,
-      "description": "Co-borrower first name"
+      "description": "Co-borrower first name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "coborrower_last_name",
       "type": "string",
       "required": false,
-      "description": "Co-borrower last name"
+      "description": "Co-borrower last name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "coborrower_ssn_masked",
       "type": "string",
       "required": false,
-      "description": "Last 4 digits only"
+      "description": "Last 4 digits only",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "coborrower_dob",
       "type": "string",
       "required": false,
-      "description": "Date of birth, format YYYY-MM-DD"
+      "description": "Date of birth, format YYYY-MM-DD",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "employer_name",
       "type": "string",
       "required": false,
-      "description": "Current primary employer name"
+      "description": "Current primary employer name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "employer_address",
       "type": "string",
       "required": false,
-      "description": "Employer street address"
+      "description": "Employer street address",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "employer_phone",
       "type": "string",
       "required": false,
-      "description": "Employer phone"
+      "description": "Employer phone",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "position_title",
       "type": "string",
       "required": false,
-      "description": "Job title or position"
+      "description": "Job title or position",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "employment_start_date",
       "type": "date",
       "required": false,
-      "description": "Start date with employer, format YYYY-MM-DD"
+      "description": "Start date with employer, format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "years_on_job",
       "type": "string",
       "required": false,
-      "description": "Years at current employer as decimal"
+      "description": "Years at current employer as decimal",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "self_employed",
       "type": "boolean",
       "required": false,
-      "description": "Boolean — true if self-employed indicator is checked"
+      "description": "Boolean \u2014 true if self-employed indicator is checked",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "base_monthly_income",
       "type": "number",
       "required": false,
-      "description": "Base gross monthly income as decimal"
+      "description": "Base gross monthly income as decimal",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "overtime_monthly_income",
       "type": "number",
       "required": false,
-      "description": "Overtime monthly income as decimal (null if none)"
+      "description": "Overtime monthly income as decimal (null if none)",
+      "section": "document_details",
+      "category": "temporal"
     },
     {
       "name": "bonus_monthly_income",
       "type": "number",
       "required": false,
-      "description": "Bonus monthly income as decimal (null if none)"
+      "description": "Bonus monthly income as decimal (null if none)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "commission_monthly_income",
       "type": "number",
       "required": false,
-      "description": "Commission monthly income as decimal (null if none)"
+      "description": "Commission monthly income as decimal (null if none)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "other_monthly_income",
       "type": "number",
       "required": false,
-      "description": "Other monthly income as decimal (null if none)"
+      "description": "Other monthly income as decimal (null if none)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "total_monthly_income",
       "type": "number",
       "required": false,
-      "description": "Total gross monthly income as decimal"
+      "description": "Total gross monthly income as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "present_housing_payment",
       "type": "number",
       "required": false,
-      "description": "Current monthly housing payment as decimal"
+      "description": "Current monthly housing payment as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "proposed_principal_interest",
       "type": "string",
       "required": false,
-      "description": "Proposed P&I payment as decimal"
+      "description": "Proposed P&I payment as decimal",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "proposed_taxes",
       "type": "number",
       "required": false,
-      "description": "Proposed monthly taxes as decimal"
+      "description": "Proposed monthly taxes as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "proposed_insurance",
       "type": "string",
       "required": false,
-      "description": "Proposed monthly hazard insurance as decimal"
+      "description": "Proposed monthly hazard insurance as decimal",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "proposed_hoa_dues",
       "type": "string",
       "required": false,
-      "description": "Proposed monthly HOA dues as decimal"
+      "description": "Proposed monthly HOA dues as decimal",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "proposed_total_housing_payment",
       "type": "number",
       "required": false,
-      "description": "Proposed total monthly housing expense as decimal"
+      "description": "Proposed total monthly housing expense as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "total_assets",
       "type": "number",
       "required": false,
-      "description": "Sum of all listed assets as decimal"
+      "description": "Sum of all listed assets as decimal",
+      "section": "property_or_asset",
+      "category": "financial"
     },
     {
       "name": "checking_savings_balance",
       "type": "number",
       "required": false,
-      "description": "Combined checking/savings balance as decimal"
+      "description": "Combined checking/savings balance as decimal",
+      "section": "document_details",
+      "category": "financial"
     },
     {
       "name": "retirement_assets",
       "type": "number",
       "required": false,
-      "description": "Retirement account balance as decimal"
+      "description": "Retirement account balance as decimal",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "down_payment_amount",
       "type": "number",
       "required": false,
-      "description": "Down payment amount as decimal"
+      "description": "Down payment amount as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "down_payment_source",
       "type": "number",
       "required": false,
-      "description": "Primary source of down payment"
+      "description": "Primary source of down payment",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "total_monthly_debt_payments",
       "type": "number",
       "required": false,
-      "description": "Sum of all monthly debt payments as decimal"
+      "description": "Sum of all monthly debt payments as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "auto_loan_payment",
       "type": "number",
       "required": false,
-      "description": "Monthly auto loan payment(s) as decimal"
+      "description": "Monthly auto loan payment(s) as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "student_loan_payment",
       "type": "number",
       "required": false,
-      "description": "Monthly student loan payment(s) as decimal"
+      "description": "Monthly student loan payment(s) as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "credit_card_payment",
       "type": "number",
       "required": false,
-      "description": "Monthly credit card minimum payment(s) as decimal"
+      "description": "Monthly credit card minimum payment(s) as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "other_debt_payments",
       "type": "number",
       "required": false,
-      "description": "Other monthly debt as decimal"
+      "description": "Other monthly debt as decimal",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "debt_to_income_ratio",
       "type": "number",
       "required": false,
-      "description": "Back-end DTI as decimal percent (e.g., 43.5)"
+      "description": "Back-end DTI as decimal percent (e.g., 43.5)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "housing_expense_ratio",
       "type": "number",
       "required": false,
-      "description": "Front-end ratio as decimal percent"
+      "description": "Front-end ratio as decimal percent",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "ltv_percent",
       "type": "number",
       "required": false,
-      "description": "Loan-to-value ratio as decimal percent"
+      "description": "Loan-to-value ratio as decimal percent",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "cltv_percent",
       "type": "number",
       "required": false,
-      "description": "Combined LTV as decimal percent"
+      "description": "Combined LTV as decimal percent",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "outstanding_judgments",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "bankruptcy",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "foreclosure",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "party_to_lawsuit",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "delinquent_on_debt",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "financial"
     },
     {
       "name": "intent_to_occupy",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "borrowed_down_payment",
       "type": "number",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "ethnicity_hispanic",
       "type": "string",
       "required": false,
-      "description": "Boolean — is applicant Hispanic or Latino"
+      "description": "Boolean \u2014 is applicant Hispanic or Latino",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "race_white",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "race_black",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "race_asian",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "sex_male",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "sex_female",
       "type": "string",
       "required": false,
-      "description": "Boolean"
+      "description": "Boolean",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "monitoring_info_not_provided",
       "type": "string",
       "required": false,
-      "description": "Boolean — applicant declined to provide"
+      "description": "Boolean \u2014 applicant declined to provide",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "application_date",
       "type": "date",
       "required": false,
-      "description": "Application date, format YYYY-MM-DD"
+      "description": "Application date, format YYYY-MM-DD",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "loan_officer_name",
       "type": "string",
       "required": false,
-      "description": "Loan officer name if present"
+      "description": "Loan officer name if present",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "lender_name",
       "type": "string",
       "required": false,
-      "description": "Lender / financial institution name"
+      "description": "Lender / financial institution name",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "nmls_id",
       "type": "string",
       "required": false,
-      "description": "NMLS ID of loan officer if present"
+      "description": "NMLS ID of loan officer if present",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "application_date",
+        "employment_start_date",
+        "loan_term_months",
+        "proposed_hoa_dues"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "amortization_type",
+        "bankruptcy",
+        "base_monthly_income",
+        "bonus_monthly_income",
+        "checking_savings_balance",
+        "cltv_percent",
+        "commission_monthly_income",
+        "debt_to_income_ratio",
+        "delinquent_on_debt",
+        "employer_phone",
+        "ethnicity_hispanic",
+        "foreclosure",
+        "housing_expense_ratio",
+        "intent_to_occupy",
+        "ltv_percent",
+        "monitoring_info_not_provided",
+        "mortgage_type",
+        "nmls_id",
+        "number_of_units",
+        "occupancy_type",
+        "other_monthly_income",
+        "outstanding_judgments",
+        "overtime_monthly_income",
+        "position_title",
+        "proposed_insurance",
+        "proposed_principal_interest",
+        "race_asian",
+        "race_black",
+        "race_white",
+        "self_employed",
+        "sex_female",
+        "sex_male",
+        "year_built",
+        "years_on_job"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "auto_loan_payment",
+        "borrowed_down_payment",
+        "credit_card_payment",
+        "down_payment_amount",
+        "down_payment_source",
+        "estimated_value",
+        "interest_rate_percent",
+        "loan_amount",
+        "loan_purpose",
+        "loan_type",
+        "other_debt_payments",
+        "present_housing_payment",
+        "proposed_taxes",
+        "proposed_total_housing_payment",
+        "purchase_price",
+        "student_loan_payment",
+        "total_monthly_debt_payments",
+        "total_monthly_income"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "borrower_citizenship",
+        "borrower_dependents_count",
+        "borrower_dob",
+        "borrower_email",
+        "borrower_first_name",
+        "borrower_last_name",
+        "borrower_marital_status",
+        "borrower_middle_name",
+        "borrower_phone",
+        "borrower_ssn_masked",
+        "borrower_suffix",
+        "coborrower_dob",
+        "coborrower_first_name",
+        "coborrower_last_name",
+        "coborrower_ssn_masked",
+        "employer_name",
+        "lender_name",
+        "loan_officer_name",
+        "party_to_lawsuit"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "employer_address",
+        "property_city",
+        "property_county",
+        "property_state",
+        "property_street",
+        "property_type",
+        "property_zip",
+        "retirement_assets",
+        "total_assets"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "lien_priority"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "loan_amount",
+        "borrower_last_name"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

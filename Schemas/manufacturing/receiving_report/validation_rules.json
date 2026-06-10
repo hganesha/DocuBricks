@@ -1,0 +1,52 @@
+[
+  {
+    "name": "receiving_report_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "receiving_report_number"
+    ],
+    "expression": "receiving_report_number IS NOT NULL AND LENGTH(TRIM(receiving_report_number)) > 0",
+    "severity": "fail",
+    "description": "receiving_report_number is required for Receiving Report extraction."
+  },
+  {
+    "name": "receipt_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "receipt_date"
+    ],
+    "expression": "receipt_date IS NOT NULL AND LENGTH(TRIM(receipt_date)) > 0",
+    "severity": "fail",
+    "description": "receipt_date is required for Receiving Report extraction."
+  },
+  {
+    "name": "purchase_order_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "purchase_order_number"
+    ],
+    "expression": "purchase_order_number IS NOT NULL AND LENGTH(TRIM(purchase_order_number)) > 0",
+    "severity": "fail",
+    "description": "purchase_order_number is required for Receiving Report extraction."
+  },
+  {
+    "name": "supplier_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "supplier_name"
+    ],
+    "expression": "supplier_name IS NOT NULL AND LENGTH(TRIM(supplier_name)) > 0",
+    "severity": "fail",
+    "description": "supplier_name is required for Receiving Report extraction."
+  },
+  {
+    "name": "line_items_received_present",
+    "rule_type": "array",
+    "fields": [
+      "line_items_received"
+    ],
+    "expression": "line_items_received IS NOT NULL AND JSON_ARRAY_LENGTH(line_items_received) > 0",
+    "severity": "fail",
+    "description": "line_items_received is required for Receiving Report extraction."
+  }
+]

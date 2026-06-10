@@ -1,0 +1,31 @@
+{
+  "test_case_id": "supplier_scorecard_001",
+  "document_type": "supplier_scorecard",
+  "description": "Seed golden test for Supplier Scorecard",
+  "tags": [
+    "happy_path",
+    "procurement_supply_chain",
+    "seed"
+  ],
+  "parsed_text": "SUPPLIER SCORECARD\nPeriod: Q2 2026\nSupplier: Apex Alloy Supply Inc.\nSupplier ID: SUP-10442\nCommodity: Raw metals\nOn-Time Delivery: 92.4%\nQuality PPM: 185\nNonconformances: 3\nCost Variance: 1.8%\nResponsiveness: Satisfactory\nOverall Score: 86.5\nSupplier Tier: Approved - watch\nOpen Corrective Actions: SCAR-2026-014 late certificate submissions; SCAR-2026-021 aluminum dimensional variance\nReview Owner: Lena Ortiz\nNext Review Date: 2026-10-15",
+  "expected_json": {
+    "scorecard_period": "Q2 2026",
+    "supplier_name": "Apex Alloy Supply Inc.",
+    "supplier_id": "SUP-10442",
+    "commodity_category": "Raw metals",
+    "on_time_delivery_rate": 92.4,
+    "quality_ppm": 185.0,
+    "nonconformance_count": 3,
+    "cost_variance_percent": 1.8,
+    "responsiveness_rating": "Satisfactory",
+    "overall_score": 86.5,
+    "supplier_tier": "Approved - watch",
+    "corrective_actions_open": [
+      "SCAR-2026-014 late certificate submissions",
+      "SCAR-2026-021 aluminum dimensional variance"
+    ],
+    "review_owner": "Lena Ortiz",
+    "next_review_date": "2026-10-15"
+  },
+  "expected_avg_confidence": 0.92
+}

@@ -1,0 +1,31 @@
+{
+  "default_threshold": 0.75,
+  "bom_number": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Bill of Materials workflow."
+  },
+  "bom_revision": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Bill of Materials workflow."
+  },
+  "parent_part_number": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Bill of Materials workflow."
+  },
+  "component_items": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Bill of Materials workflow."
+  }
+}

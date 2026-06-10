@@ -14,109 +14,256 @@
       "name": "report_name",
       "type": "string",
       "required": true,
-      "description": "Name of report package or filing."
+      "description": "Name of report package or filing.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "report_type",
       "type": "string",
       "required": true,
-      "description": "Call Report, HMDA, CRA, SAR, CTR, CECL, CCAR, DFAST, liquidity, or other."
+      "description": "Call Report, HMDA, CRA, SAR, CTR, CECL, CCAR, DFAST, liquidity, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "reporting_period_end_date",
       "type": "date",
       "required": true,
-      "description": "Reporting period end date."
+      "description": "Reporting period end date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "institution_name",
       "type": "string",
       "required": false,
-      "description": "Reporting institution legal name."
+      "description": "Reporting institution legal name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "institution_identifier",
       "type": "string",
       "required": false,
-      "description": "RSSD, FDIC certificate, LEI, NMLS, or other identifier."
+      "description": "RSSD, FDIC certificate, LEI, NMLS, or other identifier.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "regulator_name",
       "type": "string",
       "required": false,
-      "description": "Regulator or filing recipient."
+      "description": "Regulator or filing recipient.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "submission_due_date",
       "type": "date",
       "required": false,
-      "description": "Submission due date."
+      "description": "Submission due date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "submission_date",
       "type": "date",
       "required": false,
-      "description": "Actual submission date if filed."
+      "description": "Actual submission date if filed.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "filing_status",
       "type": "string",
       "required": false,
-      "description": "Draft, filed, accepted, rejected, amended, or other."
+      "description": "Draft, filed, accepted, rejected, amended, or other.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "preparer_name",
       "type": "string",
       "required": false,
-      "description": "Report preparer or owner."
+      "description": "Report preparer or owner.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "approver_name",
       "type": "string",
       "required": false,
-      "description": "Approver or certifying officer."
+      "description": "Approver or certifying officer.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "attestation_required",
       "type": "boolean",
       "required": false,
-      "description": "Whether certification or attestation is required."
+      "description": "Whether certification or attestation is required.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "key_metrics",
       "type": "array<object>",
       "required": false,
-      "description": "Material report metrics with name, value, and unit if present."
+      "description": "Material report metrics with name, value, and unit if present.",
+      "section": "document_details",
+      "category": "array",
+      "item_schema": [
+        {
+          "name": "key_metric_type",
+          "type": "string",
+          "description": "Type or class for key_metrics item."
+        },
+        {
+          "name": "key_metric_description",
+          "type": "string",
+          "description": "Description for key_metrics item."
+        },
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount or value when stated."
+        },
+        {
+          "name": "date",
+          "type": "date",
+          "description": "Relevant item date when stated."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Item status or disposition when stated."
+        }
+      ]
     },
     {
       "name": "exceptions",
       "type": "array<string>",
       "required": false,
-      "description": "Known exceptions, edits, or validation issues."
+      "description": "Known exceptions, edits, or validation issues.",
+      "section": "line_items",
+      "category": "array"
     },
     {
       "name": "amendment_indicator",
       "type": "boolean",
       "required": false,
-      "description": "Whether package is an amendment or resubmission."
+      "description": "Whether package is an amendment or resubmission.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "amendment_reason",
       "type": "string",
       "required": false,
-      "description": "Reason for amendment or resubmission."
+      "description": "Reason for amendment or resubmission.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "evidence_documents",
       "type": "array<string>",
       "required": false,
-      "description": "Supporting schedules, reconciliations, or evidence."
+      "description": "Supporting schedules, reconciliations, or evidence.",
+      "section": "line_items",
+      "category": "array"
     },
     {
       "name": "control_signoffs",
       "type": "array<string>",
       "required": false,
-      "description": "Control owners or signoff records."
+      "description": "Control owners or signoff records.",
+      "section": "document_details",
+      "category": "array"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "amendment_indicator",
+        "amendment_reason",
+        "reporting_period_end_date",
+        "submission_date",
+        "submission_due_date"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "attestation_required",
+        "control_signoffs",
+        "institution_identifier",
+        "key_metrics",
+        "report_type"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "evidence_documents",
+        "exceptions"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "approver_name",
+        "institution_name",
+        "preparer_name",
+        "regulator_name",
+        "report_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "filing_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "report_name",
+        "report_type",
+        "reporting_period_end_date"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "line_items",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": [
+        "key_metrics"
+      ]
     }
   ]
 }

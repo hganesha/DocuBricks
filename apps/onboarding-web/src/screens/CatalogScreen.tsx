@@ -36,9 +36,10 @@ const VERTICAL_LABELS: Record<string, string> = {
   legal: 'Legal',
   manufacturing: 'Manufacturing',
   real_estate: 'Real Estate',
+  energy: 'Energy',
 }
 
-const VERTICAL_ORDER = ['fs', 'healthcare', 'insurance', 'legal', 'manufacturing', 'real_estate']
+const VERTICAL_ORDER = ['fs', 'healthcare', 'insurance', 'legal', 'manufacturing', 'real_estate', 'energy']
 
 // ─── JSON Syntax Highlighter ──────────────────────────────────────────────────
 
@@ -204,7 +205,7 @@ export default function CatalogScreen() {
   }, {})
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="h-screen bg-white flex flex-col">
       {/* Top bar */}
       <header className="h-12 border-b border-gray-200 flex items-center px-5 gap-3 shrink-0">
         <Database size={16} className="text-accent-700" />

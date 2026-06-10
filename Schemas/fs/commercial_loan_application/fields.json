@@ -14,169 +14,316 @@
       "name": "application_date",
       "type": "date",
       "required": false,
-      "description": "Date the application was signed or submitted."
+      "description": "Date the application was signed or submitted.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "applicant_legal_name",
       "type": "string",
       "required": true,
-      "description": "Legal name of the borrowing business."
+      "description": "Legal name of the borrowing business.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "applicant_dba_name",
       "type": "string",
       "required": false,
-      "description": "DBA or trade name."
+      "description": "DBA or trade name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "applicant_tax_id_masked",
       "type": "string",
       "required": false,
-      "description": "Masked EIN or tax identifier."
+      "description": "Masked EIN or tax identifier.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "applicant_entity_type",
       "type": "string",
       "required": false,
-      "description": "Corporation, LLC, partnership, sole proprietorship, nonprofit, trust, or other."
+      "description": "Corporation, LLC, partnership, sole proprietorship, nonprofit, trust, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "applicant_naics_code",
       "type": "string",
       "required": false,
-      "description": "NAICS code if present."
+      "description": "NAICS code if present.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "applicant_industry",
       "type": "string",
       "required": false,
-      "description": "Industry or business description."
+      "description": "Industry or business description.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "applicant_address",
       "type": "string",
       "required": false,
-      "description": "Principal business address."
+      "description": "Principal business address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
     },
     {
       "name": "contact_name",
       "type": "string",
       "required": false,
-      "description": "Primary contact or authorized representative."
+      "description": "Primary contact or authorized representative.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "contact_email",
       "type": "string",
       "required": false,
-      "description": "Email address."
+      "description": "Email address.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "contact_phone",
       "type": "string",
       "required": false,
-      "description": "Phone number."
+      "description": "Phone number.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "years_in_business",
       "type": "number",
       "required": false,
-      "description": "Years operating."
+      "description": "Years operating.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "annual_revenue",
       "type": "number",
       "required": false,
-      "description": "Annual gross revenue."
+      "description": "Annual gross revenue.",
+      "section": "document_details",
+      "category": "financial"
     },
     {
       "name": "requested_loan_amount",
       "type": "number",
       "required": true,
-      "description": "Requested credit amount."
+      "description": "Requested credit amount.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "requested_facility_type",
       "type": "string",
       "required": false,
-      "description": "Term loan, revolving line, equipment loan, CRE loan, SBA loan, construction loan, or other."
+      "description": "Term loan, revolving line, equipment loan, CRE loan, SBA loan, construction loan, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "loan_purpose",
       "type": "string",
       "required": false,
-      "description": "Stated use of proceeds."
+      "description": "Stated use of proceeds.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "requested_term_months",
       "type": "integer",
       "required": false,
-      "description": "Requested maturity or amortization in months."
+      "description": "Requested maturity or amortization in months.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "collateral_description",
       "type": "string",
       "required": false,
-      "description": "Summary of proposed collateral."
+      "description": "Summary of proposed collateral.",
+      "section": "property_or_asset",
+      "category": "operational"
     },
     {
       "name": "guarantor_names",
       "type": "array<string>",
       "required": false,
-      "description": "Individual or entity guarantors."
+      "description": "Individual or entity guarantors.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "existing_bank_relationship",
       "type": "boolean",
       "required": false,
-      "description": "Whether applicant states an existing relationship with the lender."
+      "description": "Whether applicant states an existing relationship with the lender.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "relationship_manager_name",
       "type": "string",
       "required": false,
-      "description": "Banker or RM name."
+      "description": "Banker or RM name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "ownership_summary",
       "type": "string",
       "required": false,
-      "description": "Concise ownership description."
+      "description": "Concise ownership description.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "beneficial_owner_count",
       "type": "integer",
       "required": false,
-      "description": "Count of beneficial owners listed."
+      "description": "Count of beneficial owners listed.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "total_assets",
       "type": "number",
       "required": false,
-      "description": "Total business assets if stated."
+      "description": "Total business assets if stated.",
+      "section": "property_or_asset",
+      "category": "financial"
     },
     {
       "name": "total_liabilities",
       "type": "number",
       "required": false,
-      "description": "Total business liabilities if stated."
+      "description": "Total business liabilities if stated.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "net_worth",
       "type": "number",
       "required": false,
-      "description": "Net worth if stated."
+      "description": "Net worth if stated.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "signature_name",
       "type": "string",
       "required": false,
-      "description": "Signer name."
+      "description": "Signer name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "signature_title",
       "type": "string",
       "required": false,
-      "description": "Signer title."
+      "description": "Signer title.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "application_date",
+        "requested_term_months"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "annual_revenue",
+        "applicant_entity_type",
+        "applicant_industry",
+        "applicant_naics_code",
+        "contact_email",
+        "contact_phone",
+        "existing_bank_relationship",
+        "net_worth",
+        "requested_facility_type",
+        "signature_title",
+        "years_in_business"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "applicant_tax_id_masked",
+        "loan_purpose",
+        "requested_loan_amount",
+        "total_liabilities"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "applicant_dba_name",
+        "applicant_legal_name",
+        "beneficial_owner_count",
+        "contact_name",
+        "guarantor_names",
+        "ownership_summary",
+        "relationship_manager_name",
+        "signature_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "applicant_address",
+        "collateral_description",
+        "total_assets"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "applicant_legal_name",
+        "requested_loan_amount"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

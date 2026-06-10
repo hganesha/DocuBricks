@@ -1,0 +1,62 @@
+[
+  {
+    "name": "commitment_number_present",
+    "rule_type": "presence",
+    "fields": [
+      "commitment_number"
+    ],
+    "expression": "commitment_number IS NOT NULL AND LENGTH(TRIM(commitment_number)) > 0",
+    "severity": "fail",
+    "description": "commitment_number is required for Title Commitment extraction."
+  },
+  {
+    "name": "commitment_date_present",
+    "rule_type": "presence",
+    "fields": [
+      "commitment_date"
+    ],
+    "expression": "commitment_date IS NOT NULL AND LENGTH(TRIM(commitment_date)) > 0",
+    "severity": "fail",
+    "description": "commitment_date is required for Title Commitment extraction."
+  },
+  {
+    "name": "title_company_name_present",
+    "rule_type": "presence",
+    "fields": [
+      "title_company_name"
+    ],
+    "expression": "title_company_name IS NOT NULL AND LENGTH(TRIM(title_company_name)) > 0",
+    "severity": "fail",
+    "description": "title_company_name is required for Title Commitment extraction."
+  },
+  {
+    "name": "property_address_present",
+    "rule_type": "presence",
+    "fields": [
+      "property_address"
+    ],
+    "expression": "property_address IS NOT NULL AND LENGTH(TRIM(property_address)) > 0",
+    "severity": "fail",
+    "description": "property_address is required for Title Commitment extraction."
+  },
+  {
+    "name": "legal_description_present",
+    "rule_type": "presence",
+    "fields": [
+      "legal_description"
+    ],
+    "expression": "legal_description IS NOT NULL AND LENGTH(TRIM(legal_description)) > 0",
+    "severity": "fail",
+    "description": "legal_description is required for Title Commitment extraction."
+  },
+  {
+    "name": "policy_amount_non_negative",
+    "rule_type": "range",
+    "fields": [
+      "policy_amount"
+    ],
+    "expression": "policy_amount IS NULL OR policy_amount >= 0",
+    "severity": "warn",
+    "description": "policy_amount should be non-negative when present."
+  }
+]

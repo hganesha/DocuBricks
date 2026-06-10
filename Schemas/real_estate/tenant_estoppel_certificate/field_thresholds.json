@@ -1,0 +1,52 @@
+{
+  "default_threshold": 0.75,
+  "tenant_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Tenant Estoppel Certificate workflow."
+  },
+  "property_address": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Tenant Estoppel Certificate workflow."
+  },
+  "lease_end_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Tenant Estoppel Certificate workflow."
+  },
+  "current_monthly_rent": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Tenant Estoppel Certificate workflow."
+  },
+  "defaults_claimed": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Tenant Estoppel Certificate workflow."
+  },
+  "tenant_signer_name": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Tenant Estoppel Certificate workflow."
+  },
+  "certificate_date": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "High-impact field for Tenant Estoppel Certificate workflow."
+  }
+}

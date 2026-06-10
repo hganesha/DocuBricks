@@ -1,0 +1,208 @@
+{
+  "document_type": "supplier_scorecard",
+  "vertical": "manufacturing",
+  "family": "procurement_supply_chain",
+  "schema_version": "manufacturing_supplier_scorecard_v1",
+  "fields": [
+    {
+      "name": "scorecard_period",
+      "type": "string",
+      "required": true,
+      "description": "Reporting period.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "supplier_name",
+      "type": "string",
+      "required": true,
+      "description": "Supplier name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "supplier_id",
+      "type": "string",
+      "required": false,
+      "description": "Supplier identifier.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "commodity_category",
+      "type": "string",
+      "required": false,
+      "description": "Commodity, material group, or category.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "on_time_delivery_rate",
+      "type": "number",
+      "required": true,
+      "description": "On-time delivery rate percentage.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "quality_ppm",
+      "type": "number",
+      "required": true,
+      "description": "Defective parts per million or quality PPM.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "nonconformance_count",
+      "type": "integer",
+      "required": false,
+      "description": "Number of nonconformances.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "cost_variance_percent",
+      "type": "number",
+      "required": false,
+      "description": "Cost variance percentage.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "responsiveness_rating",
+      "type": "string",
+      "required": false,
+      "description": "Responsiveness rating.",
+      "section": "risk_and_compliance",
+      "category": "descriptive"
+    },
+    {
+      "name": "overall_score",
+      "type": "number",
+      "required": true,
+      "description": "Overall score.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "supplier_tier",
+      "type": "string",
+      "required": false,
+      "description": "Preferred, approved, conditional, probation, disqualified, or other tier.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "corrective_actions_open",
+      "type": "array<string>",
+      "required": false,
+      "description": "Open corrective actions.",
+      "section": "line_items",
+      "category": "array"
+    },
+    {
+      "name": "review_owner",
+      "type": "string",
+      "required": false,
+      "description": "Owner of supplier review.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "next_review_date",
+      "type": "date",
+      "required": false,
+      "description": "Next review date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "next_review_date",
+        "scorecard_period"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "commodity_category",
+        "nonconformance_count",
+        "overall_score",
+        "quality_ppm"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "cost_variance_percent",
+        "on_time_delivery_rate"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "corrective_actions_open"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "review_owner",
+        "supplier_id",
+        "supplier_name",
+        "supplier_tier"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "responsiveness_rating"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "scorecard_period",
+        "supplier_name",
+        "on_time_delivery_rate",
+        "quality_ppm",
+        "overall_score"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

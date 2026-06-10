@@ -14,139 +14,271 @@
       "name": "claim_number",
       "type": "string",
       "required": true,
-      "description": "Unique claim identifier assigned by payer (X12 835 CLM01 or payer-assigned reference number)"
+      "description": "Unique claim identifier assigned by payer (X12 835 CLM01 or payer-assigned reference number)",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "patient_name",
       "type": "string",
       "required": false,
-      "description": "Full name of the patient (Last, First Middle or First Last format)"
+      "description": "Full name of the patient (Last, First Middle or First Last format)",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "patient_dob",
       "type": "string",
       "required": false,
-      "description": "Patient date of birth, format YYYY-MM-DD"
+      "description": "Patient date of birth, format YYYY-MM-DD",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "patient_member_id",
       "type": "string",
       "required": false,
-      "description": "Health plan member/subscriber ID number"
+      "description": "Health plan member/subscriber ID number",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "provider_name",
       "type": "string",
       "required": false,
-      "description": "Name of the billing/rendering provider or group practice"
+      "description": "Name of the billing/rendering provider or group practice",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "provider_npi",
       "type": "string",
       "required": false,
-      "description": "National Provider Identifier (NPI) of billing provider — 10-digit numeric"
+      "description": "National Provider Identifier (NPI) of billing provider \u2014 10-digit numeric",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "rendering_provider_npi",
       "type": "string",
       "required": false,
-      "description": "NPI of the actual rendering/treating provider if different from billing provider"
+      "description": "NPI of the actual rendering/treating provider if different from billing provider",
+      "section": "dates_and_terms",
+      "category": "identity"
     },
     {
       "name": "payer_name",
       "type": "string",
       "required": false,
-      "description": "Name of the insurance company or health plan paying the claim"
+      "description": "Name of the insurance company or health plan paying the claim",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "payer_id",
       "type": "string",
       "required": false,
-      "description": "Payer's electronic ID or NAIC code"
+      "description": "Payer's electronic ID or NAIC code",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "group_number",
       "type": "string",
       "required": false,
-      "description": "Patient's insurance group number"
+      "description": "Patient's insurance group number",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "date_of_service_from",
       "type": "string",
       "required": false,
-      "description": "Start date of service, format YYYY-MM-DD (CMS-1500 Box 24A From)"
+      "description": "Start date of service, format YYYY-MM-DD (CMS-1500 Box 24A From)",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "date_of_service_to",
       "type": "string",
       "required": false,
-      "description": "End date of service, format YYYY-MM-DD (CMS-1500 Box 24A To); same as from if single-day service"
+      "description": "End date of service, format YYYY-MM-DD (CMS-1500 Box 24A To); same as from if single-day service",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "procedure_codes",
       "type": "array<string>",
       "required": false,
-      "description": "Array of CPT/HCPCS procedure codes billed (e.g., [\"99213\", \"93000\"]). Each entry is a string. Include modifiers as suffix if present (e.g., \"99213-25\")"
+      "description": "Array of CPT/HCPCS procedure codes billed (e.g., [\"99213\", \"93000\"]). Each entry is a string. Include modifiers as suffix if present (e.g., \"99213-25\")",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "diagnosis_codes",
       "type": "array<string>",
       "required": false,
-      "description": "Array of ICD-10-CM diagnosis codes (e.g., [\"I10\", \"E11.9\"]). Extract all listed diagnosis pointers"
+      "description": "Array of ICD-10-CM diagnosis codes (e.g., [\"I10\", \"E11.9\"]). Extract all listed diagnosis pointers",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "billed_amount",
       "type": "number",
       "required": true,
-      "description": "Total amount billed/charged by provider as decimal (CMS-1500 Box 28 or EOB \"Billed\" column total)"
+      "description": "Total amount billed/charged by provider as decimal (CMS-1500 Box 28 or EOB \"Billed\" column total)",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "allowed_amount",
       "type": "number",
       "required": false,
-      "description": "Payer-allowed/contracted amount as decimal (EOB \"Allowed\" or \"Eligible\" amount)"
+      "description": "Payer-allowed/contracted amount as decimal (EOB \"Allowed\" or \"Eligible\" amount)",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "paid_amount",
       "type": "number",
       "required": false,
-      "description": "Amount actually paid by payer to provider as decimal (X12 835 BPR02 or EOB \"Plan Paid\" amount)"
+      "description": "Amount actually paid by payer to provider as decimal (X12 835 BPR02 or EOB \"Plan Paid\" amount)",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "patient_responsibility",
       "type": "string",
       "required": false,
-      "description": "Total amount patient owes (copay + coinsurance + deductible) as decimal"
+      "description": "Total amount patient owes (copay + coinsurance + deductible) as decimal",
+      "section": "document_details",
+      "category": "identity"
     },
     {
       "name": "claim_status",
       "type": "string",
       "required": false,
-      "description": "Adjudication outcome. One of: Paid | Denied | Pending | Adjusted"
+      "description": "Adjudication outcome. One of: Paid | Denied | Pending | Adjusted",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "denial_reason_code",
       "type": "string",
       "required": false,
-      "description": "ANSI X12 835 Group/Claim Adjustment Reason Code (CARC) if denied or adjusted (e.g., \"96\", \"CO-4\", \"PR-1\"). Null if claim was fully paid"
+      "description": "ANSI X12 835 Group/Claim Adjustment Reason Code (CARC) if denied or adjusted (e.g., \"96\", \"CO-4\", \"PR-1\"). Null if claim was fully paid",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "remark_codes",
       "type": "array<string>",
       "required": false,
-      "description": "Array of Remittance Advice Remark Codes (RARC) associated with the claim (e.g., [\"N130\", \"MA01\"]). Null or empty array if none"
+      "description": "Array of Remittance Advice Remark Codes (RARC) associated with the claim (e.g., [\"N130\", \"MA01\"]). Null or empty array if none",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "service_facility_name",
       "type": "string",
       "required": false,
-      "description": "Name of the facility where services were rendered (if different from billing provider)"
+      "description": "Name of the facility where services were rendered (if different from billing provider)",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "service_facility_npi",
       "type": "string",
       "required": false,
-      "description": "NPI of the service facility (CMS-1500 Box 32b)"
+      "description": "NPI of the service facility (CMS-1500 Box 32b)",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "date_of_service_from",
+        "date_of_service_to",
+        "rendering_provider_npi"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "claim_number",
+        "denial_reason_code",
+        "diagnosis_codes",
+        "group_number",
+        "patient_dob",
+        "patient_member_id",
+        "patient_responsibility",
+        "payer_id",
+        "procedure_codes",
+        "provider_npi",
+        "remark_codes",
+        "service_facility_npi"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "allowed_amount",
+        "billed_amount",
+        "paid_amount"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "patient_name",
+        "payer_name",
+        "provider_name",
+        "service_facility_name"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "claim_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "claim_number",
+        "billed_amount"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }

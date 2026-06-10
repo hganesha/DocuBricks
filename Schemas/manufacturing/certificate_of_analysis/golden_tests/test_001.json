@@ -1,0 +1,48 @@
+{
+  "test_case_id": "certificate_of_analysis_001",
+  "document_type": "certificate_of_analysis",
+  "description": "Seed golden test for Certificate of Analysis",
+  "tags": [
+    "happy_path",
+    "manufacturing_quality",
+    "seed"
+  ],
+  "parsed_text": "CERTIFICATE OF ANALYSIS\nCertificate Number: COA-778201-A\nCertificate Date: 2026-04-22\nSupplier: Apex Alloy Supply Inc.\nMaterial: 6061-T6 Aluminum Bar Stock\nMaterial Number: AL-6061-BAR\nLot/Heat: LOT-AAS-042426-7\nSpecification: ASTM B221\nResults: Si method ASTM E1251 result 0.62 percent limit 0.40-0.80; Mg method ASTM E1251 result 1.02 percent limit 0.80-1.20; Tensile Strength method ASTM E8 result 45 ksi limit min 42 ksi\nManufacture Date: 2026-04-18\nExpiration/Retest: 2028-04-18\nAuthorized Signer: N. Patel, Quality Manager\nDisposition: Conforms",
+  "expected_json": {
+    "certificate_number": "COA-778201-A",
+    "certificate_date": "2026-04-22",
+    "supplier_name": "Apex Alloy Supply Inc.",
+    "material_name": "6061-T6 Aluminum Bar Stock",
+    "part_or_material_number": "AL-6061-BAR",
+    "lot_number": "LOT-AAS-042426-7",
+    "specification_standard": "ASTM B221",
+    "test_results": [
+      {
+        "characteristic": "Si",
+        "method": "ASTM E1251",
+        "result": 0.62,
+        "unit": "percent",
+        "limit": "0.40-0.80"
+      },
+      {
+        "characteristic": "Mg",
+        "method": "ASTM E1251",
+        "result": 1.02,
+        "unit": "percent",
+        "limit": "0.80-1.20"
+      },
+      {
+        "characteristic": "Tensile Strength",
+        "method": "ASTM E8",
+        "result": 45,
+        "unit": "ksi",
+        "limit": "min 42 ksi"
+      }
+    ],
+    "manufacture_date": "2026-04-18",
+    "expiration_date": "2028-04-18",
+    "authorized_signer": "N. Patel, Quality Manager",
+    "coa_disposition": "Conforms"
+  },
+  "expected_avg_confidence": 0.92
+}

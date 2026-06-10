@@ -27,5 +27,12 @@
     "fail_on_breach": false,
     "regulatory_required": false,
     "description": "High-impact field for Litigation Case File workflow."
+  },
+  "case_status": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Litigation case file extraction."
   }
 }

@@ -1,0 +1,12 @@
+{
+  "primary": "databricks-claude-sonnet",
+  "fallback_chain": [
+    "databricks-meta-llama-3-70b-instruct"
+  ],
+  "max_tokens": 6144,
+  "temperature": 0.0,
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "tier_overrides": {},
+  "rationale": "Daily Drilling Report documents combine upstream operations, production accounting, field services, HSE, and lease control context."
+}

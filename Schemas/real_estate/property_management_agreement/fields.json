@@ -1,0 +1,218 @@
+{
+  "document_type": "property_management_agreement",
+  "vertical": "real_estate",
+  "family": "property_management",
+  "schema_version": "real_estate_property_management_agreement_v1",
+  "fields": [
+    {
+      "name": "agreement_date",
+      "type": "date",
+      "required": true,
+      "description": "Date of property management agreement.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "owner_name",
+      "type": "string",
+      "required": true,
+      "description": "Property owner legal name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "manager_name",
+      "type": "string",
+      "required": true,
+      "description": "Property manager legal name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "property_name",
+      "type": "string",
+      "required": false,
+      "description": "Property name.",
+      "section": "parties",
+      "category": "identity"
+    },
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": true,
+      "description": "Managed property address.",
+      "section": "property_or_asset",
+      "category": "descriptive"
+    },
+    {
+      "name": "management_start_date",
+      "type": "date",
+      "required": true,
+      "description": "Management start date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "management_end_date",
+      "type": "date",
+      "required": false,
+      "description": "Management expiration date or initial term end.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "management_fee_terms",
+      "type": "string",
+      "required": true,
+      "description": "Management fee percentage, amount, or formula.",
+      "section": "dates_and_terms",
+      "category": "financial"
+    },
+    {
+      "name": "leasing_fee_terms",
+      "type": "string",
+      "required": false,
+      "description": "Leasing fee or commission terms.",
+      "section": "dates_and_terms",
+      "category": "financial"
+    },
+    {
+      "name": "authority_to_collect_rent",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether manager is authorized to collect rent.",
+      "section": "financials",
+      "category": "financial"
+    },
+    {
+      "name": "bank_account_control",
+      "type": "string",
+      "required": false,
+      "description": "Operating account, trust account, or cash management terms.",
+      "section": "document_details",
+      "category": "descriptive"
+    },
+    {
+      "name": "termination_notice_days",
+      "type": "integer",
+      "required": false,
+      "description": "Termination notice period in days.",
+      "section": "dates_and_terms",
+      "category": "temporal"
+    },
+    {
+      "name": "insurance_requirements",
+      "type": "array<string>",
+      "required": false,
+      "description": "Insurance requirements.",
+      "section": "line_items",
+      "category": "array"
+    },
+    {
+      "name": "reporting_requirements",
+      "type": "array<string>",
+      "required": false,
+      "description": "Owner reporting requirements.",
+      "section": "line_items",
+      "category": "array"
+    },
+    {
+      "name": "governing_law",
+      "type": "string",
+      "required": false,
+      "description": "Governing state or jurisdiction.",
+      "section": "document_details",
+      "category": "descriptive"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "agreement_date",
+        "leasing_fee_terms",
+        "management_end_date",
+        "management_fee_terms",
+        "management_start_date",
+        "termination_notice_days"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "bank_account_control",
+        "governing_law"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "authority_to_collect_rent"
+      ]
+    },
+    {
+      "id": "line_items",
+      "title": "Line Items",
+      "description": "Line Items fields extracted from the document.",
+      "fields": [
+        "insurance_requirements",
+        "reporting_requirements"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "manager_name",
+        "owner_name",
+        "property_name"
+      ]
+    },
+    {
+      "id": "property_or_asset",
+      "title": "Property Or Asset",
+      "description": "Property Or Asset fields extracted from the document.",
+      "fields": [
+        "property_address"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "agreement_date",
+        "owner_name",
+        "manager_name",
+        "property_address",
+        "management_start_date",
+        "management_fee_terms"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "line_items",
+        "parties",
+        "property_or_asset"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
+    }
+  ]
+}

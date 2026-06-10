@@ -34,5 +34,12 @@
     "fail_on_breach": false,
     "regulatory_required": false,
     "description": "Lien priority is central to secured credit risk."
+  },
+  "collateral_description": {
+    "min_confidence": 0.9,
+    "review_on_breach": true,
+    "fail_on_breach": true,
+    "regulatory_required": true,
+    "description": "Required field for Collateral schedule extraction."
   }
 }

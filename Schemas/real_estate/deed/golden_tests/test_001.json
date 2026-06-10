@@ -1,0 +1,31 @@
+{
+  "test_case_id": "deed_001",
+  "document_type": "deed",
+  "description": "Seed golden test for Deed",
+  "tags": [
+    "happy_path",
+    "real_estate_transactions",
+    "seed"
+  ],
+  "parsed_text": "SPECIAL WARRANTY DEED\nDeed Date: 2026-09-30\nGrantor: Maple Ridge Office Owner LP, a Delaware limited partnership\nGrantee: Harborview Capital Partners LLC, a Colorado limited liability company\nProperty Address: 8200 West Park Avenue, Denver, CO 80221\nLegal Description: Lot 4, Block 2, Maple Ridge Business Park, Adams County, Colorado\nConsideration: $18,750,000\nCounty: Adams\nState: Colorado\nRecorded: 2026-10-01\nReception Number: 20261001004418\nNotary: Vivian Brooks\nTransfer Tax: $187,500",
+  "expected_json": {
+    "deed_date": "2026-09-30",
+    "deed_type": "Special Warranty Deed",
+    "grantor_names": [
+      "Maple Ridge Office Owner LP"
+    ],
+    "grantee_names": [
+      "Harborview Capital Partners LLC"
+    ],
+    "property_address": "8200 West Park Avenue, Denver, CO 80221",
+    "legal_description": "Lot 4, Block 2, Maple Ridge Business Park, Adams County, Colorado",
+    "consideration_amount": 18750000.0,
+    "county": "Adams",
+    "state": "Colorado",
+    "recording_date": "2026-10-01",
+    "recording_number": "20261001004418",
+    "notary_name": "Vivian Brooks",
+    "transfer_tax_amount": 187500.0
+  },
+  "expected_avg_confidence": 0.92
+}

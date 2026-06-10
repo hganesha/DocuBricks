@@ -14,121 +14,244 @@
       "name": "matter_id",
       "type": "string",
       "required": false,
-      "description": "Internal matter or case file identifier."
+      "description": "Internal matter or case file identifier.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "case_name",
       "type": "string",
       "required": true,
-      "description": "Case caption or matter name."
+      "description": "Case caption or matter name.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "court_name",
       "type": "string",
       "required": false,
-      "description": "Court, arbitration forum, or tribunal."
+      "description": "Court, arbitration forum, or tribunal.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "case_number",
       "type": "string",
       "required": false,
-      "description": "Court docket or arbitration number."
+      "description": "Court docket or arbitration number.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "case_type",
       "type": "string",
       "required": false,
-      "description": "Commercial, employment, collections, bankruptcy, class action, arbitration, or other."
+      "description": "Commercial, employment, collections, bankruptcy, class action, arbitration, or other.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "plaintiff_names",
       "type": "array<string>",
       "required": false,
-      "description": "Plaintiffs, claimants, or petitioners."
+      "description": "Plaintiffs, claimants, or petitioners.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "defendant_names",
       "type": "array<string>",
       "required": false,
-      "description": "Defendants, respondents, or opposing parties."
+      "description": "Defendants, respondents, or opposing parties.",
+      "section": "parties",
+      "category": "array"
     },
     {
       "name": "client_role",
       "type": "string",
       "required": false,
-      "description": "Plaintiff, defendant, third party, creditor, debtor, witness, or other."
+      "description": "Plaintiff, defendant, third party, creditor, debtor, witness, or other.",
+      "section": "risk_and_compliance",
+      "category": "regulatory"
     },
     {
       "name": "lead_counsel_name",
       "type": "string",
       "required": false,
-      "description": "Lead internal or external counsel."
+      "description": "Lead internal or external counsel.",
+      "section": "parties",
+      "category": "identity"
     },
     {
       "name": "law_firm",
       "type": "string",
       "required": false,
-      "description": "Outside counsel firm if present."
+      "description": "Outside counsel firm if present.",
+      "section": "document_details",
+      "category": "descriptive"
     },
     {
       "name": "filing_date",
       "type": "date",
       "required": false,
-      "description": "Initial filing or demand date."
+      "description": "Initial filing or demand date.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "next_deadline_date",
       "type": "date",
       "required": false,
-      "description": "Next upcoming deadline."
+      "description": "Next upcoming deadline.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "next_deadline_description",
       "type": "string",
       "required": false,
-      "description": "Description of next deadline."
+      "description": "Description of next deadline.",
+      "section": "dates_and_terms",
+      "category": "temporal"
     },
     {
       "name": "claims_or_causes",
       "type": "array<string>",
       "required": false,
-      "description": "Claims, causes of action, or legal theories."
+      "description": "Claims, causes of action, or legal theories.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "key_motions",
       "type": "array<string>",
       "required": false,
-      "description": "Key pending or decided motions."
+      "description": "Key pending or decided motions.",
+      "section": "document_details",
+      "category": "array"
     },
     {
       "name": "discovery_status",
       "type": "string",
       "required": false,
-      "description": "Discovery phase or status."
+      "description": "Discovery phase or status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "hearing_dates",
       "type": "array<string>",
       "required": false,
-      "description": "Upcoming hearing, mediation, trial, or conference dates."
+      "description": "Upcoming hearing, mediation, trial, or conference dates.",
+      "section": "dates_and_terms",
+      "category": "array"
     },
     {
       "name": "settlement_status",
       "type": "string",
       "required": false,
-      "description": "Settlement posture or demand status."
+      "description": "Settlement posture or demand status.",
+      "section": "risk_and_compliance",
+      "category": "operational"
     },
     {
       "name": "exposure_amount",
       "type": "number",
       "required": false,
-      "description": "Claimed damages, reserve, or exposure amount."
+      "description": "Claimed damages, reserve, or exposure amount.",
+      "section": "financials",
+      "category": "financial"
     },
     {
       "name": "case_status",
       "type": "string",
       "required": true,
-      "description": "Open, stayed, settled, judgment, closed, appealed, or other."
+      "description": "Open, stayed, settled, judgment, closed, appealed, or other.",
+      "section": "risk_and_compliance",
+      "category": "operational"
+    }
+  ],
+  "sections": [
+    {
+      "id": "dates_and_terms",
+      "title": "Dates And Terms",
+      "description": "Dates And Terms fields extracted from the document.",
+      "fields": [
+        "filing_date",
+        "hearing_dates",
+        "next_deadline_date",
+        "next_deadline_description"
+      ]
+    },
+    {
+      "id": "document_details",
+      "title": "Document Details",
+      "description": "Document Details fields extracted from the document.",
+      "fields": [
+        "case_number",
+        "case_type",
+        "claims_or_causes",
+        "key_motions",
+        "law_firm",
+        "matter_id"
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "Financials",
+      "description": "Financials fields extracted from the document.",
+      "fields": [
+        "exposure_amount"
+      ]
+    },
+    {
+      "id": "parties",
+      "title": "Parties",
+      "description": "Parties fields extracted from the document.",
+      "fields": [
+        "case_name",
+        "court_name",
+        "defendant_names",
+        "lead_counsel_name",
+        "plaintiff_names"
+      ]
+    },
+    {
+      "id": "risk_and_compliance",
+      "title": "Risk And Compliance",
+      "description": "Risk And Compliance fields extracted from the document.",
+      "fields": [
+        "case_status",
+        "client_role",
+        "discovery_status",
+        "settlement_status"
+      ]
+    }
+  ],
+  "completeness_checklist": [
+    {
+      "id": "required_fields_present",
+      "description": "All required fields are present or explicitly null with low confidence when absent.",
+      "fields": [
+        "case_name",
+        "case_status"
+      ]
+    },
+    {
+      "id": "section_coverage_reviewed",
+      "description": "Each declared section was reviewed for extractable evidence.",
+      "sections": [
+        "dates_and_terms",
+        "document_details",
+        "financials",
+        "parties",
+        "risk_and_compliance"
+      ]
+    },
+    {
+      "id": "nested_lists_normalized",
+      "description": "Object array fields use their item_schema for consistent nested extraction.",
+      "fields": []
     }
   ]
 }
